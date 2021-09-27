@@ -1,9 +1,7 @@
 {
-  "name": "destroymayor.github.io",
+  "name": "website",
   "version": "1.0.0",
   "author": "Jared Chen",
-  "private": true,
-  "homepage": ".",
   "scripts": {
     "dev": "next",
     "build": "next build",
