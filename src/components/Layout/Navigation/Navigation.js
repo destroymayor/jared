@@ -2,7 +2,7 @@ import { memo } from 'react';
 
 import Link from '@/components/Common/Link';
 import ThemeToggle from '@/components/Layout/ThemeToggle';
-import MobileNavigation from '@/components/Layout/MobileNavigation/MobileNavigation';
+import MobileNav from '@/components/Layout/MobileNav/MobileNavigation';
 
 const Navigation = () => {
   const routes = [
@@ -30,7 +30,7 @@ const Navigation = () => {
 
   return (
     <>
-      <MobileNavigation routes={routes} />
+      <MobileNav routes={routes} />
 
       <ul className="items-center hidden sm:flex">
         {routes.map((item, index) => (

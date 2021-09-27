@@ -10,7 +10,7 @@ import ThemeToggle from '@/components/Layout/ThemeToggle';
 
 import { XIcon, MenuIcon } from '@heroicons/react/solid';
 
-const MobileNavigation = (props) => {
+const MobileNav = (props) => {
   const { routes = [] } = props;
   const [isOpen, toggle] = useToggle();
 
@@ -36,28 +36,32 @@ const MobileNavigation = (props) => {
   return (
     <>
       <button
-        className="p-1 transition duration-200 ease-in-out rounded-md  sm:hidden hover:bg-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-300"
+        className="p-1 transition duration-200 ease-in-out rounded-md sm:hidden hover:bg-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-300"
         onClick={handleToggle}
       >
         <MenuIcon aria-label="Menu button" className="w-8 h-8 cursor-pointer" />
       </button>
 
       <InPortal>
-        <div className={`${isOpen ? 'pointer-events-auto' : 'pointer-events-none'} sm:hidden`}>
+        <div
+          className={`${
+            isOpen ? 'pointer-events-auto' : 'pointer-events-none'
+          } w-full h-full sm:hidden`}
+        >
           <div
             className={`${
               isOpen ? 'opacity-100' : 'opacity-0'
-            } w-full h-full absolute inset-0 transition duration-500 dark:backdrop-blur-md`}
+            } absolute inset-0 transition duration-100 dark:backdrop-blur`}
           />
 
           <nav
             className={`${
               isOpen ? 'opacity-100 dark:bg-opacity-70' : 'opacity-0'
-            } w-full h-full absolute inset-0 bg-gray-200 dark:bg-gray-800`}
+            } absolute inset-0 bg-gray-200 dark:bg-gray-800`}
           >
-            <div className="flex justify-end px-8 py-9">
+            <div className="flex justify-end px-5 py-8">
               <button
-                className="text-gray-700 transition duration-200 ease-in-out rounded-md dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-300"
+                className="p-1 text-gray-700 transition duration-200 ease-in-out rounded-md dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-300"
                 onClick={handleToggle}
               >
                 <XIcon aria-label="Close menu button" className="w-8 h-8" />
@@ -65,22 +69,17 @@ const MobileNavigation = (props) => {
             </div>
 
             <ul className="flex flex-col items-start px-8 py-6 gap-y-8">
-              {trail.map((style, index) => {
-                const { title, pathname } = routes[index];
-
-                return (
-                  <animated.li
-                    style={style}
-                    key={`${index}`}
-                    onClick={() => handleNavigation(pathname)}
-                  >
-                    <div className="flex text-2xl transition duration-200 ease-in-out cursor-pointer hover:text-gray-700 dark:hover:text-gray-300">
-                      {title}
-                    </div>
-                  </animated.li>
-                );
-              })}
-
+              {trail.map((style, index) => (
+                <animated.li
+                  style={style}
+                  key={`${index}`}
+                  onClick={() => handleNavigation(routes[index].pathname)}
+                >
+                  <div className="flex text-2xl transition duration-200 ease-in-out cursor-pointer hover:text-gray-700 dark:hover:text-gray-400">
+                    {routes[index].title}
+                  </div>
+                </animated.li>
+              ))}
               <li>
                 <ThemeToggle />
               </li>
@@ -92,4 +91,4 @@ const MobileNavigation = (props) => {
   );
 };
 
-export default memo(MobileNavigation);
+export default memo(MobileNav);
