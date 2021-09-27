@@ -1,0 +1,36 @@
+{
+  "name": "destroymayor.github.io",
+  "version": "1.0.0",
+  "author": "Jared Chen",
+  "private": true,
+  "homepage": ".",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@heroicons/react": "^1.0.4",
+    "next": "11.1.2",
+    "next-themes": "^0.0.15",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-spring": "^9.2.4"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.3.5",
+    "babel-eslint": "10.1.0",
+    "eslint": "7.32.0",
+    "eslint-config-next": "11.1.2",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "2.24.2",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.26.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "postcss": "^8.3.7",
+    "prettier": "^2.4.1",
+    "tailwindcss": "^2.2.15"
+  }
+}

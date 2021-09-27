@@ -1,0 +1,26 @@
+import movieAppImage from '@/public/images/projects/movie-app.jpg';
+import fakeFacebookImage from '@/public/images/projects/fake-facebook.jpg';
+
+const data = [
+  {
+    image: movieAppImage.src,
+    title: 'Movie App',
+    description:
+      'This is an application using Next.js as the framework and allows the user to search movies they want to watch from The Movie DB API.',
+    links: {
+      repo: 'https://github.com/destroymayor/movie-app',
+      demo: 'https://movie-app-chi-gules.vercel.app/',
+    },
+  },
+  {
+    image: fakeFacebookImage.src,
+    title: 'Fake Facebook',
+    description: 'No description',
+    links: {
+      repo: 'https://github.com/destroymayor/fake-facebook',
+      demo: 'https://fake-facebook-one.vercel.app/',
+    },
+  },
+];
+
+export default data;
