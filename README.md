@@ -1,5 +1,5 @@
-### jared-chen.com
+# [jared-chen.com](https://jared-chen.com)
 
-Personal webiste.
+Personal website.
 
 Built with Next.js and styled with TailwindCSS
