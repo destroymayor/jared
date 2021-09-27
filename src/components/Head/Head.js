@@ -30,7 +30,7 @@ const Head = (props) => {
       <meta name="og:url" content="https://jared-chen.com" />
 
       {/* Favicons */}
-      <link rel="shortcut icon" href="/favicon.ico" />
+      <link rel="shortcut icon" href="/favicons/favicon.ico" />
     </NextHead>
   );
 };
