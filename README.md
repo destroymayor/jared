@@ -2,4 +2,4 @@
 
 Personal website.
 
-Built with Next.js and styled with TailwindCSS
+Built with [Next.js](https://nextjs.org/) and styled with [tailwindcss](https://tailwindcss.com)
