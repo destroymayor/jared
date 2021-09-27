@@ -12,7 +12,7 @@ const ThemeToggle = () => {
 
   return (
     <button
-      className="justify-center transition duration-200 ease-in-out cursor-pointer hover:text-yellow-500 dark:hover:text-yellow-300"
+      className="justify-center text-black transition duration-200 ease-in-out cursor-pointer dark:text-gray-100 hover:text-yellow-500 dark:hover:text-yellow-300"
       aria-label={`Activate ${isDarkTheme ? 'light' : 'dark'} mode`}
       onClick={toggleTheme}
     >

@@ -18,9 +18,8 @@ const MobileNav = (props) => {
 
   const trail = useTrail(routes.length, {
     transform: isOpen ? 'translateX(0%)' : 'translateX(-100%)',
-
     config: {
-      tension: 700,
+      tension: 500,
       friction: isOpen ? 60 : 20,
       clamp: true,
     },
@@ -39,7 +38,10 @@ const MobileNav = (props) => {
         className="p-1 transition duration-200 ease-in-out rounded-md sm:hidden hover:bg-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-300"
         onClick={handleToggle}
       >
-        <MenuIcon aria-label="Menu button" className="w-8 h-8 cursor-pointer" />
+        <MenuIcon
+          aria-label={isOpen ? 'Close menu' : 'Open menu'}
+          className="w-8 h-8 cursor-pointer"
+        />
       </button>
 
       <InPortal>
@@ -48,10 +50,11 @@ const MobileNav = (props) => {
             isOpen ? 'pointer-events-auto' : 'pointer-events-none'
           } w-full h-full sm:hidden`}
         >
+          {/* backdrop */}
           <div
             className={`${
               isOpen ? 'opacity-100' : 'opacity-0'
-            } absolute inset-0 transition duration-100 dark:backdrop-blur`}
+            } absolute inset-0 transition bg-gray-200 dark:bg-gray-800 duration-500 dark:bg-opacity-90 dark:backdrop-blur`}
           />
 
           <nav
@@ -64,7 +67,7 @@ const MobileNav = (props) => {
                 className="p-1 text-gray-700 transition duration-200 ease-in-out rounded-md dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-300"
                 onClick={handleToggle}
               >
-                <XIcon aria-label="Close menu button" className="w-8 h-8" />
+                <XIcon aria-label="Close menu" className="w-8 h-8" />
               </button>
             </div>
 
@@ -75,15 +78,20 @@ const MobileNav = (props) => {
                   key={`${index}`}
                   onClick={() => handleNavigation(routes[index].pathname)}
                 >
-                  <div className="flex text-2xl transition duration-200 ease-in-out cursor-pointer hover:text-gray-700 dark:hover:text-gray-400">
+                  <div className="flex text-2xl text-black transition duration-200 ease-in-out cursor-pointer dark:text-gray-100 hover:text-gray-700 dark:hover:text-gray-400">
                     {routes[index].title}
                   </div>
                 </animated.li>
               ))}
-              <li>
-                <ThemeToggle />
-              </li>
             </ul>
+
+            <div
+              className={`${
+                isOpen ? 'opacity-100 duration-500' : 'opacity-0 duration-100'
+              } transition-opacity px-8 py-20`}
+            >
+              <ThemeToggle />
+            </div>
           </nav>
         </div>
       </InPortal>
