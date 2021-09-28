@@ -6,6 +6,7 @@
       "@/data/*": ["src/data/*"],
       "@/hooks/*": ["src/hooks/*"],
       "@/styles/*": ["src/styles/*"],
+      "@/utils/*": ["src/utils/*"],
       "@/public/*": ["public/*"]
     }
   },
