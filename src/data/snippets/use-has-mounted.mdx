@@ -1,0 +1,29 @@
+---
+title: useHasMounted
+description: Avoid weird SSR issues with this handy React hook. Know whether you're rendering on the client or server!
+category: react-hooks
+pathname: /snippets/use-has-mounted
+slug: use-has-mounted
+---
+
+```jsx
+function useHasMounted() {
+  const [hasMounted, setHasMounted] = React.useState(false);
+  React.useEffect(() => {
+    setHasMounted(true);
+  }, []);
+  return hasMounted;
+}
+```
+
+## Usage
+
+```jsx
+const SomeClientSideOnlyComponent = () => {
+  const hasMounted = useHasMounted();
+  if (!hasMounted) {
+    return null;
+  }
+  return <div>Client only!</div>;
+};
+```

@@ -1,0 +1,35 @@
+---
+title: useToggle
+description: Handy syntactic sugar around React.useState, for toggling a boolean value on and off.
+category: react-hooks
+pathname: /snippets/use-toggle
+slug: use-toggle
+---
+
+```jsx
+import { useState, useCallback } from 'react';
+
+export default function useToggle(initialValue = false) {
+  const [value, setValue] = useState(initialValue);
+
+  const toggle = useCallback(() => {
+    setValue((v) => !v);
+  }, []);
+
+  return [value, toggle];
+}
+```
+
+## Usage
+
+```jsx
+const App = () => {
+  const [isOn, toggleIsOn] = useToggle();
+  return (
+    <>
+      {isOn ? 'The light is on!' : 'Hey who turned off the lights'}
+      <button onClick={toggleIsOn}>Press me</button>
+    </>
+  );
+};
+```

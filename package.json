@@ -2,6 +2,7 @@
   "name": "website",
   "version": "1.0.0",
   "author": "Jared Chen",
+  "license": "MIT",
   "scripts": {
     "dev": "next",
     "build": "next build",
@@ -10,8 +11,12 @@
   },
   "dependencies": {
     "@heroicons/react": "^1.0.4",
+    "@mdx-js/react": "^1.6.22",
+    "gray-matter": "^4.0.3",
     "next": "11.1.2",
+    "next-mdx-remote": "^3.0.4",
     "next-themes": "^0.0.15",
+    "prism-react-renderer": "^1.2.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-spring": "^9.2.4"
