@@ -2,7 +2,7 @@ const data = [
   {
     title: 'Tagtoo - Front-end Engineer',
     year: '2019/09 - Present',
-    description: `Independently responsible for the development and maintenance of the company's front-end projects, including :`,
+    description: `Independently responsible for the development and maintenance of the company's front-end projects, including`,
     projects: [
       {
         product: 'AdChief',

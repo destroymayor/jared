@@ -1,5 +1,6 @@
 import lanternsImage from '@/public/images/music/lanterns.jpg';
 import aliveImage from '@/public/images/music/alive.jpg';
+import lastForeverImage from '@/public/images/music/last-forever.jpg';
 import remedyImage from '@/public/images/music/remedy.jpg';
 import sunsetImage from '@/public/images/music/sunset.jpg';
 import jasonImage from '@/public/images/music/jason.jpg';
@@ -16,6 +17,12 @@ const data = [
     link: 'https://www.youtube.com/watch?v=xcHrHxwi0fg&ab_channel=Tobu',
     title: 'Alive',
     performer: 'Steerner & Tobu',
+  },
+  {
+    image: lastForeverImage.src,
+    link: 'https://www.youtube.com/watch?v=kMCvccfMH9g&ab_channel=EDMCrusher',
+    title: 'Last Forever',
+    performer: 'Joan Ember, Mike Archangelo',
   },
   {
     image: remedyImage.src,
