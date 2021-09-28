@@ -14,12 +14,12 @@ const Snippets = (props) => {
           return (
             <li
               key={title + category}
-              className="flex flex-col gap-2 p-3 bg-gray-300 rounded-md cursor-pointer dark:bg-gray-600"
+              className="flex flex-col gap-2 p-3 transition duration-200 ease-in-out border border-gray-300 rounded-md cursor-pointer group hover:bg-gray-300 dark:border-gray-700 dark:hover:bg-gray-600"
               onClick={() => {
                 handleNavigation(pathname);
               }}
             >
-              <h3 className="text-xl">{title}</h3>
+              <h3 className="text-xl text-blue-500">{title}</h3>
               <p className="text-sm">{description}</p>
               <div className="">
                 <span className="text-sm font-semibold tracking-wide">Category : </span>
