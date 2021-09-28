@@ -6,10 +6,10 @@ const Snippets = () => (
     <ul className="flex flex-col gap-2">
       {data.map((item) => (
         <li
-          key={item.name}
+          key={item.title}
           className="flex flex-col gap-2 p-3 bg-gray-300 rounded-md cursor-pointer dark:bg-gray-600"
         >
-          <h3 className="text-blue-500">{item.name}</h3>
+          <h3 className="text-blue-500">{item.title}</h3>
           <p className="text-sm">{item.description}</p>
           <div className="">
             <span className="text-sm font-semibold tracking-wide">Category : </span>
