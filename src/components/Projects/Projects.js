@@ -6,7 +6,7 @@ import { LinkIcon } from '@heroicons/react/outline';
 
 const Projects = () => (
   <>
-    <h1 className="flex items-center pb-5 text-2xl gap-x-2">Projects</h1>
+    <h1 className="pb-5 text-2xl">Projects</h1>
 
     <ul className="flex flex-col gap-y-6">
       {data.map((item) => (

@@ -4,7 +4,7 @@ import Link from '@/components/Common/Link';
 
 const Music = () => (
   <>
-    <h1 className="flex items-center pb-5 text-2xl gap-x-2">Music</h1>
+    <h1 className="pb-5 text-2xl">Music</h1>
 
     <ul className="flex flex-col gap-y-6">
       {data.map((item) => (

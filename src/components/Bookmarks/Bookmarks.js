@@ -3,7 +3,7 @@ import Link from '@/components/Common/Link';
 
 const Bookmarks = () => (
   <>
-    <h1 className="flex items-center pb-5 text-2xl gap-x-2">Bookmarks</h1>
+    <h1 className="pb-5 text-2xl">Bookmarks</h1>
 
     <ul className="flex flex-col gap-y-3">
       {data.map((item) => (
