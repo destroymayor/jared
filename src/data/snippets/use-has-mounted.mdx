@@ -7,11 +7,15 @@ slug: use-has-mounted
 ---
 
 ```jsx
+import { useState, useEffect } from 'react';
+
 function useHasMounted() {
-  const [hasMounted, setHasMounted] = React.useState(false);
-  React.useEffect(() => {
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() => {
     setHasMounted(true);
   }, []);
+
   return hasMounted;
 }
 ```

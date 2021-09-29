@@ -1,0 +1,27 @@
+---
+title: useDebounce
+description: This hook allows you to debounce any fast changing value.
+category: react-hooks
+pathname: /snippets/use-debounce
+slug: use-debounce
+---
+
+```jsx
+import { useState, useEffect } from 'react';
+
+function useDebounce(value, delay) {
+  const [debouncedValue, setDebouncedValue] = useState(value);
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedValue(value);
+    }, delay);
+
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [value, delay]);
+
+  return debouncedValue;
+}
+```
