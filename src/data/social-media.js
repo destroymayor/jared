@@ -1,5 +1,5 @@
 import { PaperAirplaneIcon } from '@heroicons/react/solid';
-import { GithubIcon, InstagramIcon, LinkedInIcon } from '@/components/Common/Icons';
+import { GithubIcon, LinkedInIcon } from '@/components/Common/Icons';
 
 const data = [
   {
@@ -11,11 +11,6 @@ const data = [
     link: 'https://github.com/destroymayor',
     label: 'Github',
     icon: <GithubIcon className="w-6 h-6" />,
-  },
-  {
-    link: 'https://www.instagram.com/jared.nov',
-    label: 'Instagram',
-    icon: <InstagramIcon className="w-7 h-7" />,
   },
   {
     link: 'https://www.linkedin.com/in/jared-chen',

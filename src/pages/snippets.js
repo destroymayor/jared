@@ -1,35 +1,61 @@
+import router from 'next/router';
+
 import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
-import { postFilePaths, POSTS_PATH } from '@/utils/mdxUtils';
+import { mdxFilePaths } from '@/utils/mdxUtils';
 
 import Head from '@/components/Head/Head';
-import Snippets from '@/components/Snippets/Snippets';
+import Title from '@/components/Title/Title';
 
-const SnippetsPage = (props) => {
+const Snippets = (props) => {
   const { data } = props;
+
+  const handleNavigation = (pathname) => router.push(pathname);
 
   return (
     <>
-      <Head title="Snippets" />
-      <Snippets data={data} />
+      <Head title="Snippets" description="Collection of useful snippets." />
+      <Title title="Snippets" />
+
+      <ul className="flex flex-col gap-y-6">
+        {data.map((item) => {
+          const { title, description, category, pathname } = item.data;
+          return (
+            <li
+              key={title + category}
+              aria-hidden
+              className="flex flex-col gap-2 p-3 transition duration-200 ease-in-out border border-gray-300 rounded-md cursor-pointer group hover:bg-gray-300 dark:border-gray-700 dark:hover:bg-gray-700"
+              onClick={() => {
+                handleNavigation(pathname);
+              }}
+            >
+              <h3 className="text-xl text-blue-500">{title}</h3>
+              <p className="text-sm">{description}</p>
+              <div className="">
+                <span className="text-sm font-semibold tracking-wide">Category : </span>
+                <span>{category}</span>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
     </>
   );
 };
 
+const MDX_FILE_PATH = path.join(process.cwd(), 'src/data/snippets');
 export function getStaticProps() {
-  const data = postFilePaths.map((filePath) => {
-    const source = fs.readFileSync(path.join(POSTS_PATH, filePath));
-    const { content, data } = matter(source);
+  const data = mdxFilePaths(MDX_FILE_PATH).map((filePath) => {
+    const source = fs.readFileSync(path.join(MDX_FILE_PATH, filePath));
+    const { data } = matter(source);
 
     return {
-      content,
       data,
-      slug: filePath.replace(/\.mdx?$/, ''),
     };
   });
 
   return { props: { data } };
 }
 
-export default SnippetsPage;
+export default Snippets;

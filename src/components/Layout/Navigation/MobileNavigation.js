@@ -19,7 +19,7 @@ const MobileNav = (props) => {
   const trail = useTrail(routes.length, {
     transform: isOpen ? 'translateX(0%)' : 'translateX(-100%)',
     config: {
-      tension: 500,
+      tension: 700,
       friction: isOpen ? 60 : 20,
       clamp: true,
     },

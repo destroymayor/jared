@@ -12,17 +12,15 @@
   "dependencies": {
     "@heroicons/react": "^1.0.4",
     "@mdx-js/react": "^1.6.22",
-    "gray-matter": "^4.0.3",
     "next": "11.1.2",
     "next-mdx-remote": "^3.0.4",
     "next-themes": "^0.0.15",
-    "prism-react-renderer": "^1.2.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-spring": "^9.2.4"
   },
   "devDependencies": {
-    "autoprefixer": "^10.3.5",
+    "autoprefixer": "^10.3.6",
     "babel-eslint": "10.1.0",
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.2",
@@ -32,8 +30,10 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.26.0",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "postcss": "^8.3.7",
+    "gray-matter": "^4.0.3",
+    "postcss": "^8.3.8",
     "prettier": "^2.4.1",
-    "tailwindcss": "^2.2.15"
+    "prism-react-renderer": "^1.2.1",
+    "tailwindcss": "^2.2.16"
   }
 }

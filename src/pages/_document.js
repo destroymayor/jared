@@ -7,7 +7,7 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head />
 
-        <body className="transition duration-200 ease-in-out bg-gray-200 dark:bg-gray-800">
+        <body className="transition duration-200 ease-in-out bg-gray-200 dark:bg-gray-900">
           <Main />
           <NextScript />
         </body>
