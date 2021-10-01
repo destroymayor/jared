@@ -11,8 +11,6 @@ import { MDXProvider } from '@mdx-js/react';
 import { MDXRemote } from 'next-mdx-remote';
 import { mdxFilePaths } from '@/utils/mdxUtils';
 
-const MDX_FILE_PATH = path.join(process.cwd(), 'src/data/snippets');
-
 const components = {
   h2: (props) => <h2 {...props} aria-hidden className="pt-20 text-2xl text-center"></h2>,
   code: CodeBlock,
@@ -43,6 +41,7 @@ export default function SnippetPage(props) {
   );
 }
 
+const MDX_FILE_PATH = path.join(process.cwd(), 'src/data/snippets');
 export const getStaticProps = async ({ params }) => {
   const mdxFilePath = path.join(MDX_FILE_PATH, `${params.slug}.mdx`);
   const source = fs.readFileSync(mdxFilePath);
@@ -66,6 +65,6 @@ export const getStaticPaths = async () => {
 
   return {
     paths,
-    fallback: 'blocking',
+    fallback: false,
   };
 };

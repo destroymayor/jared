@@ -32,6 +32,11 @@ const data = [
     title: 'JavaScript',
     list: [
       {
+        title: 'JavaScript Utilities',
+        description: null,
+        link: 'https://1loc.dev',
+      },
+      {
         title: '30 seconds of code',
         description: null,
         link: 'https://www.30secondsofcode.org/list/p/1',

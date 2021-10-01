@@ -10,9 +10,6 @@ const Head = (props) => {
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
 
       {/* Load font */}
-      <style data-href="https://fonts.googleapis.com/css2?family=Montserrat">
-        {`@font-face{font-family:"Montserrat"}`}
-      </style>
 
       {/* Title */}
       <title>{`${title ? `${title} - ` : ''}Jared Chen`}</title>

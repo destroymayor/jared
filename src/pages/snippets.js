@@ -26,9 +26,7 @@ const Snippets = (props) => {
               key={title + category}
               aria-hidden
               className="flex flex-col gap-2 p-3 transition duration-200 ease-in-out border border-gray-300 rounded-md cursor-pointer group hover:bg-gray-300 dark:border-gray-700 dark:hover:bg-gray-700"
-              onClick={() => {
-                handleNavigation(pathname);
-              }}
+              onClick={() => handleNavigation(pathname)}
             >
               <h3 className="text-xl text-blue-500">{title}</h3>
               <p className="text-sm">{description}</p>
