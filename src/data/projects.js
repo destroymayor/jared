@@ -9,7 +9,7 @@ const data = [
       'This is an application using Next.js as the framework and allows the user to search movies they want to watch from The Movie DB API.',
     links: {
       repo: 'https://github.com/destroymayor/movie-app',
-      demo: 'https://movie-app-chi-gules.vercel.app/',
+      demo: 'https://movie-app-roan-two.vercel.app',
     },
   },
   {
@@ -18,7 +18,7 @@ const data = [
     description: 'No description',
     links: {
       repo: 'https://github.com/destroymayor/fake-facebook',
-      demo: 'https://fake-facebook-one.vercel.app/',
+      demo: 'https://fake-facebook-gamma.vercel.app',
     },
   },
 ];
