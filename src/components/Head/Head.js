@@ -9,8 +9,6 @@ const Head = (props) => {
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
 
-      {/* Load font */}
-
       {/* Title */}
       <title>{`${title ? `${title} - ` : ''}Jared Chen`}</title>
       <meta name="og:title" content={title} />
