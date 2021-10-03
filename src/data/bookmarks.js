@@ -18,12 +18,20 @@ const data = [
     title: 'CSS',
     list: [
       { title: '1-Line Layouts', description: null, link: 'http://1linelayouts.glitch.me/' },
-      { title: 'CSS layout', description: null, link: 'https://csslayout.io/' },
-      { title: 'CSS cursors', description: null, link: 'https://omatsuri.app/css-cursors' },
-      { title: 'A free visual guide to CSS', description: null, link: 'https://cssreference.io/' },
       {
-        title: 'A simple tool to help you create harmonizing color palettes',
-        description: null,
+        title: 'CSS layout',
+        description: 'Popular layouts and patterns made with CSS',
+        link: 'https://csslayout.io/',
+      },
+      { title: 'CSS cursors', description: null, link: 'https://omatsuri.app/css-cursors' },
+      {
+        title: 'cssreference',
+        description: 'A free visual guide to CSS',
+        link: 'https://cssreference.io/',
+      },
+      {
+        title: 'couleur',
+        description: 'A simple tool to help you create harmonizing color palettes',
         link: 'https://couleur.io/',
       },
     ],
