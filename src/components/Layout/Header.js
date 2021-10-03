@@ -8,7 +8,7 @@ import Navigation from '@/components/Layout/Navigation/Navigation';
 
 import { HomeIcon } from '@heroicons/react/solid';
 
-import profileImage from '@/public/images/avatar.png';
+import profileImage from '@/public/images/avatar.jpg';
 
 const Header = () => {
   const router = useRouter();
