@@ -2,8 +2,12 @@ import { memo } from 'react';
 
 import { useSpring, animated } from 'react-spring';
 
+import useHasMounted from '@/hooks/utils/use-has-mounted.hook';
+
 const CircleSpring = (props) => {
   const { delay = 0, className, style, children } = props;
+
+  const hasMounted = useHasMounted();
 
   const { x } = useSpring({
     from: { x: 0 },
@@ -11,6 +15,8 @@ const CircleSpring = (props) => {
     delay,
     config: { duration: 800 },
   });
+
+  if (!hasMounted) return null;
 
   return (
     <animated.div
