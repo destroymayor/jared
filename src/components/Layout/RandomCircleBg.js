@@ -13,7 +13,7 @@ const colors = [
 
 const RandomCircleBg = () => {
   const circleList = [
-    { className: 'w-36 h-36', styles: { top: -60, right: -40 }, delay: 350 },
+    { className: 'w-36 h-36', styles: { top: -35, right: -40 }, delay: 350 },
     { className: 'w-44 h-44', styles: { top: 650, left: -100 }, delay: 350 },
     { className: 'w-44 h-44', styles: { bottom: 0, right: -100 }, delay: 350 },
   ];

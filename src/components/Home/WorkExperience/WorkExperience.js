@@ -7,7 +7,7 @@ import { BriefcaseIcon, LinkIcon } from '@heroicons/react/solid';
 
 const WorkExperience = () => {
   return (
-    <section className="flex flex-col p-5 my-3 text-gray-700 bg-gray-300 rounded-md dark:text-white dark:bg-gray-700 gap-y-3">
+    <section className="flex flex-col p-5 my-3 text-gray-700 bg-gray-300 rounded-md dark:bg-opacity-90 dark:text-white dark:bg-gray-800 gap-y-3">
       <Title icon={<BriefcaseIcon className="w-6 h-6" />} title="Work Experiences" />
 
       <ul className="flex flex-col gap-y-2">
