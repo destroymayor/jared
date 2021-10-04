@@ -5,7 +5,25 @@ import { AcademicCapIcon } from '@heroicons/react/solid';
 
 const Education = () => {
   return (
-    <section className="flex flex-col p-5 my-3 text-gray-700 bg-gray-300 rounded-md dark:bg-opacity-90 dark:text-white dark:bg-gray-800 gap-y-3">
+    <section
+      className={`
+      flex
+      flex-col
+      gap-y-3
+      p-5
+      my-3
+      text-gray-700
+      transition
+      duration-150
+      ease-in-out
+      bg-gray-300
+      rounded-md
+      dark:bg-opacity-90
+      dark:text-white
+      dark:bg-gray-800
+      dark:hover:bg-opacity-70
+      `}
+    >
       <Title icon={<AcademicCapIcon className="w-6 h-6" />} title="Education" />
 
       <ul className="flex flex-col gap-y-2">

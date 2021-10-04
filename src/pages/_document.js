@@ -12,7 +12,7 @@ class MyDocument extends Document {
           />
         </Head>
 
-        <body className="transition duration-200 ease-in-out bg-gray-200 dark:bg-gray-900">
+        <body className="overflow-hidden transition duration-200 ease-in-out bg-gray-200 dark:bg-gray-900">
           <Main />
           <NextScript />
         </body>
