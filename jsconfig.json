@@ -10,5 +10,5 @@
       "@/public/*": ["public/*"]
     }
   },
-  "exclude": [".git", "node_modules", "**/dist/*", "**/node_modules/*"]
+  "exclude": ["node_modules"]
 }
