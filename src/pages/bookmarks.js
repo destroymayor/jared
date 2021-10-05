@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import data from '@/data/bookmarks';
 
 import Head from '@/components/Head/Head';
@@ -42,4 +43,4 @@ const Bookmarks = () => {
   );
 };
 
-export default Bookmarks;
+export default memo(Bookmarks);

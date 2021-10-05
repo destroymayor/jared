@@ -1,9 +1,7 @@
-import { useState, useRef } from 'react';
-
-import Link from '@/components/Common/Link';
+import { useState, useRef, memo } from 'react';
 
 const Tabs = (props) => {
-  const { data = [] } = props;
+  const { data = [], children } = props;
 
   const [tabBoundingBox, setTabBoundingBox] = useState(null);
   const [wrapperBoundingBox, setWrapperBoundingBox] = useState(null);
@@ -31,48 +29,24 @@ const Tabs = (props) => {
   }
 
   return (
-    <div className={`relative`} ref={wrapperRef} onMouseLeave={resetHighlight}>
+    <div ref={wrapperRef} className="relative" onMouseLeave={resetHighlight}>
       <div
-        className={`
-        absolute
-        left-0
-        top-1
-        py-4
-        duration-150
-        bg-gray-300
-        rounded-md
-        dark:bg-gray-600
-        `}
         ref={highlightRef}
-        style={{
-          ...highlightStyles,
-          transitionProperty: 'width, transform, opacity',
-        }}
+        className="absolute left-0 py-4 duration-150 bg-gray-300 rounded-md -top-1 dark:bg-gray-600"
+        style={{ ...highlightStyles, transitionProperty: 'width, transform, opacity' }}
       />
-      {data.map((tab) => (
-        <Link
-          key={tab?.title}
-          className={`
-          relative
-          inline-block
-          p-2
-          text-gray-700
-          transition
-          duration-100
-          cursor-pointer
-          dark:text-gray-300
-          hover:text-gray-700
-          dark:hover:text-gray-300
-          `}
-          href={tab?.pathname}
-          aria-label={tab.title}
-          onMouseOver={(ev) => repositionHighlight(ev, tab)}
+      {data.map((item, index) => (
+        <div
+          className="relative inline-block"
+          key={`${index}`}
+          onMouseOver={(ev) => repositionHighlight(ev, item)}
+          onFocus={() => {}}
         >
-          {tab?.title}
-        </Link>
+          {children({ item })}
+        </div>
       ))}
     </div>
   );
 };
 
-export default Tabs;
+export default memo(Tabs);

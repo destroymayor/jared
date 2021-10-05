@@ -5,19 +5,7 @@ import Wave from '@/components/Home/Common/Wave';
 
 const Header = () => {
   return (
-    <section
-      className={`
-      relative
-      flex
-      flex-col
-      gap-y-4
-      text-gray-800
-      rounded-md
-      md:py-3
-      dark:text-gray-100
-      dark:bg-opacity-0
-      `}
-    >
+    <section className="relative flex flex-col text-gray-800 rounded-md gap-y-4 md:py-3 dark:text-gray-100 dark:bg-opacity-0">
       <CircleSpring
         className="absolute w-48 h-48 bg-blue-300 rounded-full dark:bg-blue-800"
         style={{

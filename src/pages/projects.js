@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import data from '@/data/projects';
 
 import Link from '@/components/Common/Link';
@@ -99,4 +101,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default memo(Projects);

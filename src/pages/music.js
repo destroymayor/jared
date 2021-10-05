@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import data from '@/data/music';
 
 import Head from '@/components/Head/Head';
@@ -61,4 +62,4 @@ const Music = () => {
   );
 };
 
-export default Music;
+export default memo(Music);

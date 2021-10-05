@@ -29,7 +29,7 @@ export default function SnippetPage(props) {
           <p className="text-xl text-center">{frontMatter.description}</p>
           <ul className="flex gap-2">
             {frontMatter.techStack.map((item) => (
-              <li key={item} className="px-2 py-1 bg-blue-600 rounded-md">
+              <li key={item} className="px-2 py-1 text-gray-100 bg-blue-600 rounded-md">
                 {item}
               </li>
             ))}

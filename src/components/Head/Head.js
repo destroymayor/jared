@@ -1,7 +1,7 @@
 import NextHead from 'next/head';
 
 const Head = (props) => {
-  const { title, description = '' } = props;
+  const { title, description = "Hey, I'm Jared Chen. I'm a front-end developer." } = props;
 
   return (
     <NextHead>
@@ -11,7 +11,7 @@ const Head = (props) => {
 
       {/* Title */}
       <title>{`${title ? `${title} - ` : ''}Jared Chen`}</title>
-      <meta name="og:title" content={title} />
+      <meta name="og:title" content={`${title ? `${title} - ` : ''}Jared Chen`} />
 
       {/* Description */}
       <meta name="description" content={description} />
@@ -19,12 +19,15 @@ const Head = (props) => {
 
       {/* General */}
       <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta httpEquiv="Content-Language" content="en" />
+      <meta name="apple-mobile-web-app-title" content="Jared" />
       <meta name="author" content="Jared Chen" />
 
       {/* URL */}
       <meta name="og:url" content="https://jared-chen.com" />
 
       {/* Favicons */}
+      <link rel="manifest" href="/favicons/manifest.json" />
       <link rel="shortcut icon" href="/favicons/favicon.ico" />
       <link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-icon-57x57.png" />
       <link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-icon-60x60.png" />
@@ -39,7 +42,6 @@ const Head = (props) => {
       <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
       <link rel="icon" type="image/png" sizes="96x96" href="/favicons/favicon-96x96.png" />
       <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
-      <link rel="manifest" href="/favicons/manifest.json" />
       <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
     </NextHead>
   );

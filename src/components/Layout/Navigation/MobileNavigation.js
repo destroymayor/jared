@@ -5,7 +5,7 @@ import { useTrail, animated } from 'react-spring';
 import useToggle from '@/hooks/utils/use-toggle.hook';
 import useScrollDisabler from '@/hooks/utils/use-scroll-disabler.hook';
 
-import InPortal from '@/components/Common/InPortal/InPortal';
+import InPortal from '@/components/Common/InPortal';
 import ThemeToggle from '@/components/Layout/ThemeToggle';
 
 import { XIcon, MenuIcon } from '@heroicons/react/solid';

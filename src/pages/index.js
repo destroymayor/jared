@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import Head from '@/components/Head/Head';
 import Home from '@/components/Home/Home';
 
@@ -10,4 +11,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default memo(HomePage);

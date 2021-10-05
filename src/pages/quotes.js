@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import data from '@/data/quotes';
 
 import Head from '@/components/Head/Head';
@@ -24,4 +26,4 @@ const Quotes = () => {
   );
 };
 
-export default Quotes;
+export default memo(Quotes);
