@@ -34,13 +34,14 @@ const Snippets = (props) => {
               transition
               duration-200
               ease-in-out
-              bg-gray-900
               border
-              border-gray-300
               rounded-md
               cursor-pointer
+              bg-gray-200
+              border-gray-300
               bg-opacity-80
               hover:bg-gray-300
+              dark:bg-gray-900
               dark:border-gray-700
               dark:hover:bg-gray-700
               `}

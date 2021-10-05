@@ -13,12 +13,12 @@ const Bookmarks = () => {
       <ul className="flex flex-col gap-y-5">
         {data.map((item) => (
           <li key={item.title} className="flex flex-col items-start">
-            <h3 className="pb-2 text-lg text-gray-600 dark:text-gray-300">{item.title}</h3>
+            <h3 className="pb-3 text-xl text-gray-600 dark:text-gray-300">{item.title}</h3>
 
             <ul className="flex flex-col justify-start px-5 list-disc gap-y-2">
               {item.list.map((subItem, index) => (
                 <li key={subItem + index.toString()}>
-                  <div className="flex text-md">
+                  <div className="flex flex-wrap md:flex-nowrap text-md gap-y-2">
                     <Link
                       className="transition duration-200 ease-in-out hover:text-gray-500"
                       href={subItem.link}
