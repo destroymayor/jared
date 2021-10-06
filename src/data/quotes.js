@@ -8,6 +8,10 @@ const data = [
     author: 'Edmund Burke',
     quote: `Those who don't know history are destined to repeat it.`,
   },
+  {
+    author: 'Wayne Gretzky',
+    quote: 'I skate to where the puck is going to be, not where it has been.',
+  },
 ];
 
 export default data;
