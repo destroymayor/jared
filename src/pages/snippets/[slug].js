@@ -6,13 +6,26 @@ import { serialize } from 'next-mdx-remote/serialize';
 
 import Head from '@/components/Head/Head';
 import CodeBlock from '@/components/Common/CodeBlock';
+import Link from '@/components/Common/Link';
 
 import { MDXProvider } from '@mdx-js/react';
 import { MDXRemote } from 'next-mdx-remote';
 import { mdxFilePaths } from '@/utils/mdxUtils';
 
+import { LinkIcon } from '@heroicons/react/outline';
+
 const components = {
-  h2: (props) => <h2 {...props} aria-hidden className="pt-20 text-2xl text-center"></h2>,
+  h2: (props) => {
+    const getHeadingId = props?.children?.toLowerCase().replace(new RegExp(' ', 'g'), '-');
+    return (
+      <h2 {...props} aria-hidden id={getHeadingId} className="pt-10 text-2xl group">
+        <Link className="flex items-center gap-x-2" href={`#${getHeadingId}`}>
+          {props?.children}
+          <LinkIcon className="invisible w-6 h-6 transition duration-150 ease-in-out group-hover:visible " />
+        </Link>
+      </h2>
+    );
+  },
   code: CodeBlock,
 };
 
@@ -23,7 +36,7 @@ export default function SnippetPage(props) {
     <>
       <Head title="Snippets" />
       <MDXProvider components={components}>
-        <div className="flex flex-col items-center gap-y-5">
+        <div className="flex flex-col items-center gap-y-5" style={{ scrollBehavior: 'smooth' }}>
           <h3 className="text-lg text-blue-600">SNIPPET</h3>
           <h1 className="text-3xl text-center">{frontMatter.title}</h1>
           <p className="text-xl text-center">{frontMatter.description}</p>
