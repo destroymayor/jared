@@ -3,7 +3,7 @@ import data from '@/data/work-experience';
 import Link from '@/components/Common/Link';
 
 import Title from '@/components/Home/Common/Title';
-import { BriefcaseIcon, LinkIcon } from '@heroicons/react/solid';
+import { BriefcaseIcon, ExternalLinkIcon } from '@heroicons/react/solid';
 
 const WorkExperience = () => {
   return (
@@ -19,18 +19,18 @@ const WorkExperience = () => {
             </div>
             <p className="text-sm dark:text-gray-100">{item.description}</p>
 
-            <ul className="flex flex-col gap-y-2">
+            <ul className="flex flex-col list-disc gap-y-2">
               {item.projects.map((project) => (
-                <li className="flex flex-col px-2 py-1 text-sm rounded-md" key={project.product}>
-                  <div className="flex items-center gap-x-2">
+                <li className="mx-5" key={project.product}>
+                  <div className="flex items-center py-1 gap-x-2">
                     <h4 className="text-lg">{project.product}</h4>
                     {project.link && (
                       <Link href={project.link} aria-label={project.product}>
-                        <LinkIcon className="w-6 h-6 hover:text-gray-300" />
+                        <ExternalLinkIcon className="w-6 h-6 hover:text-gray-300" />
                       </Link>
                     )}
                   </div>
-                  <p>{project.description}</p>
+                  <p className="text-sm">{project.description}</p>
                 </li>
               ))}
             </ul>

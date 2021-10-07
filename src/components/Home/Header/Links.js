@@ -1,6 +1,6 @@
 import Link from '@/components/Common/Link';
 
-import data from '@/data/social-media';
+import data from '@/data/contact';
 
 const Links = () => {
   return (
