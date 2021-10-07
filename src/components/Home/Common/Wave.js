@@ -5,7 +5,6 @@ const Wave = () => {
   const config = {
     from: { rotateZ: 0 },
     to: [{ rotateZ: 50 }, { rotateZ: 0 }, { rotateZ: 5 }, { rotateZ: 0 }],
-
     config: { duration: 150 },
   };
 
@@ -13,7 +12,7 @@ const Wave = () => {
 
   return (
     <animated.span
-      onMouseOver={() => animate({ ...config, delay: 100 })}
+      onMouseOver={() => animate.start({ ...config, delay: 100 })}
       role="img"
       aria-label="hand wave"
       className="text-2xl cursor-default md:text-4xl"
