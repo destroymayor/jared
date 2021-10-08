@@ -5,8 +5,8 @@ import WorkExperience from '@/components/Home/WorkExperience/WorkExperience';
 const Home = () => (
   <>
     <Header />
-    <Skill />
     <WorkExperience />
+    <Skill />
   </>
 );
 

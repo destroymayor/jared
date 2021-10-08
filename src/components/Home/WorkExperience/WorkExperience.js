@@ -3,7 +3,7 @@ import data from '@/data/work-experience';
 import Link from '@/components/Common/Link';
 
 import Title from '@/components/Home/Common/Title';
-import { BriefcaseIcon, ExternalLinkIcon } from '@heroicons/react/solid';
+import { BriefcaseIcon } from '@heroicons/react/solid';
 
 const WorkExperience = () => {
   return (
@@ -17,23 +17,26 @@ const WorkExperience = () => {
               <h3 className="text-lg">{item.title}</h3>
               <span className="text-sm text-gray-700 dark:text-gray-100">{item.year}</span>
             </div>
-            <p className="text-sm dark:text-gray-100">{item.description}</p>
+            <div className="text-sm dark:text-gray-100">
+              {item.description}
 
-            <ul className="flex flex-col list-disc gap-y-2">
-              {item.projects.map((project) => (
-                <li className="mx-5" key={project.product}>
-                  <div className="flex items-center py-1 gap-x-2">
-                    <h4 className="text-lg">{project.product}</h4>
-                    {project.link && (
-                      <Link href={project.link} aria-label={project.product}>
-                        <ExternalLinkIcon className="w-6 h-6 hover:text-gray-300" />
+              <div className="flex py-1">
+                {item.projects.map((project, index, { length, lastIndex = length - 1 }) => (
+                  <>
+                    <span key={project.product}>
+                      <Link
+                        className="underline"
+                        href={project?.link ?? ''}
+                        aria-label={project.product}
+                      >
+                        <h4>{project.product}</h4>
                       </Link>
-                    )}
-                  </div>
-                  <p className="text-sm">{project.description}</p>
-                </li>
-              ))}
-            </ul>
+                    </span>
+                    {index !== lastIndex && <span className="pr-1">,</span>}
+                  </>
+                ))}
+              </div>
+            </div>
           </li>
         ))}
       </ul>

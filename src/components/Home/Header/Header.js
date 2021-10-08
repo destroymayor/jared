@@ -20,7 +20,8 @@ const Header = () => {
         <Wave />
       </div>
 
-      <h2 className="text-lg md:text-2xl">{`I'm a front-end developer.`}</h2>
+      <p className="text-lg md:text-xl">{`Front-end developer, mechanical keyboard enthusiast.`}</p>
+
       <Links />
     </section>
   );

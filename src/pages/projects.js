@@ -58,36 +58,14 @@ const Projects = () => {
               <div className="flex gap-2 py-2">
                 <Link
                   aria-label="github link"
-                  className={`
-                  p-2
-                  transition
-                  duration-200
-                  ease-in-out
-                  origin-center
-                  transform
-                  rounded-full
-                  hover:bg-blue-500
-                  dark:hover:bg-blue-500
-                  hover:scale-150
-                  `}
+                  className="p-2 transition duration-200 ease-in-out origin-center transform rounded-full hover:bg-blue-500 dark:hover:bg-blue-500 hover:scale-150"
                   href={item.links.repo}
                 >
                   <GithubIcon className="w-6 h-6" />
                 </Link>
                 <Link
                   aria-label="demo link"
-                  className={`
-                  p-2
-                  transition
-                  duration-200
-                  ease-in-out
-                  origin-center
-                  transform
-                  rounded-full
-                  hover:bg-blue-500
-                  dark:hover:bg-blue-500
-                  hover:scale-150
-                  `}
+                  className="p-2 transition duration-200 ease-in-out origin-center transform rounded-full  hover:bg-blue-500 dark:hover:bg-blue-500 hover:scale-150"
                   href={item.links.demo}
                 >
                   <LinkIcon className="w-6 h-6" />

@@ -1,7 +1,7 @@
 import routes from '@/data/routes';
 
 import DesktopNav from '@/components/Layout/Navigation/DesktopNav';
-import MobileNav from '@/components/Layout/Navigation/MobileNavigation';
+import MobileNav from '@/components/Layout/Navigation/MobileNav';
 
 const Navigation = () => (
   <>

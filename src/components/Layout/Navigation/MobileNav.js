@@ -35,15 +35,7 @@ const MobileNav = (props) => {
   return (
     <>
       <button
-        className={`
-        p-1
-        transition
-        duration-200
-        ease-in-out
-        rounded-md
-        sm:hidden
-        dark:hover:text-gray-100
-        `}
+        className="p-1 transition duration-200 ease-in-out rounded-md sm:hidden dark:hover:text-gray-100"
         onClick={handleToggle}
       >
         <MenuIcon
@@ -83,18 +75,7 @@ const MobileNav = (props) => {
           >
             <div className="flex justify-end px-5 py-8">
               <button
-                className={`
-                p-1
-                text-gray-700
-                transition
-                duration-200
-                ease-in-out
-                rounded-md
-                hover:bg-gray-300
-                dark:text-gray-200
-                dark:hover:bg-gray-700
-                dark:hover:text-gray-300
-                `}
+                className="p-1 text-gray-700 transition duration-200 ease-in-out rounded-md hover:bg-gray-300 dark:text-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-300"
                 onClick={handleToggle}
               >
                 <XIcon aria-label="Close menu" className="w-8 h-8" />
@@ -108,20 +89,7 @@ const MobileNav = (props) => {
                   key={`${index}`}
                   onClick={() => handleNavigation(routes[index].pathname)}
                 >
-                  <div
-                    className={`
-                    flex
-                    text-2xl
-                    text-black
-                    transition
-                    duration-200
-                    ease-in-out
-                    cursor-pointer
-                    dark:text-gray-100
-                    hover:text-gray-700
-                    dark:hover:text-gray-400
-                    `}
-                  >
+                  <div className="flex text-2xl text-black transition duration-200 ease-in-out cursor-pointer dark:text-gray-100 hover:text-gray-700 dark:hover:text-gray-400">
                     {routes[index].title}
                   </div>
                 </animated.li>
