@@ -1,3 +1,5 @@
+import { Fragment } from 'react';
+
 import data from '@/data/work-experience';
 
 import Link from '@/components/Common/Link';
@@ -22,8 +24,8 @@ const WorkExperience = () => {
 
               <div className="flex py-1">
                 {item.projects.map((project, index, { length, lastIndex = length - 1 }) => (
-                  <>
-                    <span key={project.product}>
+                  <Fragment key={project.product}>
+                    <span>
                       <Link
                         className="underline"
                         href={project?.link ?? ''}
@@ -33,7 +35,7 @@ const WorkExperience = () => {
                       </Link>
                     </span>
                     {index !== lastIndex && <span className="pr-1">,</span>}
-                  </>
+                  </Fragment>
                 ))}
               </div>
             </div>
