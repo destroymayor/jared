@@ -73,13 +73,15 @@ const MobileNav = (props) => {
             bg-gray-200
             dark:bg-gray-800`}
           >
-            <div className="flex justify-end px-5 py-8">
+            <div className="flex justify-between px-6 py-8">
               <button
                 className="p-1 text-gray-700 transition duration-200 ease-in-out rounded-md hover:bg-gray-300 dark:text-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-300"
                 onClick={handleToggle}
               >
                 <XIcon aria-label="Close menu" className="w-8 h-8" />
               </button>
+
+              <ThemeToggle />
             </div>
 
             <ul className="flex flex-col items-start px-8 py-6 gap-y-8">
@@ -95,17 +97,6 @@ const MobileNav = (props) => {
                 </animated.li>
               ))}
             </ul>
-
-            <div
-              className={`
-              ${isOpen ? 'opacity-100 duration-500' : 'opacity-0 duration-100'}
-              transition-opacity
-              px-8
-              py-20
-              `}
-            >
-              <ThemeToggle />
-            </div>
           </nav>
         </div>
       </InPortal>

@@ -15,7 +15,7 @@ const Wave = () => {
       onMouseOver={() => animate.start({ ...config, delay: 100 })}
       role="img"
       aria-label="hand wave"
-      className="text-2xl cursor-default md:text-4xl"
+      className="hidden text-4xl cursor-default sm:block"
       style={styles}
     >
       👋

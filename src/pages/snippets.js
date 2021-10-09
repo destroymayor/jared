@@ -8,30 +8,38 @@ import { mdxFilePaths } from '@/utils/mdxUtils';
 import Head from '@/components/Head/Head';
 import Title from '@/components/Title/Title';
 
+import { JavaScripIcon, ReactIcon } from '@/components/Common/Icons';
+
 const Snippets = (props) => {
   const { data } = props;
 
   const handleNavigation = (pathname) => router.push(pathname);
+
+  const iconMap = {
+    javascript: <JavaScripIcon className="w-8 h-8 rounded-full" />,
+    'react-hooks': <ReactIcon className="w-8 h-8 rounded-full" />,
+    'react-components': <ReactIcon className="w-8 h-8 rounded-full" />,
+  };
 
   return (
     <>
       <Head title="Snippets" description="Collection of useful snippets." />
       <Title title="Snippets" />
 
-      <ul className="flex flex-col gap-y-6">
+      <ul className="grid flex-col grid-cols-1 gap-4 sm:grid-cols-2">
         {data.map((item) => {
-          const { title, description, category, pathname } = item.data;
+          const { title, category, pathname } = item.data;
           return (
             <li
               key={title + category}
               aria-hidden
-              className="flex flex-col gap-2 p-3 transition duration-200 ease-in-out bg-gray-200 border border-gray-300 rounded-md cursor-pointer  group bg-opacity-80 hover:bg-gray-300 dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-700"
+              className="flex flex-col gap-2 p-4 bg-gray-200 border border-gray-300 rounded-md cursor-pointer bg-opacity-80 dark:bg-gray-900 dark:border-gray-700 "
               onClick={() => handleNavigation(pathname)}
             >
+              <span>{iconMap?.[category]}</span>
               <h3 className="text-xl text-blue-500">{title}</h3>
-              <p className="text-sm">{description}</p>
               <div className="">
-                <span className="text-sm font-semibold tracking-wide">Category : </span>
+                <span className="text-sm font-semibold tracking-wide">Category: </span>
                 <span>{category}</span>
               </div>
             </li>

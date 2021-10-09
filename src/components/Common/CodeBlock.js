@@ -16,12 +16,9 @@ const CodeBlock = ({ children, className }) => {
       language={language}
     >
       {({ tokens, getLineProps, getTokenProps }) => (
-        <div className="flex flex-col items-start my-1">
-          <div className="self-end px-3 py-1 mx-5 text-gray-700 bg-gray-300 rounded-t-lg dark:text-gray-200 dark:bg-gray-700 ">
-            {language.toUpperCase()}
-          </div>
+        <div className="flex flex-col items-start my-5">
           <pre
-            className="p-5 overflow-scroll bg-gray-300 rounded-md dark:bg-gray-700 md:max-w-2xl md:w-full"
+            className="p-5 overflow-auto border border-gray-400 rounded-md dark:border-gray-700 md:max-w-2xl md:w-full"
             style={{ width: '95vw' }}
           >
             {tokens.map((line, i) => (

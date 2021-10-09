@@ -1,5 +1,9 @@
 const data = [
   {
+    title: 'Home',
+    pathname: '/',
+  },
+  {
     title: 'Projects',
     pathname: '/projects',
   },
