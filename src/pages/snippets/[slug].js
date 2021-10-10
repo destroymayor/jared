@@ -36,7 +36,7 @@ export default function SnippetPage(props) {
     <>
       <Head title="Snippets" />
       <MDXProvider components={components}>
-        <div className="flex flex-col items-center gap-y-5" style={{ scrollBehavior: 'smooth' }}>
+        <div className="flex flex-col items-center gap-y-5">
           <h3 className="text-lg text-blue-600">SNIPPET</h3>
           <h1 className="text-3xl text-center">{frontMatter.title}</h1>
           <p className="text-xl text-center">{frontMatter.description}</p>

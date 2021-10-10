@@ -19,7 +19,7 @@ const Bookmarks = () => {
             <ul className="flex flex-col justify-start px-5 list-disc gap-y-2">
               {item.list.map((subItem, index) => (
                 <li key={subItem + index.toString()}>
-                  <div className="flex flex-wrap md:flex-nowrap text-md gap-y-2">
+                  <div className="flex flex-wrap sm:flex-nowrap text-md gap-y-2">
                     <Link
                       className="transition duration-200 ease-in-out hover:text-gray-500"
                       href={subItem.link}
