@@ -2,7 +2,7 @@ import Image from 'next/image';
 import profileImage from '@/public/images/avatar.jpg';
 
 import Links from '@/components/Home/Header/Links';
-import NowPlaying from '@/components/Home/Header/NowPlaying';
+import NowPlaying from '@/components/Common/NowPlaying';
 import CircleSpring from '@/components/Common/CircleSpring';
 
 const Header = () => {

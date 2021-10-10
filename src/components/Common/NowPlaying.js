@@ -12,6 +12,7 @@ const NowPlaying = () => {
       <span className="w-6 h-6">
         <SpotifyIcon className="w-6 h-6" />
       </span>
+
       <div className="flex flex-wrap">
         {data?.songUrl ? (
           <Link className="font-medium truncate" href={data?.songUrl}>

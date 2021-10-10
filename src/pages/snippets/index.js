@@ -33,7 +33,7 @@ const Snippets = (props) => {
             <li
               key={title + category}
               aria-hidden
-              className="flex flex-col gap-2 p-4 bg-gray-200 border border-gray-300 rounded-md cursor-pointer bg-opacity-80 dark:bg-gray-900 dark:border-gray-700 "
+              className="flex flex-col gap-2 p-4 ease-out bg-gray-200 border border-gray-300 rounded-md cursor-pointer bg-opacity-80 dark:bg-gray-900 dark:border-gray-700 "
               onClick={() => handleNavigation(pathname)}
             >
               <span>{iconMap?.[category]}</span>

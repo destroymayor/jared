@@ -4,12 +4,17 @@ import data from '@/data/music';
 import Head from '@/components/Head/Head';
 import Link from '@/components/Common/Link';
 import Title from '@/components/Title/Title';
+import NowPlaying from '@/components/Common/NowPlaying';
 
 const Music = () => {
   return (
     <>
       <Head title="Music" description="Collection of electronic dance music." />
       <Title title="Music" />
+
+      <div className="pt-4 pb-8">
+        <NowPlaying />
+      </div>
 
       <ul className="flex flex-col gap-y-6">
         {data.map((item) => (
