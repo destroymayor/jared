@@ -19,7 +19,7 @@ const MobileNav = (props) => {
     transform: isOpen ? 'translateX(0%)' : 'translateX(-100%)',
     config: {
       tension: 700,
-      friction: isOpen ? 60 : 20,
+      friction: isOpen ? 50 : 20,
       clamp: true,
     },
   });
@@ -38,9 +38,9 @@ const MobileNav = (props) => {
         onClick={handleToggle}
       >
         {isOpen ? (
-          <XIcon aria-label="Close menu" className="w-8 h-8" />
+          <XIcon aria-label="Toggle menu" className="w-8 h-8" />
         ) : (
-          <MenuIcon aria-label={isOpen ? 'Close menu' : 'Open menu'} className="w-8 h-8" />
+          <MenuIcon aria-label="Toggle menu" className="w-8 h-8" />
         )}
       </button>
 
