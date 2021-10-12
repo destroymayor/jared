@@ -54,14 +54,14 @@ const MobileNav = (props) => {
           <div
             className={`
             ${isOpen ? 'opacity-100' : 'opacity-0'}
-            absolute top-24 bottom-0 inset-x-0 transition duration-500 bg-gray-200 dark:backdrop-blur dark:bg-opacity-80 dark:bg-gray-900 `}
+            absolute top-24 bottom-0 inset-x-0 transition duration-500 bg-gray-200 dark:backdrop-blur dark:bg-opacity-80 dark:bg-black`}
           />
 
           <nav
             className={`
             ${
               isOpen ? 'opacity-100 dark:bg-opacity-70' : 'opacity-0'
-            } absolute top-24 bottom-0 inset-x-0 bg-gray-200 dark:bg-gray-900`}
+            } absolute top-24 bottom-0 inset-x-0 bg-gray-200 dark:bg-black`}
           >
             <ul className="flex flex-col items-start px-8 py-6 gap-y-8">
               {trail.map((style, index) => (

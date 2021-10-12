@@ -9,6 +9,9 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      colors: {
+        black: '#111111',
+      },
       fontFamily: {
         sans: ['Source Code Pro', 'sans-serif'],
       },
