@@ -5,7 +5,7 @@ import Link from '@/components/Common/Link';
 
 const FavoriteTracks = () => {
   return (
-    <div className="flex flex-col mt-12 gap-y-2">
+    <div className="flex flex-col my-8 gap-y-2">
       <h2 className="text-2xl">Favorite tracks</h2>
       <ul className="flex flex-col gap-y-6">
         {data.map((item) => (

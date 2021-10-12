@@ -75,6 +75,11 @@ const data = [
         description: 'A free tool for testing websites.',
         link: 'https://nibbler.silktide.com/',
       },
+      {
+        title: 'Excalidraw',
+        description: 'Excalidraw is a virtual collaborative whiteboard tool.',
+        link: 'https://excalidraw.com',
+      },
     ],
   },
 ];

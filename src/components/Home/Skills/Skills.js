@@ -11,10 +11,12 @@ const Skills = () => {
       <ul className="flex flex-col gap-y-2">
         {data.map((item) => (
           <li key={item.title} className="flex flex-col gap-y-1">
-            <h3 className="font-bold">{item.title}</h3>
+            <h3 className="font-bold text-md sm:text-lg">{item.title}</h3>
             <ul className="px-6 list-disc">
               {item.children.map((skill, index) => (
-                <li key={skill + index.toString()}>{skill}</li>
+                <li className="text-md sm:text-lg" key={skill + index.toString()}>
+                  {skill}
+                </li>
               ))}
             </ul>
           </li>

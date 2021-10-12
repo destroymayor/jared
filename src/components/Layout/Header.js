@@ -5,7 +5,7 @@ import ThemeToggle from '@/components/Layout/ThemeToggle';
 
 const Header = () => {
   return (
-    <header className="flex items-center justify-between flex-shrink-0 w-11/12 pt-8 pb-8 sm:pb-14 sm:max-w-2xl">
+    <header className="flex items-center justify-between flex-shrink-0 w-11/12 pt-8 pb-6 sm:pb-14 sm:max-w-2xl">
       <Navigation />
       <ThemeToggle />
     </header>

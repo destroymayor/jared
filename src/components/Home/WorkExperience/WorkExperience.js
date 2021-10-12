@@ -16,9 +16,10 @@ const WorkExperience = () => {
         {data.map((item) => (
           <li key={item.title} className="flex flex-col gap-y-2">
             <div className="flex flex-wrap items-center gap-x-3">
-              <h3 className="text-lg">{item.title}</h3>
+              <h3 className="text-md sm:text-lg">{item.title}</h3>
               <span className="text-sm dark:text-gray-400">{item.year}</span>
             </div>
+
             <p className="text-sm dark:text-gray-400">
               {item.description}
 

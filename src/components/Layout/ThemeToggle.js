@@ -3,20 +3,23 @@ import { SunIcon, MoonIcon } from '@heroicons/react/solid';
 import useHasMounted from '@/hooks/utils/use-has-mounted.hook';
 
 const ThemeToggle = () => {
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
   const hasMounted = useHasMounted();
 
-  const isDarkTheme = hasMounted && (theme === 'dark' || theme === 'system');
+  const isDarkTheme = hasMounted && (resolvedTheme === 'dark' || resolvedTheme === 'system');
 
-  const toggleTheme = () => setTheme(theme === 'light' ? 'dark' : 'light');
+  const toggleTheme = () => setTheme(resolvedTheme === 'light' ? 'dark' : 'light');
 
   return (
     <button
-      className="justify-center text-black transition duration-200 ease-in-out cursor-pointer dark:text-gray-100 hover:text-yellow-500 dark:hover:text-yellow-300"
+      className="flex items-center justify-center transition duration-200 ease-in-out bg-gray-300 rounded-lg cursor-pointer w-9 h-9 hover:ring-2 ring-gray-400 dark:bg-gray-600 hover:text-yellow-500 dark:hover:text-yellow-300"
+      type="button"
       aria-label={`Activate ${isDarkTheme ? 'light' : 'dark'} mode`}
       onClick={toggleTheme}
     >
-      {isDarkTheme ? <MoonIcon className="w-6 h-6" /> : <SunIcon className="w-6 h-6" />}
+      {hasMounted && (
+        <>{isDarkTheme ? <SunIcon className="w-6 h-6" /> : <MoonIcon className="w-6 h-6" />}</>
+      )}
     </button>
   );
 };

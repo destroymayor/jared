@@ -26,11 +26,12 @@ const Bookmarks = () => {
                     >
                       {subItem.title}
                     </Link>
+
                     {subItem.description && (
-                      <p className="px-2 text-gray-600 dark:text-gray-400">
-                        {' '}
-                        - {subItem.description}
-                      </p>
+                      <>
+                        <span className="px-2 text-gray-600 dark:text-gray-400">-</span>
+                        <p className="text-gray-600 dark:text-gray-400">{subItem.description}</p>
+                      </>
                     )}
                   </div>
                 </li>

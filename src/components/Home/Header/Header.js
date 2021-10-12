@@ -9,8 +9,8 @@ const Header = () => {
   return (
     <section className="relative flex flex-col-reverse items-start gap-4 rounded-md sm:items-center sm:flex-row dark:bg-opacity-0">
       <div className="flex flex-col flex-1 gap-y-4">
-        <h1 className="text-4xl">Jared Chen</h1>
-        <p className="text-xl dark:text-gray-400">
+        <h1 className="text-2xl sm:text-4xl">Jared Chen</h1>
+        <p className="text-md sm:text-lg dark:text-gray-400">
           Front-end developer, mechanical keyboard enthusiast.
         </p>
 
