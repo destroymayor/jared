@@ -7,7 +7,7 @@ import TopTracks from '@/components/Music/TopTracks';
 import FavoriteTracks from '@/components/Music/FavoriteTracks';
 
 const Music = () => {
-  const title = `Projects`;
+  const title = `Music`;
   const description = `Collection of electronic dance music.`;
 
   return (
