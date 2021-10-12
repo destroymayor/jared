@@ -23,8 +23,8 @@ const Snippets = (props) => {
 
   return (
     <>
-      <Head title="Snippets" description="Collection of useful snippets." />
-      <Title title="Snippets" />
+      <Head title="Code Snippets" description="Collection of useful code snippets." />
+      <Title title="Code Snippets" />
 
       <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {data.map((item) => {
