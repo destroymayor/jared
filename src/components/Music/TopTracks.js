@@ -1,7 +1,6 @@
+import Image from 'next/image';
 import useSWR from 'swr';
 import fetcher from '@/lib/fetcher';
-
-import Image from 'next/image';
 
 import Link from '@/components/Common/Link';
 
@@ -25,11 +24,12 @@ const TopTracks = () => {
 
             <div className="w-[64px] h-[64px] mx-2">
               <Image
+                className="rounded-md"
                 unoptimized
                 alt={item?.album?.title}
                 src={item?.album?.url}
-                width={64}
-                height={64}
+                width={60}
+                height={60}
               />
             </div>
             <div className="flex-grow">

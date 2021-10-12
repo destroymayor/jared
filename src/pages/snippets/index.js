@@ -26,7 +26,7 @@ const Snippets = (props) => {
       <Head title="Snippets" description="Collection of useful snippets." />
       <Title title="Snippets" />
 
-      <ul className="grid flex-col grid-cols-1 gap-4 sm:grid-cols-2">
+      <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {data.map((item) => {
           const { title, category, pathname } = item.data;
           return (

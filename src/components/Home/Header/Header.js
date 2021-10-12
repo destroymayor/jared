@@ -2,12 +2,12 @@ import Image from 'next/image';
 import profileImage from '@/public/images/avatar.jpg';
 
 import Links from '@/components/Home/Header/Links';
-import NowPlaying from '@/components/Common/NowPlaying';
+import NowPlaying from '@/components/Music/NowPlaying';
 import CircleSpring from '@/components/Common/CircleSpring';
 
 const Header = () => {
   return (
-    <section className="relative flex flex-col-reverse items-start gap-4 rounded-md sm:items-center sm:flex-row dark:bg-opacity-0">
+    <section className="relative flex flex-col-reverse items-start gap-4 rounded-md sm:flex-row dark:bg-opacity-0">
       <div className="flex flex-col flex-1 gap-y-4">
         <h1 className="text-2xl sm:text-4xl">Jared Chen</h1>
         <p className="text-md sm:text-lg dark:text-gray-400">
@@ -18,7 +18,7 @@ const Header = () => {
         <NowPlaying />
       </div>
 
-      <div className="w-[100px]">
+      <div className="w-[100px] sm:mt-6">
         <CircleSpring delay={300}>
           <Image
             className="rounded-full"

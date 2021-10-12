@@ -3,7 +3,7 @@ import { memo } from 'react';
 import Head from '@/components/Head/Head';
 
 import Title from '@/components/Title/Title';
-import NowPlaying from '@/components/Common/NowPlaying';
+import NowPlaying from '@/components/Music/NowPlaying';
 import TopTracks from '@/components/Music/TopTracks';
 import FavoriteTracks from '@/components/Music/FavoriteTracks';
 
