@@ -3,13 +3,16 @@ import { memo } from 'react';
 import data from '@/data/quotes';
 
 import Head from '@/components/Head/Head';
-import Title from '@/components/Title/Title';
 
 const Quotes = () => {
+  const title = `Quotes`;
+  const description = `Collection of notable quotes.`;
+
   return (
     <>
-      <Head title="Quotes" description="Collection of notable quotes." />
-      <Title title="Quotes" />
+      <Head title={title} description={description} />
+      <h1 className="text-2xl sm:text-4xl">{title}</h1>
+      <p className="py-4 text-lg sm:text-xl dark:text-gray-400">{description}</p>
 
       <ul className="flex flex-col gap-y-10">
         {data.map((item) => (

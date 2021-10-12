@@ -6,7 +6,6 @@ import path from 'path';
 import { mdxFilePaths } from '@/utils/mdxUtils';
 
 import Head from '@/components/Head/Head';
-import Title from '@/components/Title/Title';
 
 import { JavaScripIcon, ReactIcon } from '@/components/Common/Icons';
 
@@ -21,10 +20,14 @@ const Snippets = (props) => {
     'react-components': <ReactIcon className="w-8 h-8 rounded-full" />,
   };
 
+  const title = `Code Snippets`;
+  const description = `Collection of useful code snippets.`;
+
   return (
     <>
-      <Head title="Code Snippets" description="Collection of useful code snippets." />
-      <Title title="Code Snippets" />
+      <Head title={title} description={description} />
+      <h1 className="text-2xl sm:text-4xl">{title}</h1>
+      <p className="py-4 text-lg sm:text-xl dark:text-gray-400">{description}</p>
 
       <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {data.map((item) => {

@@ -3,13 +3,16 @@ import data from '@/data/bookmarks';
 
 import Head from '@/components/Head/Head';
 import Link from '@/components/Common/Link';
-import Title from '@/components/Title/Title';
 
 const Bookmarks = () => {
+  const title = `Bookmarks`;
+  const description = `Collection of useful tools website.`;
+
   return (
     <>
-      <Head title="Bookmarks" description="Collection of useful tools website." />
-      <Title title="Bookmarks" />
+      <Head title={title} description={description} />
+      <h1 className="text-2xl sm:text-4xl">{title}</h1>
+      <p className="py-4 text-lg sm:text-xl dark:text-gray-400">{description}</p>
 
       <ul className="flex flex-col gap-y-5">
         {data.map((item) => (
