@@ -17,7 +17,7 @@ const CodeBlock = ({ children, className }) => {
     >
       {({ tokens, getLineProps, getTokenProps }) => (
         <div className="flex flex-col items-start my-5">
-          <pre className="p-5 overflow-auto border border-gray-400 rounded-md dark:border-gray-700 w-[95vw] sm:max-w-2xl sm:w-full">
+          <pre className="p-5 overflow-auto border border-gray-400 rounded-md dark:border-gray-700 w-[95vw] sm:max-w-2xl">
             {tokens.map((line, i) => (
               <div key={i} {...getLineProps({ line, key: i })}>
                 {line.map((token, key) => (
