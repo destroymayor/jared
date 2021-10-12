@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import Image from 'next/image';
 import { useSpring, animated } from 'react-spring';
 
@@ -7,8 +8,8 @@ import fetcher from '@/lib/fetcher';
 import Link from '@/components/Common/Link';
 import { SpotifyIcon } from '@/components/Common/Icons';
 
-const AnimatedBars = () => {
-  const bar1Style = useSpring({
+const AnimatedBars = ({ songUrl }) => {
+  const [bar1Style, setBar1Animate] = useSpring(() => ({
     loop: true,
     from: { scaleY: 1.0, translateY: '0rem' },
     to: [
@@ -17,9 +18,9 @@ const AnimatedBars = () => {
       { scaleY: 1.0, translateY: '0rem' },
     ],
     config: { duration: 500 },
-  });
+  }));
 
-  const bar2Style = useSpring({
+  const [bar2Style, setBar2Animate] = useSpring(() => ({
     loop: true,
     from: { scaleY: 1.0, translateY: '0rem' },
     to: [
@@ -29,9 +30,9 @@ const AnimatedBars = () => {
     ],
     delay: 200,
     config: { duration: 300 },
-  });
+  }));
 
-  const bar3Style = useSpring({
+  const [bar3Style, setBar3Animate] = useSpring(() => ({
     loop: true,
     from: { scaleY: 1.0, translateY: '0rem' },
     to: [
@@ -41,9 +42,9 @@ const AnimatedBars = () => {
     ],
     delay: 300,
     config: { duration: 400 },
-  });
+  }));
 
-  const bar4Style = useSpring({
+  const [bar4Style, setBar4Animate] = useSpring(() => ({
     loop: true,
     from: { scaleY: 1.0, translateY: '0rem' },
     to: [
@@ -53,7 +54,23 @@ const AnimatedBars = () => {
     ],
     delay: 200,
     config: { duration: 500 },
-  });
+  }));
+
+  useEffect(() => {
+    if (songUrl) {
+      setBar1Animate.start();
+      setBar2Animate.start();
+      setBar3Animate.start();
+      setBar4Animate.start();
+    }
+
+    if (!songUrl) {
+      setBar1Animate.stop();
+      setBar2Animate.stop();
+      setBar3Animate.stop();
+      setBar4Animate.stop();
+    }
+  }, [songUrl]);
 
   return (
     <div className="flex items-end w-auto overflow-hidden">
@@ -101,7 +118,7 @@ const NowPlaying = () => {
         )}
       </div>
       <div className="flex flex-col flex-auto gap-y-1">
-        {data?.songUrl && <AnimatedBars />}
+        {data?.songUrl && <AnimatedBars songUrl={data?.songUrl} />}
         <div className="flex flex-wrap">
           {data?.songUrl ? (
             <Link className="font-medium" href={data?.songUrl}>
