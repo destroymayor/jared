@@ -75,21 +75,18 @@ const AnimatedBars = ({ songUrl }) => {
   return (
     <div className="flex items-end w-auto overflow-hidden">
       <animated.span
-        className="w-[3px] h-2 mr-[1px] bg-gray-300 dark:bg-gray-500 opacity-75"
+        className="w-[3px] h-2 mr-[1px] bg-gray-800 dark:bg-gray-500 opacity-75"
         style={bar1Style}
       />
       <animated.span
-        className="w-[3px] h-1 mr-[1px]  bg-gray-300 dark:bg-gray-500"
+        className="w-[3px] h-1 mr-[1px] bg-gray-800 dark:bg-gray-500"
         style={bar2Style}
       />
       <animated.span
-        className="w-[3px] h-3 mr-[1px] bg-gray-300 dark:bg-gray-500 opacity-80"
+        className="w-[3px] h-3 mr-[1px] bg-gray-800 dark:bg-gray-500 opacity-80"
         style={bar3Style}
       />
-      <animated.span
-        className="w-[3px] h-3 bg-gray-300 dark:bg-gray-500 opacity-80"
-        style={bar4Style}
-      />
+      <animated.span className="w-[3px] h-3 bg-gray-800 dark:bg-gray-500" style={bar4Style} />
     </div>
   );
 };

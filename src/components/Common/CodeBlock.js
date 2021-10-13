@@ -37,7 +37,7 @@ const CodeBlock = ({ children, className }) => {
     >
       {({ tokens, getLineProps, getTokenProps }) => (
         <div
-          className="relative flex flex-col items-start my-5 border border-gray-400 rounded-md pr-14 dark:border-gray-700"
+          className="relative flex flex-col items-start my-5 border border-gray-400 rounded-md sm:pr-14 dark:border-gray-700"
           onMouseEnter={onEnter}
           onMouseLeave={onExit}
         >
@@ -45,7 +45,7 @@ const CodeBlock = ({ children, className }) => {
             aria-label="Copy code"
             type="button"
             onClick={onCopy}
-            className={`absolute p-1 transition duration-150 ease-in-out rounded-md right-2 top-3 text-gray-500 hover:bg-gray-300 dark:text-gray-300 dark:hover:bg-gray-600 ${
+            className={`hidden sm:block absolute p-1 transition duration-150 ease-in-out rounded-md right-2 top-3 text-gray-500 hover:bg-gray-300 dark:text-gray-300 dark:hover:bg-gray-600 ${
               copied && 'text-green-600 dark:text-green-600'
             } ${hovered ? 'visible' : 'invisible'}`}
           >
