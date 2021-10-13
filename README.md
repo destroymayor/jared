@@ -1,4 +1,4 @@
-# [jared-chen.me](jared-chen.me)
+# [jared-chen.me](https://jared-chen.me)
 
 Personal website.
 
