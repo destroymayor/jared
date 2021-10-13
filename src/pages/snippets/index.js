@@ -1,24 +1,17 @@
 import router from 'next/router';
-
 import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
-import { mdxFilePaths } from '@/utils/mdxUtils';
 
 import Head from '@/components/Head/Head';
 
-import { JavaScripIcon, ReactIcon } from '@/components/Common/Icons';
+import iconMapping from '@/utils/iconMapping';
+import { mdxFilePaths } from '@/utils/mdxUtils';
 
 const Snippets = (props) => {
   const { data } = props;
 
   const handleNavigation = (pathname) => router.push(pathname);
-
-  const iconMap = {
-    javascript: <JavaScripIcon className="w-8 h-8 rounded-full" />,
-    'react-hooks': <ReactIcon className="w-8 h-8 rounded-full" />,
-    'react-components': <ReactIcon className="w-8 h-8 rounded-full" />,
-  };
 
   const title = `Code Snippets`;
   const description = `Collection of useful code snippets.`;
@@ -31,7 +24,7 @@ const Snippets = (props) => {
 
       <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {data.map((item) => {
-          const { title, category, pathname } = item.data;
+          const { title, description, category, pathname } = item.data;
           return (
             <li
               key={title + category}
@@ -39,11 +32,10 @@ const Snippets = (props) => {
               className="flex flex-col gap-2 p-4 ease-out border border-gray-300 rounded-md cursor-pointer dark:border-gray-700 "
               onClick={() => handleNavigation(pathname)}
             >
-              <span>{iconMap?.[category]}</span>
-              <h3 className="text-xl text-blue-500">{title}</h3>
-              <div className="">
-                <span className="text-sm font-semibold tracking-wide">Category: </span>
-                <span>{category}</span>
+              <span>{iconMapping?.[category]}</span>
+              <h3 className="text-xl font-bold">{title}</h3>
+              <div className="text-gray-600 dark:text-gray-400">
+                <span>{description}</span>
               </div>
             </li>
           );
