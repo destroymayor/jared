@@ -14,7 +14,7 @@ const CodeBlock = ({ children, className }) => {
   const [copied, setCopied] = useState(false);
 
   const language = className.replace(/language-/, '');
-  const { theme } = useTheme();
+  const { resolvedTheme } = useTheme();
 
   const onEnter = () => setHovered(true);
 
@@ -31,7 +31,7 @@ const CodeBlock = ({ children, className }) => {
   return (
     <Highlight
       {...defaultProps}
-      theme={theme === 'dark' ? vsDark : vsLight}
+      theme={resolvedTheme === 'dark' ? vsDark : vsLight}
       code={children}
       language={language}
     >
