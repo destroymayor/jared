@@ -2,7 +2,6 @@ import Image from 'next/image';
 import profileImage from '@/public/images/avatar.jpg';
 
 import Links from '@/components/Home/Header/Links';
-import NowPlaying from '@/components/Music/NowPlaying';
 import CircleSpring from '@/components/Common/CircleSpring';
 
 const Header = () => {
@@ -15,7 +14,6 @@ const Header = () => {
         </p>
 
         <Links />
-        <NowPlaying />
       </div>
 
       <div className="w-[100px] sm:mt-6">

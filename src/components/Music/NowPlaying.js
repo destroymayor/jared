@@ -94,12 +94,10 @@ const AnimatedBars = ({ songUrl }) => {
 const NowPlaying = () => {
   const { data } = useSWR('/api/now-playing', fetcher);
 
-  const isLoading = !data;
-
   return (
     <div className="flex items-center gap-x-3">
-      <div className="flex-none flex items-center justify-center w-[60px] h-[60px]">
-        {data?.albumImageUrl ? (
+      {data?.albumImageUrl ? (
+        <div className="flex-none flex items-center justify-center w-[60px] h-[60px]">
           <Image
             className="rounded-md"
             unoptimized
@@ -108,10 +106,13 @@ const NowPlaying = () => {
             width={60}
             height={60}
           />
-        ) : (
-          <SpotifyIcon className="w-8 h-8" />
-        )}
-      </div>
+        </div>
+      ) : (
+        <div className="flex-none w-6 h-6">
+          <SpotifyIcon className="w-6 h-6" />
+        </div>
+      )}
+
       <div className="flex flex-col flex-auto gap-y-1">
         {data?.songUrl && <AnimatedBars songUrl={data?.songUrl} />}
         <div className="flex flex-wrap">
