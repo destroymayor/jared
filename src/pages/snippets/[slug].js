@@ -39,9 +39,9 @@ export default function SnippetPage(props) {
     <>
       <Head title="Snippets" />
       <MDXProvider components={components}>
-        <div className="flex flex-col gap-y-5">
+        <div className="flex flex-col items-start gap-y-5">
           <button onClick={handleBack} className="flex items-center text-lg text-blue-600">
-            <ChevronLeftIcon className="w-6 h-6" /> <span>Back</span>
+            <ChevronLeftIcon className="w-6 h-6" /> <span className="pr-2">Back</span>
           </button>
           <h1 className="text-2xl sm:text-3xl">{frontMatter.title}</h1>
           <p className="text-gray-600 text-md sm:text-lg dark:text-gray-400">
