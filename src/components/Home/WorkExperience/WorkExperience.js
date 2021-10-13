@@ -21,24 +21,22 @@ const WorkExperience = () => {
             </div>
 
             <p className="text-sm dark:text-gray-400">
-              {item.description}
+              <span className="pr-2">{item.description}</span>
 
-              <span className="flex py-1">
-                {item.projects.map((project, index, { length, lastIndex = length - 1 }) => (
-                  <Fragment key={project.product}>
-                    <span>
-                      <Link
-                        className="underline"
-                        href={project?.link ?? '/'}
-                        aria-label={project.product}
-                      >
-                        <span>{project.product}</span>
-                      </Link>
-                    </span>
-                    {index !== lastIndex && <span className="pr-1">,</span>}
-                  </Fragment>
-                ))}
-              </span>
+              {item.projects.map((project, index, { length, lastIndex = length - 1 }) => (
+                <Fragment key={project.product}>
+                  <span>
+                    <Link
+                      className="underline"
+                      href={project?.link ?? '/'}
+                      aria-label={project.product}
+                    >
+                      <span>{project.product}</span>
+                    </Link>
+                  </span>
+                  <span className="pr-1">{index !== lastIndex ? ',' : '.'}</span>
+                </Fragment>
+              ))}
             </p>
           </li>
         ))}
