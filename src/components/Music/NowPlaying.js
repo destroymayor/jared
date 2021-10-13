@@ -96,8 +96,6 @@ const NowPlaying = () => {
 
   const isLoading = !data;
 
-  if (isLoading) return null;
-
   return (
     <div className="flex items-center gap-x-3">
       <div className="flex-none flex items-center justify-center w-[60px] h-[60px]">

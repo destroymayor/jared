@@ -7,8 +7,6 @@ import Link from '@/components/Common/Link';
 const TopTracks = () => {
   const { data } = useSWR('/api/top-tracks', fetcher);
 
-  if (!data) return null;
-
   return (
     <div className="flex flex-col mt-6 gap-y-2">
       <h2 className="text-2xl">Top Tracks</h2>
