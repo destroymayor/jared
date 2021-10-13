@@ -3,6 +3,7 @@ import profileImage from '@/public/images/avatar.jpg';
 
 import Links from '@/components/Home/Header/Links';
 import CircleSpring from '@/components/Common/CircleSpring';
+import NowPlaying from '@/components/Music/NowPlaying';
 
 const Header = () => {
   return (
@@ -14,6 +15,7 @@ const Header = () => {
         </p>
 
         <Links />
+        <NowPlaying />
       </div>
 
       <div className="w-[100px] sm:mt-6">

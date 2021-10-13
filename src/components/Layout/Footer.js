@@ -3,13 +3,10 @@ import { memo } from 'react';
 import routes from '@/data/routes';
 
 import Link from '@/components/Common/Link';
-import NowPlaying from '@/components/Music/NowPlaying';
 
 const Footer = () => (
-  <footer className="flex flex-col flex-shrink-0 w-11/12 py-8 sm:max-w-2xl border-t-[1px] border-gray-700">
-    <NowPlaying />
-
-    <ul className="grid w-full grid-cols-1 py-5 gap-y-4 sm:grid-cols-2">
+  <footer className="flex flex-col flex-shrink-0 w-11/12 pt-6 pb-8 sm:max-w-2xl border-t-[1px] border-gray-700">
+    <ul className="grid w-full grid-cols-1 gap-y-4 sm:grid-cols-2">
       {routes.map((item) => (
         <li key={item?.pathname}>
           <Link
@@ -23,7 +20,7 @@ const Footer = () => (
       ))}
     </ul>
 
-    <div className="text-xs text-gray-600 dark:text-gray-300">
+    <div className="pt-6 text-xs text-gray-600 dark:text-gray-300">
       © {new Date().getFullYear()} Jared Chen. All Rights Reserved.
     </div>
   </footer>

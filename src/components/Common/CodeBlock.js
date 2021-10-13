@@ -52,7 +52,7 @@ const CodeBlock = ({ children, className }) => {
             {copied ? <CheckIcon className="w-8 h-8" /> : <DuplicateIcon className="w-8 h-8" />}
           </button>
 
-          <pre ref={textInput} className="p-5 overflow-auto w-[95vw] sm:max-w-xl">
+          <pre ref={textInput} className="p-5 overflow-auto w-[90vw] sm:w-[95vw] sm:max-w-xl">
             {tokens.map((line, i) => (
               <div key={i} {...getLineProps({ line, key: i })}>
                 {line.map((token, key) => (

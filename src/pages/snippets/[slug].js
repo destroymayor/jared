@@ -1,4 +1,5 @@
 /* eslint-disable react/display-name */
+import router from 'next/router';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
@@ -12,7 +13,7 @@ import { MDXProvider } from '@mdx-js/react';
 import { MDXRemote } from 'next-mdx-remote';
 import { mdxFilePaths } from '@/utils/mdxUtils';
 
-import { LinkIcon } from '@heroicons/react/outline';
+import { ChevronLeftIcon, LinkIcon } from '@heroicons/react/outline';
 
 const components = {
   h2: (props) => {
@@ -32,14 +33,20 @@ const components = {
 export default function SnippetPage(props) {
   const { source, frontMatter } = props;
 
+  const handleBack = () => router.replace('/snippets');
+
   return (
     <>
       <Head title="Snippets" />
       <MDXProvider components={components}>
-        <div className="flex flex-col items-center gap-y-5">
-          <h3 className="text-lg text-blue-600">SNIPPET</h3>
-          <h1 className="text-3xl text-center">{frontMatter.title}</h1>
-          <p className="text-xl text-center">{frontMatter.description}</p>
+        <div className="flex flex-col gap-y-5">
+          <button onClick={handleBack} className="flex items-center text-lg text-blue-600">
+            <ChevronLeftIcon className="w-6 h-6" /> <span>Back</span>
+          </button>
+          <h1 className="text-2xl sm:text-3xl">{frontMatter.title}</h1>
+          <p className="text-gray-600 text-md sm:text-lg dark:text-gray-400">
+            {frontMatter.description}
+          </p>
           <ul className="flex gap-2">
             {frontMatter.techStack.map((item) => (
               <li key={item} className="px-2 py-1 text-gray-100 bg-blue-600 rounded-md">
