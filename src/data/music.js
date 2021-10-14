@@ -1,11 +1,11 @@
-import lanternsImage from '@/public/images/music/lanterns.jpg';
-import aliveImage from '@/public/images/music/alive.jpg';
-import lastForeverImage from '@/public/images/music/last-forever.jpg';
-import technicolorImage from '@/public/images/music/technicolor.jpg';
-import waveFromMeImage from '@/public/images/music/wave-from-me.jpg';
-import remedyImage from '@/public/images/music/remedy.jpg';
-import sunsetImage from '@/public/images/music/sunset.jpg';
-import jasonImage from '@/public/images/music/jason.jpg';
+import lanternsImage from '@/public/images/music/lanterns.webp';
+import aliveImage from '@/public/images/music/alive.webp';
+import lastForeverImage from '@/public/images/music/last-forever.webp';
+import technicolorImage from '@/public/images/music/technicolor.webp';
+import waveFromMeImage from '@/public/images/music/wave-from-me.webp';
+import remedyImage from '@/public/images/music/remedy.webp';
+import sunsetImage from '@/public/images/music/sunset.webp';
+import jasonImage from '@/public/images/music/jason.webp';
 
 const data = [
   {

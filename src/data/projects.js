@@ -1,5 +1,5 @@
-import movieAppImage from '@/public/images/projects/movie-app.jpg';
-import fakeFacebookImage from '@/public/images/projects/fake-facebook.jpg';
+import movieAppImage from '@/public/images/projects/movie-app.webp';
+import fakeFacebookImage from '@/public/images/projects/fake-facebook.webp';
 
 const data = [
   {
