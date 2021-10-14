@@ -1,0 +1,28 @@
+---
+title: Grid gallery
+description: How to create main picture + bottom thumbnails design with Grid.
+category: css
+pathname: /snippets/grid-gallery
+techStack: ['CSS']
+---
+
+```html
+<div class="gallery">
+  <img src="./public/image1.jpg" />
+  <img src="./public/image2.jpg" />
+  <img src="./public/image3.jpg" />
+  <img src="./public/image4.jpg" />
+</div>
+```
+
+```css
+.gallery {
+  display: grid;
+  justify-content: center;
+  grid-gap: 15px;
+}
+
+.gallery img:first-child {
+  grid-column: span 3;
+}
+```
