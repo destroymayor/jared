@@ -53,7 +53,9 @@ export default function SnippetPage(props) {
               </li>
             ))}
           </ul>
-          <MDXRemote {...source} lazy />
+          <div className="w-full">
+            <MDXRemote {...source} lazy />
+          </div>
         </div>
       </MDXProvider>
     </>
