@@ -77,6 +77,19 @@ const AnimatedBars = () => {
 const NowPlaying = () => {
   const { data } = useSWR('/api/now-playing', fetcher);
 
+  const isLoading = !data;
+
+  if (isLoading)
+    return (
+      <div className="flex items-center animate-pulse gap-x-3">
+        <div className="bg-gray-600 rounded-md w-14 h-14"></div>
+        <div className="flex flex-col gap-2">
+          <div className="w-12 h-4 bg-gray-600 rounded-md"></div>
+          <div className="w-32 h-4 bg-gray-600 rounded-md"></div>
+        </div>
+      </div>
+    );
+
   return (
     <div className="flex items-center gap-x-3">
       {data?.albumImageUrl ? (
