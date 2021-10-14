@@ -36,8 +36,8 @@ const TopTracks = () => {
                 <Image
                   className="rounded-md"
                   unoptimized
-                  alt={item?.album?.title}
-                  src={item?.album?.url}
+                  alt={item?.album?.name}
+                  src={item?.album?.image?.url}
                   width={60}
                   height={60}
                 />

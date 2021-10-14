@@ -10,7 +10,10 @@ export default async function handler(req, res) {
   const { items } = await response.json();
 
   const tracks = items.map(({ track }) => ({
-    album: track?.album?.images.filter((image) => image.width === 64)?.[0],
+    album: {
+      name: track?.album?.name,
+      image: track?.album?.images.filter((image) => image.width === 64)?.[0],
+    },
     artist: track?.artists?.map((_artist) => _artist.name).join(', '),
     songUrl: track?.external_urls?.spotify,
     title: track?.name,

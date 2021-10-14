@@ -5,14 +5,13 @@ import path from 'path';
 import matter from 'gray-matter';
 import { serialize } from 'next-mdx-remote/serialize';
 
-import Head from '@/components/Head/Head';
-import CodeBlock from '@/components/Common/CodeBlock';
-import Link from '@/components/Common/Link';
-
 import { MDXProvider } from '@mdx-js/react';
 import { MDXRemote } from 'next-mdx-remote';
 import { mdxFilePaths } from '@/utils/mdxUtils';
 
+import Head from '@/components/Head/Head';
+import CodeBlock from '@/components/Common/CodeBlock';
+import Link from '@/components/Common/Link';
 import { ChevronLeftIcon, LinkIcon } from '@heroicons/react/outline';
 
 const components = {
