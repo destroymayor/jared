@@ -12,7 +12,7 @@ const Quotes = () => {
     <>
       <Head title={title} description={description} />
       <h1 className="text-2xl sm:text-4xl">{title}</h1>
-      <p className="py-4 text-lg sm:text-xl dark:text-gray-400">{description}</p>
+      <p className="py-4 text-md sm:text-lg dark:text-gray-400">{description}</p>
 
       <ul className="flex flex-col gap-y-10">
         {data.map((item) => (

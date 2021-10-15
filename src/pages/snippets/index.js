@@ -20,7 +20,7 @@ const Snippets = (props) => {
     <>
       <Head title={title} description={description} />
       <h1 className="text-2xl sm:text-4xl">{title}</h1>
-      <p className="py-4 text-lg sm:text-xl dark:text-gray-400">{description}</p>
+      <p className="py-4 text-md sm:text-lg dark:text-gray-400">{description}</p>
 
       <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {data.map((item) => {
@@ -29,7 +29,7 @@ const Snippets = (props) => {
             <li
               key={title + category}
               aria-hidden
-              className="flex flex-col gap-2 p-4 ease-out border border-gray-300 rounded-md cursor-pointer dark:border-gray-700"
+              className="flex flex-col gap-2 p-4 ease-out border border-gray-300 rounded-md cursor-pointer dark:border-gray-700 transition duration-150 hover:scale-[1.05]"
               onClick={() => handleNavigation(pathname)}
             >
               <span>{iconMapping?.[category]}</span>
