@@ -109,19 +109,19 @@ const NowPlaying = () => {
         </div>
       )}
 
-      <div className="flex flex-col flex-auto gap-y-1">
+      <div className="flex flex-col flex-auto w-3/5 gap-y-1 md:w-full">
         {data?.songUrl && <AnimatedBars />}
-        <div className="flex flex-wrap">
+        <div className="flex flex-col">
           {data?.songUrl ? (
-            <Link className="font-medium" href={data?.songUrl}>
+            <Link className="font-medium truncate md:overflow-clip" href={data?.songUrl}>
               {data.title}
             </Link>
           ) : (
             <p className="font-medium">Not Playing</p>
           )}
-
-          <span className="mx-2 ">{' – '}</span>
-          <p className="text-gray-500 dark:text-gray-400 max-w-max">{data?.artist ?? 'Spotify'}</p>
+          <p className="text-gray-500 truncate md:overflow-clip dark:text-gray-400 max-w-max">
+            {data?.artist ?? 'Spotify'}
+          </p>
         </div>
       </div>
     </div>

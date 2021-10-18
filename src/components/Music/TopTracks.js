@@ -42,15 +42,13 @@ const TopTracks = () => {
                   height={60}
                 />
               </div>
-              <div className="flex-grow">
-                {item?.songUrl ? (
-                  <Link className="font-medium" href={item?.songUrl}>
-                    {item.title}
-                  </Link>
-                ) : (
-                  <p className="font-medium">Not Playing</p>
-                )}
-                <p className="text-gray-500 dark:text-gray-400">{item?.artist ?? 'Spotify'}</p>
+              <div className="flex flex-col flex-grow w-3/5 md:w-full">
+                <Link className="font-medium truncate md:overflow-clip" href={item?.songUrl}>
+                  {item.title}
+                </Link>
+                <p className="text-gray-500 truncate dark:text-gray-400 md:overflow-clip">
+                  {item?.artist ?? 'Spotify'}
+                </p>
               </div>
             </li>
           ))}
