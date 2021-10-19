@@ -1,5 +1,5 @@
 import movieAppImage from '@/public/images/projects/movie-app.webp';
-import convertImageToWebpImage from '@/public/images/projects/convert-image-to-webp.webp';
+import imageConverterImage from '@/public/images/projects/image-converter.webp';
 import fakeFacebookImage from '@/public/images/projects/fake-facebook.webp';
 
 const data = [
@@ -14,7 +14,7 @@ const data = [
     },
   },
   {
-    image: convertImageToWebpImage.src,
+    image: imageConverterImage.src,
     title: 'Image Converter',
     description: 'A simple image convert tool',
     links: {
