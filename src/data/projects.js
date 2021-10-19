@@ -15,11 +15,11 @@ const data = [
   },
   {
     image: convertImageToWebpImage.src,
-    title: 'Convert Image to webp tool',
-    description: 'A Simple .webp Convert tool',
+    title: 'Image Converter',
+    description: 'A simple image convert tool',
     links: {
       repo: 'https://github.com/destroymayor/image-converter',
-      demo: 'https://simple-image-converter.vercel.app/',
+      demo: 'https://simple-image-converter.vercel.app',
     },
   },
   {
