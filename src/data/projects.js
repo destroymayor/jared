@@ -18,8 +18,8 @@ const data = [
     title: 'Convert Image to webp tool',
     description: 'A Simple .webp Convert tool',
     links: {
-      repo: 'https://github.com/destroymayor/convert-image-to-webp',
-      demo: 'https://convert-image-to-webp.vercel.app',
+      repo: 'https://github.com/destroymayor/image-converter',
+      demo: 'https://simple-image-converter.vercel.app/',
     },
   },
   {
