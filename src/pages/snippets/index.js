@@ -5,7 +5,7 @@ import path from 'path';
 
 import Head from '@/components/Head/Head';
 
-import iconMapping from '@/utils/iconMapping';
+import languageMapping  from '@/utils/language-mapping';
 import { mdxFilePaths } from '@/utils/mdxUtils';
 
 const Snippets = (props) => {
@@ -32,7 +32,7 @@ const Snippets = (props) => {
               className="flex flex-col gap-2 p-4 ease-out border border-gray-300 rounded-md cursor-pointer dark:border-gray-700 transition duration-150 hover:scale-[1.05]"
               onClick={() => handleNavigation(pathname)}
             >
-              <span>{iconMapping?.[category]}</span>
+              <span>{languageMapping?.[category]?.icon}</span>
               <h3 className="text-xl font-bold">{title}</h3>
               <div className="text-gray-600 dark:text-gray-400">
                 <span>{description}</span>

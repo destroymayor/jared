@@ -1,8 +1,18 @@
+import spotifyCloneImage from '@/public/images/projects/spotify-clone.webp'
 import movieAppImage from '@/public/images/projects/movie-app.webp';
 import imageConverterImage from '@/public/images/projects/image-converter.webp';
 import fakeFacebookImage from '@/public/images/projects/fake-facebook.webp';
 
 const data = [
+  {
+    image: spotifyCloneImage.src,
+    title: 'Spotify Clone',
+    description: 'A clone project of the Spotify web player.',
+    links: {
+      repo: 'https://github.com/destroymayor/spotify-clone',
+      demo: 'https://spotify-clone-demo.vercel.app',
+    },
+  },
   {
     image: movieAppImage.src,
     title: 'Movie App',

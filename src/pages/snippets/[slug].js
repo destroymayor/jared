@@ -8,6 +8,7 @@ import { serialize } from 'next-mdx-remote/serialize';
 import { MDXProvider } from '@mdx-js/react';
 import { MDXRemote } from 'next-mdx-remote';
 import { mdxFilePaths } from '@/utils/mdxUtils';
+import languageMapping from '@/utils/language-mapping';
 
 import Head from '@/components/Head/Head';
 import CodeBlock from '@/components/Common/CodeBlock';
@@ -48,7 +49,14 @@ export default function SnippetPage(props) {
           </p>
           <ul className="flex gap-2">
             {frontMatter.techStack.map((item) => (
-              <li key={item} className="px-2 py-1 text-gray-100 bg-blue-600 rounded-md">
+              <li
+                key={item}
+                className="px-2 py-1 text-gray-100 rounded-md"
+                style={{
+                  backgroundColor: languageMapping?.[frontMatter.category]?.styles?.bg,
+                  color: languageMapping?.[frontMatter.category]?.styles?.color,
+                }}
+              >
                 {item}
               </li>
             ))}

@@ -1,5 +1,4 @@
 import Header from '@/components/Layout/Header';
-import Footer from '@/components/Layout/Footer';
 
 const Layout = (props) => {
   const { children } = props;
@@ -11,7 +10,6 @@ const Layout = (props) => {
         <main className="flex-grow w-11/12 pb-8 text-gray-700 sm:max-w-2xl dark:text-gray-300">
           {children}
         </main>
-        <Footer />
       </div>
     </>
   );

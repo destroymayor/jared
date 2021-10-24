@@ -77,7 +77,7 @@ const data = [
       },
       {
         title: 'Excalidraw',
-        description: 'Excalidraw is a virtual collaborative whiteboard tool.',
+        description: 'A virtual collaborative whiteboard tool.',
         link: 'https://excalidraw.com',
       },
     ],
