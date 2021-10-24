@@ -3,7 +3,6 @@ import profileImage from '@/public/images/avatar.jpg';
 
 import Links from '@/components/Home/Header/Links';
 import CircleSpring from '@/components/Common/CircleSpring';
-import NowPlaying from '@/components/Music/NowPlaying';
 
 const Header = () => {
   return (
@@ -13,9 +12,7 @@ const Header = () => {
           <h1 className="text-2xl sm:text-4xl">Jared Chen</h1>
           <p className="text-md sm:text-lg dark:text-gray-400">Front-end developer</p>
         </div>
-
         <Links />
-        <NowPlaying />
       </div>
 
       <div className="w-[100px] sm:mt-6">
