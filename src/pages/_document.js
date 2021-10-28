@@ -7,8 +7,11 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <link
-            href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap"
-            rel="stylesheet"
+            rel="preload"
+            href="/fonts/source-code-pro.ttf"
+            as="font"
+            type="font/ttf"
+            crossOrigin="anonymous"
           />
         </Head>
 

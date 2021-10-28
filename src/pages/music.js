@@ -4,21 +4,14 @@ import Head from '@/components/Head/Head';
 
 import useSWR from 'swr';
 import fetcher from '@/lib/fetcher';
-import { getNowPlaying, getTopTracks } from '@/lib/spotify';
 
 import NowPlaying from '@/components/Music/NowPlaying';
 import TopTracks from '@/components/Music/TopTracks';
 import FavoriteTracks from '@/components/Music/FavoriteTracks';
 
-const Music = (props) => {
-  const { getNowPlayingData, getTopTracksData } = props;
-
-  const { data: nowPlayingData } = useSWR('/api/now-playing', fetcher, {
-    fallbackData: getNowPlayingData,
-  });
-  const { data: topTracksData } = useSWR('/api/top-tracks', fetcher, {
-    fallbackData: getTopTracksData,
-  });
+const Music = () => {
+  const { data: nowPlayingData } = useSWR('/api/now-playing', fetcher);
+  const { data: topTracksData } = useSWR('/api/top-tracks', fetcher);
 
   const title = `Music`;
   const description = `Collection of electronic dance music.`;
@@ -34,22 +27,6 @@ const Music = (props) => {
       <FavoriteTracks />
     </>
   );
-};
-
-export const getStaticProps = async () => {
-  const nowPlayingResponse = await getNowPlaying();
-  const topTracksResponse = await getTopTracks();
-
-  const getNowPlayingData = await nowPlayingResponse.json().then((res) => res);
-  const getTopTracksData = await topTracksResponse.json().then((res) => res);
-
-  return {
-    props: {
-      getNowPlayingData,
-      getTopTracksData,
-    },
-    revalidate: 60,
-  };
 };
 
 export default memo(Music);
