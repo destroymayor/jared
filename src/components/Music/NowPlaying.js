@@ -1,9 +1,6 @@
 import Image from 'next/image';
 import { useSpring, animated } from 'react-spring';
 
-import useSWR from 'swr';
-import fetcher from '@/lib/fetcher';
-
 import Link from '@/components/Common/Link';
 import { SpotifyIcon } from '@/components/Common/Icons';
 
@@ -74,8 +71,8 @@ const AnimatedBars = () => {
   );
 };
 
-const NowPlaying = () => {
-  const { data } = useSWR('/api/now-playing', fetcher);
+const NowPlaying = (props) => {
+  const { data } = props;
 
   const isLoading = !data;
 

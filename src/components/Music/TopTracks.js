@@ -1,11 +1,9 @@
 import Image from 'next/image';
-import useSWR from 'swr';
-import fetcher from '@/lib/fetcher';
 
 import Link from '@/components/Common/Link';
 
-const TopTracks = () => {
-  const { data } = useSWR('/api/top-tracks', fetcher);
+const TopTracks = (props) => {
+  const { data } = props;
 
   const isLoading = !data;
 
