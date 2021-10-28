@@ -5,8 +5,8 @@ import path from 'path';
 
 import Head from '@/components/Head/Head';
 
-import languageMapping  from '@/utils/language-mapping';
-import { mdxFilePaths } from '@/utils/mdxUtils';
+import languageMapping from '@/utils/language-mapping';
+import { mdxFilePaths } from '@/utils/mdx-utils';
 
 const Snippets = (props) => {
   const { data } = props;

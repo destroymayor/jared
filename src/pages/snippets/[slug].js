@@ -7,7 +7,7 @@ import { serialize } from 'next-mdx-remote/serialize';
 
 import { MDXProvider } from '@mdx-js/react';
 import { MDXRemote } from 'next-mdx-remote';
-import { mdxFilePaths } from '@/utils/mdxUtils';
+import { mdxFilePaths } from '@/utils/mdx-utils';
 import languageMapping from '@/utils/language-mapping';
 
 import Head from '@/components/Head/Head';
