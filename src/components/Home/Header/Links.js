@@ -4,17 +4,14 @@ import data from '@/data/contact';
 
 const Links = () => {
   return (
-    <ul className="flex items-center">
+    <ul className="flex flex-col justify-center gap-2">
       {data.map((item) => (
-        <li key={item.link}>
-          <Link
-            className="flex items-center p-2 transition duration-200 ease-in-out origin-center transform rounded-full hover:bg-blue-500 hover:text-gray-200 dark:hover:bg-blue-500 hover:scale-150"
-            href={item.link}
-            aria-label={item.label}
-          >
+        <Link key={item.link} href={item.link} aria-label={item.label}>
+          <li className="flex items-center gap-2 py-2 transition duration-200 ease-in-out hover:text-gray-400">
             {item.icon}
-          </Link>
-        </li>
+            {item.title}
+          </li>
+        </Link>
       ))}
     </ul>
   );

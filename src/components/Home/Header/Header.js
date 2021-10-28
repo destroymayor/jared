@@ -6,7 +6,7 @@ import CircleSpring from '@/components/Common/CircleSpring';
 
 const Header = () => {
   return (
-    <section className="relative flex flex-col-reverse items-start gap-4 pt-10 rounded-md sm:pt-32 sm:flex-row dark:bg-opacity-0">
+    <section className="relative flex flex-col-reverse items-start gap-4 pt-4 rounded-md sm:pt-20 sm:flex-row dark:bg-opacity-0">
       <div className="flex flex-col flex-1 gap-y-4">
         <div>
           <h1 className="text-2xl sm:text-4xl">Jared Chen</h1>
