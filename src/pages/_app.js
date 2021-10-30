@@ -3,6 +3,7 @@ import '@/styles/globals.css';
 
 import { ThemeProvider } from 'next-themes';
 import Layout from '@/components/Layout/Layout';
+import Head from '@/components/Head/Head';
 
 import NProgress from '@/components/Common/NProgress';
 
@@ -10,13 +11,17 @@ Router.events.on('routeChangeComplete', () => {
   window.scrollTo(0, 0);
 });
 
-const MyApp = ({ Component, pageProps }) => (
-  <ThemeProvider disableTransitionOnChange attribute="class">
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
-    <NProgress />
-  </ThemeProvider>
-);
+const App = ({ Component, pageProps }) => {
 
-export default MyApp;
+  return (
+    <ThemeProvider disableTransitionOnChange attribute="class">
+      <Head title={Component.title} description={Component.description} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+      <NProgress />
+    </ThemeProvider>
+  );
+};
+
+export default App;

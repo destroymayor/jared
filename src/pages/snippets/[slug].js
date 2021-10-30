@@ -30,6 +30,8 @@ const components = {
   code: CodeBlock,
 };
 
+SnippetPage.title = 'Snippets';
+
 export default function SnippetPage(props) {
   const { source, frontMatter } = props;
 

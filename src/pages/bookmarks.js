@@ -1,16 +1,16 @@
-import { memo } from 'react';
 import data from '@/data/bookmarks';
 
-import Head from '@/components/Head/Head';
 import Link from '@/components/Common/Link';
 
-const Bookmarks = () => {
-  const title = `Bookmarks`;
-  const description = `Collection of useful tools website.`;
+const title = `Bookmarks`;
+const description = `Collection of useful tools website.`;
 
+Bookmarks.title = title;
+Bookmarks.description = description;
+
+export default function Bookmarks() {
   return (
     <>
-      <Head title={title} description={description} />
       <h1 className="text-2xl sm:text-4xl">{title}</h1>
       <p className="py-4 text-md sm:text-lg dark:text-gray-400">{description}</p>
 
@@ -45,6 +45,4 @@ const Bookmarks = () => {
       </ul>
     </>
   );
-};
-
-export default memo(Bookmarks);
+}

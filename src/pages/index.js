@@ -1,14 +1,10 @@
-import { memo } from 'react';
-import Head from '@/components/Head/Head';
 import Home from '@/components/Home/Home';
 
-const HomePage = () => {
-  return (
-    <>
-      <Head description="Hey, I'm Jared Chen. I'm a front-end developer." />
-      <Home />
-    </>
-  );
-};
+function HomePage() {
+  return <Home />;
+}
 
-export default memo(HomePage);
+HomePage.title = 'Jared Chen - Frontend Developer';
+HomePage.description = `Hey, I'm Jared Chen. I'm a front-end developer.`;
+
+export default HomePage;

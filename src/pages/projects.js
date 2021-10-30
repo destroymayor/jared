@@ -1,19 +1,18 @@
-import { memo } from 'react';
-
 import data from '@/data/projects';
 
 import Link from '@/components/Common/Link';
-import Head from '@/components/Head/Head';
 import { GithubIcon } from '@/components/Common/Icons';
 import { LinkIcon } from '@heroicons/react/outline';
 
-const Projects = () => {
-  const title = `Projects`;
-  const description = `My side projects.`;
+const title = `Projects`;
+const description = `My side projects.`;
 
+Projects.title = title;
+Projects.description = description;
+
+export default function Projects() {
   return (
     <>
-      <Head title={title} description={description} />
       <h1 className="text-2xl sm:text-4xl">{title}</h1>
       <p className="py-4 text-md sm:text-lg dark:text-gray-400">{description}</p>
 
@@ -49,6 +48,4 @@ const Projects = () => {
       </ul>
     </>
   );
-};
-
-export default memo(Projects);
+}

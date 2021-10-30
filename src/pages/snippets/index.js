@@ -3,22 +3,22 @@ import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
 
-import Head from '@/components/Head/Head';
-
 import languageMapping from '@/utils/language-mapping';
 import { mdxFilePaths } from '@/utils/mdx-utils';
 
-const Snippets = (props) => {
+const title = `Code Snippets`;
+const description = `Collection of useful code snippets.`;
+
+Snippets.title = title;
+Snippets.description = description;
+
+export default function Snippets(props) {
   const { data } = props;
 
   const handleNavigation = (pathname) => router.push(pathname);
 
-  const title = `Code Snippets`;
-  const description = `Collection of useful code snippets.`;
-
   return (
     <>
-      <Head title={title} description={description} />
       <h1 className="text-2xl sm:text-4xl">{title}</h1>
       <p className="py-4 text-md sm:text-lg dark:text-gray-400">{description}</p>
 
@@ -43,7 +43,7 @@ const Snippets = (props) => {
       </ul>
     </>
   );
-};
+}
 
 const MDX_FILE_PATH = path.join(process.cwd(), 'src/data/snippets');
 export function getStaticProps() {
@@ -58,5 +58,3 @@ export function getStaticProps() {
 
   return { props: { data } };
 }
-
-export default Snippets;

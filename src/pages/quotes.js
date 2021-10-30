@@ -1,16 +1,14 @@
-import { memo } from 'react';
-
 import data from '@/data/quotes';
 
-import Head from '@/components/Head/Head';
+const title = `Quotes`;
+const description = `Collection of notable quotes.`;
 
-const Quotes = () => {
-  const title = `Quotes`;
-  const description = `Collection of notable quotes.`;
+Quotes.title = title;
+Quotes.description = description;
 
+export default function Quotes() {
   return (
     <>
-      <Head title={title} description={description} />
       <h1 className="text-2xl sm:text-4xl">{title}</h1>
       <p className="py-4 text-md sm:text-lg dark:text-gray-400">{description}</p>
 
@@ -27,6 +25,4 @@ const Quotes = () => {
       </ul>
     </>
   );
-};
-
-export default memo(Quotes);
+}
