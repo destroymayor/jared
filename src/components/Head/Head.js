@@ -24,7 +24,7 @@ const Head = (props) => {
       <meta name="author" content="Jared Chen" />
 
       {/* URL */}
-      <meta name="og:url" content="https://jared-chen.com" />
+      <meta name="og:url" content="https://jared-chen.me" />
 
       {/* Favicons */}
       <link rel="manifest" href="/favicons/manifest.json" />
