@@ -5,10 +5,6 @@ const Head = (props) => {
 
   return (
     <NextHead>
-      {/* Preconnect */}
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
-
       {/* Title */}
       <title>{`${title ? `${title} - ` : ''}Jared Chen`}</title>
       <meta name="og:title" content={`${title ? `${title} - ` : ''}Jared Chen`} />
