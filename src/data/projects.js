@@ -34,11 +34,11 @@ const data = [
   },
   {
     image: fakeFacebookImage.src,
-    title: 'Fake Facebook',
-    description: 'No description',
+    title: 'Facebook Clone',
+    description: 'A clone project of the Facebook',
     links: {
-      repo: 'https://github.com/destroymayor/fake-facebook',
-      demo: 'https://fake-facebook-gamma.vercel.app',
+      repo: 'https://github.com/destroymayor/facebook-clone',
+      demo: 'https://facebook-clone-demo.vercel.app',
     },
   },
 ];
