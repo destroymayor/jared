@@ -7,7 +7,9 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "pre-commit": "lint-staged",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@heroicons/react": "^1.0.5",
@@ -27,9 +29,15 @@
     "eslint-config-next": "12.0.1",
     "eslint-config-prettier": "^8.3.0",
     "gray-matter": "^4.0.3",
+    "husky": "^7.0.0",
+    "lint-staged": "^11.2.6",
     "postcss": "^8.3.11",
     "prettier": "^2.4.1",
     "prism-react-renderer": "^1.2.1",
     "tailwindcss": "^2.2.17"
+  },
+  "lint-staged": {
+    "*.{js,md,json}": "prettier --write",
+    "*.js": "eslint --fix"
   }
 }
