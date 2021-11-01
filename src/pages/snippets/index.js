@@ -46,6 +46,7 @@ export default function Snippets(props) {
 }
 
 const MDX_FILE_PATH = path.join(process.cwd(), 'src/data/snippets');
+
 export function getStaticProps() {
   const data = mdxFilePaths(MDX_FILE_PATH).map((filePath) => {
     const source = fs.readFileSync(path.join(MDX_FILE_PATH, filePath));

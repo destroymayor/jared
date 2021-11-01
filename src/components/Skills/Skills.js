@@ -1,12 +1,18 @@
 import data from '@/data/skills';
 
-import Title from '@/components/Home/Common/Title';
 import { CodeIcon } from '@heroicons/react/solid';
 
 const Skills = () => {
   return (
     <section className="flex flex-col my-10 gap-y-3">
-      <Title icon={<CodeIcon className="w-6 h-6" />} title="My Skills" />
+      <div className="flex items-center">
+        <span className="w-8">
+          <CodeIcon className="w-6 h-6" />
+        </span>
+        <h3 className="flex items-center justify-start text-lg font-bold sm:text-xl gap-x-2">
+          My Skills
+        </h3>
+      </div>
 
       <ul className="flex flex-col gap-y-2">
         {data.map((item) => (

@@ -12,7 +12,7 @@ export default function Quotes() {
       <h1 className="text-2xl sm:text-4xl">{title}</h1>
       <p className="py-4 text-md sm:text-lg dark:text-gray-400">{description}</p>
 
-      <ul className="flex flex-col gap-y-10">
+      <ul className="flex flex-col pb-20 gap-y-10">
         {data.map((item) => (
           <li key={item.quote} className="flex flex-col gap-y-4">
             <blockquote className="py-3 border-l-4 border-gray-400 dark:border-gray-600">

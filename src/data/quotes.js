@@ -12,14 +12,6 @@ const data = [
     author: 'Wayne Gretzky',
     quote: 'I skate to where the puck is going to be, not where it has been.',
   },
-  {
-    author: 'Spectre - M',
-    quote: 'A license to kill is also a license not to kill.',
-  },
-  {
-    author: 'Spectre - Mr. White',
-    quote: 'You are a kite dancing in a hurricane.',
-  },
 ];
 
 export default data;

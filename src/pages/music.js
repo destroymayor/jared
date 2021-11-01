@@ -8,7 +8,10 @@ import FavoriteTracks from '@/components/Music/FavoriteTracks';
 const title = 'Music';
 const description = `Collection of electronic dance music.`;
 
-function Music() {
+Music.title = title;
+Music.description = description;
+
+export default function Music() {
   const { data: nowPlayingData } = useSWR('/api/now-playing', fetcher);
   const { data: topTracksData } = useSWR('/api/top-tracks', fetcher);
 
@@ -23,8 +26,3 @@ function Music() {
     </>
   );
 }
-
-Music.title = title;
-Music.description = description;
-
-export default Music;

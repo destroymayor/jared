@@ -1,12 +1,10 @@
-import Head from '@/components/Head/Head';
-
 import { EmojiSadIcon } from '@heroicons/react/outline';
 
-const NotFound = () => {
+Custom404.title = 'Page not found';
+
+export default function Custom404() {
   return (
     <>
-      <Head title="Page not found" />
-
       <div className="flex flex-col items-center justify-center h-full gap-y-10">
         <EmojiSadIcon className="w-20 h-20" />
 
@@ -14,6 +12,4 @@ const NotFound = () => {
       </div>
     </>
   );
-};
-
-export default NotFound;
+}

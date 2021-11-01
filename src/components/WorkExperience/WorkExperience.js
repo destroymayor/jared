@@ -4,13 +4,19 @@ import data from '@/data/work-experience';
 
 import Link from '@/components/Common/Link';
 
-import Title from '@/components/Home/Common/Title';
 import { BriefcaseIcon } from '@heroicons/react/solid';
 
 const WorkExperience = () => {
   return (
     <section className="flex flex-col my-10 gap-y-3">
-      <Title icon={<BriefcaseIcon className="w-6 h-6" />} title="Work Experiences" />
+      <div className="flex items-center">
+        <span className="w-8">
+          <BriefcaseIcon className="w-6 h-6" />
+        </span>
+        <h3 className="flex items-center justify-start text-lg font-bold sm:text-xl gap-x-2">
+          Work Experiences
+        </h3>
+      </div>
 
       <ul className="flex flex-col gap-y-2">
         {data.map((item) => (
