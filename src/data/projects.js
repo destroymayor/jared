@@ -1,6 +1,7 @@
-import spotifyCloneImage from '@/public/images/projects/spotify-clone.webp';
 import movieAppImage from '@/public/images/projects/movie-app.webp';
+import memoryCardGameImage from '@/public/images/projects/memory-card-game.webp';
 import imageConverterImage from '@/public/images/projects/image-converter.webp';
+import spotifyCloneImage from '@/public/images/projects/spotify-clone.webp';
 import fakeFacebookImage from '@/public/images/projects/fake-facebook.webp';
 
 const data = [
@@ -12,6 +13,15 @@ const data = [
     links: {
       repo: 'https://github.com/destroymayor/movie-app',
       demo: 'https://movie-app-roan-two.vercel.app',
+    },
+  },
+  {
+    image: memoryCardGameImage.src,
+    title: 'Memory Card Game',
+    description: 'Test your memory with this memory game.',
+    links: {
+      repo: 'https://github.com/destroymayor/memory-card-game',
+      demo: 'https://memory-card-game-demo.vercel.app',
     },
   },
   {
