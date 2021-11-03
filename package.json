@@ -14,8 +14,8 @@
   "dependencies": {
     "@heroicons/react": "^1.0.5",
     "@mdx-js/react": "^1.6.22",
-    "next": "12.0.1",
-    "next-mdx-remote": "^3.0.6",
+    "next": "12.0.2",
+    "next-mdx-remote": "^3.0.7",
     "next-themes": "^0.0.15",
     "nprogress": "^0.2.0",
     "react": "17.0.2",
@@ -24,9 +24,9 @@
     "swr": "^1.0.1"
   },
   "devDependencies": {
-    "autoprefixer": "^10.3.7",
+    "autoprefixer": "^10.4.0",
     "eslint": "7.32.0",
-    "eslint-config-next": "12.0.1",
+    "eslint-config-next": "12.0.2",
     "eslint-config-prettier": "^8.3.0",
     "gray-matter": "^4.0.3",
     "husky": "^7.0.0",
@@ -34,7 +34,7 @@
     "postcss": "^8.3.11",
     "prettier": "^2.4.1",
     "prism-react-renderer": "^1.2.1",
-    "tailwindcss": "^2.2.17"
+    "tailwindcss": "^2.2.19"
   },
   "lint-staged": {
     "*.{js,md,json}": "prettier --write",
