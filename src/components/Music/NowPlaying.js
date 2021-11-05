@@ -1,4 +1,8 @@
 import Image from 'next/image';
+
+import useSWR from 'swr';
+import fetcher from '@/lib/fetcher';
+
 import { useSpring, animated } from 'react-spring';
 
 import Link from '@/components/Common/Link';
@@ -71,8 +75,8 @@ const AnimatedBars = () => {
   );
 };
 
-const NowPlaying = (props) => {
-  const { data } = props;
+const NowPlaying = () => {
+  const { data } = useSWR('/api/now-playing', fetcher);
 
   const isLoading = !data;
 

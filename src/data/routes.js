@@ -4,6 +4,10 @@ const data = [
     pathname: '/',
   },
   {
+    title: 'Dashboard',
+    pathname: '/dashboard',
+  },
+  {
     title: 'Projects',
     pathname: '/projects',
   },
@@ -14,10 +18,6 @@ const data = [
   {
     title: 'Snippets',
     pathname: '/snippets',
-  },
-  {
-    title: 'Music',
-    pathname: '/music',
   },
   {
     title: 'Quotes',
