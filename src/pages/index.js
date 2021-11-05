@@ -4,6 +4,7 @@ import profileImage from '@/public/images/avatar.jpg';
 import Link from '@/components/Common/Link';
 import CircleSpring from '@/components/Common/CircleSpring';
 import WorkExperience from '@/components/WorkExperience/WorkExperience';
+import CodingActive from '@/components/CodingActive/CodingActive';
 
 import data from '@/data/contact';
 
@@ -48,6 +49,7 @@ export default function HomePage() {
       </section>
 
       <WorkExperience />
+      <CodingActive />
     </>
   );
 }

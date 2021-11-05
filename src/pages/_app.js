@@ -1,5 +1,5 @@
 import Router from 'next/router';
-import '@/styles/globals.css';
+import '@/styles/global.css';
 
 import { ThemeProvider } from 'next-themes';
 import Layout from '@/components/Layout/Layout';
@@ -12,7 +12,6 @@ Router.events.on('routeChangeComplete', () => {
 });
 
 const App = ({ Component, pageProps }) => {
-
   return (
     <ThemeProvider disableTransitionOnChange attribute="class">
       <Head title={Component.title} description={Component.description} />
