@@ -39,7 +39,7 @@ export default function Dashboard(props) {
   );
 }
 
-export const getStaticProps = async () => {
+export async function getStaticProps() {
   const readStats = await getReadStats();
   const nowPlaying = await getNowPlaying();
   const topTracks = await getTopTracks();
@@ -52,4 +52,4 @@ export const getStaticProps = async () => {
     },
     revalidate: 120,
   };
-};
+}

@@ -73,7 +73,7 @@ export default function SnippetPage(props) {
 }
 
 const MDX_FILE_PATH = path.join(process.cwd(), 'src/data/snippets');
-export const getStaticProps = async ({ params }) => {
+export async function getStaticProps({ params }) {
   const mdxFilePath = path.join(MDX_FILE_PATH, `${params.slug}.mdx`);
   const source = fs.readFileSync(mdxFilePath);
 
@@ -87,9 +87,9 @@ export const getStaticProps = async ({ params }) => {
     },
     revalidate: 120,
   };
-};
+}
 
-export const getStaticPaths = async () => {
+export async function getStaticPaths() {
   const paths = mdxFilePaths(MDX_FILE_PATH)
     .map((path) => path.replace(/\.mdx?$/, ''))
     .map((slug) => ({ params: { slug } }));
@@ -98,4 +98,4 @@ export const getStaticPaths = async () => {
     paths,
     fallback: false,
   };
-};
+}
