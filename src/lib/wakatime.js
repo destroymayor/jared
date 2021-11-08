@@ -27,10 +27,27 @@ export const getAccessToken = async () => {
 export const getReadStats = async () => {
   const { access_token } = await getAccessToken();
 
-  return fetch(`${STATS_ENDPOINT}/last_7_days`, {
+  const request = await fetch(`${STATS_ENDPOINT}/last_7_days`, {
     method: 'GET',
     headers: {
       Authorization: `Bearer ${access_token}`,
     },
   });
+
+  const status = request.status;
+
+  if (status > 400) {
+    return { status, data: [] };
+  }
+
+  const getData = await request?.json();
+
+  const filterReadStatsData = getData?.data?.languages.filter(
+    (item) => item.minutes > 0 || item.hours > 0
+  );
+
+  return {
+    status,
+    data: filterReadStatsData,
+  };
 };

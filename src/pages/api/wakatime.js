@@ -3,14 +3,7 @@ import { getReadStats } from '@/lib/wakatime';
 export default async function handler(req, res) {
   const response = await getReadStats();
 
-  if (response.status > 400) {
-    return res.status(200).json({ error: 'No data found' });
-  }
+  res.setHeader('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=30');
 
-  const getReadStatsData = await response.json();
-  const filterReadStatsData = getReadStatsData?.data?.languages.filter(
-    (item) => item.minutes > 0 || item.hours > 0
-  );
-
-  return res.status(200).json(filterReadStatsData);
+  return res.status(200).json(response.data);
 }

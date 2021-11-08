@@ -28,20 +28,72 @@ const getAccessToken = async () => {
 export const getNowPlaying = async () => {
   const { access_token } = await getAccessToken();
 
-  return fetch(NOW_PLAYING_ENDPOINT, {
+  const request = await fetch(NOW_PLAYING_ENDPOINT, {
     method: 'GET',
     headers: {
       Authorization: `Bearer ${access_token}`,
     },
   });
+
+  const status = request.status;
+
+  if (status === 204 || status > 400) {
+    return { status, isPlaying: false };
+  }
+
+  const song = await request?.json();
+
+  if (song.item === null) {
+    return { status, isPlaying: false };
+  }
+
+  const isPlaying = song?.is_playing;
+  const title = song?.item?.name;
+  const artist = song?.item?.artists.map((_artist) => _artist.name).join(', ');
+  const album = song?.item?.album.name;
+  const albumImageUrl = song?.item?.album?.images?.filter((image) => image.width === 64)?.[0]?.url;
+  const songUrl = song?.item?.external_urls?.spotify;
+
+  return {
+    status,
+    data: {
+      album,
+      albumImageUrl,
+      artist,
+      isPlaying,
+      songUrl,
+      title,
+    },
+  };
 };
 
 export const getTopTracks = async () => {
   const { access_token } = await getAccessToken();
 
-  return fetch(`${TOP_TRACKS_ENDPOINT}?limit=10`, {
+  const request = await fetch(`${TOP_TRACKS_ENDPOINT}?limit=10`, {
+    method: 'GET',
     headers: {
       Authorization: `Bearer ${access_token}`,
     },
   });
+
+  const status = request.status;
+
+  if (status === 204 || status > 400) {
+    return { status, tracks: [] };
+  }
+
+  const getData = await request?.json();
+
+  const tracks = getData?.items?.map(({ track }) => ({
+    album: {
+      name: track?.album?.name,
+      image: track?.album?.images.filter((image) => image.width === 64)?.[0],
+    },
+    artist: track?.artists?.map((_artist) => _artist.name).join(', '),
+    songUrl: track?.external_urls?.spotify,
+    title: track?.name,
+  }));
+
+  return { status, data: tracks };
 };
