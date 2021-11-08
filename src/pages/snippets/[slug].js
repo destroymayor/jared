@@ -11,7 +11,7 @@ import { mdxFilePaths } from '@/utils/mdx-utils';
 import languageMapping from '@/utils/language-mapping';
 
 import Head from '@/components/Head/Head';
-import CodeBlock from '@/components/Common/CodeBlock';
+import CodeBlock from '@/components/CodeBlock/CodeBlock';
 import Link from '@/components/Common/Link';
 import { ChevronLeftIcon, LinkIcon } from '@heroicons/react/outline';
 

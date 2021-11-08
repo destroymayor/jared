@@ -1,3 +1,5 @@
+import Progress from '@/components/CodingActive/Progress';
+
 import { CodeIcon } from '@heroicons/react/solid';
 
 const CodingActive = (props) => {
@@ -22,15 +24,7 @@ const CodingActive = (props) => {
           >
             <div className="col-span-2 text-sm sm:text-base">{language.name}</div>
             <div className="col-span-2 text-sm sm:text-base">{language.text}</div>
-            <div className="w-full col-span-2 bg-gray-200 rounded-md">
-              <div
-                className="px-1 bg-blue-400 dark:bg-blue-600 rounded-l-md"
-                style={{ width: `${language.percent}%` }}
-              >
-                &ensp;
-              </div>
-            </div>
-            <div className="text-sm sm:text-base">{language.percent}%</div>
+            <Progress percent={language.percent} />
           </li>
         ))}
       </ul>
