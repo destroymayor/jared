@@ -1,8 +1,8 @@
 import querystring from 'querystring';
 
-const client_id = process.env.WAKATIME_CLIEND_ID;
-const client_secret = process.env.WAKATIME_CLIEND_SECRET;
-const refresh_token = process.env.WAKATIME_CLIEND_REFRESH_TOKEN;
+const client_id = process.env.WAKATIME_CLIENT_ID;
+const client_secret = process.env.WAKATIME_CLIENT_SECRET;
+const refresh_token = process.env.WAKATIME_CLIENT_REFRESH_TOKEN;
 
 const STATS_ENDPOINT = 'https://wakatime.com/api/v1/users/current/stats';
 const TOKEN_ENDPOINT = `https://wakatime.com/oauth/token`;
