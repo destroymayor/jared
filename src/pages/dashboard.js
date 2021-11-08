@@ -17,7 +17,7 @@ Dashboard.description = description;
 export default function Dashboard(props) {
   const { readStatsData, nowPlayingData, topTracksData } = props;
 
-  const { data: getWakaTimeData } = useSWR('/api/wakatime', fetcher, {
+  const { data: getReadStatsData } = useSWR('/api/read-stats', fetcher, {
     fallbackData: readStatsData,
   });
   const { data: getNowPlayingData } = useSWR('/api/now-playing', fetcher, {
@@ -33,7 +33,7 @@ export default function Dashboard(props) {
       <p className="py-4 text-md sm:text-lg dark:text-gray-400">{description}</p>
 
       <NowPlaying data={getNowPlayingData} />
-      <CodingActive data={getWakaTimeData} />
+      <CodingActive data={getReadStatsData} />
       <TopTracks data={getTopTracksData} />
     </>
   );
