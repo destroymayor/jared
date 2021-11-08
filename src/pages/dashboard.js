@@ -50,6 +50,6 @@ export async function getStaticProps() {
       nowPlayingData: nowPlaying.data,
       topTracksData: topTracks.data,
     },
-    revalidate: 1,
+    revalidate: 60,
   };
 }

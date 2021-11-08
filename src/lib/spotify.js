@@ -38,13 +38,13 @@ export const getNowPlaying = async () => {
   const status = request.status;
 
   if (status === 204 || status > 400) {
-    return { status, isPlaying: false };
+    return { status, isPlaying: false, data: {} };
   }
 
   const song = await request?.json();
 
-  if (song.item === null) {
-    return { status, isPlaying: false };
+  if (!song.item) {
+    return { status, isPlaying: false, data: {} };
   }
 
   const isPlaying = song?.is_playing;

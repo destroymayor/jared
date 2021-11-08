@@ -36,18 +36,20 @@ export const getReadStats = async () => {
 
   const status = request.status;
 
-  if (status > 400) {
-    return { status, data: [] };
-  }
+  if (status > 400) return { status, data: [] };
 
   const getData = await request?.json();
 
-  const filterReadStatsData = getData?.data?.languages.filter(
+  const filterLanguagesData = getData?.data?.languages.filter(
     (item) => item.minutes > 0 || item.hours > 0
   );
+  const sliceLanguagesData = filterLanguagesData?.slice(0, 4);
 
   return {
     status,
-    data: filterReadStatsData,
+    data: {
+      languages: sliceLanguagesData,
+      operatingSystems: getData?.data?.operating_systems,
+    },
   };
 };
