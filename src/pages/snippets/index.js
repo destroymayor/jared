@@ -24,7 +24,7 @@ export default function Snippets(props) {
 
       <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {data.map((item) => {
-          const { title, description, category, pathname } = item.data;
+          const { title, description, category, pathname } = item;
           return (
             <li
               key={title + category}
@@ -52,9 +52,7 @@ export function getStaticProps() {
     const source = fs.readFileSync(path.join(MDX_FILE_PATH, filePath));
     const { data } = matter(source);
 
-    return {
-      data,
-    };
+    return data;
   });
 
   return { props: { data } };
