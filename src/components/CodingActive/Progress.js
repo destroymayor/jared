@@ -11,9 +11,9 @@ const Progress = (props) => {
   });
 
   return (
-    <div className="relative flex justify-center w-full h-6 col-span-3 bg-gray-200 rounded-md dark:bg-gray-600">
+    <div className="relative flex justify-center w-full h-6 col-span-4 sm:col-span-3 ">
       <animated.div
-        className="absolute left-0 px-1 bg-gradient-to-r from-green-300 dark:from-green-400 to-blue-300 dark:to-blue-500 rounded-l-md"
+        className="absolute left-0 px-2 rounded-lg bg-gradient-to-r from-green-300 dark:from-green-400 to-blue-300 dark:to-blue-500"
         style={style}
       >
         &ensp;

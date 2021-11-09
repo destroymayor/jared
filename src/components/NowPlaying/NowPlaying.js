@@ -89,7 +89,7 @@ const NowPlaying = (props) => {
     );
 
   return (
-    <div className="flex items-center gap-x-3">
+    <section className="flex items-center gap-x-3">
       {data?.albumImageUrl ? (
         <div className="flex-none flex items-center justify-center w-[60px] h-[60px]">
           <Image
@@ -122,7 +122,7 @@ const NowPlaying = (props) => {
           </p>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

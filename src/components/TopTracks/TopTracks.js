@@ -8,7 +8,7 @@ const TopTracks = (props) => {
   const isLoading = !data;
 
   return (
-    <div className="flex flex-col mt-6 gap-y-2">
+    <section className="flex flex-col gap-y-2">
       <h2 className="text-2xl">Top Tracks</h2>
       <p className="dark:text-gray-400">{`Here's my top tracks on Spotify updated daily.`}</p>
 
@@ -52,7 +52,7 @@ const TopTracks = (props) => {
           ))}
         </ul>
       )}
-    </div>
+    </section>
   );
 };
 

@@ -7,7 +7,6 @@ import WorkExperience from '@/components/WorkExperience/WorkExperience';
 
 import data from '@/data/contact';
 
-HomePage.title = 'Jared Chen - Frontend Developer';
 HomePage.description = `Hey, I'm Jared Chen. I'm a front-end developer.`;
 
 export default function HomePage() {

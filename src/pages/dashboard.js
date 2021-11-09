@@ -32,9 +32,11 @@ export default function Dashboard(props) {
       <h1 className="text-2xl sm:text-4xl">{title}</h1>
       <p className="py-4 text-md sm:text-lg dark:text-gray-400">{description}</p>
 
-      <NowPlaying data={getNowPlayingData} />
-      <CodingActive data={getReadStatsData} />
-      <TopTracks data={getTopTracksData} />
+      <div className="flex flex-col mt-2 gap-y-10">
+        <NowPlaying data={getNowPlayingData} />
+        <CodingActive data={getReadStatsData} />
+        <TopTracks data={getTopTracksData} />
+      </div>
     </>
   );
 }

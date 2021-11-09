@@ -49,7 +49,7 @@ export const getReadStats = async () => {
     status,
     data: {
       languages: sliceLanguagesData,
-      operatingSystems: getData?.data?.operating_systems,
+      editors: getData?.data?.editors,
     },
   };
 };

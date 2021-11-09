@@ -6,7 +6,7 @@ const CodingActive = (props) => {
   const { data = [] } = props;
 
   return (
-    <section className="flex flex-col my-10 gap-y-2">
+    <section className="flex flex-col gap-y-2">
       <div className="flex items-center">
         <span className="w-8">
           <CodeIcon className="w-6 h-6" />
@@ -17,20 +17,12 @@ const CodingActive = (props) => {
       </div>
 
       <div className="flex flex-col my-2 gap-y-4">
-        <h4 className="text-xl">Operating Systems</h4>
-        <ul className="flex flex-col gap-6 sm:gap-4">
-          {data?.operatingSystems?.map((os) => (
-            <li key={os.name} className="grid grid-cols-4 gap-y-2 gap-x-4 sm:gap-4 sm:grid-cols-7">
-              <div className="col-span-2 text-sm sm:text-base">{os.name}</div>
-              <div className="col-span-2 text-sm sm:text-base">{os.text}</div>
-              <Progress percent={os.percent} />
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div className="flex flex-col my-2 gap-y-4">
-        <h4 className="text-xl">Languages</h4>
+        <div className="flex items-center gap-4 dark:text-gray-400">
+          <p>Languages</p>
+          <span className="px-2 py-[2px] text-sm bg-gray-300 dark:bg-gray-800 rounded-lg">
+            Last 7 days
+          </span>
+        </div>
         <ul className="flex flex-col gap-6 sm:gap-4">
           {data?.languages?.map((language) => (
             <li
@@ -38,8 +30,33 @@ const CodingActive = (props) => {
               className="grid grid-cols-4 gap-y-2 gap-x-4 sm:gap-4 sm:grid-cols-7"
             >
               <div className="col-span-2 text-sm sm:text-base">{language.name}</div>
-              <div className="col-span-2 text-sm sm:text-base">{language.text}</div>
+              <div className="col-span-2 text-sm text-right sm:text-left sm:text-base">
+                {language.text}
+              </div>
               <Progress percent={language.percent} />
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="flex flex-col my-2 gap-y-4">
+        <div className="flex items-center gap-4 dark:text-gray-400">
+          <p>Editors</p>
+          <span className="px-2 py-[2px] text-sm bg-gray-300 dark:bg-gray-800 rounded-lg">
+            Last 7 days
+          </span>
+        </div>
+        <ul className="flex flex-col gap-6 sm:gap-4">
+          {data?.editors?.map((editor) => (
+            <li
+              key={editor.name}
+              className="grid grid-cols-4 gap-y-2 gap-x-4 sm:gap-4 sm:grid-cols-7"
+            >
+              <div className="col-span-2 text-sm sm:text-base">{editor.name}</div>
+              <div className="col-span-2 text-sm text-right sm:text-left sm:text-base">
+                {editor.text}
+              </div>
+              <Progress percent={editor.percent} />
             </li>
           ))}
         </ul>
