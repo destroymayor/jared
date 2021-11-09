@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 
 import { useTheme } from 'next-themes';
 
@@ -6,27 +6,11 @@ import Highlight, { defaultProps } from 'prism-react-renderer';
 import vsDark from 'prism-react-renderer/themes/vsDark';
 import vsLight from 'prism-react-renderer/themes/github';
 
-import { DuplicateIcon, CheckIcon } from '@heroicons/react/outline';
-
 const CodeBlock = ({ children, className }) => {
   const textInput = useRef(null);
-  const [hovered, setHovered] = useState(false);
-  const [copied, setCopied] = useState(false);
 
   const language = className.replace(/language-/, '');
   const { resolvedTheme } = useTheme();
-
-  const onEnter = () => setHovered(true);
-
-  const onExit = () => {
-    setHovered(false);
-    setCopied(false);
-  };
-
-  const onCopy = () => {
-    setCopied(true);
-    navigator.clipboard.writeText(textInput.current.textContent);
-  };
 
   return (
     <Highlight
@@ -36,25 +20,11 @@ const CodeBlock = ({ children, className }) => {
       language={language}
     >
       {({ tokens, getLineProps, getTokenProps }) => (
-        <div
-          className="relative flex flex-col items-start my-5 border border-gray-400 rounded-md sm:pr-14 dark:border-gray-700"
-          onMouseEnter={onEnter}
-          onMouseLeave={onExit}
-        >
-          <button
-            aria-label="Copy code"
-            type="button"
-            onClick={onCopy}
-            className={`hidden sm:block absolute p-1 transition duration-150 ease-in-out rounded-md right-2 top-3 text-gray-500 hover:bg-gray-300 dark:text-gray-300 dark:hover:bg-gray-600 ${
-              copied && 'text-green-600 dark:text-green-600'
-            } ${hovered ? 'visible' : 'invisible'}`}
-          >
-            {copied ? <CheckIcon className="w-8 h-8" /> : <DuplicateIcon className="w-8 h-8" />}
-          </button>
-
-          <pre ref={textInput} className="p-5 overflow-auto w-[90vw] sm:w-[95vw] sm:max-w-xl">
+        <div className="flex flex-col items-start px-2 my-5 bg-gray-200 rounded-md shadow-xl dark:bg-gray-800">
+          <pre ref={textInput} className="w-full px-2 pt-6 pb-3 overflow-auto">
             {tokens.map((line, i) => (
               <div key={i} {...getLineProps({ line, key: i })}>
+                <span className="inline-block w-10 text-gray-500">{i + 1}</span>
                 {line.map((token, key) => (
                   <span key={key} {...getTokenProps({ token, key })} />
                 ))}

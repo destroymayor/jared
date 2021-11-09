@@ -7,6 +7,7 @@ import { serialize } from 'next-mdx-remote/serialize';
 
 import { MDXProvider } from '@mdx-js/react';
 import { MDXRemote } from 'next-mdx-remote';
+
 import { mdxFilePaths } from '@/utils/mdx-utils';
 import languageMapping from '@/utils/language-mapping';
 
@@ -19,7 +20,7 @@ const components = {
   h2: (props) => {
     const getHeadingId = props?.children?.toLowerCase().replace(new RegExp(' ', 'g'), '-');
     return (
-      <h2 {...props} aria-hidden id={getHeadingId} className="pt-10 text-2xl group">
+      <h2 {...props} aria-hidden id={getHeadingId} className="text-2xl group">
         <Link className="flex items-center gap-x-2" href={`#${getHeadingId}`}>
           {props?.children}
           <LinkIcon className="invisible w-6 h-6 transition duration-150 ease-in-out group-hover:visible " />
@@ -30,8 +31,6 @@ const components = {
   code: CodeBlock,
 };
 
-SnippetPage.title = 'Snippets';
-
 export default function SnippetPage(props) {
   const { source, frontMatter } = props;
 
@@ -39,35 +38,40 @@ export default function SnippetPage(props) {
 
   return (
     <>
-      <Head title="Snippets" />
-      <MDXProvider components={components}>
-        <div className="flex flex-col items-start gap-y-5">
-          <button onClick={handleBack} className="flex items-center text-lg text-blue-600">
-            <ChevronLeftIcon className="w-6 h-6" /> <span className="pr-2">Back</span>
-          </button>
-          <h1 className="text-2xl sm:text-3xl">{frontMatter.title}</h1>
-          <p className="text-gray-600 text-md sm:text-lg dark:text-gray-400">
-            {frontMatter.description}
-          </p>
-          <ul className="flex gap-2">
-            {frontMatter.techStack.map((item) => (
-              <li
-                key={item}
-                className="px-2 py-1 text-gray-100 rounded-md"
-                style={{
-                  backgroundColor: languageMapping?.[frontMatter.category]?.styles?.bg,
-                  color: languageMapping?.[frontMatter.category]?.styles?.color,
-                }}
-              >
-                {item}
-              </li>
-            ))}
-          </ul>
-          <div className="w-full">
+      <Head title={frontMatter.title} description={frontMatter.description} />
+
+      <div className="flex flex-col items-start gap-y-5">
+        <button onClick={handleBack} className="flex items-center text-lg text-blue-600">
+          <ChevronLeftIcon className="w-6 h-6" />
+          <span className="pr-2">Back</span>
+        </button>
+
+        <h1 className="text-2xl sm:text-3xl">{frontMatter.title}</h1>
+        <p className="text-gray-600 text-md sm:text-lg dark:text-gray-400">
+          {frontMatter.description}
+        </p>
+
+        <ul className="flex gap-2">
+          {frontMatter.techStack.map((item) => (
+            <li
+              key={item}
+              className="px-2 py-1 text-gray-100 rounded-md"
+              style={{
+                backgroundColor: languageMapping?.[frontMatter.category]?.styles?.bg,
+                color: languageMapping?.[frontMatter.category]?.styles?.color,
+              }}
+            >
+              {item}
+            </li>
+          ))}
+        </ul>
+
+        <div className="w-full">
+          <MDXProvider components={components}>
             <MDXRemote {...source} lazy />
-          </div>
+          </MDXProvider>
         </div>
-      </MDXProvider>
+      </div>
     </>
   );
 }
@@ -96,6 +100,6 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: false,
+    fallback: 'blocking',
   };
 }

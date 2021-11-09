@@ -10,7 +10,7 @@ const data = [
   },
   {
     link: 'https://github.com/destroymayor',
-    title: 'destroymayor',
+    title: 'github.com/destroymayor',
     label: 'Github',
     icon: <GithubIcon className="w-6 h-6" />,
   },

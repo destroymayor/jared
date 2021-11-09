@@ -18,15 +18,15 @@ const languageMapping = {
   'react-hooks': {
     icon: <ReactIcon className="w-8 h-8 rounded-full" />,
     styles: {
-      bg: '#61dafb',
-      color: '#222222',
+      bg: 'rgba(8,126,164,1)',
+      color: '#fcfcfc',
     },
   },
   'react-components': {
     icon: <ReactIcon className="w-8 h-8 rounded-full" />,
     styles: {
-      bg: '#61dafb',
-      color: '#222222',
+      bg: 'rgba(8,126,164,1)',
+      color: '#fcfcfc',
     },
   },
 };
