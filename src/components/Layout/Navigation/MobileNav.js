@@ -8,6 +8,8 @@ import useScrollDisabler from '@/hooks/utils/use-scroll-disabler.hook';
 import InPortal from '@/components/Common/InPortal';
 
 import { XIcon, MenuIcon } from '@heroicons/react/solid';
+import cn from 'classnames';
+import styles from '@/styles/mobile-menu.module.css';
 
 const MobileNav = (props) => {
   const { routes = [] } = props;
@@ -34,14 +36,12 @@ const MobileNav = (props) => {
   return (
     <>
       <button
-        className="p-1 transition duration-200 ease-in-out rounded-md sm:hidden dark:hover:text-gray-100"
+        className={cn(styles['menu-button'], ' visible sm:hidden')}
         onClick={handleToggle}
+        aria-label="Toggle menu"
       >
-        {isOpen ? (
-          <XIcon aria-label="Toggle menu" className="w-8 h-8" />
-        ) : (
-          <MenuIcon aria-label="Toggle menu" className="w-8 h-8" />
-        )}
+        <MenuIcon data-hide={isOpen} />
+        <XIcon data-hide={!isOpen} />
       </button>
 
       <InPortal>
