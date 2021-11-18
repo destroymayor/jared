@@ -36,12 +36,15 @@ const MobileNav = (props) => {
   return (
     <>
       <button
-        className={cn(styles['menu-button'], ' visible sm:hidden')}
+        className={cn(
+          styles['menu-button'],
+          'w-8 h-8 bg-transparent border-0 relative visible sm:hidden transition-opacity duration-300 ease-in'
+        )}
         onClick={handleToggle}
         aria-label="Toggle menu"
       >
-        <MenuIcon data-hide={isOpen} />
-        <XIcon data-hide={!isOpen} />
+        <MenuIcon data-hide={isOpen} className="w-4 h-4" />
+        <XIcon data-hide={!isOpen} className="w-4 h-4" />
       </button>
 
       <InPortal>
@@ -54,14 +57,14 @@ const MobileNav = (props) => {
           <div
             className={`
             ${isOpen ? 'opacity-100' : 'opacity-0'}
-            absolute top-24 bottom-0 inset-x-0 transition duration-500 bg-gray-200 dark:backdrop-blur dark:bg-opacity-80 dark:bg-black`}
+            absolute top-24 bottom-0 inset-x-0 transition duration-500 bg-gray-50 dark:backdrop-blur dark:bg-opacity-80 dark:bg-black`}
           />
 
           <nav
             className={`
             ${
               isOpen ? 'opacity-100 dark:bg-opacity-70' : 'opacity-0'
-            } absolute top-24 bottom-0 inset-x-0 bg-gray-200 dark:bg-black`}
+            } absolute top-24 bottom-0 inset-x-0 bg-gray-50 dark:bg-black`}
           >
             <ul className="flex flex-col items-start px-8 py-6 gap-y-8">
               {trail.map((style, index) => (
