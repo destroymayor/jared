@@ -48,6 +48,7 @@ export const getReadStats = async () => {
   return {
     status,
     data: {
+      getData,
       languages: sliceLanguagesData,
       editors: getData?.data?.editors,
     },

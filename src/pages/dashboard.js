@@ -1,3 +1,5 @@
+import { SWRConfig } from 'swr';
+
 import { getReadStats } from '@/lib/wakatime';
 import { getNowPlaying, getTopTracks } from '@/lib/spotify';
 
@@ -12,19 +14,19 @@ Dashboard.title = title;
 Dashboard.description = description;
 
 export default function Dashboard(props) {
-  const { readStatsData, nowPlayingData, topTracksData } = props;
+  const { fallback } = props;
 
   return (
-    <>
+    <SWRConfig value={{ fallback }}>
       <h1 className="text-2xl sm:text-4xl">{title}</h1>
       <p className="py-4 text-md sm:text-lg dark:text-gray-400">{description}</p>
 
       <div className="flex flex-col mt-2 gap-y-10">
-        <NowPlaying fallbackData={nowPlayingData} />
-        <CodingActive fallbackData={readStatsData} />
-        <TopTracks fallbackData={topTracksData} />
+        <NowPlaying />
+        <CodingActive />
+        <TopTracks />
       </div>
-    </>
+    </SWRConfig>
   );
 }
 
@@ -35,9 +37,11 @@ export async function getStaticProps() {
 
   return {
     props: {
-      readStatsData: readStats.data,
-      nowPlayingData: nowPlaying.data,
-      topTracksData: topTracks.data,
+      fallback: {
+        '/api/read-stats': readStats.data,
+        '/api/now-playing': nowPlaying.data,
+        '/api/top-tracks': topTracks.data,
+      },
     },
     revalidate: 60,
   };

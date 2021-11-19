@@ -74,12 +74,8 @@ function AnimatedBars() {
   );
 }
 
-export default function NowPlaying(props) {
-  const { fallbackData } = props;
-
-  const { data } = useSWR('/api/now-playing', fetcher, {
-    fallbackData,
-  });
+export default function NowPlaying() {
+  const { data } = useSWR('/api/now-playing', fetcher);
 
   const isLoading = !data;
 

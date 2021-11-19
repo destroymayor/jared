@@ -5,12 +5,8 @@ import fetcher from '@/lib/fetcher';
 
 import Link from '@/components/Common/Link';
 
-export default function TopTracks(props) {
-  const { fallbackData } = props;
-
-  const { data } = useSWR('/api/top-tracks', fetcher, {
-    fallbackData,
-  });
+export default function TopTracks() {
+  const { data } = useSWR('/api/top-tracks', fetcher);
 
   const isLoading = !data;
 
