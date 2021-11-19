@@ -1,11 +1,13 @@
 import Image from 'next/image';
 
+import useSWR from 'swr';
+import fetcher from '@/lib/fetcher';
 import { useSpring, animated } from 'react-spring';
 
 import Link from '@/components/Common/Link';
 import { SpotifyIcon } from '@/components/Common/Icons';
 
-const AnimatedBars = () => {
+function AnimatedBars() {
   const bar1Style = useSpring({
     loop: true,
     from: { scaleY: 1.0, translateY: '0rem' },
@@ -70,10 +72,14 @@ const AnimatedBars = () => {
       <animated.span className="w-[3px] h-3 bg-gray-800 dark:bg-gray-500" style={bar4Style} />
     </div>
   );
-};
+}
 
-const NowPlaying = (props) => {
-  const { data = [] } = props;
+export default function NowPlaying(props) {
+  const { fallbackData } = props;
+
+  const { data } = useSWR('/api/now-playing', fetcher, {
+    fallbackData,
+  });
 
   const isLoading = !data;
 
@@ -124,6 +130,4 @@ const NowPlaying = (props) => {
       </div>
     </section>
   );
-};
-
-export default NowPlaying;
+}

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 
-const InPortal = ({ children }) => {
+export default function InPortal({ children }) {
   const [hostElement, setHostElement] = useState(null);
 
   useEffect(() => {
@@ -20,6 +20,4 @@ const InPortal = ({ children }) => {
   }
 
   return createPortal(children, hostElement);
-};
-
-export default InPortal;
+}

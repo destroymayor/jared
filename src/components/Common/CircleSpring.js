@@ -1,10 +1,8 @@
-import { memo } from 'react';
-
 import { useSpring, animated } from 'react-spring';
 
 import useHasMounted from '@/hooks/utils/use-has-mounted.hook';
 
-const CircleSpring = (props) => {
+export default function CircleSpring(props) {
   const { delay = 0, className, style, children } = props;
 
   const hasMounted = useHasMounted();
@@ -32,6 +30,4 @@ const CircleSpring = (props) => {
       {children}
     </animated.div>
   );
-};
-
-export default memo(CircleSpring);
+}

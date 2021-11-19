@@ -1,6 +1,6 @@
-import { useState, useRef, memo } from 'react';
+import { useState, useRef } from 'react';
 
-const Tabs = (props) => {
+export default function Tabs(props) {
   const { data = [], children } = props;
 
   const [tabBoundingBox, setTabBoundingBox] = useState(null);
@@ -47,6 +47,4 @@ const Tabs = (props) => {
       ))}
     </div>
   );
-};
-
-export default memo(Tabs);
+}

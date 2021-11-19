@@ -1,18 +1,14 @@
 import Image from 'next/image';
-
-import { getGithubUser } from '@/lib/github';
+import avatar from '@/public/images/avatar.webp';
 
 import Link from '@/components/Common/Link';
-import CircleSpring from '@/components/Common/CircleSpring';
 import WorkExperience from '@/components/WorkExperience/WorkExperience';
 
 import data from '@/data/contact';
 
 HomePage.description = `Hey, I'm Jared Chen. I'm a front-end developer.`;
 
-export default function HomePage(props) {
-  const { githubUserData } = props;
-
+export default function HomePage() {
   return (
     <>
       <section className="relative flex flex-col-reverse items-start gap-4 pt-4 rounded-md sm:pt-20 sm:flex-row dark:bg-opacity-0">
@@ -34,32 +30,20 @@ export default function HomePage(props) {
           </ul>
         </div>
 
-        <div className="w-[100px] sm:mt-6">
-          <CircleSpring delay={300}>
-            <Image
-              className="rounded-full"
-              alt="Jared Chen"
-              unoptimized
-              objectFit="cover"
-              src={githubUserData?.avatarUrl}
-              width={100}
-              height={100}
-            />
-          </CircleSpring>
+        <div className="w-[100px] h-[100px] sm:mt-6">
+          <Image
+            className="rounded-full"
+            alt="Jared Chen"
+            unoptimized
+            objectFit="cover"
+            src={avatar.src}
+            width={100}
+            height={100}
+          />
         </div>
       </section>
 
       <WorkExperience />
     </>
   );
-}
-
-export async function getStaticProps() {
-  const githubUser = await getGithubUser();
-  return {
-    props: {
-      githubUserData: githubUser.data,
-    },
-    revalidate: 360,
-  };
 }

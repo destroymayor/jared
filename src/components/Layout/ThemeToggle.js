@@ -2,7 +2,7 @@ import { useTheme } from 'next-themes';
 import { SunIcon, MoonIcon } from '@heroicons/react/outline';
 import useHasMounted from '@/hooks/utils/use-has-mounted.hook';
 
-const ThemeToggle = () => {
+export default function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
   const hasMounted = useHasMounted();
 
@@ -22,6 +22,4 @@ const ThemeToggle = () => {
       )}
     </button>
   );
-};
-
-export default ThemeToggle;
+}

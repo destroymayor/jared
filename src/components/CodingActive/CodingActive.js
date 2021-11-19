@@ -1,12 +1,20 @@
+import useSWR from 'swr';
+import fetcher from '@/lib/fetcher';
+
 import Progress from '@/components/CodingActive/Progress';
 
 const CodingActive = (props) => {
-  const { data = [] } = props;
+  const { fallbackData } = props;
+
+  const { data } = useSWR('/api/read-stats', fetcher, {
+    fallbackData,
+  });
 
   const actives = [
     { title: 'Languages', data: data.languages },
     { title: 'Editor', data: data.editors },
   ];
+
   return (
     <section className="flex flex-col gap-y-2">
       <h3 className="text-2xl">Coding Active</h3>

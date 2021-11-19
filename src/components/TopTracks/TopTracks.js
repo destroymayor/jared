@@ -1,9 +1,16 @@
 import Image from 'next/image';
 
+import useSWR from 'swr';
+import fetcher from '@/lib/fetcher';
+
 import Link from '@/components/Common/Link';
 
-const TopTracks = (props) => {
-  const { data = [] } = props;
+export default function TopTracks(props) {
+  const { fallbackData } = props;
+
+  const { data } = useSWR('/api/top-tracks', fetcher, {
+    fallbackData,
+  });
 
   const isLoading = !data;
 
@@ -54,6 +61,4 @@ const TopTracks = (props) => {
       )}
     </section>
   );
-};
-
-export default TopTracks;
+}

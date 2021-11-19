@@ -3,11 +3,11 @@ import routes from '@/data/routes';
 import DesktopNav from '@/components/Layout/Navigation/DesktopNav';
 import MobileNav from '@/components/Layout/Navigation/MobileNav';
 
-const Navigation = () => (
-  <>
-    <MobileNav routes={routes} />
-    <DesktopNav routes={routes} />
-  </>
-);
-
-export default Navigation;
+export default function Navigation() {
+  return (
+    <>
+      <MobileNav routes={routes} />
+      <DesktopNav routes={routes} />
+    </>
+  );
+}

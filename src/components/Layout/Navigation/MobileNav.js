@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import router from 'next/router';
 import { useTrail, animated } from 'react-spring';
 
@@ -11,7 +10,7 @@ import { XIcon, MenuIcon } from '@heroicons/react/solid';
 import cn from 'classnames';
 import styles from '@/styles/mobile-menu.module.css';
 
-const MobileNav = (props) => {
+export default function MobileNav(props) {
   const { routes = [] } = props;
   const [isOpen, toggle] = useToggle();
 
@@ -84,6 +83,4 @@ const MobileNav = (props) => {
       </InPortal>
     </>
   );
-};
-
-export default memo(MobileNav);
+}

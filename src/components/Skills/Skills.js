@@ -2,7 +2,7 @@ import data from '@/data/skills';
 
 import { CodeIcon } from '@heroicons/react/solid';
 
-const Skills = () => {
+export default function Skills() {
   return (
     <section className="flex flex-col my-10 gap-y-3">
       <div className="flex items-center">
@@ -30,6 +30,4 @@ const Skills = () => {
       </ul>
     </section>
   );
-};
-
-export default Skills;
+}

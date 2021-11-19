@@ -6,7 +6,7 @@ import Link from '@/components/Common/Link';
 
 import { BriefcaseIcon } from '@heroicons/react/solid';
 
-const WorkExperience = () => {
+export default function WorkExperience() {
   return (
     <section className="flex flex-col my-10 gap-y-3">
       <div className="flex items-center">
@@ -49,6 +49,4 @@ const WorkExperience = () => {
       </ul>
     </section>
   );
-};
-
-export default WorkExperience;
+}

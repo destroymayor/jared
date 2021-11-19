@@ -1,6 +1,6 @@
 import NextHead from 'next/head';
 
-const Head = (props) => {
+export default function Head(props) {
   const { title, description = "Hey, I'm Jared Chen. I'm a front-end developer." } = props;
 
   return (
@@ -41,6 +41,4 @@ const Head = (props) => {
       <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
     </NextHead>
   );
-};
-
-export default Head;
+}

@@ -6,7 +6,7 @@ import Highlight, { defaultProps } from 'prism-react-renderer';
 import vsDark from 'prism-react-renderer/themes/vsDark';
 import vsLight from 'prism-react-renderer/themes/github';
 
-const CodeBlock = ({ children, className }) => {
+export default function CodeBlock({ children, className }) {
   const textInput = useRef(null);
 
   const language = className.replace(/language-/, '');
@@ -35,6 +35,4 @@ const CodeBlock = ({ children, className }) => {
       )}
     </Highlight>
   );
-};
-
-export default CodeBlock;
+}

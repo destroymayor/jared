@@ -11,16 +11,16 @@ Router.events.on('routeChangeComplete', () => {
   window.scrollTo(0, 0);
 });
 
-const App = ({ Component, pageProps }) => {
+export default function App({ Component, pageProps }) {
   return (
-    <ThemeProvider disableTransitionOnChange attribute="class">
+    <>
       <Head title={Component.title} description={Component.description} />
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-      <NProgress />
-    </ThemeProvider>
+      <ThemeProvider attribute="class">
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+        <NProgress />
+      </ThemeProvider>
+    </>
   );
-};
-
-export default App;
+}

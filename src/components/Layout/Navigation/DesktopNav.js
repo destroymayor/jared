@@ -1,11 +1,9 @@
-import { memo } from 'react';
-
 import { useRouter } from 'next/router';
 
 import Link from '@/components/Common/Link';
 import Tabs from '@/components/Common/Tabs';
 
-const DesktopNav = (props) => {
+export default function DesktopNav(props) {
   const { routes = [] } = props;
   const router = useRouter();
 
@@ -26,6 +24,4 @@ const DesktopNav = (props) => {
       </Tabs>
     </div>
   );
-};
-
-export default memo(DesktopNav);
+}
