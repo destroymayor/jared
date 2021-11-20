@@ -1,7 +1,7 @@
 import data from '@/data/quotes';
 
 const title = `Quotes`;
-const description = `Collection of notable quotes.`;
+const description = `Collection of famous quotes.`;
 
 Quotes.title = title;
 Quotes.description = description;
