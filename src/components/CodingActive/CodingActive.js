@@ -20,7 +20,7 @@ const CodingActive = () => {
         <div key={item.title} className="flex flex-col my-2 gap-y-4">
           <p className="text-lg">{item.title}</p>
           <ul className="flex flex-col gap-6 sm:list-disc sm:ml-6 sm:gap-4">
-            {item.data.map((subItem) => (
+            {item?.data?.map((subItem) => (
               <li key={subItem.name}>
                 <div className="grid grid-cols-4 gap-y-2 gap-x-4 sm:gap-4 sm:grid-cols-7 ">
                   <div className="col-span-2 text-sm sm:text-base">{subItem.name}</div>
