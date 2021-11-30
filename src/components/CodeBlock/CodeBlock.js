@@ -24,7 +24,6 @@ export default function CodeBlock({ children, className }) {
           <pre ref={textInput} className="w-full px-2 pt-6 pb-3 overflow-auto">
             {tokens.map((line, i) => (
               <div key={i} {...getLineProps({ line, key: i })}>
-                <span className="inline-block w-10 text-gray-500">{i + 1}</span>
                 {line.map((token, key) => (
                   <span key={key} {...getTokenProps({ token, key })} />
                 ))}
