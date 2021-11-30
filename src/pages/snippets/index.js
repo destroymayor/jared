@@ -1,7 +1,10 @@
+import { useState } from 'react';
 import router from 'next/router';
 import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
+
+import Select from '@/components/Common/Select';
 
 import languageMapping from '@/utils/language-mapping';
 import { mdxFilePaths } from '@/utils/mdx-utils';
@@ -13,17 +16,33 @@ Snippets.title = title;
 Snippets.description = description;
 
 export default function Snippets(props) {
-  const { data } = props;
+  const { data = [] } = props;
+  const [selected, setSelected] = useState(undefined);
 
   const handleNavigation = (pathname) => router.push(pathname);
+
+  const getCategories = ['All', ...new Set(data?.map((item) => item?.techStack)?.flat(1))];
+
+  const filteredData = data?.filter((item) => selected?.includes(item?.techStack));
+  const getSnippets = filteredData?.length === 0 ? data : filteredData;
 
   return (
     <>
       <h1 className="text-2xl sm:text-4xl">{title}</h1>
       <p className="py-4 text-md sm:text-lg dark:text-gray-400">{description}</p>
 
+      <div className="mb-6">
+        <Select
+          className="min-w-[250px]"
+          options={getCategories}
+          value={selected ?? 'Categories'}
+          onChange={(value) => setSelected(value)}
+          renderItem={({ option }) => <span className="pl-2">{option}</span>}
+        />
+      </div>
+
       <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-        {data.map((item) => {
+        {getSnippets.map((item) => {
           const { title, description, category, pathname } = item;
           return (
             <li
