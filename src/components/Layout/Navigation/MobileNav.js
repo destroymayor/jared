@@ -7,7 +7,7 @@ import useScrollDisabler from '@/hooks/utils/use-scroll-disabler.hook';
 import InPortal from '@/components/Common/InPortal';
 
 import { XIcon, MenuIcon } from '@heroicons/react/solid';
-import cn from 'classnames';
+import clsx from 'clsx';
 import styles from '@/styles/mobile-menu.module.css';
 
 export default function MobileNav(props) {
@@ -35,7 +35,7 @@ export default function MobileNav(props) {
   return (
     <>
       <button
-        className={cn(
+        className={clsx(
           styles['menu-button'],
           'visible relative h-8 w-8 border-0 bg-transparent transition-opacity duration-300 ease-in sm:hidden'
         )}
