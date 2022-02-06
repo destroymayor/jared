@@ -11,10 +11,10 @@ HomePage.description = `Hey, I'm Jared Chen. I'm a front-end developer.`;
 
 export default function HomePage() {
   return (
-    <section className="relative flex flex-col-reverse items-start gap-4 rounded-md sm:pt-20 sm:flex-row dark:bg-opacity-0">
-      <div className="flex flex-col flex-1 gap-y-2">
+    <section className="relative flex flex-col-reverse items-start gap-4 rounded-md dark:bg-opacity-0 sm:flex-row sm:pt-20">
+      <div className="flex flex-1 flex-col gap-y-2">
         <h1 className="text-2xl sm:text-4xl">Jared Chen</h1>
-        <h2 className="text-gray-700 dark:text-gray-200 text-md">
+        <h2 className="text-md text-gray-700 dark:text-gray-200">
           Front-End Engineer at <span className="font-semibold">Tagtoo</span>
         </h2>
         <p className="py-4 text-sm text-gray-600 dark:text-gray-400">
@@ -48,7 +48,7 @@ export default function HomePage() {
         </ul>
       </div>
 
-      <div className="flex items-center justify-center w-20 h-20 my-4 sm:w-32 sm:h-32 sm:my-6 sm:mx-14">
+      <div className="my-4 flex h-20 w-20 items-center justify-center sm:my-6 sm:mx-14 sm:h-32 sm:w-32">
         <Image
           className="rounded-full"
           alt="Jared Chen"

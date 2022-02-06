@@ -8,13 +8,13 @@ export default function DesktopNav(props) {
   const router = useRouter();
 
   return (
-    <div className="items-center hidden h-10 sm:flex">
+    <div className="hidden h-10 items-center sm:flex">
       <Tabs data={routes}>
         {({ item }) => (
           <Link
             className={`${
               item.pathname === router.pathname && 'font-semibold'
-            } p-2 text-gray-700 transition duration-100 cursor-pointer dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-300`}
+            } cursor-pointer p-2 text-gray-700 transition duration-100 hover:text-gray-700 dark:text-gray-300 dark:hover:text-gray-300`}
             href={item?.pathname}
             aria-label={item.title}
           >

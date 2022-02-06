@@ -49,10 +49,10 @@ const Tabs = () => {
          absolute
          left-0
          top-1
+         rounded-md
+         bg-gray-300
          py-4
          duration-150
-         bg-gray-300
-         rounded-md
          dark:bg-gray-600`}
         ref={highlightRef}
         style={{
@@ -65,13 +65,13 @@ const Tabs = () => {
           className={`
           relative
           inline-block
+          cursor-pointer
           p-2
           text-gray-700
           transition
           duration-100
-          cursor-pointer
-          dark:text-gray-300
           hover:text-gray-700
+          dark:text-gray-300
           dark:hover:text-gray-300`}
           key={tab.label}
           href={tab.pathname}

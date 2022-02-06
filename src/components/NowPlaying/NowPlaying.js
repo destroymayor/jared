@@ -56,20 +56,20 @@ function AnimatedBars() {
   });
 
   return (
-    <div className="flex items-end w-auto overflow-hidden">
+    <div className="flex w-auto items-end overflow-hidden">
       <animated.span
-        className="w-[3px] h-2 mr-[1px] bg-gray-800 dark:bg-gray-500 opacity-75"
+        className="mr-[1px] h-2 w-[3px] bg-gray-800 opacity-75 dark:bg-gray-500"
         style={bar1Style}
       />
       <animated.span
-        className="w-[3px] h-1 mr-[1px] bg-gray-800 dark:bg-gray-500"
+        className="mr-[1px] h-1 w-[3px] bg-gray-800 dark:bg-gray-500"
         style={bar2Style}
       />
       <animated.span
-        className="w-[3px] h-3 mr-[1px] bg-gray-800 dark:bg-gray-500 opacity-80"
+        className="mr-[1px] h-3 w-[3px] bg-gray-800 opacity-80 dark:bg-gray-500"
         style={bar3Style}
       />
-      <animated.span className="w-[3px] h-3 bg-gray-800 dark:bg-gray-500" style={bar4Style} />
+      <animated.span className="h-3 w-[3px] bg-gray-800 dark:bg-gray-500" style={bar4Style} />
     </div>
   );
 }
@@ -81,11 +81,11 @@ export default function NowPlaying() {
 
   if (isLoading)
     return (
-      <div className="flex items-center animate-pulse gap-x-3">
-        <div className="bg-gray-600 rounded-md w-14 h-14"></div>
+      <div className="flex animate-pulse items-center gap-x-3">
+        <div className="h-14 w-14 rounded-md bg-gray-600"></div>
         <div className="flex flex-col gap-2">
-          <div className="w-12 h-4 bg-gray-600 rounded-md"></div>
-          <div className="w-32 h-4 bg-gray-600 rounded-md"></div>
+          <div className="h-4 w-12 rounded-md bg-gray-600"></div>
+          <div className="h-4 w-32 rounded-md bg-gray-600"></div>
         </div>
       </div>
     );
@@ -93,7 +93,7 @@ export default function NowPlaying() {
   return (
     <section className="flex items-center gap-x-3">
       {data?.albumImageUrl ? (
-        <div className="flex-none flex items-center justify-center w-[60px] h-[60px]">
+        <div className="flex h-[60px] w-[60px] flex-none items-center justify-center">
           <Image
             className="rounded-md"
             unoptimized
@@ -104,22 +104,22 @@ export default function NowPlaying() {
           />
         </div>
       ) : (
-        <div className="flex-none w-6 h-6">
-          <SpotifyIcon className="w-6 h-6" />
+        <div className="h-6 w-6 flex-none">
+          <SpotifyIcon className="h-6 w-6" />
         </div>
       )}
 
-      <div className="flex flex-col flex-auto w-3/5 gap-y-1 md:w-full">
+      <div className="flex w-3/5 flex-auto flex-col gap-y-1 md:w-full">
         {data?.songUrl && <AnimatedBars />}
         <div className="flex flex-col">
           {data?.songUrl ? (
-            <Link className="font-medium truncate md:overflow-clip" href={data?.songUrl}>
+            <Link className="truncate font-medium md:overflow-clip" href={data?.songUrl}>
               {data.title}
             </Link>
           ) : (
             <p className="font-medium">Not Playing</p>
           )}
-          <p className="text-gray-500 truncate md:overflow-clip dark:text-gray-400 max-w-max">
+          <p className="max-w-max truncate text-gray-500 dark:text-gray-400 md:overflow-clip">
             {data?.artist ?? 'Spotify'}
           </p>
         </div>

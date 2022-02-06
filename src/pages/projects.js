@@ -14,33 +14,33 @@ export default function Projects() {
   return (
     <>
       <h1 className="text-2xl sm:text-4xl">{title}</h1>
-      <p className="py-4 text-md sm:text-lg dark:text-gray-400">{description}</p>
+      <p className="text-md py-4 dark:text-gray-400 sm:text-lg">{description}</p>
 
       <ul className="flex flex-col gap-y-6">
         {data.map((item) => (
           <li
-            className="relative object-cover transition duration-200 ease-in-out bg-gray-800 bg-no-repeat bg-cover rounded-lg group h-72 hover:bg-blend-multiply"
+            className="group relative h-72 rounded-lg bg-gray-800 bg-cover bg-no-repeat object-cover transition duration-200 ease-in-out hover:bg-blend-multiply"
             style={{ backgroundImage: `url(${item.image})` }}
             key={item.title}
           >
-            <div className="absolute flex flex-col px-5 transition duration-200 ease-in-out opacity-0 gap-y-2 group-hover:opacity-100 group-hover:-translate-y-3 bottom-2 group-hover:text-gray-100">
+            <div className="absolute bottom-2 flex flex-col gap-y-2 px-5 opacity-0 transition duration-200 ease-in-out group-hover:-translate-y-3 group-hover:text-gray-100 group-hover:opacity-100">
               <h2 className="text-4xl">{item.title}</h2>
               <p className="px-1">{item.description}</p>
               <div className="flex gap-2 py-2">
                 <Link
                   aria-label="github link"
-                  className="flex items-center gap-2 p-2 border-[1px] rounded-lg "
+                  className="flex items-center gap-2 rounded-lg border-[1px] p-2 "
                   href={item.links.repo}
                 >
-                  <GithubIcon className="w-6 h-6" />
+                  <GithubIcon className="h-6 w-6" />
                   <span>Github</span>
                 </Link>
                 <Link
                   aria-label="demo link"
-                  className="flex items-center gap-2 p-2 border-[1px] rounded-lg"
+                  className="flex items-center gap-2 rounded-lg border-[1px] p-2"
                   href={item.links.demo}
                 >
-                  <LinkIcon className="w-6 h-6" />
+                  <LinkIcon className="h-6 w-6" />
                   <span>Demo</span>
                 </Link>
               </div>

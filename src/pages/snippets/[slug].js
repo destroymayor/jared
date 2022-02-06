@@ -20,10 +20,10 @@ const components = {
   h2: (props) => {
     const getHeadingId = props?.children?.toLowerCase().replace(new RegExp(' ', 'g'), '-');
     return (
-      <h2 {...props} aria-hidden id={getHeadingId} className="text-2xl group">
+      <h2 {...props} aria-hidden id={getHeadingId} className="group text-2xl">
         <Link className="flex items-center gap-x-2" href={`#${getHeadingId}`}>
           {props?.children}
-          <LinkIcon className="invisible w-6 h-6 transition duration-150 ease-in-out group-hover:visible " />
+          <LinkIcon className="invisible h-6 w-6 transition duration-150 ease-in-out group-hover:visible " />
         </Link>
       </h2>
     );
@@ -42,12 +42,12 @@ export default function SnippetPage(props) {
 
       <div className="flex flex-col items-start gap-y-5">
         <button onClick={handleBack} className="flex items-center text-lg text-blue-600">
-          <ChevronLeftIcon className="w-6 h-6" />
+          <ChevronLeftIcon className="h-6 w-6" />
           <span className="pr-2">Back</span>
         </button>
 
         <h1 className="text-2xl sm:text-3xl">{frontMatter.title}</h1>
-        <p className="text-gray-600 text-md sm:text-lg dark:text-gray-400">
+        <p className="text-md text-gray-600 dark:text-gray-400 sm:text-lg">
           {frontMatter.description}
         </p>
 
@@ -55,7 +55,7 @@ export default function SnippetPage(props) {
           {frontMatter.techStack.map((item) => (
             <li
               key={item}
-              className="px-2 py-1 text-gray-100 rounded-md"
+              className="rounded-md px-2 py-1 text-gray-100"
               style={{
                 backgroundColor: languageMapping?.[frontMatter.category]?.styles?.bg,
                 color: languageMapping?.[frontMatter.category]?.styles?.color,

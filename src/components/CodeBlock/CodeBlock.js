@@ -20,8 +20,8 @@ export default function CodeBlock({ children, className }) {
       language={language}
     >
       {({ tokens, getLineProps, getTokenProps }) => (
-        <div className="flex flex-col items-start px-2 my-5 bg-gray-200 rounded-md shadow-xl dark:bg-gray-800">
-          <pre ref={textInput} className="w-full px-2 pt-6 pb-3 overflow-auto">
+        <div className="my-5 flex flex-col items-start rounded-md bg-gray-200 px-2 shadow-xl dark:bg-gray-800">
+          <pre ref={textInput} className="w-full overflow-auto px-2 pt-6 pb-3">
             {tokens.map((line, i) => (
               <div key={i} {...getLineProps({ line, key: i })}>
                 {line.map((token, key) => (

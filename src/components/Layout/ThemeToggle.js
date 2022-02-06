@@ -12,13 +12,13 @@ export default function ThemeToggle() {
 
   return (
     <button
-      className="flex items-center justify-center transition duration-200 ease-in-out bg-gray-300 rounded-lg cursor-pointer w-9 h-9 hover:ring-2 ring-gray-400 dark:bg-gray-600 "
+      className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-lg bg-gray-300 ring-gray-400 transition duration-200 ease-in-out hover:ring-2 dark:bg-gray-600 "
       type="button"
       aria-label={`Activate ${isDarkTheme ? 'light' : 'dark'} mode`}
       onClick={toggleTheme}
     >
       {hasMounted && (
-        <>{isDarkTheme ? <SunIcon className="w-6 h-6" /> : <MoonIcon className="w-6 h-6" />}</>
+        <>{isDarkTheme ? <SunIcon className="h-6 w-6" /> : <MoonIcon className="h-6 w-6" />}</>
       )}
     </button>
   );

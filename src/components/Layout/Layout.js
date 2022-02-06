@@ -4,9 +4,9 @@ export default function Layout(props) {
   const { children } = props;
 
   return (
-    <div className="flex flex-col items-center h-screen text-gray-700 bg-gray-50 dark:bg-black dark:text-gray-300">
+    <div className="flex h-screen flex-col items-center bg-gray-50 text-gray-700 dark:bg-black dark:text-gray-300">
       <Header />
-      <main className="flex-grow w-11/12 pb-20 text-gray-700 sm:max-w-2xl dark:text-gray-300">
+      <main className="w-11/12 flex-grow pb-20 text-gray-700 dark:text-gray-300 sm:max-w-2xl">
         {children}
       </main>
     </div>

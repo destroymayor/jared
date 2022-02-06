@@ -37,42 +37,42 @@ export default function MobileNav(props) {
       <button
         className={cn(
           styles['menu-button'],
-          'w-8 h-8 bg-transparent border-0 relative visible sm:hidden transition-opacity duration-300 ease-in'
+          'visible relative h-8 w-8 border-0 bg-transparent transition-opacity duration-300 ease-in sm:hidden'
         )}
         onClick={handleToggle}
         aria-label="Toggle menu"
       >
-        <MenuIcon data-hide={isOpen} className="w-4 h-4" />
-        <XIcon data-hide={!isOpen} className="w-4 h-4" />
+        <MenuIcon data-hide={isOpen} className="h-4 w-4" />
+        <XIcon data-hide={!isOpen} className="h-4 w-4" />
       </button>
 
       <InPortal>
         <div
           className={`${
             isOpen ? 'pointer-events-auto' : 'pointer-events-none'
-          } w-full h-full sm:hidden`}
+          } h-full w-full sm:hidden`}
         >
           {/* backdrop */}
           <div
             className={`
             ${isOpen ? 'opacity-100' : 'opacity-0'}
-            absolute top-24 bottom-0 inset-x-0 transition duration-500 bg-gray-50 dark:backdrop-blur dark:bg-opacity-80 dark:bg-black`}
+            absolute inset-x-0 top-24 bottom-0 bg-gray-50 transition duration-500 dark:bg-black dark:bg-opacity-80 dark:backdrop-blur`}
           />
 
           <nav
             className={`
             ${
               isOpen ? 'opacity-100 dark:bg-opacity-70' : 'opacity-0'
-            } absolute top-24 bottom-0 inset-x-0 bg-gray-50 dark:bg-black`}
+            } absolute inset-x-0 top-24 bottom-0 bg-gray-50 dark:bg-black`}
           >
-            <ul className="flex flex-col items-start px-8 py-6 gap-y-8">
+            <ul className="flex flex-col items-start gap-y-8 px-8 py-6">
               {trail.map((style, index) => (
                 <animated.li
                   style={style}
                   key={`${index}`}
                   onClick={() => handleNavigation(routes[index].pathname)}
                 >
-                  <div className="flex text-2xl text-black transition duration-200 ease-in-out cursor-pointer dark:text-gray-100 hover:text-gray-700 dark:hover:text-gray-400">
+                  <div className="flex cursor-pointer text-2xl text-black transition duration-200 ease-in-out hover:text-gray-700 dark:text-gray-100 dark:hover:text-gray-400">
                     {routes[index].title}
                   </div>
                 </animated.li>

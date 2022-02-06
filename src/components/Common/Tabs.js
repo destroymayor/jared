@@ -32,7 +32,7 @@ export default function Tabs(props) {
     <div ref={wrapperRef} className="relative" onMouseLeave={resetHighlight}>
       <div
         ref={highlightRef}
-        className="absolute left-0 py-4 duration-150 bg-gray-300 rounded-md -top-1 dark:bg-gray-600"
+        className="absolute left-0 -top-1 rounded-md bg-gray-300 py-4 duration-150 dark:bg-gray-600"
         style={{ ...highlightStyles, transitionProperty: 'width, transform, opacity' }}
       />
       {data.map((item, index) => (

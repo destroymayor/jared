@@ -29,7 +29,7 @@ export default function Snippets(props) {
   return (
     <>
       <h1 className="text-2xl sm:text-4xl">{title}</h1>
-      <p className="py-4 text-md sm:text-lg dark:text-gray-400">{description}</p>
+      <p className="text-md py-4 dark:text-gray-400 sm:text-lg">{description}</p>
 
       <div className="mb-6">
         <Select
@@ -48,7 +48,7 @@ export default function Snippets(props) {
             <li
               key={title + category}
               aria-hidden
-              className="flex flex-col gap-2 p-4 ease-out border border-gray-300 rounded-md cursor-pointer dark:border-gray-700 transition duration-150 hover:scale-[1.05]"
+              className="flex cursor-pointer flex-col gap-2 rounded-md border border-gray-300 p-4 transition duration-150 ease-out hover:scale-[1.05] dark:border-gray-700"
               onClick={() => handleNavigation(pathname)}
             >
               <span>{languageMapping?.[category]?.icon}</span>

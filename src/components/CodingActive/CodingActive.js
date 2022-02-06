@@ -17,14 +17,14 @@ const CodingActive = () => {
       <p className="dark:text-gray-400">My weekly WakaTime stats</p>
 
       {actives.map((item) => (
-        <div key={item.title} className="flex flex-col my-2 gap-y-4">
+        <div key={item.title} className="my-2 flex flex-col gap-y-4">
           <p className="text-lg">{item.title}</p>
-          <ul className="flex flex-col gap-6 sm:list-disc sm:ml-6 sm:gap-4">
+          <ul className="flex flex-col gap-6 sm:ml-6 sm:list-disc sm:gap-4">
             {item?.data?.map((subItem) => (
               <li key={subItem.name}>
-                <div className="grid grid-cols-4 gap-y-2 gap-x-4 sm:gap-4 sm:grid-cols-7 ">
+                <div className="grid grid-cols-4 gap-y-2 gap-x-4 sm:grid-cols-7 sm:gap-4 ">
                   <div className="col-span-2 text-sm sm:text-base">{subItem.name}</div>
-                  <div className="col-span-2 text-sm text-right sm:text-left sm:text-base">
+                  <div className="col-span-2 text-right text-sm sm:text-left sm:text-base">
                     {subItem.text}
                   </div>
                   <Progress percent={subItem.percent} />

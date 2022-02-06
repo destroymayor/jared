@@ -12,17 +12,17 @@ export default function Bookmarks() {
   return (
     <>
       <h1 className="text-2xl sm:text-4xl">{title}</h1>
-      <p className="py-4 text-md sm:text-lg dark:text-gray-400">{description}</p>
+      <p className="text-md py-4 dark:text-gray-400 sm:text-lg">{description}</p>
 
       <ul className="flex flex-col gap-y-5">
         {data.map((item) => (
           <li key={item.title} className="flex flex-col items-start">
             <h3 className="pb-3 text-xl text-gray-600 dark:text-gray-300">{item.title}</h3>
 
-            <ul className="flex flex-col justify-start px-5 list-disc gap-y-2">
+            <ul className="flex list-disc flex-col justify-start gap-y-2 px-5">
               {item.list.map((subItem, index) => (
                 <li key={subItem + index.toString()}>
-                  <div className="flex flex-wrap sm:flex-nowrap text-md gap-y-2">
+                  <div className="text-md flex flex-wrap gap-y-2 sm:flex-nowrap">
                     <Link
                       className="transition duration-200 ease-in-out hover:text-gray-500"
                       href={subItem.link}

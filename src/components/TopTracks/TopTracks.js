@@ -16,12 +16,12 @@ export default function TopTracks() {
       <p className="dark:text-gray-400">{`Here's my top tracks on Spotify updated daily.`}</p>
 
       {isLoading ? (
-        <div className="flex items-center animate-pulse gap-x-3">
-          <div className="w-4 h-6 bg-gray-600 rounded-md"></div>
-          <div className="w-[60px] h-[60px] bg-gray-600 rounded-md"></div>
+        <div className="flex animate-pulse items-center gap-x-3">
+          <div className="h-6 w-4 rounded-md bg-gray-600"></div>
+          <div className="h-[60px] w-[60px] rounded-md bg-gray-600"></div>
           <div className="flex flex-col gap-2">
-            <div className="w-24 h-4 bg-gray-600 rounded-md"></div>
-            <div className="w-48 h-4 bg-gray-600 rounded-md"></div>
+            <div className="h-4 w-24 rounded-md bg-gray-600"></div>
+            <div className="h-4 w-48 rounded-md bg-gray-600"></div>
           </div>
         </div>
       ) : (
@@ -29,11 +29,11 @@ export default function TopTracks() {
           {data?.map((item, index) => (
             <li
               key={`${item.title} - ${item.artist} - ${index}`}
-              className="flex items-center border-b-[1px] border-gray-400 dark:border-gray-600 py-2"
+              className="flex items-center border-b-[1px] border-gray-400 py-2 dark:border-gray-600"
             >
               <div className="w-5 text-center dark:text-gray-400">{index + 1}</div>
 
-              <div className="w-[64px] h-[64px] mx-2">
+              <div className="mx-2 h-[64px] w-[64px]">
                 <Image
                   className="rounded-md"
                   unoptimized
@@ -43,11 +43,11 @@ export default function TopTracks() {
                   height={60}
                 />
               </div>
-              <div className="flex flex-col flex-grow w-3/5 md:w-full">
-                <Link className="font-medium truncate md:overflow-clip" href={item?.songUrl}>
+              <div className="flex w-3/5 flex-grow flex-col md:w-full">
+                <Link className="truncate font-medium md:overflow-clip" href={item?.songUrl}>
                   {item.title}
                 </Link>
-                <p className="text-gray-500 truncate dark:text-gray-400 md:overflow-clip">
+                <p className="truncate text-gray-500 dark:text-gray-400 md:overflow-clip">
                   {item?.artist ?? 'Spotify'}
                 </p>
               </div>
