@@ -33,10 +33,12 @@ export default function Snippets(props) {
 
       <div className="mb-6">
         <Select
-          className="min-w-[250px]"
+          className="w-5/12"
           options={getCategories}
           value={selected ?? 'Categories'}
-          onChange={(value) => setSelected(value)}
+          onChange={(value) => {
+            setSelected(value);
+          }}
           renderItem={({ option }) => <span className="pl-2">{option}</span>}
         />
       </div>
