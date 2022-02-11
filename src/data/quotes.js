@@ -1,5 +1,10 @@
 const data = [
   {
+    author: 'Steve Jobs',
+    quote:
+      'You can’t connect the dots looking forward; you can only connect them looking backwards. So you have to TRUST that dots will somehow connect in your future.',
+  },
+  {
     author: 'Yellowstone (American TV series)',
     quote: `Fair means one side got exactly what they wanted in a way that the other side can't complain about.`,
   },
