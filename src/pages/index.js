@@ -28,15 +28,15 @@ export default function HomePage() {
         </ul>
       </div>
 
-      <div className="my-4 flex h-20 w-20 items-center justify-center sm:my-6 sm:mx-14 sm:h-32 sm:w-32">
+      <div className="my-4 flex h-44 w-44 items-center justify-center sm:my-6 sm:mx-14 sm:h-32 sm:w-32">
         <Image
           className="rounded-full"
           alt="Jared Chen"
           unoptimized
           objectFit="cover"
           src={avatar.src}
-          width={100}
-          height={100}
+          width={200}
+          height={200}
         />
       </div>
     </section>
