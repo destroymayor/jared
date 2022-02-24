@@ -133,10 +133,10 @@ const CommandPalette = () => {
                               className={clsx(
                                 `${
                                   active
-                                    ? 'bg-gray-400 text-white dark:bg-gray-600'
+                                    ? 'rounded-md bg-gray-400 text-white dark:bg-gray-600'
                                     : 'bg-white text-gray-600 dark:bg-gray-800 dark:text-gray-300'
                                 }`,
-                                'flex cursor-pointer items-center gap-3 px-6 py-2 text-sm'
+                                'mx-4 flex cursor-pointer items-center gap-3 py-2 px-3 text-sm'
                               )}
                             >
                               <span>{child.title}</span>

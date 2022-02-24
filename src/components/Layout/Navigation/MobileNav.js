@@ -37,7 +37,7 @@ export default function MobileNav(props) {
       <button
         className={clsx(
           styles['menu-button'],
-          'visible relative h-8 w-8 border-0 bg-transparent transition-opacity duration-300 ease-in sm:hidden'
+          'visible relative h-8 w-8 border-0 bg-transparent transition-opacity duration-300 ease-in md:hidden'
         )}
         onClick={handleToggle}
         aria-label="Toggle menu"
@@ -48,22 +48,24 @@ export default function MobileNav(props) {
 
       <InPortal>
         <div
-          className={`${
-            isOpen ? 'pointer-events-auto' : 'pointer-events-none'
-          } h-full w-full sm:hidden`}
+          className={clsx(
+            `${isOpen ? 'pointer-events-auto' : 'pointer-events-none'}`,
+            'h-full w-full md:hidden'
+          )}
         >
           {/* backdrop */}
           <div
-            className={`
-            ${isOpen ? 'opacity-100' : 'opacity-0'}
-            absolute inset-x-0 top-24 bottom-0 bg-gray-50 transition duration-500 dark:bg-black dark:bg-opacity-80 dark:backdrop-blur`}
+            className={clsx(
+              `${isOpen ? 'opacity-100' : 'opacity-0'}`,
+              'absolute inset-x-0 top-24 bottom-0 bg-gray-50 transition duration-500 dark:bg-black dark:bg-opacity-80 dark:backdrop-blur'
+            )}
           />
 
           <nav
-            className={`
-            ${
-              isOpen ? 'opacity-100 dark:bg-opacity-70' : 'opacity-0'
-            } absolute inset-x-0 top-24 bottom-0 bg-gray-50 dark:bg-black`}
+            className={clsx(
+              `${isOpen ? 'opacity-100 dark:bg-opacity-70' : 'opacity-0'}`,
+              'absolute inset-x-0 top-24 bottom-0 bg-gray-50 dark:bg-black'
+            )}
           >
             <ul className="flex flex-col items-start gap-y-8 px-8 py-6">
               {trail.map((style, index) => (
