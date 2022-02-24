@@ -17,7 +17,7 @@ const data = [
   {
     link: 'mailto:kuil5230@gmail.com',
     title: 'kuil5230@gmail.com',
-    label: 'Send email',
+    label: 'Gmail',
     icon: <PaperAirplaneIcon className="h-6 w-6 translate-x-[3px] translate-y-[-2px] rotate-45" />,
   },
 ];
