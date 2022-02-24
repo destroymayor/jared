@@ -1,13 +1,10 @@
 import { useState } from 'react';
 import router from 'next/router';
-import fs from 'fs';
-import matter from 'gray-matter';
-import path from 'path';
 
 import Select from '@/components/Common/Select';
 
 import languageMapping from '@/utils/language-mapping';
-import { mdxFilePaths } from '@/utils/mdx-utils';
+import { getMdxFileList } from '@/utils/mdx-utils';
 
 const title = `Code Snippets`;
 const description = `Collection of useful code snippets.`;
@@ -36,9 +33,7 @@ export default function Snippets(props) {
           className="w-5/12"
           options={getCategories}
           value={selected ?? 'Categories'}
-          onChange={(value) => {
-            setSelected(value);
-          }}
+          onChange={(value) => setSelected(value)}
           renderItem={({ option }) => <span className="pl-2">{option}</span>}
         />
       </div>
@@ -66,15 +61,8 @@ export default function Snippets(props) {
   );
 }
 
-const MDX_FILE_PATH = path.join(process.cwd(), 'src/data/snippets');
-
-export function getStaticProps() {
-  const data = mdxFilePaths(MDX_FILE_PATH).map((filePath) => {
-    const source = fs.readFileSync(path.join(MDX_FILE_PATH, filePath));
-    const { data } = matter(source);
-
-    return data;
-  });
+export async function getStaticProps() {
+  const data = await getMdxFileList();
 
   return { props: { data } };
 }

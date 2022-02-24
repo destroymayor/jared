@@ -1,8 +1,8 @@
 import router from 'next/router';
 import { useTrail, animated } from 'react-spring';
 
-import useToggle from '@/hooks/utils/use-toggle.hook';
-import useScrollDisabler from '@/hooks/utils/use-scroll-disabler.hook';
+import useToggle from '@/hooks/use-toggle.hook';
+import useScrollDisabler from '@/hooks/use-scroll-disabler.hook';
 
 import InPortal from '@/components/Common/InPortal';
 

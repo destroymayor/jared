@@ -1,13 +1,18 @@
 import { Fragment, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
-import useDebounce from '@/hooks/utils/use-debounce.hook';
+import useSWR from 'swr';
+import fetcher from '@/lib/fetcher';
+
+import useDebounce from '@/hooks/use-debounce.hook';
+import projects from '@/data/projects';
 import routes from '@/data/routes';
 import contact from '@/data/contact';
 
 import clsx from 'clsx';
 import { Dialog, Combobox, Transition } from '@headlessui/react';
 import { SearchIcon } from '@heroicons/react/outline';
+import { CommandIcon } from '@/components/Common/Icons';
 
 const CommandPalette = () => {
   const router = useRouter();
@@ -15,6 +20,8 @@ const CommandPalette = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState('');
   const queryDebounce = useDebounce(query, 300);
+
+  const { data: snippetsData } = useSWR(isOpen ? '/api/snippets-list' : null, fetcher);
 
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -29,8 +36,16 @@ const CommandPalette = () => {
 
   const options = [
     {
-      title: 'Page',
+      title: 'Pages',
       children: routes,
+    },
+    {
+      title: 'Projects',
+      children: projects.map((project) => ({ title: project.title, pathname: project.links.repo })),
+    },
+    {
+      title: 'Code Snippets',
+      children: snippetsData?.map((item) => ({ title: item.title, pathname: item.pathname })) ?? [],
     },
     {
       title: 'Contact',
@@ -47,6 +62,14 @@ const CommandPalette = () => {
       }))
     : options;
 
+  const handleSelect = (option) => {
+    router.push(option.pathname);
+    setQuery('');
+    setIsOpen(false);
+  };
+
+  const handleSearch = (event) => setQuery(event.target.value);
+
   return (
     <>
       <button
@@ -55,17 +78,9 @@ const CommandPalette = () => {
         aria-label="Command palette"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <svg
-          className="h-6 w-6 fill-gray-700 dark:fill-gray-300"
-          viewBox="0 0 1024 1024"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M256 85.333333a170.666667 170.666667 0 0 1 170.666667 170.666667v85.333333h170.666666V256a170.666667 170.666667 0 0 1 170.666667-170.666667 170.666667 170.666667 0 0 1 170.666667 170.666667 170.666667 170.666667 0 0 1-170.666667 170.666667h-85.333333v170.666666h85.333333a170.666667 170.666667 0 0 1 170.666667 170.666667 170.666667 170.666667 0 0 1-170.666667 170.666667 170.666667 170.666667 0 0 1-170.666667-170.666667v-85.333333h-170.666666v85.333333a170.666667 170.666667 0 0 1-170.666667 170.666667 170.666667 170.666667 0 0 1-170.666667-170.666667 170.666667 170.666667 0 0 1 170.666667-170.666667h85.333333v-170.666666H256a170.666667 170.666667 0 0 1-170.666667-170.666667 170.666667 170.666667 0 0 1 170.666667-170.666667m426.666667 682.666667a85.333333 85.333333 0 0 0 85.333333 85.333333 85.333333 85.333333 0 0 0 85.333333-85.333333 85.333333 85.333333 0 0 0-85.333333-85.333333h-85.333333v85.333333m-85.333334-341.333333h-170.666666v170.666666h170.666666v-170.666666m-341.333333 256a85.333333 85.333333 0 0 0-85.333333 85.333333 85.333333 85.333333 0 0 0 85.333333 85.333333 85.333333 85.333333 0 0 0 85.333333-85.333333v-85.333333H256M341.333333 256a85.333333 85.333333 0 0 0-85.333333-85.333333 85.333333 85.333333 0 0 0-85.333333 85.333333 85.333333 85.333333 0 0 0 85.333333 85.333333h85.333333V256m426.666667 85.333333a85.333333 85.333333 0 0 0 85.333333-85.333333 85.333333 85.333333 0 0 0-85.333333-85.333333 85.333333 85.333333 0 0 0-85.333333 85.333333v85.333333h85.333333z"
-            fill="text-gray-200"
-          />
-        </svg>
+        <CommandIcon />
       </button>
+
       <Transition.Root show={isOpen} as={Fragment}>
         <Dialog onClose={setIsOpen} className="fixed inset-0 z-[999] overflow-y-auto p-4 pt-[25vh]">
           <Transition.Child
@@ -87,18 +102,14 @@ const CommandPalette = () => {
             leaveTo="opacity-0 scale-95"
           >
             <Combobox
-              onChange={(option) => {
-                router.push(option.pathname);
-                setQuery('');
-                setIsOpen(false);
-              }}
+              onChange={(option) => handleSelect(option)}
               as="div"
               className="relative mx-auto max-w-lg divide-y divide-gray-100 overflow-hidden rounded-xl bg-white shadow-2xl ring-1 ring-black/5 dark:divide-gray-600 dark:bg-gray-800"
             >
               <div className="flex items-center px-4">
                 <SearchIcon className="h-6 w-6 text-gray-500" />
                 <Combobox.Input
-                  onChange={(event) => setQuery(event.target.value)}
+                  onChange={handleSearch}
                   className="h-12 w-full border-0 bg-transparent px-2 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-0 dark:text-gray-100"
                   placeholder="Search..."
                 />

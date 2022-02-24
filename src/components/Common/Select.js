@@ -1,6 +1,6 @@
 import { useState, useRef, Fragment } from 'react';
 
-import useOnClickOutside from '@/hooks/utils/use-on-click-outside';
+import useOnClickOutside from '@/hooks/use-on-click-outside';
 
 import clsx from 'clsx';
 import { Transition } from '@headlessui/react';

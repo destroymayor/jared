@@ -1,6 +1,6 @@
 import { useSpring, animated } from 'react-spring';
 
-import useHasMounted from '@/hooks/utils/use-has-mounted.hook';
+import useHasMounted from '@/hooks/use-has-mounted.hook';
 
 export default function CircleSpring(props) {
   const { delay = 0, className, style, children } = props;
