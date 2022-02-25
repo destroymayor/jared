@@ -45,15 +45,7 @@ const Tabs = () => {
   return (
     <div className="relative" ref={wrapperRef} onMouseLeave={resetHighlight}>
       <div
-        className={`
-         absolute
-         left-0
-         top-1
-         rounded-md
-         bg-gray-300
-         py-4
-         duration-150
-         dark:bg-gray-600`}
+        className="absolute left-0 top-1 rounded-md bg-gray-300 py-4 duration-150 dark:bg-gray-600"
         ref={highlightRef}
         style={{
           ...highlightStyles,
@@ -62,17 +54,7 @@ const Tabs = () => {
       />
       {tabData.map((tab) => (
         <a
-          className={`
-          relative
-          inline-block
-          cursor-pointer
-          p-2
-          text-gray-700
-          transition
-          duration-100
-          hover:text-gray-700
-          dark:text-gray-300
-          dark:hover:text-gray-300`}
+          className="relative inline-block cursor-pointer p-2 text-gray-700 transition duration-100 hover:text-gray-700 dark:text-gray-300 dark:hover:text-gray-300"
           key={tab.label}
           href={tab.pathname}
           onMouseOver={(ev) => repositionHighlight(ev, tab)}

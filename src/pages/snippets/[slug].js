@@ -39,32 +39,28 @@ export default function SnippetPage(props) {
   return (
     <>
       <Head title={frontMatter.title} description={frontMatter.description} />
+      <div className="flex flex-col gap-y-5">
+        <div>
+          <button
+            onClick={handleBack}
+            className="flex items-center rounded-md py-1 text-lg text-blue-500 transition duration-150 ease-in-out hover:bg-gray-300 dark:hover:bg-gray-700"
+          >
+            <ChevronLeftIcon className="h-6 w-6" />
+            <span className="pr-2">Back</span>
+          </button>
+        </div>
 
-      <div className="flex flex-col items-start gap-y-5">
-        <button onClick={handleBack} className="flex items-center text-lg text-blue-600">
-          <ChevronLeftIcon className="h-6 w-6" />
-          <span className="pr-2">Back</span>
-        </button>
-
-        <h1 className="text-2xl sm:text-3xl">{frontMatter.title}</h1>
-        <p className="text-md text-gray-600 dark:text-gray-400 sm:text-lg">
-          {frontMatter.description}
-        </p>
-
-        <ul className="flex gap-2">
-          {frontMatter.techStack.map((item) => (
-            <li
-              key={item}
-              className="rounded-md px-2 py-1 text-gray-100"
-              style={{
-                backgroundColor: languageMapping?.[frontMatter.category]?.styles?.bg,
-                color: languageMapping?.[frontMatter.category]?.styles?.color,
-              }}
-            >
-              {item}
-            </li>
-          ))}
-        </ul>
+        <div className="flex items-center">
+          <div className="flex flex-1 flex-col gap-y-3">
+            <h1 className="text-2xl sm:text-3xl">{frontMatter.title}</h1>
+            <p className="text-md text-gray-600 dark:text-gray-400 sm:text-lg">
+              {frontMatter.description}
+            </p>
+          </div>
+          <div className="flex flex-[0.3] items-center justify-center ">
+            <span className="h-14 w-14">{languageMapping?.[frontMatter?.category]?.icon}</span>
+          </div>
+        </div>
 
         <div className="w-full">
           <MDXProvider components={components}>

@@ -4,7 +4,7 @@ import { useTheme } from 'next-themes';
 
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import vsDark from 'prism-react-renderer/themes/vsDark';
-import vsLight from 'prism-react-renderer/themes/github';
+import vsLight from 'prism-react-renderer/themes/vsLight';
 
 export default function CodeBlock({ children, className }) {
   const textInput = useRef(null);

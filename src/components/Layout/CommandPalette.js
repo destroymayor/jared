@@ -91,7 +91,7 @@ const CommandPalette = () => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Dialog.Overlay className="fixed inset-0  bg-gray-500/75" />
+            <Dialog.Overlay className="fixed inset-0  bg-gray-900/90" />
           </Transition.Child>
           <Transition.Child
             enter="duration-300 ease-out"
