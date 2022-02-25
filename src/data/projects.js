@@ -1,3 +1,4 @@
+import weatherApp from '@/public/images/projects/weather-app.webp';
 import movieAppImage from '@/public/images/projects/movie-app.webp';
 import memoryCardGameImage from '@/public/images/projects/memory-card-game.webp';
 import imageConverterImage from '@/public/images/projects/image-converter.webp';
@@ -5,6 +6,15 @@ import spotifyCloneImage from '@/public/images/projects/spotify-clone.webp';
 import fakeFacebookImage from '@/public/images/projects/fake-facebook.webp';
 
 const data = [
+  {
+    image: weatherApp.src,
+    title: 'Weather App',
+    description: 'A weather app that shows the current weather in your search.',
+    links: {
+      repo: 'https://github.com/destroymayor/weather-app',
+      demo: 'https://weather-app-gamma-five.vercel.app',
+    },
+  },
   {
     image: movieAppImage.src,
     title: 'Movie App',
