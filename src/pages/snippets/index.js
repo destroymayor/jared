@@ -62,7 +62,7 @@ export default function Snippets(props) {
 }
 
 export async function getStaticProps() {
-  const data = await getMdxFileList();
+  const data = await getMdxFileList('src/data/snippets');
 
   return { props: { data } };
 }

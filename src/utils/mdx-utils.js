@@ -9,9 +9,8 @@ export const mdxFilePaths = (pathname) =>
     // Only include md(x) files
     .filter((path) => /\.mdx?$/.test(path));
 
-const MDX_FILE_PATH = path.join(process.cwd(), 'src/data/snippets');
-
-export const getMdxFileList = () => {
+export const getMdxFileList = (mdxPath) => {
+  const MDX_FILE_PATH = path.join(process.cwd(), mdxPath);
   const data = mdxFilePaths(MDX_FILE_PATH).map((filePath) => {
     const source = fs.readFileSync(path.join(MDX_FILE_PATH, filePath));
     const { data } = matter(source);
