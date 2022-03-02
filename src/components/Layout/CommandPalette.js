@@ -41,15 +41,25 @@ const CommandPalette = () => {
     },
     {
       title: 'Projects',
-      children: projects.map((project) => ({ title: project.title, pathname: project.links.repo })),
+      children: projects.map((project) => ({
+        title: project.title,
+        pathname: project.links.repo,
+      })),
     },
     {
       title: 'Code Snippets',
-      children: snippetsData?.map((item) => ({ title: item.title, pathname: item.pathname })) ?? [],
+      children:
+        snippetsData?.map((item) => ({
+          title: item.title,
+          pathname: item.pathname,
+        })) ?? [],
     },
     {
       title: 'Contact',
-      children: contact.map((item) => ({ title: item.label, pathname: item.link })),
+      children: contact.map((item) => ({
+        title: item.label,
+        pathname: item.link,
+      })),
     },
   ];
 
@@ -104,9 +114,9 @@ const CommandPalette = () => {
             <Combobox
               onChange={(option) => handleSelect(option)}
               as="div"
-              className="relative mx-auto max-w-lg divide-y divide-gray-100 overflow-hidden rounded-md border border-gray-300 bg-white shadow-2xl ring-1 ring-black/5 dark:divide-gray-600 dark:border-zinc-800 dark:bg-black"
+              className="relative mx-auto max-w-lg overflow-hidden rounded-md border border-gray-300 bg-white shadow-2xl ring-1 ring-black/5 dark:divide-gray-600 dark:border-zinc-800 dark:bg-black"
             >
-              <div className="flex items-center">
+              <div className="flex items-center border-b border-gray-300 dark:border-gray-600">
                 <SearchIcon className="mx-3 h-6 w-6 text-gray-500" />
                 <Combobox.Input
                   onChange={handleSearch}
@@ -136,7 +146,7 @@ const CommandPalette = () => {
                                     ? 'bg-gray-200 text-gray-600 dark:bg-gray-800 dark:text-white'
                                     : 'bg-white text-gray-600 dark:bg-black dark:text-gray-300'
                                 }`,
-                                'mx-4 flex cursor-pointer items-center gap-3 rounded-md py-2 px-3'
+                                'mx-2 flex cursor-pointer items-center gap-3 rounded-md py-2 px-3'
                               )}
                             >
                               <span>{child.title}</span>
