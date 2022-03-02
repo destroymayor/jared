@@ -36,7 +36,7 @@ const CommandPalette = () => {
 
   const options = [
     {
-      title: 'Pages',
+      title: 'Navigation',
       children: routes,
     },
     {
@@ -91,7 +91,7 @@ const CommandPalette = () => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Dialog.Overlay className="fixed inset-0  bg-gray-900/90" />
+            <Dialog.Overlay className="fixed inset-0 bg-zinc-900/90" />
           </Transition.Child>
           <Transition.Child
             enter="duration-300 ease-out"
@@ -104,7 +104,7 @@ const CommandPalette = () => {
             <Combobox
               onChange={(option) => handleSelect(option)}
               as="div"
-              className="relative mx-auto max-w-lg divide-y divide-gray-100 overflow-hidden rounded-xl bg-white shadow-2xl ring-1 ring-black/5 dark:divide-gray-600 dark:bg-gray-800"
+              className="relative mx-auto max-w-lg divide-y divide-gray-100 overflow-hidden rounded-md border border-zinc-800 bg-white shadow-2xl ring-1 ring-black/5 dark:divide-gray-600 dark:bg-black"
             >
               <div className="flex items-center px-4">
                 <SearchIcon className="h-6 w-6 text-gray-500" />
@@ -121,10 +121,10 @@ const CommandPalette = () => {
                     key={option.title}
                     className={clsx(
                       `${option.children.length === 0 ? 'hidden' : ''}`,
-                      'border-b border-gray-300 py-2 dark:border-gray-600'
+                      'border-b border-gray-300 py-2 dark:border-zinc-800'
                     )}
                   >
-                    <div className="my-1 px-4 text-base text-gray-400">{option.title}</div>
+                    <div className="my-1 px-4 text-sm text-gray-400">{option.title}</div>
                     <Combobox.Options static className="">
                       {option.children.map((child, index) => (
                         <Combobox.Option key={`${index.toString()}`} value={child}>
@@ -133,10 +133,10 @@ const CommandPalette = () => {
                               className={clsx(
                                 `${
                                   active
-                                    ? 'rounded-md bg-gray-400 text-white dark:bg-gray-600'
-                                    : 'bg-white text-gray-600 dark:bg-gray-800 dark:text-gray-300'
+                                    ? 'bg-gray-200 text-gray-600 dark:bg-gray-800 dark:text-white'
+                                    : 'bg-white text-gray-600 dark:bg-black dark:text-gray-300'
                                 }`,
-                                'mx-4 flex cursor-pointer items-center gap-3 py-2 px-3 text-sm'
+                                'mx-4 flex cursor-pointer items-center gap-3 rounded-md py-2 px-3'
                               )}
                             >
                               <span>{child.title}</span>
