@@ -91,7 +91,7 @@ const CommandPalette = () => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Dialog.Overlay className="fixed inset-0 bg-zinc-900/90" />
+            <Dialog.Overlay className="fixed inset-0 bg-zinc-600/90 dark:bg-zinc-900/90" />
           </Transition.Child>
           <Transition.Child
             enter="duration-300 ease-out"
@@ -104,13 +104,13 @@ const CommandPalette = () => {
             <Combobox
               onChange={(option) => handleSelect(option)}
               as="div"
-              className="relative mx-auto max-w-lg divide-y divide-gray-100 overflow-hidden rounded-md border border-zinc-800 bg-white shadow-2xl ring-1 ring-black/5 dark:divide-gray-600 dark:bg-black"
+              className="relative mx-auto max-w-lg divide-y divide-gray-100 overflow-hidden rounded-md border border-gray-300 bg-white shadow-2xl ring-1 ring-black/5 dark:divide-gray-600 dark:border-zinc-800 dark:bg-black"
             >
-              <div className="flex items-center px-4">
-                <SearchIcon className="h-6 w-6 text-gray-500" />
+              <div className="flex items-center">
+                <SearchIcon className="mx-3 h-6 w-6 text-gray-500" />
                 <Combobox.Input
                   onChange={handleSearch}
-                  className="h-12 w-full border-0 bg-transparent px-2 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-0 dark:text-gray-100"
+                  className="h-12 w-full border-0 bg-transparent text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-0 dark:text-gray-100"
                   placeholder="Search..."
                 />
               </div>

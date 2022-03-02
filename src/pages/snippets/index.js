@@ -30,7 +30,6 @@ export default function Snippets(props) {
 
       <div className="mb-6">
         <Select
-          className="w-5/12"
           options={getCategories}
           value={selected ?? 'Categories'}
           onChange={(value) => setSelected(value)}
