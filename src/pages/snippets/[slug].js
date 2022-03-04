@@ -11,8 +11,8 @@ import { MDXRemote } from 'next-mdx-remote';
 import { mdxFilePaths } from '@/utils/mdx-utils';
 import languageMapping from '@/utils/language-mapping';
 
-import Head from '@/components/Head/Head';
-import CodeBlock from '@/components/CodeBlock/CodeBlock';
+import Head from '@/components/Head';
+import CodeBlock from '@/components/CodeBlock';
 import Link from '@/components/Common/Link';
 import { ChevronLeftIcon, LinkIcon } from '@heroicons/react/outline';
 

@@ -2,8 +2,8 @@ import Router from 'next/router';
 import '@/styles/global.css';
 
 import { ThemeProvider } from 'next-themes';
-import Layout from '@/components/Layout/Layout';
-import Head from '@/components/Head/Head';
+import Layout from '@/components/Layout';
+import Head from '@/components/Head';
 
 import NProgress from '@/components/Common/NProgress';
 

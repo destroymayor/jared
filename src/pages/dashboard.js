@@ -3,9 +3,9 @@ import { SWRConfig } from 'swr';
 import { getReadStats } from '@/lib/wakatime';
 import { getNowPlaying, getTopTracks } from '@/lib/spotify';
 
-import NowPlaying from '@/components/NowPlaying/NowPlaying';
-import TopTracks from '@/components/TopTracks/TopTracks';
-import CodingActive from '@/components/CodingActive/CodingActive';
+import NowPlaying from '@/components/NowPlaying';
+import TopTracks from '@/components/TopTracks';
+import CodingActive from '@/components/CodingActive';
 
 const title = 'Dashboard';
 const description = `This is my personal dashboard, built with Next.js API routes deployed as serverless functions.`;

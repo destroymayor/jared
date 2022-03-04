@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import avatar from '@/public/images/avatar.webp';
 
+import CircleSpring from '@/components/Common/CircleSpring';
 import Link from '@/components/Common/Link';
 
 import contact from '@/data/contact';
@@ -28,17 +29,19 @@ export default function HomePage() {
         </ul>
       </div>
 
-      <div className="my-4 flex h-44 w-44 items-center justify-center sm:my-6 sm:mx-14 sm:h-32 sm:w-32">
-        <Image
-          className="rounded-full"
-          alt="Jared Chen"
-          unoptimized
-          objectFit="cover"
-          src={avatar.src}
-          width={200}
-          height={200}
-        />
-      </div>
+      <CircleSpring>
+        <div className="my-4 flex h-44 w-44 items-center justify-center sm:my-6 sm:mx-14 sm:h-32 sm:w-32">
+          <Image
+            className="rounded-full"
+            alt="Jared Chen"
+            unoptimized
+            objectFit="cover"
+            src={avatar.src}
+            width={200}
+            height={200}
+          />
+        </div>
+      </CircleSpring>
     </section>
   );
 }

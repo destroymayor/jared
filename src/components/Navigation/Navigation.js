@@ -1,7 +1,7 @@
 import routes from '@/data/routes';
 
-import DesktopNav from '@/components/Layout/Navigation/DesktopNav';
-import MobileNav from '@/components/Layout/Navigation/MobileNav';
+import DesktopNav from '@/components/Navigation/DesktopNav';
+import MobileNav from '@/components/Navigation/MobileNav';
 
 export default function Navigation() {
   return (

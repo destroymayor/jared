@@ -5,13 +5,15 @@ import useSWR from 'swr';
 import fetcher from '@/lib/fetcher';
 
 import useDebounce from '@/hooks/use-debounce.hook';
+import { useTheme } from 'next-themes';
+
 import projects from '@/data/projects';
 import routes from '@/data/routes';
 import contact from '@/data/contact';
 
 import clsx from 'clsx';
 import { Dialog, Combobox, Transition } from '@headlessui/react';
-import { SearchIcon } from '@heroicons/react/outline';
+import { SearchIcon, SunIcon, MoonIcon } from '@heroicons/react/outline';
 import { CommandIcon } from '@/components/Common/Icons';
 
 const CommandPalette = () => {
@@ -19,7 +21,9 @@ const CommandPalette = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState('');
+
   const queryDebounce = useDebounce(query, 300);
+  const { setTheme } = useTheme();
 
   const { data: snippetsData } = useSWR(isOpen ? '/api/snippets-list' : null, fetcher);
 
@@ -57,9 +61,25 @@ const CommandPalette = () => {
     {
       title: 'Contact',
       children: contact.map((item) => ({
+        icon: item.icon,
         title: item.label,
         pathname: item.link,
       })),
+    },
+    {
+      title: 'Theme',
+      children: [
+        {
+          icon: <SunIcon className="h-6 w-6" />,
+          title: 'Light',
+          click: () => setTheme('light'),
+        },
+        {
+          icon: <MoonIcon className="h-6 w-6" />,
+          title: 'Dark',
+          click: () => setTheme('dark'),
+        },
+      ],
     },
   ];
 
@@ -73,7 +93,9 @@ const CommandPalette = () => {
     : options;
 
   const handleSelect = (option) => {
-    router.push(option.pathname);
+    if (option.click) option.click();
+    if (option.pathname) router.push(option.pathname);
+
     setQuery('');
     setIsOpen(false);
   };
@@ -83,12 +105,12 @@ const CommandPalette = () => {
   return (
     <>
       <button
-        className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-lg bg-gray-300 ring-gray-400 transition duration-200 ease-in-out hover:ring-2 dark:bg-gray-600 "
+        className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-lg bg-gray-300 ring-gray-400 transition duration-200 ease-in-out hover:ring-2 focus:outline-none dark:bg-zinc-800"
         type="button"
         aria-label="Command palette"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <CommandIcon />
+        <CommandIcon className="h-8 w-8" />
       </button>
 
       <Transition.Root show={isOpen} as={Fragment}>
@@ -135,7 +157,7 @@ const CommandPalette = () => {
                     )}
                   >
                     <div className="my-1 px-4 text-sm text-gray-400">{option.title}</div>
-                    <Combobox.Options static className="">
+                    <Combobox.Options static>
                       {option.children.map((child, index) => (
                         <Combobox.Option key={`${index.toString()}`} value={child}>
                           {({ active }) => (
@@ -149,6 +171,7 @@ const CommandPalette = () => {
                                 'mx-2 flex cursor-pointer items-center gap-3 rounded-md py-2 px-3'
                               )}
                             >
+                              {child.icon && <span>{child.icon}</span>}
                               <span>{child.title}</span>
                             </div>
                           )}
