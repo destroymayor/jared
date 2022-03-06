@@ -27,7 +27,7 @@ export default function Projects() {
             <div className="absolute bottom-2 flex flex-col gap-y-2 px-5 opacity-0 transition duration-200 ease-in-out group-hover:-translate-y-3 group-hover:text-gray-100 group-hover:opacity-100">
               <h2 className="text-4xl">{item.title}</h2>
               <p className="px-1">{item.description}</p>
-              <div className="flex gap-4 py-2">
+              <div className="flex gap-4 py-2 text-black dark:text-gray-200">
                 <Link aria-label="github link" href={item.links.repo}>
                   <Button>
                     <GithubIcon className="h-6 w-6" />
