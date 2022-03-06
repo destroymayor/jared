@@ -1,5 +1,6 @@
 import data from '@/data/projects';
 
+import Button from '@/components/Common/Button';
 import Link from '@/components/Common/Link';
 import { GithubIcon } from '@/components/Common/Icons';
 import { LinkIcon } from '@heroicons/react/outline';
@@ -26,22 +27,19 @@ export default function Projects() {
             <div className="absolute bottom-2 flex flex-col gap-y-2 px-5 opacity-0 transition duration-200 ease-in-out group-hover:-translate-y-3 group-hover:text-gray-100 group-hover:opacity-100">
               <h2 className="text-4xl">{item.title}</h2>
               <p className="px-1">{item.description}</p>
-              <div className="flex gap-2 py-2">
-                <Link
-                  aria-label="github link"
-                  className="flex items-center gap-2 rounded-lg border-[1px] p-2 "
-                  href={item.links.repo}
-                >
-                  <GithubIcon className="h-6 w-6" />
-                  <span>Github</span>
+              <div className="flex gap-4 py-2">
+                <Link aria-label="github link" href={item.links.repo}>
+                  <Button>
+                    <GithubIcon className="h-6 w-6" />
+                    <span>Github</span>
+                  </Button>
                 </Link>
-                <Link
-                  aria-label="demo link"
-                  className="flex items-center gap-2 rounded-lg border-[1px] p-2"
-                  href={item.links.demo}
-                >
-                  <LinkIcon className="h-6 w-6" />
-                  <span>Demo</span>
+
+                <Link aria-label="demo link" href={item.links.demo}>
+                  <Button>
+                    <LinkIcon className="h-6 w-6" />
+                    <span>Demo</span>
+                  </Button>
                 </Link>
               </div>
             </div>

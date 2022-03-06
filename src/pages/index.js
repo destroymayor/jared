@@ -30,7 +30,7 @@ export default function HomePage() {
       </div>
 
       <CircleSpring>
-        <div className="my-4 flex h-44 w-44 items-center justify-center sm:my-6 sm:mx-14 sm:h-32 sm:w-32">
+        <div className="my-4 flex h-44 w-44 items-center justify-center sm:my-0 sm:mx-14 sm:h-32 sm:w-32">
           <Image
             className="rounded-full"
             alt="Jared Chen"

@@ -13,6 +13,7 @@ import languageMapping from '@/utils/language-mapping';
 
 import Head from '@/components/Head';
 import CodeBlock from '@/components/CodeBlock';
+import Button from '@/components/Common/Button';
 import Link from '@/components/Common/Link';
 import { ChevronLeftIcon, LinkIcon } from '@heroicons/react/outline';
 
@@ -41,13 +42,10 @@ export default function SnippetPage(props) {
       <Head title={frontMatter.title} description={frontMatter.description} />
       <div className="flex flex-col gap-y-5">
         <div>
-          <button
-            onClick={handleBack}
-            className="flex items-center rounded-md py-1 text-lg text-blue-500 transition duration-150 ease-in-out hover:bg-gray-300 dark:hover:bg-gray-700"
-          >
+          <Button onClick={handleBack}>
             <ChevronLeftIcon className="h-6 w-6" />
-            <span className="pr-2">Back</span>
-          </button>
+            <span className="pr-2 text-lg">Back</span>
+          </Button>
         </div>
 
         <div className="flex items-center">

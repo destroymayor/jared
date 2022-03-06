@@ -6,7 +6,7 @@ import clsx from 'clsx';
 import { Transition } from '@headlessui/react';
 import { ChevronUpIcon, ChevronDownIcon } from '@heroicons/react/solid';
 
-const Select = (props) => {
+export default function Select(props) {
   const { disabled, options = [], value, renderItem, onChange, onFocus, onBlur } = props;
   const ref = useRef();
 
@@ -63,6 +63,4 @@ const Select = (props) => {
       </Transition>
     </div>
   );
-};
-
-export default Select;
+}
