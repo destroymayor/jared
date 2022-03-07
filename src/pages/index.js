@@ -3,6 +3,7 @@ import avatar from '@/public/images/avatar.webp';
 
 import CircleSpring from '@/components/Common/CircleSpring';
 import Link from '@/components/Common/Link';
+import { LocationMarkerIcon } from '@heroicons/react/outline';
 
 import contact from '@/data/contact';
 
@@ -12,10 +13,17 @@ export default function HomePage() {
   return (
     <section className="relative flex flex-col-reverse items-start gap-4 rounded-md dark:bg-opacity-0 sm:flex-row sm:pt-20">
       <div className="flex flex-1 flex-col gap-y-2">
-        <h1 className="text-2xl sm:text-4xl">Jared Chen</h1>
-        <h2 className="text-md py-4 text-gray-700 dark:text-gray-200">
-          Front-End Engineer at <span className="font-semibold">Tagtoo</span>
+        <h1 className="pb-2 text-2xl sm:text-4xl">Jared Chen</h1>
+        <h2 className="text-md text-gray-700 dark:text-gray-200">
+          <span>Front-End Engineer at </span>
+          <Link href="https://github.com/Tagtoo">
+            <span className="font-semibold">@Tagtoo</span>
+          </Link>
         </h2>
+        <div className="flex items-center gap-2">
+          <LocationMarkerIcon className="h-6 w-6" />
+          <span>Taiwan</span>
+        </div>
 
         <ul className="flex flex-col items-start justify-center gap-2">
           {contact.map((item) => (

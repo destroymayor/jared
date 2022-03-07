@@ -70,7 +70,7 @@ const CommandPalette = () => {
       title: 'Theme',
       children: [
         {
-          icon: <SunIcon className="h-6 w-6" />,
+          icon: <SunIcon className="h-6 w-6 text-amber-500" />,
           title: 'Light',
           click: () => setTheme('light'),
         },
