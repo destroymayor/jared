@@ -13,14 +13,12 @@ const GITHUB_USER_QUERY = `query {
               firstDay
               name
               totalWeeks
-              year
             }
             weeks {
               contributionDays {
                 color
                 contributionCount
                 date
-                weekday
               }
               firstDay
             }
