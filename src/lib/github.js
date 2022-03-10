@@ -9,6 +9,12 @@ const GITHUB_USER_QUERY = `query {
           contributionCalendar {
             colors
             totalContributions
+            months {
+              firstDay
+              name
+              totalWeeks
+              year
+            }
             weeks {
               contributionDays {
                 color
