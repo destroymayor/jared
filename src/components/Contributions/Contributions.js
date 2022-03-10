@@ -10,7 +10,7 @@ export default function Contributions() {
   const contributionCalendar = data?.contributionsCollection?.contributionCalendar;
 
   return (
-    <section className="flex flex-col gap-y-2">
+    <section className="flex flex-col gap-y-2 border-t border-gray-600 pt-4">
       <h3 className="text-2xl">Github Contributions</h3>
 
       <Overview data={contributionCalendar} />

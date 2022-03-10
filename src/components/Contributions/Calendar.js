@@ -18,7 +18,7 @@ export default function Calendar(props) {
           {months.map((month) => (
             <li
               key={month.firstDay}
-              className="text-xs"
+              className="text-xs dark:text-gray-400"
               style={{ minWidth: 12.2 * month.totalWeeks }}
             >
               {month.name}

@@ -11,7 +11,7 @@ export default function TopTracks() {
   const isLoading = !data;
 
   return (
-    <section className="flex flex-col gap-y-2">
+    <section className="flex flex-col gap-y-2 border-t border-gray-600 pt-4">
       <h2 className="text-2xl">Top Tracks</h2>
       <p className="dark:text-gray-400">{`Here's my top tracks on Spotify updated daily.`}</p>
 
