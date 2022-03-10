@@ -21,22 +21,22 @@ export default function Overview(props) {
     <div className="flex flex-wrap gap-6 self-start rounded-md py-2 sm:gap-10">
       <div className="flex flex-col">
         <span className="text-2xl font-bold text-green-600">{totalContributions}</span>
-        <span className="text-xs dark:text-gray-400">Total</span>
+        <span className="text-xs dark:text-zinc-400">Total</span>
       </div>
       <div className="flex flex-col">
         <span className="text-2xl font-bold text-green-600">{totalThisWeekContribution}</span>
-        <span className="text-xs dark:text-gray-400">This week</span>
+        <span className="text-xs dark:text-zinc-400">This week</span>
       </div>
       <div className="flex flex-col">
         <span className="text-2xl font-bold text-green-600">{bestContribution}</span>
-        <span className="text-xs dark:text-gray-400">Best day</span>
+        <span className="text-xs dark:text-zinc-400">Best day</span>
       </div>
       <div className="flex flex-col">
         <span>
           <span className="text-2xl font-bold text-green-600">{averageContribution}</span>
-          <span className="text-sm dark:text-gray-400">/day</span>
+          <span className="text-sm dark:text-zinc-400">/day</span>
         </span>
-        <span className="text-xs dark:text-gray-400">Average</span>
+        <span className="text-xs dark:text-zinc-400">Average</span>
       </div>
     </div>
   );

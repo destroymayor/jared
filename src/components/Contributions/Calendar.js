@@ -14,24 +14,28 @@ export default function Calendar(props) {
   return (
     <>
       <div className="flex flex-col">
-        <ul className="flex justify-end gap-[3px] overflow-hidden">
+        <ul className="flex justify-end gap-[3px] overflow-hidden md:justify-start">
           {months.map((month) => (
             <li
               key={month.firstDay}
-              className="text-xs dark:text-gray-400"
-              style={{ minWidth: 12.2 * month.totalWeeks }}
+              className={clsx(
+                `${month.totalWeeks < 2 ? 'hidden' : ''}`,
+                'text-xs dark:text-zinc-400'
+              )}
+              style={{ minWidth: 12.3 * month.totalWeeks }}
             >
               {month.name}
             </li>
           ))}
         </ul>
+
         <ul className="flex justify-end gap-[3px] overflow-hidden">
           {weeks.map((week) => (
             <li key={week.firstDay}>
               {week.contributionDays.map((contribution) => (
                 <span
                   key={contribution.date}
-                  className="my-[2px] block h-[10px] w-[10px] rounded-sm bg-gray-300 dark:bg-zinc-800"
+                  className="my-[2px] block h-[10px] w-[10px] rounded-sm bg-zinc-300 dark:bg-zinc-800"
                   style={{
                     backgroundColor: contribution.contributionCount > 0 && contribution.color,
                   }}
@@ -49,29 +53,29 @@ export default function Calendar(props) {
         </ul>
       </div>
 
-      <div className="flex flex-wrap items-center gap-2">
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <div
+          className={clsx(
+            `${selectContribution.date ? 'opacity-100' : 'opacity-0'}`,
+            'rounded bg-zinc-700 px-2 text-sm'
+          )}
+        >
+          {selectContribution.count} contributions on {selectContribution.date}
+        </div>
+
         <div className="flex items-center gap-2 text-sm">
-          <span>Less</span>
+          <span className="text-zinc-400">Less</span>
           <ul className="flex gap-1">
-            <li className="h-[10px] w-[10px] rounded-sm bg-gray-300 dark:bg-zinc-800" />
+            <li className="h-[10px] w-[10px] rounded-sm bg-zinc-300 dark:bg-zinc-800" />
             {contributionColors.map((item) => (
-              <span
+              <li
                 key={item}
-                className="block h-[10px] w-[10px] rounded-sm"
+                className="h-[10px] w-[10px] rounded-sm"
                 style={{ backgroundColor: item }}
               />
             ))}
           </ul>
           <span>More</span>
-        </div>
-
-        <div
-          className={clsx(
-            `${selectContribution.date ? 'opacity-100' : 'opacity-0'}`,
-            'rounded-md bg-zinc-700 px-2 text-sm'
-          )}
-        >
-          {selectContribution.count} contributions on {selectContribution.date}
         </div>
       </div>
     </>

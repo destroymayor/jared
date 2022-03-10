@@ -13,7 +13,7 @@ const CodingActive = () => {
 
   return (
     <section className="flex flex-col gap-y-2 border-t border-gray-600 pt-4">
-      <h3 className="text-2xl">Coding Active</h3>
+      <h2 className="text-2xl">Coding Active</h2>
       <p className="dark:text-gray-400">My weekly WakaTime stats</p>
 
       {data.length === 0 ? (

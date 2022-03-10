@@ -11,7 +11,8 @@ export default function Contributions() {
 
   return (
     <section className="flex flex-col gap-y-2 border-t border-gray-600 pt-4">
-      <h3 className="text-2xl">Github Contributions</h3>
+      <h2 className="text-2xl">Contributions</h2>
+      <p className="dark:text-gray-400">My contributions in Github. </p>
 
       <Overview data={contributionCalendar} />
       <Calendar data={contributionCalendar} />
