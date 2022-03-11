@@ -1,6 +1,6 @@
 import { MDXProvider } from '@mdx-js/react';
 import { MDXRemote } from 'next-mdx-remote';
-import { getMdxFile } from '@/utils/mdx-utils';
+import { getMdxFile } from '@/helpers/mdx.helpers';
 
 import Link from '@/components/Common/Link';
 

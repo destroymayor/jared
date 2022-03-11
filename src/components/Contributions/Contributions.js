@@ -10,7 +10,7 @@ export default function Contributions() {
   const contributionCalendar = data?.contributionsCollection?.contributionCalendar;
 
   return (
-    <section className="flex flex-col gap-y-2 border-t border-gray-600 pt-4">
+    <section className="flex flex-col gap-y-2 border-t border-gray-500 pt-4">
       <h2 className="text-2xl">Contributions</h2>
       <p className="dark:text-gray-400">{`My last year's contributions in Github.`}</p>
 

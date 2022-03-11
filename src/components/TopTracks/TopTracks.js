@@ -9,7 +9,7 @@ export default function TopTracks() {
   const { data } = useSWR('/api/top-tracks', fetcher);
 
   return (
-    <section className="flex flex-col gap-y-2 border-t border-gray-600 pt-4">
+    <section className="flex flex-col gap-y-2 border-t border-gray-500 pt-4">
       <h2 className="text-2xl">Top Tracks</h2>
       <p className="dark:text-gray-400">{`Here's my top tracks on Spotify updated daily.`}</p>
 
@@ -17,9 +17,9 @@ export default function TopTracks() {
         {data?.map((item, index) => (
           <li
             key={`${item.title} - ${item.artist} - ${index}`}
-            className="flex items-center border-b-[1px] border-gray-400 py-2 dark:border-gray-600"
+            className="flex items-center border-b-[1px] border-zinc-400 py-2 dark:border-zinc-700"
           >
-            <div className="w-5 text-center dark:text-gray-400">{index + 1}</div>
+            <div className="w-5 text-center dark:text-zinc-400">{index + 1}</div>
 
             <div className="mx-2 h-[64px] w-[64px]">
               <Image
@@ -35,7 +35,7 @@ export default function TopTracks() {
               <Link className="truncate font-medium md:overflow-clip" href={item?.songUrl}>
                 {item.title}
               </Link>
-              <p className="truncate text-gray-500 dark:text-gray-400 md:overflow-clip">
+              <p className="truncate text-zinc-500 dark:text-zinc-400 md:overflow-clip">
                 {item?.artist ?? 'Spotify'}
               </p>
             </div>

@@ -1,8 +1,8 @@
 import { MDXProvider } from '@mdx-js/react';
 import { MDXRemote } from 'next-mdx-remote';
 
-import { mdxFilePaths, getMdxFile } from '@/utils/mdx-utils';
-import languageMapping from '@/utils/language-mapping';
+import { mdxFilePaths, getMdxFile } from '@/helpers/mdx.helpers';
+import languageMapping from '@/helpers/language-mapping.helper';
 
 import Head from '@/components/Head';
 import CodeBlock from '@/components/CodeBlock';

@@ -4,7 +4,7 @@ import { useTheme } from 'next-themes';
 
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import vsDark from 'prism-react-renderer/themes/vsDark';
-import vsLight from 'prism-react-renderer/themes/vsLight';
+import github from 'prism-react-renderer/themes/github';
 
 export default function CodeBlock({ children, className }) {
   const textInput = useRef(null);
@@ -15,12 +15,12 @@ export default function CodeBlock({ children, className }) {
   return (
     <Highlight
       {...defaultProps}
-      theme={resolvedTheme === 'dark' ? vsDark : vsLight}
+      theme={resolvedTheme === 'dark' ? vsDark : github}
       code={children}
       language={language}
     >
       {({ tokens, getLineProps, getTokenProps }) => (
-        <div className="my-5 flex flex-col items-start rounded-md bg-gray-200 px-2 shadow-xl dark:bg-gray-800">
+        <div className="my-5 flex flex-col items-start rounded-md bg-zinc-100 px-2 dark:bg-zinc-900">
           <pre ref={textInput} className="w-full overflow-auto px-2 pt-6 pb-3">
             {tokens.map((line, i) => (
               <div key={i} {...getLineProps({ line, key: i })}>

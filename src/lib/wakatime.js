@@ -40,17 +40,27 @@ export const getReadStats = async () => {
 
   const getData = await request?.json();
 
+  const best_day = {
+    date: getData?.data?.best_day?.date,
+    text: getData?.data?.best_day?.text,
+  };
+  const human_readable_daily_average = getData?.data?.human_readable_daily_average;
+  const human_readable_total = getData?.data?.human_readable_total;
+
   const filterLanguagesData = getData?.data?.languages.filter(
     (item) => item.minutes > 0 || item.hours > 0
   );
-  const sliceLanguagesData = filterLanguagesData?.slice(0, 4);
+  const languages = filterLanguagesData?.slice(0, 3);
+  const editors = getData?.data?.editors;
 
   return {
     status,
     data: {
-      getData,
-      languages: sliceLanguagesData,
-      editors: getData?.data?.editors,
+      best_day,
+      human_readable_daily_average,
+      human_readable_total,
+      languages,
+      editors,
     },
   };
 };

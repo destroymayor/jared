@@ -1,10 +1,7 @@
-import { useState } from 'react';
 import router from 'next/router';
 
-import Select from '@/components/Common/Select';
-
-import languageMapping from '@/utils/language-mapping';
-import { getMdxFileList } from '@/utils/mdx-utils';
+import languageMapping from '@/helpers/language-mapping.helper';
+import { getMdxFileList } from '@/helpers/mdx.helpers';
 
 const title = `Code Snippets`;
 const description = `Collection of useful code snippets.`;
@@ -14,31 +11,16 @@ Snippets.description = description;
 
 export default function Snippets(props) {
   const { snippets = [] } = props;
-  const [selected, setSelected] = useState(undefined);
 
   const handleNavigation = (pathname) => router.push(pathname);
-
-  const getCategories = ['All', ...new Set(snippets?.map((item) => item?.techStack)?.flat(1))];
-
-  const filteredData = snippets?.filter((item) => selected?.includes(item?.techStack));
-  const getSnippets = filteredData?.length === 0 ? snippets : filteredData;
 
   return (
     <>
       <h1 className="text-2xl sm:text-4xl">{title}</h1>
       <p className="text-md py-4 dark:text-gray-400 sm:text-lg">{description}</p>
 
-      <div className="mb-6">
-        <Select
-          options={getCategories}
-          value={selected ?? 'Categories'}
-          onChange={(value) => setSelected(value)}
-          renderItem={({ option }) => <span className="pl-2">{option}</span>}
-        />
-      </div>
-
-      <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-        {getSnippets.map((item) => {
+      <ul className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+        {snippets.map((item) => {
           const { title, description, category, pathname } = item;
           return (
             <li
@@ -47,11 +29,11 @@ export default function Snippets(props) {
               className="flex cursor-pointer flex-col gap-2 rounded-md border border-gray-300 p-4 transition duration-150 ease-out hover:scale-[1.05] dark:border-gray-700"
               onClick={() => handleNavigation(pathname)}
             >
-              <span className="h-8 w-8">{languageMapping?.[category]?.icon}</span>
-              <h3 className="text-xl font-bold">{title}</h3>
-              <div className="text-gray-600 dark:text-gray-400">
-                <span>{description}</span>
+              <div className="flex items-center justify-between py-2">
+                <h3 className="text-xl font-bold">{title}</h3>
+                <span className="h-8 w-8">{languageMapping?.[category]?.icon}</span>
               </div>
+              <p className="text-gray-600 dark:text-gray-400">{description}</p>
             </li>
           );
         })}

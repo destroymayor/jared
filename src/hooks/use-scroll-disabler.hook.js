@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-const useScrollDisabler = (disabled) => {
+export default function useScrollDisabler(disabled) {
   useEffect(() => {
     if (!disabled) {
       return;
@@ -30,6 +30,4 @@ const useScrollDisabler = (disabled) => {
       window.scrollTo(0, oldScrollY);
     };
   }, [disabled]);
-};
-
-export default useScrollDisabler;
+}

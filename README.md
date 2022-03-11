@@ -1,8 +1,13 @@
-# [jared-chen.me](https://jared-chen.me)
-
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fdestroymayor%2Fjared)
 
-Built with [Next.js](https://nextjs.org/) and styled with [Tailwind CSS](https://tailwindcss.com)
+# [jared-chen.me](https://jared-chen.me)
+
+---
+
+- Framework: [Next.js](https://nextjs.org/)
+- Deployment: [Vercel](https://vercel.com/)
+- Content: [MDX](https://github.com/mdx-js/mdx)
+- Styling: [Tailwind CSS](https://tailwindcss.com/)
 
 ## Running Locally
 
@@ -10,7 +15,6 @@ Built with [Next.js](https://nextjs.org/) and styled with [Tailwind CSS](https:/
 $ git clone https://github.com/destroymayor/jared.git
 $ cd jared
 $ yarn
-$ yarn prepare  # husky install
 $ yarn dev
 ```
 

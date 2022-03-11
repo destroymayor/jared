@@ -2,6 +2,7 @@ import router from 'next/router';
 import { useTrail, animated } from 'react-spring';
 
 import useToggle from '@/hooks/use-toggle.hook';
+import usePrefersReducedMotion from '@/hooks/use-prefers-reduced-motion.hook';
 import useScrollDisabler from '@/hooks/use-scroll-disabler.hook';
 
 import InPortal from '@/components/Common/InPortal';
@@ -13,11 +14,13 @@ import styles from '@/styles/mobile-menu.module.css';
 export default function MobileNav(props) {
   const { routes = [] } = props;
   const [isOpen, toggle] = useToggle();
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   useScrollDisabler(isOpen);
 
   const trail = useTrail(routes.length, {
     transform: isOpen ? 'translateX(0%)' : 'translateX(-100%)',
+    immediate: prefersReducedMotion,
     config: {
       tension: 700,
       friction: isOpen ? 50 : 20,
