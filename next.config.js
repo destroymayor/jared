@@ -2,6 +2,9 @@ module.exports = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domain: ['i.scdn.co', 'avatars.githubusercontent.com'],
+    domain: [
+      'i.scdn.co', // Spotify Album Art
+      'avatars.githubusercontent.com',
+    ],
   },
 };

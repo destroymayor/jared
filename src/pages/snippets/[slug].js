@@ -1,21 +1,13 @@
-/* eslint-disable react/display-name */
-import router from 'next/router';
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
-import { serialize } from 'next-mdx-remote/serialize';
-
 import { MDXProvider } from '@mdx-js/react';
 import { MDXRemote } from 'next-mdx-remote';
 
-import { mdxFilePaths } from '@/utils/mdx-utils';
+import { mdxFilePaths, getMdxFile } from '@/utils/mdx-utils';
 import languageMapping from '@/utils/language-mapping';
 
 import Head from '@/components/Head';
 import CodeBlock from '@/components/CodeBlock';
-import Button from '@/components/Common/Button';
 import Link from '@/components/Common/Link';
-import { ChevronLeftIcon, LinkIcon } from '@heroicons/react/outline';
+import { LinkIcon } from '@heroicons/react/outline';
 
 const components = {
   h2: (props) => {
@@ -35,19 +27,10 @@ const components = {
 export default function SnippetPage(props) {
   const { source, frontMatter } = props;
 
-  const handleBack = () => router.replace('/snippets');
-
   return (
     <>
       <Head title={frontMatter.title} description={frontMatter.description} />
       <div className="flex flex-col gap-y-5">
-        <div>
-          <Button onClick={handleBack}>
-            <ChevronLeftIcon className="h-6 w-6" />
-            <span className="pr-2 text-lg">Back</span>
-          </Button>
-        </div>
-
         <div className="flex items-center">
           <div className="flex flex-1 flex-col gap-y-3">
             <h1 className="text-2xl sm:text-3xl">{frontMatter.title}</h1>
@@ -70,13 +53,8 @@ export default function SnippetPage(props) {
   );
 }
 
-const MDX_FILE_PATH = path.join(process.cwd(), 'src/data/snippets');
 export async function getStaticProps({ params }) {
-  const mdxFilePath = path.join(MDX_FILE_PATH, `${params.slug}.mdx`);
-  const source = fs.readFileSync(mdxFilePath);
-
-  const { content, data } = matter(source);
-  const mdxSource = await serialize(content, { scope: data });
+  const { mdxSource, data } = await getMdxFile('src/data/snippets', params.slug);
 
   return {
     props: {
@@ -88,7 +66,7 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const paths = mdxFilePaths(MDX_FILE_PATH)
+  const paths = mdxFilePaths('src/data/snippets')
     .map((path) => path.replace(/\.mdx?$/, ''))
     .map((slug) => ({ params: { slug } }));
 

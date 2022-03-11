@@ -13,15 +13,15 @@ Snippets.title = title;
 Snippets.description = description;
 
 export default function Snippets(props) {
-  const { data = [] } = props;
+  const { snippets = [] } = props;
   const [selected, setSelected] = useState(undefined);
 
   const handleNavigation = (pathname) => router.push(pathname);
 
-  const getCategories = ['All', ...new Set(data?.map((item) => item?.techStack)?.flat(1))];
+  const getCategories = ['All', ...new Set(snippets?.map((item) => item?.techStack)?.flat(1))];
 
-  const filteredData = data?.filter((item) => selected?.includes(item?.techStack));
-  const getSnippets = filteredData?.length === 0 ? data : filteredData;
+  const filteredData = snippets?.filter((item) => selected?.includes(item?.techStack));
+  const getSnippets = filteredData?.length === 0 ? snippets : filteredData;
 
   return (
     <>
@@ -61,7 +61,7 @@ export default function Snippets(props) {
 }
 
 export async function getStaticProps() {
-  const data = await getMdxFileList('src/data/snippets');
+  const snippets = await getMdxFileList('src/data/snippets');
 
-  return { props: { data } };
+  return { props: { snippets } };
 }
