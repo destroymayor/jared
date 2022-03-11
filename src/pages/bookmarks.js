@@ -12,19 +12,19 @@ Bookmarks.description = description;
 
 const components = {
   h2: (props) => (
-    <h2 {...props} className="mt-4 text-xl">
+    <h2 {...props} className="mt-6 text-xl">
       {props?.children}
     </h2>
   ),
-  ul: (props) => <ul className="ml-4 list-disc">{props?.children}</ul>,
+  ul: (props) => <ul className="mx-4 flex list-disc flex-col">{props?.children}</ul>,
   li: (props) => (
-    <li {...props} className="my-2">
+    <li {...props} className="my-2 text-zinc-500">
       {props?.children}
     </li>
   ),
   a: (props) => (
     <Link
-      className="text-lg transition duration-200 ease-in-out hover:text-gray-500"
+      className="text-lg transition duration-200 ease-in-out dark:text-zinc-100"
       href={props?.href}
     >
       {props?.children}

@@ -30,14 +30,14 @@ export default function Projects() {
               <div className="flex gap-4 py-2 text-black dark:text-gray-200">
                 <Link aria-label="github link" href={item.links.repo}>
                   <Button>
-                    <GithubIcon className="h-6 w-6" />
+                    <GithubIcon className="h-5 w-5" />
                     <span>Github</span>
                   </Button>
                 </Link>
 
                 <Link aria-label="demo link" href={item.links.demo}>
                   <Button>
-                    <LinkIcon className="h-6 w-6" />
+                    <LinkIcon className="h-5 w-5" />
                     <span>Demo</span>
                   </Button>
                 </Link>
