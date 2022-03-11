@@ -30,8 +30,12 @@ const GITHUB_USER_QUERY = `query {
 export const getGithubUser = async () => {
   const response = await fetch(GITHUB_USER_ENDPOINT, {
     method: 'POST',
-    headers: { Authorization: `bearer ${read_user_token}` },
-    body: JSON.stringify({ query: GITHUB_USER_QUERY }),
+    headers: {
+      Authorization: `bearer ${read_user_token}`,
+    },
+    body: JSON.stringify({
+      query: GITHUB_USER_QUERY,
+    }),
   });
   const status = response.status;
 
