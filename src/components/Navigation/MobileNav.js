@@ -23,7 +23,7 @@ export default function MobileNav(props) {
     immediate: prefersReducedMotion,
     config: {
       tension: 700,
-      friction: isOpen ? 50 : 20,
+      friction: isOpen ? 60 : 20,
       clamp: true,
     },
   });
@@ -60,14 +60,14 @@ export default function MobileNav(props) {
           <div
             className={clsx(
               `${isOpen ? 'opacity-100' : 'opacity-0'}`,
-              'absolute inset-x-0 top-24 bottom-0 bg-gray-50 transition duration-500 dark:bg-black dark:bg-opacity-80 dark:backdrop-blur'
+              'absolute inset-x-0 top-20 bottom-0 bg-gray-50 transition duration-500 motion-safe:transition-opacity motion-safe:duration-500 dark:bg-black dark:bg-opacity-80 dark:backdrop-blur'
             )}
           />
 
           <nav
             className={clsx(
               `${isOpen ? 'opacity-100 dark:bg-opacity-70' : 'opacity-0'}`,
-              'absolute inset-x-0 top-24 bottom-0 bg-gray-50 dark:bg-black'
+              'absolute inset-x-0 top-20 bottom-0 bg-gray-50 dark:bg-black'
             )}
           >
             <ul className="flex flex-col items-start gap-y-8 px-8 py-6">
