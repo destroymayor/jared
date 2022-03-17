@@ -17,7 +17,7 @@ export default function TopTracks() {
         {data?.map((item, index) => (
           <li
             key={`${item.title} - ${item.artist} - ${index}`}
-            className="flex items-center border-b-[1px] border-zinc-400 py-2 dark:border-zinc-700"
+            className="flex animate-fade-up items-center border-b-[1px] border-zinc-400 py-2 dark:border-zinc-700"
           >
             <div className="w-5 text-center dark:text-zinc-400">{index + 1}</div>
 

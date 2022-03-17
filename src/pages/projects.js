@@ -20,7 +20,7 @@ export default function Projects() {
       <ul className="flex flex-col gap-y-6">
         {projects.map((project) => (
           <li
-            className="group relative h-72 rounded-lg bg-gray-800 bg-cover bg-no-repeat object-cover transition duration-200 ease-in-out hover:bg-blend-multiply"
+            className="group relative h-72 animate-fade-up rounded-lg bg-gray-800 bg-cover bg-no-repeat object-cover transition duration-200 ease-in-out hover:bg-blend-multiply"
             style={{ backgroundImage: `url(${project.image})` }}
             key={project.title}
           >

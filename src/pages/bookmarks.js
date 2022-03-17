@@ -18,7 +18,7 @@ const components = {
   ),
   ul: (props) => <ul className="mx-4 flex list-disc flex-col">{props?.children}</ul>,
   li: (props) => (
-    <li {...props} className="my-2 text-zinc-500">
+    <li {...props} className="my-2 animate-fade-up text-zinc-500">
       {props?.children}
     </li>
   ),

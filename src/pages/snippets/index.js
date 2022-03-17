@@ -26,7 +26,7 @@ export default function Snippets(props) {
             <li
               key={title + category}
               aria-hidden
-              className="flex cursor-pointer flex-col gap-2 rounded-md border border-gray-300 p-4 transition duration-150 ease-out hover:scale-[1.05] dark:border-gray-700"
+              className="flex animate-fade-up cursor-pointer flex-col gap-2 rounded-md border border-gray-300 p-4 transition duration-150 ease-out hover:scale-[1.05] dark:border-gray-700"
               onClick={() => handleNavigation(pathname)}
             >
               <div className="flex items-center justify-between py-2">

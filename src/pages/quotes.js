@@ -10,14 +10,14 @@ Quotes.description = description;
 
 const components = {
   h2: (props) => (
-    <h2 {...props} className="mt-4 mb-6 text-xl">
+    <h2 {...props} className="mt-4 mb-6 animate-fade-up text-xl">
       {props?.children}
     </h2>
   ),
   blockquote: (props) => (
     <blockquote
       {...props}
-      className="border-l-4 border-gray-400 py-3 px-4 text-lg italic dark:border-gray-600"
+      className="animate-fade-up border-l-4 border-gray-400 py-3 px-4 text-lg italic dark:border-gray-600"
     >
       {props?.children}
     </blockquote>

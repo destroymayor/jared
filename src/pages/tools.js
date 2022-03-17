@@ -16,7 +16,11 @@ export default function Tools() {
 
       <div className="flex flex-col gap-6">
         {tools.map((tool) => (
-          <Link key={tool.title} className="flex items-center gap-4" href={tool.link}>
+          <Link
+            key={tool.title}
+            className="flex animate-fade-up items-center gap-4"
+            href={tool.link}
+          >
             <span className="grid max-h-[70px] min-h-[70px] min-w-[70px] max-w-[70px] items-center rounded-md bg-zinc-200 p-2 dark:bg-zinc-800">
               {tool.logo}
             </span>

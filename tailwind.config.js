@@ -14,6 +14,15 @@ module.exports = {
       fontFamily: {
         sans: ['Source Code Pro', 'sans-serif'],
       },
+      keyframes: {
+        'fade-up': {
+          '0%': { opacity: 0, transform: 'translateY(50px)' },
+          '100%': { opacity: 1, transform: 'none' },
+        },
+      },
+      animation: {
+        'fade-up': 'fade-up .4s ease forwards',
+      },
     },
   },
   plugins: [],

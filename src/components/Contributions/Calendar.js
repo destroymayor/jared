@@ -13,7 +13,7 @@ export default function Calendar(props) {
 
   return (
     <>
-      <div className="flex flex-col">
+      <div className="flex animate-fade-up flex-col">
         <ul className="flex justify-end gap-[3px] overflow-hidden md:justify-start">
           {months.map((month) => (
             <li
@@ -29,7 +29,7 @@ export default function Calendar(props) {
           ))}
         </ul>
 
-        <ul className="flex justify-end gap-[3px] overflow-hidden">
+        <ul className="flex animate-fade-up justify-end gap-[3px] overflow-hidden">
           {weeks.map((week) => (
             <li key={week.firstDay}>
               {week.contributionDays.map((contribution) => (
@@ -53,7 +53,7 @@ export default function Calendar(props) {
         </ul>
       </div>
 
-      <div className="flex flex-wrap items-center justify-between gap-2">
+      <div className="flex animate-fade-up flex-wrap items-center justify-between gap-2">
         <div
           className={clsx(
             `${selectContribution.date ? 'opacity-100' : 'opacity-0'}`,
