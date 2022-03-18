@@ -24,7 +24,7 @@ export default function NowPlaying() {
     );
 
   return (
-    <section className="flex items-center gap-x-3">
+    <div className="flex items-center gap-x-3">
       {data?.albumImageUrl ? (
         <div className="flex h-[60px] w-[60px] flex-none items-center justify-center">
           <Image
@@ -57,6 +57,6 @@ export default function NowPlaying() {
           </p>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

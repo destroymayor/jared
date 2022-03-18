@@ -4,20 +4,21 @@ import useSWR from 'swr';
 import fetcher from '@/lib/fetcher';
 
 import Link from '@/components/Common/Link';
+import FadeInSection from '@/components/Common/FadeInSection';
 
 export default function TopTracks() {
   const { data } = useSWR('/api/top-tracks', fetcher);
 
   return (
-    <section className="flex flex-col gap-y-2 border-t border-gray-500 pt-4">
+    <div className="flex flex-col gap-y-2">
       <h2 className="text-2xl">Top Tracks</h2>
       <p className="dark:text-gray-400">{`Here's my top tracks on Spotify updated daily.`}</p>
 
       <ul className="flex flex-col gap-y-2">
         {data?.map((item, index) => (
-          <li
+          <FadeInSection
             key={`${item.title} - ${item.artist} - ${index}`}
-            className="flex animate-fade-up items-center border-b-[1px] border-zinc-400 py-2 dark:border-zinc-700"
+            className="flex items-center border-b-[1px] border-zinc-400 py-2 dark:border-zinc-700"
           >
             <div className="w-5 text-center dark:text-zinc-400">{index + 1}</div>
 
@@ -39,9 +40,9 @@ export default function TopTracks() {
                 {item?.artist ?? 'Spotify'}
               </p>
             </div>
-          </li>
+          </FadeInSection>
         ))}
       </ul>
-    </section>
+    </div>
   );
 }

@@ -1,4 +1,5 @@
 import Progress from '@/components/CodingActive/Progress';
+import FadeInSection from '@/components/Common/FadeInSection';
 
 const CodingActiveList = (props) => {
   const { data } = props;
@@ -11,7 +12,7 @@ const CodingActiveList = (props) => {
   return (
     <>
       {actives.map((item) => (
-        <div key={item.title} className="my-2 flex animate-fade-up flex-col gap-2">
+        <FadeInSection key={item.title} className="my-2 flex flex-col gap-2">
           <p className="dark:text-zinc-400">{item.title}</p>
           <ul className="flex flex-col gap-1 sm:ml-6 sm:list-disc">
             {item?.data?.map((subItem) => (
@@ -26,7 +27,7 @@ const CodingActiveList = (props) => {
               </li>
             ))}
           </ul>
-        </div>
+        </FadeInSection>
       ))}
     </>
   );

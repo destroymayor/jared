@@ -3,6 +3,7 @@ import { MDXRemote } from 'next-mdx-remote';
 import { getMdxFile } from '@/helpers/mdx.helpers';
 
 import Link from '@/components/Common/Link';
+import FadeInSection from '@/components/Common/FadeInSection';
 
 const title = `Bookmarks`;
 const description = `Collection of useful tools website.`;
@@ -18,8 +19,8 @@ const components = {
   ),
   ul: (props) => <ul className="mx-4 flex list-disc flex-col">{props?.children}</ul>,
   li: (props) => (
-    <li {...props} className="my-2 animate-fade-up text-zinc-500">
-      {props?.children}
+    <li {...props} className="my-2 text-zinc-500">
+      <FadeInSection>{props?.children}</FadeInSection>
     </li>
   ),
   a: (props) => (

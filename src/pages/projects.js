@@ -1,6 +1,7 @@
 import projects from '@/data/projects';
 
 import Button from '@/components/Common/Button';
+import FadeInSection from '@/components/Common/FadeInSection';
 import Link from '@/components/Common/Link';
 import { GithubIcon } from '@/components/Common/Icons';
 import { LinkIcon } from '@heroicons/react/outline';
@@ -17,15 +18,15 @@ export default function Projects() {
       <h1 className="text-2xl sm:text-4xl">{title}</h1>
       <p className="text-md py-4 dark:text-gray-400 sm:text-lg">{description}</p>
 
-      <ul className="flex flex-col gap-y-6">
+      <div className="flex flex-col gap-y-6">
         {projects.map((project) => (
-          <li
-            className="group relative h-72 animate-fade-up rounded-lg bg-gray-800 bg-cover bg-no-repeat object-cover transition duration-200 ease-in-out hover:bg-blend-multiply"
+          <FadeInSection
+            className="group relative h-72 rounded-lg bg-zinc-800 bg-cover bg-center bg-no-repeat object-cover bg-blend-multiply transition duration-200 ease-in-out sm:bg-zinc-100 sm:hover:bg-zinc-700"
             style={{ backgroundImage: `url(${project.image})` }}
             key={project.title}
           >
-            <div className="absolute bottom-2 flex flex-col gap-y-2 px-5 opacity-0 transition duration-200 ease-in-out group-hover:-translate-y-3 group-hover:text-gray-100 group-hover:opacity-100">
-              <h2 className="text-4xl">{project.title}</h2>
+            <div className="absolute bottom-2 flex flex-col gap-y-2 px-5 text-zinc-100 transition duration-200 ease-in-out sm:opacity-0 sm:group-hover:-translate-y-3 sm:group-hover:text-zinc-100 sm:group-hover:opacity-100">
+              <h2 className="text-4xl ">{project.title}</h2>
               <p className="px-1">{project.description}</p>
               <div className="flex gap-4 py-2 text-black dark:text-gray-200">
                 <Link aria-label="github link" href={project.links.repo}>
@@ -43,9 +44,9 @@ export default function Projects() {
                 </Link>
               </div>
             </div>
-          </li>
+          </FadeInSection>
         ))}
-      </ul>
+      </div>
     </>
   );
 }

@@ -23,10 +23,17 @@ export default function Dashboard(props) {
       <h1 className="text-2xl sm:text-4xl">{title}</h1>
       <p className="text-md py-4 dark:text-gray-400 sm:text-lg">{description}</p>
 
-      <div className="mt-2 flex flex-col gap-y-6">
-        <NowPlaying />
+      <div className="flex flex-col gap-y-6">
         <Contributions />
-        <CodingActive />
+
+        <div className="border-t border-gray-500 pt-4">
+          <CodingActive />
+        </div>
+
+        <div className="border-t border-gray-500 pt-4">
+          <NowPlaying />
+        </div>
+
         <TopTracks />
       </div>
     </SWRConfig>

@@ -2,6 +2,8 @@ import { MDXProvider } from '@mdx-js/react';
 import { MDXRemote } from 'next-mdx-remote';
 import { getMdxFile } from '@/helpers/mdx.helpers';
 
+import FadeInSection from '@/components/Common/FadeInSection';
+
 const title = `Quotes`;
 const description = `Collection of famous quotes.`;
 
@@ -10,16 +12,16 @@ Quotes.description = description;
 
 const components = {
   h2: (props) => (
-    <h2 {...props} className="mt-4 mb-6 animate-fade-up text-xl">
-      {props?.children}
+    <h2 {...props} className="mt-4 mb-6 text-xl">
+      <FadeInSection>{props?.children}</FadeInSection>
     </h2>
   ),
   blockquote: (props) => (
     <blockquote
       {...props}
-      className="animate-fade-up border-l-4 border-gray-400 py-3 px-4 text-lg italic dark:border-gray-600"
+      className="border-l-4 border-gray-400 py-3 px-4 text-lg italic dark:border-gray-600"
     >
-      {props?.children}
+      <FadeInSection>{props?.children}</FadeInSection>
     </blockquote>
   ),
 };

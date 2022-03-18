@@ -10,12 +10,18 @@ export default function Contributions() {
   const contributionCalendar = data?.contributionsCollection?.contributionCalendar;
 
   return (
-    <section className="flex flex-col gap-y-2 border-t border-gray-500 pt-4">
+    <div className="flex flex-col gap-y-2">
       <h2 className="text-2xl">Contributions</h2>
       <p className="dark:text-gray-400">{`My last year's contributions in Github.`}</p>
 
-      <Overview data={contributionCalendar} />
-      <Calendar data={contributionCalendar} />
-    </section>
+      {!data && <div className="dark:text-gray-400">No Data</div>}
+
+      {data && (
+        <>
+          <Overview data={contributionCalendar} />
+          <Calendar data={contributionCalendar} />
+        </>
+      )}
+    </div>
   );
 }
