@@ -13,7 +13,9 @@ Bookmarks.title = title;
 Bookmarks.description = description;
 
 const components = {
-  Title: (props) => <div className="flex items-center text-lg text-zinc-200">{props.children}</div>,
+  Title: (props) => (
+    <div className="flex items-center text-lg dark:text-zinc-200">{props.children}</div>
+  ),
   Url: (props) => <span>{props.children}</span>,
   Description: (props) => <span className="text-sm text-zinc-500">{props.children}</span>,
   ul: (props) => <ul className="mx-4 flex list-disc flex-col">{props?.children}</ul>,
