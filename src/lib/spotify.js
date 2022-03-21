@@ -6,7 +6,7 @@ const refresh_token = process.env.SPOTIFY_REFRESH_TOKEN;
 
 const basic = Buffer.from(`${client_id}:${client_secret}`).toString('base64');
 const NOW_PLAYING_ENDPOINT = `https://api.spotify.com/v1/me/player/currently-playing`;
-const TOP_TRACKS_ENDPOINT = `https://api.spotify.com/v1/me/player/recently-played`;
+const TOP_TRACKS_ENDPOINT = `https://api.spotify.com/v1/me/top/tracks`;
 const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`;
 
 const getAccessToken = async () => {
@@ -71,7 +71,7 @@ export const getNowPlaying = async () => {
 export const getTopTracks = async () => {
   const { access_token } = await getAccessToken();
 
-  const request = await fetch(`${TOP_TRACKS_ENDPOINT}?limit=10`, {
+  const request = await fetch(`${TOP_TRACKS_ENDPOINT}`, {
     method: 'GET',
     headers: {
       Authorization: `Bearer ${access_token}`,
@@ -86,7 +86,7 @@ export const getTopTracks = async () => {
 
   const getData = await request?.json();
 
-  const tracks = getData?.items?.map(({ track }) => ({
+  const tracks = getData?.items?.slice(0, 10)?.map((track) => ({
     album: {
       name: track?.album?.name,
       image: track?.album?.images.filter((image) => image.width === 64)?.[0],

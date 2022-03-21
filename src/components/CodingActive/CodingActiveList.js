@@ -5,8 +5,8 @@ const CodingActiveList = (props) => {
   const { data } = props;
 
   const actives = [
-    { title: 'Languages', data: data.languages },
-    { title: 'Editor', data: data.editors },
+    { title: 'Languages', data: data?.languages },
+    { title: 'Editor', data: data?.editors },
   ];
 
   return (
