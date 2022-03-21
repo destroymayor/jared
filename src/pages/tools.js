@@ -2,6 +2,7 @@ import tools from '@/data/tools';
 
 import Link from '@/components/Common/Link';
 import FadeInSection from '@/components/Common/FadeInSection';
+import Tag from '@/components/Common/Tag';
 
 const title = `Tools`;
 const description = `A list of my favorite tools`;
@@ -26,7 +27,10 @@ export default function Tools() {
                   {tool.logo}
                 </span>
                 <div className="flex flex-col gap-1">
-                  <h2 className="text-xl">{tool.title}</h2>
+                  <div className="flex items-center gap-2">
+                    <h2 className="text-xl">{tool.title}</h2>
+                    {tool.tag && <Tag label={tool.tag.label} type={tool.tag.type} />}
+                  </div>
                   <p className="text-sm dark:text-zinc-400">{tool.description}</p>
                 </div>
               </FadeInSection>
