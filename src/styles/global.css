@@ -17,10 +17,6 @@ html {
   scroll-behavior: smooth;
 }
 
-#__next {
-  @apply bg-gray-50 dark:bg-black;
-}
-
 @media (orientation: landscape) {
   ::-webkit-scrollbar {
     @apply w-2  bg-zinc-200 dark:bg-zinc-700;
