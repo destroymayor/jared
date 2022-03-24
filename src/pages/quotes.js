@@ -1,4 +1,3 @@
-import { MDXProvider } from '@mdx-js/react';
 import { MDXRemote } from 'next-mdx-remote';
 import { getMdxFile } from '@/helpers/mdx.helpers';
 
@@ -27,16 +26,13 @@ const components = {
 };
 
 export default function Quotes(props) {
-  const { source } = props;
+  const { mdxSource } = props;
 
   return (
     <>
       <h1 className="text-2xl sm:text-4xl">{title}</h1>
       <p className="text-md py-4 dark:text-gray-400 sm:text-lg">{description}</p>
-
-      <MDXProvider components={components}>
-        <MDXRemote {...source} lazy />
-      </MDXProvider>
+      <MDXRemote {...mdxSource} lazy components={components} />
     </>
   );
 }
@@ -46,7 +42,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      source: mdxSource,
+      mdxSource,
     },
     revalidate: 120,
   };

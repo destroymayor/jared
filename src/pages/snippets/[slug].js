@@ -1,4 +1,3 @@
-import { MDXProvider } from '@mdx-js/react';
 import { MDXRemote } from 'next-mdx-remote';
 
 import { mdxFilePaths, getMdxFile } from '@/helpers/mdx.helpers';
@@ -25,7 +24,7 @@ const components = {
 };
 
 export default function SnippetPage(props) {
-  const { source, frontMatter } = props;
+  const { mdxSource, frontMatter } = props;
 
   return (
     <>
@@ -44,9 +43,7 @@ export default function SnippetPage(props) {
         </div>
 
         <div className="w-full">
-          <MDXProvider components={components}>
-            <MDXRemote {...source} lazy />
-          </MDXProvider>
+          <MDXRemote {...mdxSource} lazy components={components} />
         </div>
       </div>
     </>
@@ -58,7 +55,7 @@ export async function getStaticProps({ params }) {
 
   return {
     props: {
-      source: mdxSource,
+      mdxSource,
       frontMatter: data,
     },
     revalidate: 120,

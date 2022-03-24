@@ -1,4 +1,3 @@
-import { MDXProvider } from '@mdx-js/react';
 import { MDXRemote } from 'next-mdx-remote';
 import { getMdxFile } from '@/helpers/mdx.helpers';
 
@@ -13,12 +12,10 @@ Bookmarks.title = title;
 Bookmarks.description = description;
 
 const components = {
-  Title: (props) => (
-    <div className="flex items-center text-lg dark:text-zinc-200">{props.children}</div>
-  ),
-  Url: (props) => <span>{props.children}</span>,
-  Description: (props) => <span className="text-sm text-zinc-500">{props.children}</span>,
-  ul: (props) => <ul className="mx-4 flex list-disc flex-col">{props?.children}</ul>,
+  Title: (props) => <div {...props} className="flex items-center text-lg dark:text-zinc-200" />,
+  Url: (props) => <span {...props} />,
+  Description: (props) => <span {...props} className="text-sm text-zinc-500" />,
+  ul: (props) => <ul {...props} className="mx-4 flex list-disc flex-col" />,
   li: (props) => (
     <li {...props}>
       <FadeInSection className="my-2 flex flex-col items-start">{props?.children}</FadeInSection>
@@ -36,16 +33,13 @@ const components = {
 };
 
 export default function Bookmarks(props) {
-  const { source } = props;
+  const { mdxSource } = props;
 
   return (
     <>
       <h1 className="text-2xl sm:text-4xl">{title}</h1>
       <p className="text-md pt-4 pb-2 dark:text-gray-400 sm:text-lg">{description}</p>
-
-      <MDXProvider components={components}>
-        <MDXRemote {...source} lazy />
-      </MDXProvider>
+      <MDXRemote {...mdxSource} components={components} />
     </>
   );
 }
@@ -55,7 +49,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      source: mdxSource,
+      mdxSource,
     },
     revalidate: 120,
   };

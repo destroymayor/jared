@@ -141,7 +141,7 @@ const CommandPalette = () => {
                 />
               </div>
 
-              <div className="max-h-60 overflow-y-auto">
+              <div className="max-h-80 overflow-y-auto">
                 {filterOptions.map((option) => (
                   <div
                     key={option.title}
