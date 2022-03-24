@@ -1,5 +1,6 @@
 import { VSCodeIcon, ITermIcon, SpotifyIcon, FigIcon, GithubIcon } from '@/components/Common/Icons';
 import rectangle from '@/public/images/tools/rectangle.png';
+import airBuddy from '@/public/images/tools/airbuddy.png';
 
 const data = [
   {
@@ -38,6 +39,17 @@ const data = [
     title: 'Rectangle',
     description: 'Move and resize windows in macOS using keyboard shortcuts or snap areas.',
     link: 'https://rectangleapp.com',
+    tag: {
+      type: 'info',
+      label: 'INDIE',
+    },
+  },
+  {
+    // eslint-disable-next-line @next/next/no-img-element
+    logo: <img src={airBuddy.src} alt="airbuddy logo" />,
+    title: 'AirBuddy',
+    description: 'Take control of your wireless devices on macOS.',
+    link: 'https://v2.airbuddy.app',
     tag: {
       type: 'info',
       label: 'INDIE',
