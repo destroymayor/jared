@@ -14,7 +14,7 @@ export default function TopTracks() {
       <h2 className="text-2xl">Top Tracks</h2>
       <p className="dark:text-gray-400">{`Here's my top tracks on Spotify updated daily.`}</p>
 
-      <ul className="flex flex-col gap-y-2">
+      <ul className="mt-2 flex flex-col gap-y-2">
         {data?.map((item, index) => (
           <FadeInSection
             key={`${item.title} - ${item.artist} - ${index}`}

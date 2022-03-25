@@ -10,19 +10,6 @@ import { SpotifyIcon } from '@/components/Common/Icons';
 export default function NowPlaying() {
   const { data } = useSWR('/api/now-playing', fetcher);
 
-  const isLoading = !data;
-
-  if (isLoading)
-    return (
-      <div className="flex animate-pulse items-center gap-x-3">
-        <div className="h-14 w-14 rounded-md bg-gray-600"></div>
-        <div className="flex flex-col gap-2">
-          <div className="h-4 w-12 rounded-md bg-gray-600"></div>
-          <div className="h-4 w-32 rounded-md bg-gray-600"></div>
-        </div>
-      </div>
-    );
-
   return (
     <div className="flex items-center gap-x-3">
       {data?.albumImageUrl ? (
