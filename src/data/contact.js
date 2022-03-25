@@ -1,5 +1,5 @@
 import { PaperAirplaneIcon } from '@heroicons/react/solid';
-import { GithubIcon, LinkedinIcon } from '@/components/Common/Icons';
+import { GithubIcon, LinkedinIcon, TwitterIcon } from '@/components/Common/Icons';
 
 export const mail = {
   link: 'mailto:kuil5230@gmail.com',
@@ -22,6 +22,13 @@ export const linkedIn = {
   icon: <LinkedinIcon className="h-6 w-6" />,
 };
 
-const data = [mail, github, linkedIn];
+export const twitter = {
+  link: 'https://twitter.com/destroymayor',
+  title: 'twitter.com/destroymayor',
+  label: 'Twitter',
+  icon: <TwitterIcon className="h-6 w-6" />,
+};
+
+const data = [mail, github, linkedIn, twitter];
 
 export default data;
