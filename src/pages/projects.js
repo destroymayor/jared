@@ -1,8 +1,9 @@
+/* eslint-disable @next/next/no-img-element */
 import projects from '@/data/projects';
 
-import Button from '@/components/Common/Button';
 import FadeInSection from '@/components/Common/FadeInSection';
 import Link from '@/components/Common/Link';
+import Tag from '@/components/Common/Tag';
 import { GithubIcon } from '@/components/Common/Icons';
 import { LinkIcon } from '@heroicons/react/outline';
 
@@ -18,29 +19,39 @@ export default function Projects() {
       <h1 className="text-2xl sm:text-4xl">{title}</h1>
       <p className="text-md py-4 dark:text-gray-400 sm:text-lg">{description}</p>
 
-      <div className="flex flex-col gap-y-6">
+      <div className="flex flex-col flex-wrap gap-5 md:flex-row">
         {projects.map((project) => (
           <FadeInSection
-            className="group relative h-72 rounded-lg bg-zinc-800 bg-cover bg-center bg-no-repeat object-cover bg-blend-multiply transition duration-200 ease-in-out sm:bg-zinc-100 sm:hover:bg-zinc-700"
-            style={{ backgroundImage: `url(${project.image})` }}
+            className="mb-2 flex flex-col rounded-lg shadow-lg dark:bg-zinc-900 md:w-80"
             key={project.title}
           >
-            <div className="absolute bottom-2 flex flex-col gap-y-2 px-5 text-zinc-100 transition duration-200 ease-in-out sm:opacity-0 sm:group-hover:-translate-y-3 sm:group-hover:text-zinc-100 sm:group-hover:opacity-100">
-              <h2 className="text-4xl ">{project.title}</h2>
-              <p className="px-1">{project.description}</p>
-              <div className="flex gap-4 py-2 text-black dark:text-gray-200">
+            <img
+              className="max-h-[200px] min-h-[200px] w-full rounded-t-lg object-cover"
+              src={project.image}
+              alt={project.title}
+            />
+
+            <div className="flex flex-1 flex-col justify-between p-3">
+              <div>
+                <div className="flex flex-col items-start gap-1">
+                  <Tag label={project.tag} type="info" />
+                  <h2 className="text-xl font-semibold">{project.title}</h2>
+                </div>
+                <p className="py-1 text-sm dark:text-zinc-400">{project.description}</p>
+              </div>
+              <div className="flex divide-x py-2 dark:divide-zinc-500">
                 <Link aria-label="github link" href={project.links.repo}>
-                  <Button>
+                  <div className="flex items-center gap-2 pr-4 hover:underline">
                     <GithubIcon className="h-5 w-5" />
                     <span>Github</span>
-                  </Button>
+                  </div>
                 </Link>
 
                 <Link aria-label="demo link" href={project.links.demo}>
-                  <Button>
+                  <div className="flex items-center gap-2 pl-4 hover:underline">
                     <LinkIcon className="h-5 w-5" />
                     <span>Demo</span>
-                  </Button>
+                  </div>
                 </Link>
               </div>
             </div>

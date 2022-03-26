@@ -10,6 +10,7 @@ const data = [
     image: weatherApp.src,
     title: 'Weather App',
     description: 'A weather app that shows the current weather in your search.',
+    tag: 'Next.js',
     links: {
       repo: 'https://github.com/destroymayor/weather-app',
       demo: 'https://weather-app-gamma-five.vercel.app',
@@ -20,6 +21,7 @@ const data = [
     title: 'Movie App',
     description:
       'This is an application using Next.js as the framework and allows the user to search movies they want to watch from The Movie DB API.',
+    tag: 'Next.js',
     links: {
       repo: 'https://github.com/destroymayor/movie-app',
       demo: 'https://movie-app-roan-two.vercel.app',
@@ -29,6 +31,7 @@ const data = [
     image: memoryCardGameImage.src,
     title: 'Memory Card Game',
     description: 'Test your memory with this memory game.',
+    tag: 'Next.js',
     links: {
       repo: 'https://github.com/destroymayor/memory-card-game',
       demo: 'https://memory-card-game-demo.vercel.app',
@@ -38,6 +41,7 @@ const data = [
     image: imageConverterImage.src,
     title: 'Image Converter',
     description: 'A simple image convert tool',
+    tag: 'Next.js',
     links: {
       repo: 'https://github.com/destroymayor/image-converter',
       demo: 'https://simple-image-converter.vercel.app',
@@ -47,6 +51,7 @@ const data = [
     image: spotifyCloneImage.src,
     title: 'Spotify Clone',
     description: 'A clone project of the Spotify web player.',
+    tag: 'Next.js',
     links: {
       repo: 'https://github.com/destroymayor/spotify-clone',
       demo: 'https://spotify-clone-demo.vercel.app',
@@ -56,6 +61,7 @@ const data = [
     image: fakeFacebookImage.src,
     title: 'Facebook Clone',
     description: 'A clone project of the Facebook',
+    tag: 'Next.js',
     links: {
       repo: 'https://github.com/destroymayor/facebook-clone',
       demo: 'https://facebook-clone-demo.vercel.app',
