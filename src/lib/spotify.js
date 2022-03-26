@@ -71,7 +71,7 @@ export const getNowPlaying = async () => {
 export const getTopTracks = async () => {
   const { access_token } = await getAccessToken();
 
-  const request = await fetch(`${TOP_TRACKS_ENDPOINT}`, {
+  const request = await fetch(`${TOP_TRACKS_ENDPOINT}?limit=10`, {
     method: 'GET',
     headers: {
       Authorization: `Bearer ${access_token}`,
@@ -86,10 +86,10 @@ export const getTopTracks = async () => {
 
   const getData = await request?.json();
 
-  const tracks = getData?.items?.slice(0, 10)?.map((track) => ({
+  const tracks = getData?.items?.map((track) => ({
     album: {
       name: track?.album?.name,
-      image: track?.album?.images.filter((image) => image.width === 64)?.[0],
+      image: track?.album?.images.find((image) => image.width === 64),
     },
     artist: track?.artists?.map((_artist) => _artist.name).join(', '),
     songUrl: track?.external_urls?.spotify,

@@ -20,7 +20,7 @@ export default function Overview(props) {
   const averageContribution = (totalContributions / totalContributionList.length).toFixed(2);
 
   return (
-    <FadeInSection className="flex flex-wrap gap-4 self-start rounded-md py-2 sm:gap-6">
+    <FadeInSection className="flex flex-wrap gap-4 self-start rounded-md py-2">
       <div className="flex flex-col">
         <span className="text-sm dark:text-zinc-400">Total</span>
         <span className="text-2xl font-bold text-green-600">{totalContributions}</span>

@@ -4,7 +4,6 @@ import { getReadStats } from '@/lib/wakatime';
 import { getNowPlaying, getTopTracks } from '@/lib/spotify';
 import { getGithubUser } from '@/lib/github';
 
-import NowPlaying from '@/components/NowPlaying';
 import TopTracks from '@/components/TopTracks';
 import CodingActive from '@/components/CodingActive';
 import Contributions from '@/components/Contributions';
@@ -24,17 +23,17 @@ export default function Dashboard(props) {
       <p className="text-md py-4 dark:text-gray-400 sm:text-lg">{description}</p>
 
       <div className="flex flex-col gap-y-6">
-        <Contributions />
+        <div className="border-t border-gray-500 pt-4">
+          <Contributions />
+        </div>
 
         <div className="border-t border-gray-500 pt-4">
           <CodingActive />
         </div>
 
         <div className="border-t border-gray-500 pt-4">
-          <NowPlaying />
+          <TopTracks />
         </div>
-
-        <TopTracks />
       </div>
     </SWRConfig>
   );

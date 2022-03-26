@@ -11,7 +11,7 @@ export default function NowPlaying() {
   const { data } = useSWR('/api/now-playing', fetcher);
 
   return (
-    <div className="flex items-center gap-x-3">
+    <div className="flex items-center gap-x-3 py-2">
       {data?.albumImageUrl ? (
         <div className="flex h-[60px] w-[60px] flex-none items-center justify-center">
           <Image

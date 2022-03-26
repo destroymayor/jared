@@ -2,6 +2,7 @@ import Progress from '@/components/CodingActive/Progress';
 import FadeInSection from '@/components/Common/FadeInSection';
 
 import { ClockIcon } from '@heroicons/react/solid';
+import clsx from 'clsx';
 
 const sumTotalFromArray = (data = [], key) => {
   return data.reduce((previousValue, currentValue) => previousValue + currentValue[key], 0) ?? 0;
@@ -27,11 +28,17 @@ const CodingActiveList = (props) => {
       title: 'Languages',
       total: getLanguagesTotalTimeDisplay,
       data: data?.languages,
+      styles: {
+        bg: 'bg-gradient-to-r from-amber-400 to-rose-600',
+      },
     },
     {
       title: 'Editor',
       total: getEditorTotalTimeDisplay,
       data: data?.editors,
+      styles: {
+        bg: 'bg-gradient-to-r from-blue-400 to-purple-600',
+      },
     },
   ];
 
@@ -40,23 +47,20 @@ const CodingActiveList = (props) => {
       {actives.map((item) => (
         <FadeInSection
           key={item.title}
-          className="relative flex flex-1 flex-col gap-2 rounded-xl bg-gradient-to-r from-blue-400 to-purple-600 p-[2px]"
+          className={clsx(item.styles.bg, 'relative flex flex-1 flex-col gap-2 rounded-xl p-[2px]')}
         >
           <div className="h-full w-full rounded-xl bg-gray-50 p-2 dark:bg-black">
-            <p className="absolute -top-3 left-3 bg-gray-50 px-2 dark:bg-black dark:text-zinc-400">
-              {item.title}
-            </p>
+            <p className="absolute -top-3 left-3 bg-gray-50 px-2 dark:bg-black">{item.title}</p>
+
             <div className="flex items-center gap-2 p-2">
               <ClockIcon className="h-6 w-6" />
               <span className="text-lg font-semibold">{item.total}</span>
             </div>
-            <ul className="flex flex-col gap-1 px-2">
+
+            <ul className="flex flex-col px-2">
               {item?.data?.map((subItem) => (
-                <li key={subItem.name} className="flex">
-                  <div className="flex-[0.5] text-sm">{subItem.name}</div>
-                  <div className="flex-1">
-                    <Progress percent={subItem.percent} />
-                  </div>
+                <li key={subItem.name}>
+                  <Progress data={subItem} />
                 </li>
               ))}
             </ul>
