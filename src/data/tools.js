@@ -1,6 +1,7 @@
 import { VSCodeIcon, ITermIcon, SpotifyIcon, FigIcon, GithubIcon } from '@/components/Common/Icons';
 import rectangle from '@/public/images/tools/rectangle.png';
 import airBuddy from '@/public/images/tools/airbuddy.png';
+import omniDiskSweeper from '@/public/images/tools/omnidisksweeper.png';
 
 const data = [
   {
@@ -56,16 +57,35 @@ const data = [
     },
   },
   {
+    // eslint-disable-next-line @next/next/no-img-element
+    logo: <img src={omniDiskSweeper.src} alt="omni disk sweeper logo" />,
+    title: 'OmniDiskSweeper',
+    description: 'Quickly find large, unwanted files and sweep them into the trash.',
+    link: 'https://www.omnigroup.com/more',
+    tag: {
+      type: 'info',
+      label: 'INDIE',
+    },
+  },
+  {
     logo: <GithubIcon />,
     title: 'GitHub Mobile',
     description: 'Bring GitHub collaboration tools to your small screens with GitHub Mobile.',
     link: 'https://github.com/mobile',
+    tag: {
+      type: 'info',
+      label: 'INDIE',
+    },
   },
   {
     logo: <SpotifyIcon />,
     title: 'Spotify',
     description: 'Using it to listen to EDM music',
     link: 'https://www.spotify.com',
+    tag: {
+      type: 'info',
+      label: 'INDIE',
+    },
   },
 ];
 
