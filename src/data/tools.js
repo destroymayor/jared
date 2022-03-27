@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { VSCodeIcon, ITermIcon, SpotifyIcon, FigIcon, GithubIcon } from '@/components/Common/Icons';
 import rectangle from '@/public/images/tools/rectangle.png';
 import airBuddy from '@/public/images/tools/airbuddy.png';
@@ -35,7 +36,6 @@ const data = [
     },
   },
   {
-    // eslint-disable-next-line @next/next/no-img-element
     logo: <img src={rectangle.src} alt="rectangle logo" />,
     title: 'Rectangle',
     description: 'Move and resize windows in macOS using keyboard shortcuts or snap areas.',
@@ -46,7 +46,6 @@ const data = [
     },
   },
   {
-    // eslint-disable-next-line @next/next/no-img-element
     logo: <img src={airBuddy.src} alt="airbuddy logo" />,
     title: 'AirBuddy',
     description: 'Take control of your wireless devices on macOS.',
@@ -57,7 +56,6 @@ const data = [
     },
   },
   {
-    // eslint-disable-next-line @next/next/no-img-element
     logo: <img src={omniDiskSweeper.src} alt="omni disk sweeper logo" />,
     title: 'OmniDiskSweeper',
     description: 'Quickly find large, unwanted files and sweep them into the trash.',
