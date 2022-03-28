@@ -5,14 +5,13 @@ import fetcher from '@/lib/fetcher';
 
 import AnimatedBars from '@/components/NowPlaying/AnimatedBars';
 import Link from '@/components/Common/Link';
-import { SpotifyIcon } from '@/components/Common/Icons';
 
 export default function NowPlaying() {
   const { data } = useSWR('/api/now-playing', fetcher);
 
   return (
     <div className="flex items-center gap-x-3 py-2">
-      {data?.albumImageUrl ? (
+      {data?.albumImageUrl && (
         <div className="flex h-[60px] w-[60px] flex-none items-center justify-center">
           <Image
             className="rounded-md"
@@ -22,10 +21,6 @@ export default function NowPlaying() {
             width={60}
             height={60}
           />
-        </div>
-      ) : (
-        <div className="h-6 w-6 flex-none">
-          <SpotifyIcon className="h-6 w-6" />
         </div>
       )}
 

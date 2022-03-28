@@ -9,7 +9,8 @@ import contact from '@/data/contact';
 
 import clsx from 'clsx';
 import { Dialog, Combobox, Transition } from '@headlessui/react';
-import { ArrowRightIcon, SearchIcon, SunIcon, MoonIcon } from '@heroicons/react/outline';
+import { ArrowRightIcon, SearchIcon } from '@heroicons/react/outline';
+import { SunIcon, MoonIcon } from '@heroicons/react/solid';
 import { CommandIcon } from '@/components/Common/Icons';
 
 const CommandPalette = () => {
@@ -54,14 +55,14 @@ const CommandPalette = () => {
       title: 'Theme',
       children: [
         {
-          icon: <SunIcon className="h-6 w-6 text-amber-500" />,
-          title: 'Light',
+          icon: <SunIcon className="h-6 w-6" />,
+          title: 'Set theme to Light',
           click: () => setTheme('light'),
           isExternal: false,
         },
         {
           icon: <MoonIcon className="h-6 w-6" />,
-          title: 'Dark',
+          title: 'Set theme to Dark',
           click: () => setTheme('dark'),
           isExternal: false,
         },
@@ -99,7 +100,7 @@ const CommandPalette = () => {
   return (
     <>
       <button
-        className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg bg-zinc-300 ring-zinc-400 transition duration-200 ease-in-out hover:ring-2 focus:outline-none dark:bg-zinc-800 dark:hover:ring-zinc-600"
+        className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg bg-zinc-100 ring-zinc-400 transition duration-200 ease-in-out hover:ring-2 focus:outline-none dark:bg-zinc-800 dark:hover:ring-zinc-600"
         type="button"
         aria-label="Command palette"
         onClick={() => setIsOpen(!isOpen)}

@@ -14,7 +14,7 @@ const Tag = (props) => {
   return (
     <span
       className={clsx(
-        'flex flex-none cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-full border bg-opacity-5 px-3 py-[2px] text-xs font-semibold uppercase tracking-wide hover:bg-opacity-40 dark:bg-opacity-10 dark:hover:bg-opacity-30',
+        'flex flex-none items-center justify-center gap-2 whitespace-nowrap rounded-full border bg-opacity-5 px-3 py-[2px] text-xs font-semibold uppercase tracking-wide hover:bg-opacity-40 dark:bg-opacity-10 dark:hover:bg-opacity-30',
         `${types?.[type]} ${className}`
       )}
     >

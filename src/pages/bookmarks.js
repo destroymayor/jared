@@ -37,8 +37,10 @@ export default function Bookmarks(props) {
 
   return (
     <>
-      <h1 className="text-2xl sm:text-4xl">{title}</h1>
-      <p className="text-md pt-4 pb-2 dark:text-gray-400 sm:text-lg">{description}</p>
+      <h1 className="text-2xl sm:text-3xl">{title}</h1>
+      <p className="mb-6 border-b border-dashed border-zinc-600 py-4 dark:text-zinc-400">
+        {description}
+      </p>
       <MDXRemote {...mdxSource} components={components} />
     </>
   );

@@ -33,9 +33,7 @@ export default function SnippetPage(props) {
         <div className="flex items-center">
           <div className="flex flex-1 flex-col gap-y-3">
             <h1 className="text-2xl sm:text-3xl">{frontMatter.title}</h1>
-            <p className="text-md text-gray-600 dark:text-gray-400 sm:text-lg">
-              {frontMatter.description}
-            </p>
+            <p className="text-gray-600 dark:text-gray-400">{frontMatter.description}</p>
           </div>
           <div className="flex flex-[0.3] items-center justify-center ">
             <span className="h-14 w-14">{languageMapping?.[frontMatter?.category]?.icon}</span>

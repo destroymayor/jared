@@ -13,8 +13,10 @@ Tools.description = description;
 export default function Tools() {
   return (
     <>
-      <h1 className="text-2xl sm:text-4xl">{title}</h1>
-      <p className="text-md py-4 dark:text-gray-400 sm:text-lg">{description}</p>
+      <h1 className="text-2xl sm:text-3xl">{title}</h1>
+      <p className="mb-6 border-b border-dashed border-zinc-600 py-4 dark:text-zinc-400">
+        {description}
+      </p>
 
       <div className="flex flex-col gap-2">
         {tools.map((tool, index) => {

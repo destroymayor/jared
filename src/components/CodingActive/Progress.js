@@ -1,7 +1,8 @@
 import { useSpring, animated } from 'react-spring';
+import clsx from 'clsx';
 
 const Progress = (props) => {
-  const { data } = props;
+  const { data, className } = props;
 
   const name = data.name;
   const percent = data.percent ?? 0;
@@ -18,7 +19,7 @@ const Progress = (props) => {
       <div className="w-24 text-sm">{name}</div>
       <div className="relative flex h-3 flex-1 justify-center rounded-full bg-zinc-200 dark:bg-zinc-800">
         <animated.span
-          className="absolute left-0 top-0 h-3 rounded-full bg-gradient-to-r from-sky-300 via-sky-400 to-sky-500 px-3 dark:from-sky-400 dark:via-sky-600 dark:to-sky-700"
+          className={clsx(className, 'absolute left-0 top-0 h-3 rounded-full px-3')}
           style={style}
         >
           &ensp;

@@ -11,14 +11,14 @@ Quotes.description = description;
 
 const components = {
   h2: (props) => (
-    <h2 {...props} className="mt-4 mb-6 text-xl">
+    <h2 {...props} className="mt-2 mb-10 text-lg">
       <FadeInSection>{props?.children}</FadeInSection>
     </h2>
   ),
   blockquote: (props) => (
     <blockquote
       {...props}
-      className="border-l-4 border-gray-400 py-3 px-4 text-lg italic dark:border-gray-600"
+      className="border-l-4 border-gray-400 py-3 px-4 italic dark:border-gray-600"
     >
       <FadeInSection>{props?.children}</FadeInSection>
     </blockquote>
@@ -30,8 +30,10 @@ export default function Quotes(props) {
 
   return (
     <>
-      <h1 className="text-2xl sm:text-4xl">{title}</h1>
-      <p className="text-md py-4 dark:text-gray-400 sm:text-lg">{description}</p>
+      <h1 className="text-2xl sm:text-3xl">{title}</h1>
+      <p className="mb-6 border-b border-dashed border-zinc-600 py-4 dark:text-zinc-400">
+        {description}
+      </p>
       <MDXRemote {...mdxSource} lazy components={components} />
     </>
   );

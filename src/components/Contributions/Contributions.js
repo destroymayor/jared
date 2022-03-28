@@ -1,6 +1,7 @@
 import useSWR from 'swr';
 import fetcher from '@/lib/fetcher';
 
+import { GithubIcon } from '@/components/Common/Icons';
 import Overview from '@/components/Contributions/Overview';
 import Calendar from '@/components/Contributions/Calendar';
 
@@ -11,7 +12,10 @@ export default function Contributions() {
 
   return (
     <div className="flex flex-col gap-y-2">
-      <h2 className="text-2xl">Contributions</h2>
+      <h2 className="flex items-center gap-2 text-2xl">
+        <GithubIcon className="h-7 w-7" />
+        <span>Contributions</span>
+      </h2>
       <p className="dark:text-gray-400">{`My last year's contributions in Github.`}</p>
 
       {!data && <div className="dark:text-gray-400">No Data</div>}

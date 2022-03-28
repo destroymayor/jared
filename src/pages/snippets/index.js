@@ -17,21 +17,17 @@ export default function Snippets(props) {
 
   return (
     <>
-      <h1 className="text-2xl sm:text-4xl">{title}</h1>
-      <p className="text-md py-4 dark:text-gray-400 sm:text-lg">{description}</p>
+      <h1 className="text-2xl sm:text-3xl">{title}</h1>
+      <p className="mb-6 border-b border-dashed border-zinc-600 py-4 dark:text-zinc-400">
+        {description}
+      </p>
 
-      <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
-        {snippets.map((item, index) => {
+      <div className="grid grid-cols-1 gap-4 pt-4 sm:grid-cols-2">
+        {snippets.map((item) => {
           const { title, description, category, pathname } = item;
 
-          const animationDelay = `${index * 20}ms`;
           return (
-            <FadeInSection
-              key={title + category}
-              type="fade-in-down"
-              delay={animationDelay}
-              onClick={() => handleNavigation(pathname)}
-            >
+            <FadeInSection key={title + category} onClick={() => handleNavigation(pathname)}>
               <div className="flex h-full cursor-pointer flex-col gap-2 rounded-md border border-zinc-300 p-4 transition-all duration-150 ease-out hover:scale-[1.05] dark:border-zinc-700">
                 <div className="flex items-center justify-between py-2">
                   <h3 className="text-xl font-bold">{title}</h3>

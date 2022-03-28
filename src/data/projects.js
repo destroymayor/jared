@@ -11,6 +11,7 @@ const data = [
     title: 'Weather App',
     description: 'A weather app that shows the current weather in your search.',
     tag: 'Next.js',
+    release_year: 2022,
     links: {
       repo: 'https://github.com/destroymayor/weather-app',
       demo: 'https://weather-app-gamma-five.vercel.app',
@@ -22,6 +23,7 @@ const data = [
     description:
       'This is an application using Next.js as the framework and allows the user to search movies they want to watch from The Movie DB API.',
     tag: 'Next.js',
+    release_year: 2021,
     links: {
       repo: 'https://github.com/destroymayor/movie-app',
       demo: 'https://movie-app-roan-two.vercel.app',
@@ -32,6 +34,7 @@ const data = [
     title: 'Memory Card Game',
     description: 'Test your memory with this memory game.',
     tag: 'Next.js',
+    release_year: 2021,
     links: {
       repo: 'https://github.com/destroymayor/memory-card-game',
       demo: 'https://memory-card-game-demo.vercel.app',
@@ -42,6 +45,7 @@ const data = [
     title: 'Image Converter',
     description: 'A simple image convert tool',
     tag: 'Next.js',
+    release_year: 2021,
     links: {
       repo: 'https://github.com/destroymayor/image-converter',
       demo: 'https://simple-image-converter.vercel.app',
@@ -52,6 +56,7 @@ const data = [
     title: 'Spotify Clone',
     description: 'A clone project of the Spotify web player.',
     tag: 'Next.js',
+    release_year: 2021,
     links: {
       repo: 'https://github.com/destroymayor/spotify-clone',
       demo: 'https://spotify-clone-demo.vercel.app',
@@ -62,6 +67,7 @@ const data = [
     title: 'Facebook Clone',
     description: 'A clone project of the Facebook',
     tag: 'Next.js',
+    release_year: 2021,
     links: {
       repo: 'https://github.com/destroymayor/facebook-clone',
       demo: 'https://facebook-clone-demo.vercel.app',

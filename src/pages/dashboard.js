@@ -19,13 +19,13 @@ export default function Dashboard(props) {
 
   return (
     <SWRConfig value={{ fallback }}>
-      <h1 className="text-2xl sm:text-4xl">{title}</h1>
-      <p className="text-md py-4 dark:text-gray-400 sm:text-lg">{description}</p>
+      <h1 className="text-2xl sm:text-3xl">{title}</h1>
+      <p className="mb-6 border-b border-dashed border-zinc-600 py-4 dark:text-zinc-400">
+        {description}
+      </p>
 
       <div className="flex flex-col gap-y-6">
-        <div className="border-t border-gray-500 pt-4">
-          <Contributions />
-        </div>
+        <Contributions />
 
         <div className="border-t border-gray-500 pt-4">
           <CodingActive />

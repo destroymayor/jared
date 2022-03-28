@@ -1,5 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
-import { VSCodeIcon, ITermIcon, SpotifyIcon, FigIcon, GithubIcon } from '@/components/Common/Icons';
+import {
+  VSCodeIcon,
+  ITermIcon,
+  SpotifyIcon,
+  FigIcon,
+  GithubIcon,
+  WakaTimeIcon,
+} from '@/components/Common/Icons';
 import rectangle from '@/public/images/tools/rectangle.png';
 import airBuddy from '@/public/images/tools/airbuddy.png';
 import omniDiskSweeper from '@/public/images/tools/omnidisksweeper.png';
@@ -60,6 +67,16 @@ const data = [
     title: 'OmniDiskSweeper',
     description: 'Quickly find large, unwanted files and sweep them into the trash.',
     link: 'https://www.omnigroup.com/more',
+    tag: {
+      type: 'info',
+      label: 'INDIE',
+    },
+  },
+  {
+    logo: <WakaTimeIcon />,
+    title: 'WakaTime',
+    description: 'Record coding stats in your editor',
+    link: 'https://wakatime.com/',
     tag: {
       type: 'info',
       label: 'INDIE',

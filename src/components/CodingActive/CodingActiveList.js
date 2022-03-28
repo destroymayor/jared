@@ -43,7 +43,7 @@ const CodingActiveList = (props) => {
   ];
 
   return (
-    <div className="mt-2 flex flex-col gap-4 sm:flex-row">
+    <div className="mt-2 flex flex-col gap-6 sm:flex-row sm:gap-4">
       {actives.map((item) => (
         <FadeInSection
           key={item.title}
@@ -60,7 +60,7 @@ const CodingActiveList = (props) => {
             <ul className="flex flex-col px-2">
               {item?.data?.map((subItem) => (
                 <li key={subItem.name}>
-                  <Progress data={subItem} />
+                  <Progress data={subItem} className={item.styles.bg} />
                 </li>
               ))}
             </ul>
