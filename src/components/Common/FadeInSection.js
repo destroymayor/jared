@@ -6,7 +6,7 @@ const types = {
 };
 
 export default function FadeInSection(props) {
-  const { className, delay = 0, type = 'fade-in-up', style, children } = props;
+  const { className, delay = 0, type = 'fade-in-down', style, children } = props;
 
   const animateType = types?.[type];
 
