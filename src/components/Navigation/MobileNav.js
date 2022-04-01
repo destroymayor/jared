@@ -1,8 +1,6 @@
 import router from 'next/router';
-import { useTrail, animated } from 'react-spring';
 
 import useToggle from '@/hooks/use-toggle.hook';
-import usePrefersReducedMotion from '@/hooks/use-prefers-reduced-motion.hook';
 import useScrollDisabler from '@/hooks/use-scroll-disabler.hook';
 
 import InPortal from '@/components/Common/InPortal';
@@ -14,19 +12,8 @@ import styles from '@/styles/mobile-menu.module.css';
 export default function MobileNav(props) {
   const { routes = [] } = props;
   const [isOpen, toggle] = useToggle();
-  const prefersReducedMotion = usePrefersReducedMotion();
 
   useScrollDisabler(isOpen);
-
-  const trail = useTrail(routes.length, {
-    transform: isOpen ? 'translateX(0%)' : 'translateX(-100%)',
-    immediate: prefersReducedMotion,
-    config: {
-      tension: 700,
-      friction: isOpen ? 60 : 20,
-      clamp: true,
-    },
-  });
 
   const handleToggle = () => toggle();
 
@@ -71,16 +58,12 @@ export default function MobileNav(props) {
             )}
           >
             <ul className="flex flex-col items-start gap-y-8 px-8 py-6">
-              {trail.map((style, index) => (
-                <animated.li
-                  style={style}
-                  key={`${index}`}
-                  onClick={() => handleNavigation(routes[index].pathname)}
-                >
+              {routes.map((item, index) => (
+                <li key={`${index}`} onClick={() => handleNavigation(item.pathname)}>
                   <div className="flex cursor-pointer text-2xl text-black transition duration-200 ease-in-out hover:text-gray-700 dark:text-gray-100 dark:hover:text-gray-400">
-                    {routes[index].title}
+                    {item.title}
                   </div>
-                </animated.li>
+                </li>
               ))}
             </ul>
           </nav>

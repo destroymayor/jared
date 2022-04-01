@@ -3,9 +3,9 @@ import FadeInSection from '@/components/Common/FadeInSection';
 export default function Overview(props) {
   const { data } = props;
 
-  const dailyTotal = data?.human_readable_total;
-  const dailyAverage = data?.human_readable_daily_average;
-  const bestDay = data?.best_day?.text;
+  const dailyTotal = data?.human_readable_total ?? 0;
+  const dailyAverage = data?.human_readable_daily_average ?? 0;
+  const bestDay = data?.best_day?.text ?? 0;
 
   return (
     <FadeInSection className="flex flex-col gap-2 py-2 sm:flex-row sm:gap-4">

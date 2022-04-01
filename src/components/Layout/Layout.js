@@ -1,9 +1,13 @@
+import { useRouter } from 'next/router';
+import { motion } from 'framer-motion';
+
 import Navigation from '@/components/Navigation';
 import ThemeToggle from '@/components/ThemeToggle';
 import CommandPalette from '@/components/CommandPalette';
 
 export default function Layout(props) {
   const { children } = props;
+  const router = useRouter();
 
   return (
     <div className="flex h-screen flex-col items-center bg-gray-50 text-gray-700 dark:bg-black dark:text-gray-300">
@@ -15,9 +19,21 @@ export default function Layout(props) {
         </div>
       </header>
 
-      <main className="w-11/12 flex-grow pb-20 text-gray-700 dark:text-gray-300 sm:max-w-[686px]">
+      <motion.main
+        className="w-11/12 flex-grow pb-20 text-gray-700 dark:text-gray-300 sm:max-w-[686px]"
+        key={router.route}
+        initial="initial"
+        animate="animate"
+        variants={{
+          initial: { opacity: 0 },
+          animate: {
+            opacity: 1,
+            transition: { delay: 0.2 },
+          },
+        }}
+      >
         {children}
-      </main>
+      </motion.main>
     </div>
   );
 }
