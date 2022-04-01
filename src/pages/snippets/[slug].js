@@ -56,7 +56,7 @@ export async function getStaticProps({ params }) {
       mdxSource,
       frontMatter: data,
     },
-    revalidate: 120,
+    revalidate: 720,
   };
 }
 

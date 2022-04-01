@@ -54,6 +54,6 @@ export async function getStaticProps() {
         '/api/github': githubUser.data,
       },
     },
-    revalidate: 60,
+    revalidate: 1,
   };
 }
