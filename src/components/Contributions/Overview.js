@@ -1,3 +1,5 @@
+import CounterAnimate from '@/components/Contributions/CounterAnimate';
+
 export default function Overview(props) {
   const { data } = props;
 
@@ -15,27 +17,33 @@ export default function Overview(props) {
     .flat(1);
 
   const bestContribution = Math.max(...totalContributionList) ?? 0;
-  const averageContribution = (totalContributions / totalContributionList.length).toFixed(2);
+  const averageContribution = totalContributions / totalContributionList.length;
 
   return (
     <div className="flex flex-wrap gap-4 self-start rounded-md py-2">
       <div className="flex flex-col">
         <span className="text-sm dark:text-zinc-400">Total</span>
-        <span className="text-2xl font-bold text-green-600">{totalContributions}</span>
+        <span className="text-2xl font-bold text-green-600">
+          <CounterAnimate total={totalContributions} />
+        </span>
       </div>
 
       <div className="border-l border-zinc-600"></div>
 
       <div className="flex flex-col">
         <span className="text-sm dark:text-zinc-400">This week</span>
-        <span className="text-2xl font-bold text-green-600">{totalThisWeekContribution}</span>
+        <span className="text-2xl font-bold text-green-600">
+          <CounterAnimate total={totalThisWeekContribution} />
+        </span>
       </div>
 
       <div className="border-l border-zinc-600"></div>
 
       <div className="flex flex-col">
         <span className="text-sm dark:text-zinc-400">Best day</span>
-        <span className="text-2xl font-bold text-green-600">{bestContribution}</span>
+        <span className="text-2xl font-bold text-green-600">
+          <CounterAnimate total={bestContribution} />
+        </span>
       </div>
 
       <div className="border-l border-zinc-600"></div>
@@ -43,7 +51,9 @@ export default function Overview(props) {
       <div className="flex flex-col">
         <span className="text-sm dark:text-zinc-400">Average</span>
         <span>
-          <span className="text-2xl font-bold text-green-600">{averageContribution}</span>
+          <span className="text-2xl font-bold text-green-600">
+            <CounterAnimate total={averageContribution} />
+          </span>
           <span className="text-sm dark:text-zinc-400">/day</span>
         </span>
       </div>

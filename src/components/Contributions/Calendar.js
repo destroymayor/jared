@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 import clsx from 'clsx';
 
@@ -32,9 +33,22 @@ export default function Calendar(props) {
               {week.contributionDays.map((contribution) => {
                 const backgroundColor = contribution.contributionCount > 0 && contribution.color;
 
+                const getRandomDelayAnimate = Math.random() * week.contributionDays.length * 0.15;
+
                 return (
-                  <span
+                  <motion.span
                     key={contribution.date}
+                    initial="initial"
+                    animate="animate"
+                    variants={{
+                      initial: { opacity: 0 },
+                      animate: {
+                        opacity: 1,
+                        transition: {
+                          delay: getRandomDelayAnimate,
+                        },
+                      },
+                    }}
                     className="my-[2px] block h-[10px] w-[10px] rounded-sm bg-zinc-300 dark:bg-zinc-800"
                     style={{ backgroundColor }}
                     onMouseEnter={() =>
