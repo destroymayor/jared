@@ -1,8 +1,6 @@
 import { MDXRemote } from 'next-mdx-remote';
 import { getMdxFile } from '@/helpers/mdx.helpers';
 
-import FadeInSection from '@/components/Common/FadeInSection';
-
 const title = `Quotes`;
 const description = `Collection of famous quotes.`;
 
@@ -12,7 +10,7 @@ Quotes.description = description;
 const components = {
   h2: (props) => (
     <h2 {...props} className="mt-2 mb-10 text-lg">
-      <FadeInSection>{props?.children}</FadeInSection>
+      {props?.children}
     </h2>
   ),
   blockquote: (props) => (
@@ -20,7 +18,7 @@ const components = {
       {...props}
       className="border-l-4 border-gray-400 py-3 px-4 italic dark:border-gray-600"
     >
-      <FadeInSection>{props?.children}</FadeInSection>
+      {props?.children}
     </blockquote>
   ),
 };
@@ -31,7 +29,7 @@ export default function Quotes(props) {
   return (
     <>
       <h1 className="text-2xl sm:text-3xl">{title}</h1>
-      <p className="mb-6 border-b border-dashed border-zinc-600 py-4 dark:text-zinc-400">
+      <p className="mb-6 border-b border-dashed border-zinc-600 pt-2 pb-6 dark:text-zinc-400">
         {description}
       </p>
       <MDXRemote {...mdxSource} lazy components={components} />

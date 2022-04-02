@@ -1,5 +1,4 @@
 import Progress from '@/components/CodingActive/Progress';
-import FadeInSection from '@/components/Common/FadeInSection';
 
 import { ClockIcon } from '@heroicons/react/solid';
 import clsx from 'clsx';
@@ -45,7 +44,7 @@ const CodingActiveList = (props) => {
   return (
     <div className="mt-2 flex flex-col gap-6 sm:flex-row sm:gap-4">
       {actives.map((item) => (
-        <FadeInSection
+        <div
           key={item.title}
           className={clsx(item.styles.bg, 'relative flex flex-1 flex-col gap-2 rounded-xl p-[2px]')}
         >
@@ -65,7 +64,7 @@ const CodingActiveList = (props) => {
               ))}
             </ul>
           </div>
-        </FadeInSection>
+        </div>
       ))}
     </div>
   );

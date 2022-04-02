@@ -2,7 +2,6 @@ import { MDXRemote } from 'next-mdx-remote';
 import { getMdxFile } from '@/helpers/mdx.helpers';
 
 import Link from '@/components/Common/Link';
-import FadeInSection from '@/components/Common/FadeInSection';
 import { LinkIcon } from '@heroicons/react/outline';
 
 const title = `Bookmarks`;
@@ -15,10 +14,13 @@ const components = {
   Title: (props) => <div {...props} className="flex items-center text-lg dark:text-zinc-200" />,
   Url: (props) => <span {...props} />,
   Description: (props) => <span {...props} className="text-sm text-zinc-500" />,
-  ul: (props) => <ul {...props} className="mx-4 flex list-disc flex-col" />,
+  ul: (props) => <ul {...props} className="flex flex-col" />,
   li: (props) => (
-    <li {...props}>
-      <FadeInSection className="my-2 flex flex-col items-start">{props?.children}</FadeInSection>
+    <li
+      {...props}
+      className="my-1 flex flex-col items-start rounded p-2 transition  duration-300 ease-in-out hover:bg-zinc-200 dark:hover:bg-zinc-800"
+    >
+      {props?.children}
     </li>
   ),
   a: (props) => (
@@ -38,7 +40,7 @@ export default function Bookmarks(props) {
   return (
     <>
       <h1 className="text-2xl sm:text-3xl">{title}</h1>
-      <p className="mb-6 border-b border-dashed border-zinc-600 py-4 dark:text-zinc-400">
+      <p className="mb-6 border-b border-dashed border-zinc-600 pt-2 pb-6 dark:text-zinc-400">
         {description}
       </p>
       <MDXRemote {...mdxSource} components={components} />

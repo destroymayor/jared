@@ -2,7 +2,6 @@ import router from 'next/router';
 
 import languageMapping from '@/helpers/language-mapping.helper';
 import { getMdxFileList } from '@/helpers/mdx.helpers';
-import FadeInSection from '@/components/Common/FadeInSection';
 
 const title = `Code Snippets`;
 const description = `Collection of useful code snippets.`;
@@ -18,7 +17,7 @@ export default function Snippets(props) {
   return (
     <>
       <h1 className="text-2xl sm:text-3xl">{title}</h1>
-      <p className="mb-6 border-b border-dashed border-zinc-600 py-4 dark:text-zinc-400">
+      <p className="mb-6 border-b border-dashed border-zinc-600 pt-2 pb-6 dark:text-zinc-400">
         {description}
       </p>
 
@@ -27,7 +26,7 @@ export default function Snippets(props) {
           const { title, description, category, pathname } = item;
 
           return (
-            <FadeInSection key={title + category} onClick={() => handleNavigation(pathname)}>
+            <div key={title + category} onClick={() => handleNavigation(pathname)}>
               <div className="flex h-full cursor-pointer flex-col gap-2 rounded-md border border-zinc-300 p-4 transition-all duration-150 ease-out hover:scale-[1.05] dark:border-zinc-700">
                 <div className="flex items-center justify-between py-2">
                   <h3 className="text-xl font-bold">{title}</h3>
@@ -35,7 +34,7 @@ export default function Snippets(props) {
                 </div>
                 <p className="text-gray-600 dark:text-gray-400">{description}</p>
               </div>
-            </FadeInSection>
+            </div>
           );
         })}
       </div>

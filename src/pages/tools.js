@@ -1,7 +1,6 @@
 import tools from '@/data/tools';
 
 import Link from '@/components/Common/Link';
-import FadeInSection from '@/components/Common/FadeInSection';
 import Tag from '@/components/Common/Tag';
 
 const title = `Tools`;
@@ -14,19 +13,16 @@ export default function Tools() {
   return (
     <>
       <h1 className="text-2xl sm:text-3xl">{title}</h1>
-      <p className="mb-6 border-b border-dashed border-zinc-600 py-4 dark:text-zinc-400">
+      <p className="mb-6 border-b border-dashed border-zinc-600 pt-2 pb-6 dark:text-zinc-400">
         {description}
       </p>
 
       <div className="flex flex-col gap-2">
-        {tools.map((tool, index) => {
-          const animationDelay = `${index * 20}ms`;
-
+        {tools.map((tool) => {
           return (
-            <FadeInSection
+            <div
               key={tool.title}
               className="flex items-center gap-4 rounded-md p-2 hover:bg-zinc-200 dark:hover:bg-zinc-900"
-              delay={animationDelay}
             >
               <span className="grid max-h-[70px] min-h-[70px] min-w-[70px] max-w-[70px] items-center rounded-md p-2 dark:bg-zinc-800">
                 {tool.logo}
@@ -41,7 +37,7 @@ export default function Tools() {
                 </div>
                 <p className="text-sm dark:text-zinc-400">{tool.description}</p>
               </div>
-            </FadeInSection>
+            </div>
           );
         })}
       </div>

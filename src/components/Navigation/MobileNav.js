@@ -47,7 +47,8 @@ export default function MobileNav(props) {
           <div
             className={clsx(
               `${isOpen ? 'opacity-100' : 'opacity-0'}`,
-              'absolute inset-x-0 top-20 bottom-0 bg-gray-50 transition duration-500 motion-safe:transition-opacity motion-safe:duration-500 dark:bg-black dark:bg-opacity-80 dark:backdrop-blur'
+              'absolute inset-x-0 top-20 bottom-0 bg-gray-50 transition duration-500 dark:bg-black dark:bg-opacity-80 dark:backdrop-blur',
+              'motion-safe:transition-opacity motion-safe:duration-500'
             )}
           />
 
@@ -57,10 +58,27 @@ export default function MobileNav(props) {
               'absolute inset-x-0 top-20 bottom-0 bg-gray-50 dark:bg-black'
             )}
           >
-            <ul className="flex flex-col items-start gap-y-8 px-8 py-6">
+            <ul
+              className={clsx(
+                'flex flex-col items-start gap-y-8 px-8 py-6 transition duration-300 ease-in',
+                `${isOpen ? 'opacity-100' : 'opacity-0'}`
+              )}
+            >
               {routes.map((item, index) => (
-                <li key={`${index}`} onClick={() => handleNavigation(item.pathname)}>
-                  <div className="flex cursor-pointer text-2xl text-black transition duration-200 ease-in-out hover:text-gray-700 dark:text-gray-100 dark:hover:text-gray-400">
+                <li
+                  key={`${index}`}
+                  className={clsx(
+                    'transition duration-300 ease-in',
+                    `${isOpen ? 'translate-x-0 opacity-100' : 'translate-x-[-20px] opacity-0'}`
+                  )}
+                  style={{ transitionDelay: `${index * 50}ms` }}
+                  onClick={() => handleNavigation(item.pathname)}
+                >
+                  <div
+                    className={clsx(
+                      'flex cursor-pointer text-2xl text-black transition duration-200 ease-in-out hover:text-gray-700 dark:text-gray-100 dark:hover:text-gray-400'
+                    )}
+                  >
                     {item.title}
                   </div>
                 </li>

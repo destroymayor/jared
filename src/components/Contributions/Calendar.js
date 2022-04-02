@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
 import clsx from 'clsx';
-import FadeInSection from '@/components/Common/FadeInSection';
 
 export default function Calendar(props) {
   const { data } = props;
@@ -14,7 +13,7 @@ export default function Calendar(props) {
 
   return (
     <>
-      <FadeInSection className="flex flex-col">
+      <div className="flex flex-col">
         <ul className="flex justify-end gap-[3px] overflow-hidden text-xs dark:text-zinc-400 md:justify-start">
           {months.map((month) => (
             <li
@@ -51,9 +50,9 @@ export default function Calendar(props) {
             </div>
           ))}
         </div>
-      </FadeInSection>
+      </div>
 
-      <FadeInSection className="flex flex-wrap items-center justify-between gap-2">
+      <div className="flex flex-wrap items-center justify-between gap-2">
         <div
           className={clsx(
             `${selectContribution.date ? 'opacity-100' : 'opacity-0'}`,
@@ -77,7 +76,7 @@ export default function Calendar(props) {
           </ul>
           <span>More</span>
         </div>
-      </FadeInSection>
+      </div>
     </>
   );
 }

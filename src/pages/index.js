@@ -1,7 +1,7 @@
+import contact from '@/data/contact';
+
 import Link from '@/components/Common/Link';
 import { LocationMarkerIcon } from '@heroicons/react/outline';
-
-import contact from '@/data/contact';
 
 HomePage.description = `Hey, I'm Jared Chen. I'm a front-end developer.`;
 
@@ -9,13 +9,13 @@ export default function HomePage() {
   return (
     <section className="relative flex flex-col items-start gap-2 rounded-md pt-10 dark:bg-opacity-0 sm:pt-20">
       <h1 className="text-2xl sm:text-3xl">Jared Chen</h1>
-      <p className="text-zinc-700 dark:text-zinc-300">Front-End Developer</p>
-      <hr className="w-20 border border-zinc-300 dark:border-zinc-700" />
+      <p className="text-zinc-700 dark:text-zinc-400">Front-End Developer</p>
+      <hr className="mt-4 mb-2 w-20 border border-zinc-300 dark:border-zinc-700" />
 
-      <p className="pt-2 text-zinc-700 dark:text-zinc-300">
+      <p className="text-zinc-700 dark:text-zinc-400">
         Build faster and UX-first web products at{' '}
         <Link href="https://github.com/Tagtoo">
-          <span className="border-b border-zinc-300 pb-1 font-semibold transition duration-200 ease-in-out hover:border-zinc-400 dark:border-zinc-700">
+          <span className="border-b border-zinc-300 pb-1 font-semibold transition duration-200 ease-in-out hover:border-zinc-400 dark:border-zinc-700 dark:text-zinc-300">
             @Tagtoo
           </span>
         </Link>

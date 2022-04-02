@@ -20,7 +20,7 @@ export default function Dashboard(props) {
   return (
     <SWRConfig value={{ fallback }}>
       <h1 className="text-2xl sm:text-3xl">{title}</h1>
-      <p className="mb-6 border-b border-dashed border-zinc-600 py-4 dark:text-zinc-400">
+      <p className="mb-6 border-b border-dashed border-zinc-600 pt-2 pb-6 dark:text-zinc-400">
         {description}
       </p>
 

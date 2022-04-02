@@ -4,7 +4,6 @@ import useSWR from 'swr';
 import fetcher from '@/lib/fetcher';
 
 import Link from '@/components/Common/Link';
-import FadeInSection from '@/components/Common/FadeInSection';
 
 export default function TopTracksList() {
   const { data } = useSWR('/api/top-tracks', fetcher);
@@ -12,7 +11,7 @@ export default function TopTracksList() {
   return (
     <ul className="flex flex-col gap-y-2">
       {data?.map((item, index) => (
-        <FadeInSection
+        <div
           key={`${item.title} - ${item.artist} - ${index}`}
           className="flex items-center border-b-[1px] border-zinc-400 py-2 dark:border-zinc-700"
         >
@@ -36,7 +35,7 @@ export default function TopTracksList() {
               {item?.artist ?? 'Spotify'}
             </p>
           </div>
-        </FadeInSection>
+        </div>
       ))}
     </ul>
   );

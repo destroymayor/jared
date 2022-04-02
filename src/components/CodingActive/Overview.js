@@ -1,5 +1,3 @@
-import FadeInSection from '@/components/Common/FadeInSection';
-
 export default function Overview(props) {
   const { data } = props;
 
@@ -8,7 +6,7 @@ export default function Overview(props) {
   const bestDay = data?.best_day?.text ?? 0;
 
   return (
-    <FadeInSection className="flex flex-col gap-2 py-2 sm:flex-row sm:gap-4">
+    <div className="flex flex-col gap-2 py-2 sm:flex-row sm:gap-4">
       <div className="flex flex-col">
         <span className="text-sm dark:text-zinc-400">Daily total</span>
         <span className="text-lg font-semibold">{dailyTotal}</span>
@@ -29,6 +27,6 @@ export default function Overview(props) {
       </div>
 
       <div className="border-b border-zinc-600 sm:border-none"></div>
-    </FadeInSection>
+    </div>
   );
 }
