@@ -78,8 +78,8 @@ const data = [
     description: 'Record coding stats in your editor',
     link: 'https://wakatime.com/',
     tag: {
-      type: 'info',
-      label: 'INDIE',
+      type: 'error',
+      label: 'WEBSITE',
     },
   },
   {

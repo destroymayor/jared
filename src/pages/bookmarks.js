@@ -11,7 +11,7 @@ Bookmarks.title = title;
 Bookmarks.description = description;
 
 const components = {
-  Section: (props) => <div {...props} className="mb-6 border-b border-zinc-600 pb-2" />,
+  Section: (props) => <div {...props} className="mb-6 pb-2" />,
   h2: (props) => <h2 {...props} className="pb-2 text-xl font-bold" />,
   ul: (props) => <ul {...props} className="flex flex-col gap-2" />,
   li: (props) => (
@@ -27,16 +27,16 @@ const components = {
   ),
   Title: (props) => <div {...props} className="flex items-center dark:text-zinc-200" />,
   Description: (props) => <span {...props} className="hidden text-sm text-zinc-500 sm:block" />,
-  Url: (props) => (
-    <span
-      {...props}
-      className="flex cursor-pointer items-center gap-1 text-sm text-zinc-500 hover:underline"
+  Url: (props) => <span {...props} />,
+  a: (props) => (
+    <Link
+      href={props?.href}
+      className="flex cursor-pointer items-center gap-2 text-sm text-zinc-500 hover:underline"
     >
       <LinkIcon className="h-4 w-4" />
-      <span>{props?.children}</span>
-    </span>
+      {props?.children}
+    </Link>
   ),
-  a: (props) => <Link href={props?.href}>{props?.children}</Link>,
 };
 
 export default function Bookmarks(props) {
