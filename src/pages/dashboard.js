@@ -27,11 +27,11 @@ export default function Dashboard(props) {
       <div className="flex flex-col gap-y-6">
         <Contributions />
 
-        <div className="border-t border-gray-500 pt-4">
+        <div className="border-t border-zinc-800 pt-6">
           <CodingActive />
         </div>
 
-        <div className="border-t border-gray-500 pt-4">
+        <div className="border-t border-zinc-800 pt-6">
           <TopTracks />
         </div>
       </div>

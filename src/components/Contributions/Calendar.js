@@ -27,7 +27,7 @@ export default function Calendar(props) {
         </ul>
 
         <div className="flex justify-end gap-[3px] overflow-hidden">
-          {weeks.map((week) => (
+          {weeks?.map((week) => (
             <div key={week.firstDay}>
               {week.contributionDays.map((contribution) => {
                 const backgroundColor = contribution.contributionCount > 0 && contribution.color;
@@ -53,15 +53,6 @@ export default function Calendar(props) {
       </div>
 
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <div
-          className={clsx(
-            `${selectContribution.date ? 'opacity-100' : 'opacity-0'}`,
-            'rounded bg-gray-200 px-2 text-sm dark:bg-zinc-700'
-          )}
-        >
-          {selectContribution.count} contributions on {selectContribution.date}
-        </div>
-
         <div className="flex items-center gap-2 text-sm">
           <span className="dark:text-zinc-400">Less</span>
           <ul className="flex gap-1">
@@ -75,6 +66,15 @@ export default function Calendar(props) {
             ))}
           </ul>
           <span>More</span>
+        </div>
+
+        <div
+          className={clsx(
+            `${selectContribution.date ? 'opacity-100' : 'opacity-0'}`,
+            'rounded bg-gray-200 px-2 text-sm dark:bg-zinc-700'
+          )}
+        >
+          {selectContribution.count} contributions on {selectContribution.date}
         </div>
       </div>
     </>
