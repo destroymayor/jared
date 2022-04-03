@@ -14,7 +14,7 @@ export default function Calendar(props) {
 
   return (
     <>
-      <div className="flex flex-col">
+      <div className="relative flex flex-col">
         <ul className="flex justify-end gap-[3px] overflow-hidden text-xs dark:text-zinc-400 md:justify-start">
           {months.map((month) => (
             <li
@@ -41,12 +41,11 @@ export default function Calendar(props) {
                     initial="initial"
                     animate="animate"
                     variants={{
-                      initial: { opacity: 0 },
+                      initial: { opacity: 0, translateY: -20 },
                       animate: {
                         opacity: 1,
-                        transition: {
-                          delay: getRandomDelayAnimate,
-                        },
+                        translateY: 0,
+                        transition: { delay: getRandomDelayAnimate },
                       },
                     }}
                     className="my-[2px] block h-[10px] w-[10px] rounded-sm bg-zinc-300 dark:bg-zinc-800"
