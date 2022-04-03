@@ -1,7 +1,7 @@
 import { animate } from 'framer-motion';
 import { useEffect, useRef } from 'react';
 
-export default function CounterAnimate(props) {
+export default function AnimateCounter(props) {
   const { total } = props;
   const countRef = useRef();
 

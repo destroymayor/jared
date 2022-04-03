@@ -1,9 +1,9 @@
 export default function Overview(props) {
   const { data } = props;
 
-  const dailyTotal = data?.human_readable_total ?? 0;
-  const dailyAverage = data?.human_readable_daily_average ?? 0;
-  const bestDay = data?.best_day?.text ?? 0;
+  const dailyTotal = data?.human_readable_total ?? 'N/A';
+  const dailyAverage = data?.human_readable_daily_average ?? 'N/A';
+  const bestDay = data?.best_day?.text ?? 'N/A';
 
   return (
     <div className="flex flex-col gap-2 py-2 sm:flex-row sm:gap-4">

@@ -22,9 +22,9 @@ export default function Tools() {
           return (
             <div
               key={tool.title}
-              className="flex items-center gap-4 rounded-md p-2 hover:bg-zinc-200 dark:hover:bg-zinc-900"
+              className="flex items-center gap-4 rounded-2xl p-2 hover:bg-zinc-200 dark:hover:bg-zinc-900"
             >
-              <span className="grid max-h-[70px] min-h-[70px] min-w-[70px] max-w-[70px] items-center rounded-md p-2 dark:bg-zinc-800">
+              <span className="grid max-h-[70px] min-h-[70px] min-w-[70px] max-w-[70px] items-center rounded-2xl p-2 dark:bg-zinc-900">
                 {tool.logo}
               </span>
               <div className="flex flex-col gap-1">

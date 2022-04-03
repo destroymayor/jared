@@ -13,25 +13,19 @@ Bookmarks.description = description;
 const components = {
   Section: (props) => <div {...props} className="mb-6 pb-2" />,
   h2: (props) => <h2 {...props} className="pb-2 text-xl font-bold" />,
-  ul: (props) => <ul {...props} className="flex flex-col gap-2" />,
-  li: (props) => (
-    <li
-      className="rounded p-2 transition duration-300 ease-in-out hover:bg-zinc-200 dark:hover:bg-zinc-800"
-      {...props}
-    />
-  ),
+  ul: (props) => <ul {...props} className="ml-6 flex list-disc flex-col gap-3" />,
   Item: (props) => (
     <div {...props} className="flex items-center gap-2">
       {props?.children}
     </div>
   ),
   Title: (props) => <div {...props} className="flex items-center dark:text-zinc-200" />,
-  Description: (props) => <span {...props} className="hidden text-sm text-zinc-500 sm:block" />,
+  Description: (props) => <span {...props} className="hidden text-sm text-zinc-500 md:block" />,
   Url: (props) => <span {...props} />,
   a: (props) => (
     <Link
       href={props?.href}
-      className="flex cursor-pointer items-center gap-2 text-sm text-zinc-500 hover:underline"
+      className="flex cursor-pointer items-center gap-1 text-sm text-zinc-500 hover:underline"
     >
       <LinkIcon className="h-4 w-4" />
       {props?.children}

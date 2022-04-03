@@ -28,7 +28,7 @@ const data = [
     description: 'iTerm2 is a replacement for Terminal.',
     link: 'https://iterm2.com',
     tag: {
-      type: 'info',
+      type: 'primary',
       label: 'INDIE',
     },
   },
@@ -38,7 +38,7 @@ const data = [
     description: 'Fig Adds IDE-style autocomplete to your existing terminal.',
     link: 'https://fig.io',
     tag: {
-      type: 'info',
+      type: 'primary',
       label: 'INDIE',
     },
   },
@@ -48,7 +48,7 @@ const data = [
     description: 'Move and resize windows in macOS using keyboard shortcuts or snap areas.',
     link: 'https://rectangleapp.com',
     tag: {
-      type: 'info',
+      type: 'primary',
       label: 'INDIE',
     },
   },
@@ -58,7 +58,7 @@ const data = [
     description: 'Take control of your wireless devices on macOS.',
     link: 'https://v2.airbuddy.app',
     tag: {
-      type: 'info',
+      type: 'primary',
       label: 'INDIE',
     },
   },
@@ -68,7 +68,7 @@ const data = [
     description: 'Quickly find large, unwanted files and sweep them into the trash.',
     link: 'https://www.omnigroup.com/more',
     tag: {
-      type: 'info',
+      type: 'primary',
       label: 'INDIE',
     },
   },
@@ -88,7 +88,7 @@ const data = [
     description: 'Bring GitHub collaboration tools to your small screens with GitHub Mobile.',
     link: 'https://github.com/mobile',
     tag: {
-      type: 'info',
+      type: 'primary',
       label: 'INDIE',
     },
   },
@@ -98,7 +98,7 @@ const data = [
     description: 'Using it to listen to EDM music',
     link: 'https://www.spotify.com',
     tag: {
-      type: 'info',
+      type: 'primary',
       label: 'INDIE',
     },
   },

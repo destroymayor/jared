@@ -1,15 +1,15 @@
 import clsx from 'clsx';
 
-const Tag = (props) => {
-  const { className = '', type = 'default', label = '' } = props;
+const types = {
+  default: 'border-zinc-200 bg-zinc-500 text-zinc-600',
+  primary: 'border-blue-300 bg-blue-500 text-blue-600',
+  warning: 'border-orange-200 bg-orange-500 text-orange-600',
+  success: 'border-green-400 bg-green-500 text-green-600',
+  error: 'border-red-200 bg-red-500 text-red-600',
+};
 
-  const types = {
-    default: 'border-zinc-200 bg-zinc-500 text-zinc-600',
-    info: 'border-blue-300 bg-blue-500 text-blue-600',
-    warning: 'border-orange-200 bg-orange-500 text-orange-600',
-    success: 'border-green-400 bg-green-500 text-green-600',
-    error: 'border-red-200 bg-red-500 text-red-600',
-  };
+const Tag = (props) => {
+  const { className = '', type = 'primary', label = '' } = props;
 
   return (
     <span

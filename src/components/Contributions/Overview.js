@@ -1,4 +1,4 @@
-import CounterAnimate from '@/components/Contributions/CounterAnimate';
+import AnimateCounter from '@/components/Common/AnimateCounter';
 
 export default function Overview(props) {
   const { data } = props;
@@ -24,7 +24,7 @@ export default function Overview(props) {
       <div className="flex flex-col">
         <span className="text-sm dark:text-zinc-400">Total</span>
         <span className="text-2xl font-bold text-green-600">
-          <CounterAnimate total={totalContributions} />
+          <AnimateCounter total={totalContributions} />
         </span>
       </div>
 
@@ -33,7 +33,7 @@ export default function Overview(props) {
       <div className="flex flex-col">
         <span className="text-sm dark:text-zinc-400">This week</span>
         <span className="text-2xl font-bold text-green-600">
-          <CounterAnimate total={totalThisWeekContribution} />
+          <AnimateCounter total={totalThisWeekContribution} />
         </span>
       </div>
 
@@ -42,7 +42,7 @@ export default function Overview(props) {
       <div className="flex flex-col">
         <span className="text-sm dark:text-zinc-400">Best day</span>
         <span className="text-2xl font-bold text-green-600">
-          <CounterAnimate total={bestContribution} />
+          <AnimateCounter total={bestContribution} />
         </span>
       </div>
 
@@ -52,7 +52,7 @@ export default function Overview(props) {
         <span className="text-sm dark:text-zinc-400">Average</span>
         <span>
           <span className="text-2xl font-bold text-green-600">
-            <CounterAnimate total={averageContribution} />
+            <AnimateCounter total={averageContribution} />
           </span>
           <span className="text-sm dark:text-zinc-400">/day</span>
         </span>
