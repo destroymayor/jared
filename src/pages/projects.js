@@ -30,9 +30,8 @@ export default function Projects() {
               initial="initial"
               animate="animate"
               variants={{
-                initial: { scale: 0, opacity: 0 },
+                initial: { opacity: 0 },
                 animate: {
-                  scale: [0.6, 1],
                   opacity: 1,
                   transition: {
                     delay: 0.2,
