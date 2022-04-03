@@ -34,7 +34,7 @@ export default function NowPlaying() {
           ) : (
             <p className="font-medium">Not Playing</p>
           )}
-          <p className="max-w-max truncate text-gray-500 dark:text-gray-400 md:overflow-clip">
+          <p className="max-w-max truncate text-zinc-500 dark:text-zinc-400 md:overflow-clip">
             {data?.artist ?? 'Spotify'}
           </p>
         </div>

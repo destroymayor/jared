@@ -16,7 +16,7 @@ export default function DesktopNav(props) {
           <Link
             className={clsx(
               `${item.pathname === router.pathname && 'font-semibold'}`,
-              'cursor-pointer p-2 text-gray-700 transition duration-100 hover:text-gray-700 dark:text-gray-300 dark:hover:text-gray-300'
+              'cursor-pointer p-2 text-zinc-700 transition duration-100 hover:text-zinc-700 dark:text-zinc-300 dark:hover:text-zinc-300'
             )}
             href={item?.pathname}
             aria-label={item.title}

@@ -48,8 +48,8 @@ const CodingActiveList = (props) => {
           key={item.title}
           className={clsx(item.styles.bg, 'relative flex flex-1 flex-col gap-2 rounded-xl p-[2px]')}
         >
-          <div className="h-full w-full rounded-xl bg-gray-50 p-2 dark:bg-black">
-            <p className="absolute -top-3 left-3 bg-gray-50 px-2 dark:bg-black">{item.title}</p>
+          <div className="h-full w-full rounded-xl bg-zinc-50 p-2 dark:bg-black">
+            <p className="absolute -top-3 left-3 bg-zinc-50 px-2 dark:bg-black">{item.title}</p>
 
             <div className="flex items-center gap-2 p-2">
               <ClockIcon className="h-6 w-6" />

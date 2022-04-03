@@ -26,8 +26,8 @@ export default function Select(props) {
       <button
         disabled={disabled}
         className={clsx(
-          'group flex w-5/12 items-center justify-between rounded-lg bg-gray-200 px-3 py-2 text-gray-600 focus:outline-none dark:bg-gray-800 dark:text-gray-300',
-          `${disabled ? 'cursor-not-allowed text-gray-300' : ''}`
+          'group flex w-5/12 items-center justify-between rounded-lg bg-zinc-200 px-3 py-2 text-zinc-600 focus:outline-none dark:bg-zinc-800 dark:text-zinc-300',
+          `${disabled ? 'cursor-not-allowed text-zinc-300' : ''}`
         )}
         onClick={handleToggle}
         onFocus={onFocus}
@@ -49,10 +49,10 @@ export default function Select(props) {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <ul className="absolute z-10 mt-1 max-h-56 w-5/12 overflow-auto rounded-lg bg-gray-200 py-2 shadow-lg focus:outline-none dark:bg-gray-800">
+        <ul className="absolute z-10 mt-1 max-h-56 w-5/12 overflow-auto rounded-lg bg-zinc-200 py-2 shadow-lg focus:outline-none dark:bg-zinc-800">
           {options.map((option, index) => (
             <li
-              className="relative mx-2 flex cursor-pointer flex-wrap items-center rounded-lg px-1 py-2 text-sm hover:bg-gray-300 hover:text-gray-600 dark:hover:bg-gray-600 dark:hover:text-gray-200"
+              className="relative mx-2 flex cursor-pointer flex-wrap items-center rounded-lg px-1 py-2 text-sm hover:bg-zinc-300 hover:text-zinc-600 dark:hover:bg-zinc-600 dark:hover:text-zinc-200"
               key={`${index.toString()}`}
               onClick={() => handleSelect(option, index)}
             >

@@ -47,7 +47,7 @@ export default function MobileNav(props) {
           <div
             className={clsx(
               `${isOpen ? 'opacity-100' : 'opacity-0'}`,
-              'absolute inset-x-0 top-20 bottom-0 bg-gray-50 transition duration-500 dark:bg-black dark:bg-opacity-80 dark:backdrop-blur',
+              'absolute inset-x-0 top-20 bottom-0 bg-zinc-50 transition duration-500 dark:bg-black dark:bg-opacity-80 dark:backdrop-blur',
               'motion-safe:transition-opacity motion-safe:duration-500'
             )}
           />
@@ -55,7 +55,7 @@ export default function MobileNav(props) {
           <nav
             className={clsx(
               `${isOpen ? 'opacity-100 dark:bg-opacity-70' : 'opacity-0'}`,
-              'absolute inset-x-0 top-20 bottom-0 bg-gray-50 dark:bg-black'
+              'absolute inset-x-0 top-20 bottom-0 bg-zinc-50 dark:bg-black'
             )}
           >
             <ul
@@ -76,7 +76,7 @@ export default function MobileNav(props) {
                 >
                   <div
                     className={clsx(
-                      'flex cursor-pointer text-2xl text-black transition duration-200 ease-in-out hover:text-gray-700 dark:text-gray-100 dark:hover:text-gray-400'
+                      'flex cursor-pointer text-2xl text-black transition duration-200 ease-in-out hover:text-zinc-700 dark:text-zinc-100 dark:hover:text-zinc-400'
                     )}
                   >
                     {item.title}

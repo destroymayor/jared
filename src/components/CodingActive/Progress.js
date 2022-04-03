@@ -26,7 +26,7 @@ const Progress = (props) => {
           &ensp;
         </motion.span>
       </div>
-      <div className="w-8 text-right text-gray-600 dark:text-gray-100">{Math.floor(percent)}%</div>
+      <div className="w-8 text-right text-zinc-600 dark:text-zinc-100">{Math.floor(percent)}%</div>
     </div>
   );
 };

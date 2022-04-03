@@ -38,15 +38,15 @@ export default function Projects() {
                   },
                 },
               }}
-              className="mb-2 flex flex-col rounded-lg p-2 shadow-xl dark:bg-zinc-900"
+              className="mb-2 flex flex-col rounded-lg shadow-xl dark:bg-zinc-900"
             >
               <img
-                className="max-h-[200px] min-h-[200px] w-full rounded-lg object-cover"
+                className="max-h-[200px] min-h-[200px] w-full rounded-t-lg object-cover"
                 src={project.image}
                 alt={project.title}
               />
 
-              <div className="flex flex-1 flex-col gap-3 p-3 pt-4">
+              <div className="flex flex-1 flex-col gap-3 p-4 pt-4">
                 <div className="flex items-center justify-between">
                   <Tag label={project.tag} type="primary" />
                   <Link href={project.links.demo}>
@@ -54,13 +54,15 @@ export default function Projects() {
                   </Link>
                 </div>
 
-                <div className="flex flex-1 flex-col gap-2">
+                <div className="flex flex-1 flex-col gap-2 pb-2">
                   <h2 className="text-xl font-semibold">{project.title}</h2>
                   <p className="text-sm dark:text-zinc-400">{project.description}</p>
                 </div>
 
                 <Link href={project.links.demo}>
-                  <Button>Learn more</Button>
+                  <Button>
+                    <span className="font-bold">View Demo</span>
+                  </Button>
                 </Link>
               </div>
             </motion.div>

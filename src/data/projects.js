@@ -21,7 +21,7 @@ const data = [
     image: movieAppImage.src,
     title: 'Movie App',
     description:
-      'This is an application using Next.js as the framework and allows the user to search movies they want to watch from The Movie DB API.',
+      'A movie app allows the user to search movies they want to watch from The Movie DB API.',
     tag: 'Next.js',
     release_year: 2021,
     links: {

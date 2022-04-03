@@ -11,17 +11,17 @@ export default function TopTracksList() {
 
   return (
     <ul className="flex flex-col gap-y-2">
-      {data?.map((item, index, { length, lastIndex = length - 1 }) => (
+      {data?.map((item, index) => (
         <div
           key={`${item.title} - ${item.artist} - ${index}`}
           className={clsx(
-            'flex items-center py-2 ',
-            `${lastIndex !== index ? 'border-b-[1px] border-zinc-400 dark:border-zinc-700' : ''}`
+            'flex items-center p-2',
+            'rounded-2xl hover:bg-zinc-200 dark:hover:bg-zinc-900'
           )}
         >
           <div className="w-5 text-center dark:text-zinc-400">{index + 1}</div>
 
-          <div className="mx-2 min-h-[60px] min-w-[60px]">
+          <div className="mx-2 grid min-h-[60px] min-w-[60px] items-center">
             <Image
               className="rounded-md"
               unoptimized

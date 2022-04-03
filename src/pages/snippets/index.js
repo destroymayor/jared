@@ -32,7 +32,7 @@ export default function Snippets(props) {
                   <h3 className="text-xl font-bold">{title}</h3>
                   <span className="h-8 w-8">{languageMapping?.[category]?.icon}</span>
                 </div>
-                <p className="text-gray-600 dark:text-gray-400">{description}</p>
+                <p className="text-zinc-600 dark:text-zinc-400">{description}</p>
               </div>
             </div>
           );

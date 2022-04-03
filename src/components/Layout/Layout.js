@@ -17,7 +17,7 @@ export default function Layout(props) {
     <div
       className={clsx(
         'flex h-screen flex-col items-center',
-        'bg-gray-50 text-gray-700 dark:bg-black dark:text-gray-300'
+        'bg-zinc-50 text-zinc-700 dark:bg-black dark:text-zinc-300'
       )}
     >
       <header className={clsx('flex w-11/12 items-center justify-between py-8 sm:max-w-[686px]')}>
@@ -29,7 +29,7 @@ export default function Layout(props) {
       </header>
 
       <motion.main
-        className="w-11/12 flex-grow pb-12 text-gray-700 dark:text-gray-300 sm:max-w-[686px]"
+        className="w-11/12 flex-grow pb-12 text-zinc-700 dark:text-zinc-300 sm:max-w-[686px]"
         key={router.route}
         initial="initial"
         animate="animate"

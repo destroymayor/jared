@@ -85,7 +85,7 @@ export default function Calendar(props) {
         <div
           className={clsx(
             `${selectContribution.date ? 'opacity-100' : 'opacity-0'}`,
-            'rounded bg-gray-200 px-2 text-sm dark:bg-zinc-700'
+            'rounded bg-zinc-200 px-2 text-sm dark:bg-zinc-700'
           )}
         >
           {selectContribution.count} contributions on {selectContribution.date}

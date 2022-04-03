@@ -175,7 +175,7 @@ const CommandPalette = () => {
               </div>
 
               {queryDebounce && filterOptions.map((item) => item.children).flat(1).length === 0 && (
-                <p className="p-4 text-sm text-gray-500">No results found.</p>
+                <p className="p-4 text-sm text-zinc-500">No results found.</p>
               )}
             </Combobox>
           </Transition.Child>

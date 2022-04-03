@@ -1,19 +1,17 @@
 import clsx from 'clsx';
 
 const colors = {
-  default: 'border-zinc-200 bg-zinc-500 text-zinc-600',
-  primary: 'border-blue-300 bg-blue-500 text-zinc-100',
-  warning: 'border-orange-200 bg-orange-500 text-orange-600',
-  success: 'border-green-400 bg-green-500 text-green-600',
-  error: 'border-red-200 bg-red-500 text-red-600',
+  default: 'from-zinc-600 via-zinc-700 to-zinc-800',
+  primary: 'from-sky-600 via-sky-700 to-sky-900',
+  warning: 'from-amber-600 via-amber-700 to-amber-900',
+  success: 'from-green-600 via-green-700 to-green-900',
+  error: 'from-red-600 via-red-700 to-red-900',
 };
 
 export default function Button(props) {
-  const { children, onClick, color = 'primary' } = props;
+  const { children, onClick, color = 'default' } = props;
 
-  const handleClick = (e) => {
-    e.preventDefault();
-
+  const handleClick = () => {
     if (onClick) onClick();
   };
 
@@ -23,9 +21,9 @@ export default function Button(props) {
       onClick={handleClick}
       className={clsx(
         'flex items-center justify-center gap-2 py-2 px-3',
-        'w-full whitespace-nowrap rounded-xl shadow-md ',
+        'w-full whitespace-nowrap rounded-xl shadow-md',
         'transform transition hover:scale-[1.05]',
-        `bg-gradient-to-r ${colors?.[color]}`
+        `bg-gradient-to-r ${colors[color]}`
       )}
     >
       {children}

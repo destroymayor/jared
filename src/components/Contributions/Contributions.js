@@ -16,9 +16,9 @@ export default function Contributions() {
         <GithubIcon className="h-7 w-7" />
         <span>Contributions</span>
       </h2>
-      <p className="dark:text-gray-400">{`My last year's contributions in Github.`}</p>
+      <p className="dark:text-zinc-400">{`My last year's contributions in Github.`}</p>
 
-      {!data && <div className="dark:text-gray-400">No Data</div>}
+      {!data && <div className="dark:text-zinc-400">No Data</div>}
 
       {data && (
         <>
