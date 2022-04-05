@@ -9,7 +9,23 @@ export default function Calendar(props) {
   const [selectContribution, setSelectContribution] = useState({ count: null, date: null });
 
   const weeks = data?.weeks ?? [];
-  const months = data?.months ?? [];
+  const months =
+    data?.months?.map((month) => {
+      const filterContributionDay = weeks
+        .filter((week) => week.firstDay.slice(0, 7) === month.firstDay.slice(0, 7))
+        .map((item) => item.contributionDays)
+        .flat(1);
+      const getContributionsByMonth = filterContributionDay.reduce(
+        (previousValue, currentValue) => previousValue + currentValue.contributionCount,
+        0
+      );
+
+      return {
+        ...month,
+        contributionsCount: getContributionsByMonth,
+      };
+    }) ?? [];
+
   const contributionColors = data?.colors ?? [];
 
   return (
@@ -19,7 +35,7 @@ export default function Calendar(props) {
           {months.map((month) => (
             <li
               key={month.firstDay}
-              className={clsx(`${month.totalWeeks < 2 ? 'hidden' : ''}`)}
+              className={clsx(`${month.totalWeeks < 2 ? 'invisible' : ''}`)}
               style={{ minWidth: 12.3 * month.totalWeeks }}
             >
               {month.name}
@@ -69,10 +85,19 @@ export default function Calendar(props) {
         <div className="flex items-center gap-2 text-sm">
           <span className="dark:text-zinc-400">Less</span>
           <ul className="flex gap-1">
-            <li className="h-[10px] w-[10px] rounded-sm bg-zinc-300 dark:bg-zinc-800" />
-            {contributionColors.map((item) => (
-              <li
+            <motion.li className="h-[10px] w-[10px] rounded-sm bg-zinc-300 dark:bg-zinc-800" />
+            {contributionColors.map((item, index) => (
+              <motion.li
                 key={item}
+                initial="initial"
+                animate="animate"
+                variants={{
+                  initial: { opacity: 0 },
+                  animate: {
+                    opacity: 1,
+                    transition: { delay: index * 0.3 },
+                  },
+                }}
                 className="h-[10px] w-[10px] rounded-sm"
                 style={{ backgroundColor: item }}
               />

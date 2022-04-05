@@ -20,40 +20,33 @@ export default function Overview(props) {
   const averageContribution = totalContributions / totalContributionList.length;
 
   return (
-    <div className="flex flex-wrap gap-4 self-start rounded-md py-2">
-      <div className="flex flex-col">
+    <div className="grid grid-cols-2 gap-2 py-2 sm:grid-cols-4">
+      <div className="flex flex-col rounded-xl bg-zinc-100 py-2 px-4 shadow-xl dark:bg-zinc-900">
         <span className="text-sm dark:text-zinc-400">Total</span>
-        <span className="text-2xl font-bold text-green-600">
-          <AnimateCounter total={totalContributions} />
-        </span>
+        <AnimateCounter className="text-2xl font-bold text-green-600" total={totalContributions} />
       </div>
 
-      <div className="border-l border-zinc-600"></div>
-
-      <div className="flex flex-col">
+      <div className="flex flex-col rounded-xl bg-zinc-100 py-2 px-4 shadow-xl dark:bg-zinc-900">
         <span className="text-sm dark:text-zinc-400">This week</span>
-        <span className="text-2xl font-bold text-green-600">
-          <AnimateCounter total={totalThisWeekContribution} />
-        </span>
+
+        <AnimateCounter
+          className="text-2xl font-bold text-green-600"
+          total={totalThisWeekContribution}
+        />
       </div>
 
-      <div className="border-l border-zinc-600"></div>
-
-      <div className="flex flex-col">
+      <div className="flex flex-col rounded-xl bg-zinc-100 py-2 px-4 shadow-xl dark:bg-zinc-900">
         <span className="text-sm dark:text-zinc-400">Best day</span>
-        <span className="text-2xl font-bold text-green-600">
-          <AnimateCounter total={bestContribution} />
-        </span>
+        <AnimateCounter className="text-2xl font-bold text-green-600" total={bestContribution} />
       </div>
 
-      <div className="border-l border-zinc-600"></div>
-
-      <div className="flex flex-col">
+      <div className="flex flex-col rounded-xl bg-zinc-100 py-2 px-4 shadow-xl dark:bg-zinc-900">
         <span className="text-sm dark:text-zinc-400">Average</span>
         <span>
-          <span className="text-2xl font-bold text-green-600">
-            <AnimateCounter total={averageContribution} />
-          </span>
+          <AnimateCounter
+            className="text-2xl font-bold text-green-600"
+            total={averageContribution}
+          />
           <span className="text-sm dark:text-zinc-400">/day</span>
         </span>
       </div>
