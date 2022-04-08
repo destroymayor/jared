@@ -1,8 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import projects from '@/data/projects';
 
-import { motion } from 'framer-motion';
-
+import FadeInScrollContainer from '@/components/Common/FadeInScrollContainer';
 import Button from '@/components/Common/Button';
 import Link from '@/components/Common/Link';
 import Tag from '@/components/Common/Tag';
@@ -25,19 +24,8 @@ export default function Projects() {
       <div className="grid grid-cols-1 justify-center gap-5 sm:grid-cols-2">
         {projects.map((project) => {
           return (
-            <motion.div
+            <FadeInScrollContainer
               key={project.title}
-              initial="initial"
-              animate="animate"
-              variants={{
-                initial: { opacity: 0 },
-                animate: {
-                  opacity: 1,
-                  transition: {
-                    delay: 0.2,
-                  },
-                },
-              }}
               className="mb-2 flex flex-col rounded-lg shadow-xl dark:bg-zinc-900"
             >
               <img
@@ -65,7 +53,7 @@ export default function Projects() {
                   </Button>
                 </Link>
               </div>
-            </motion.div>
+            </FadeInScrollContainer>
           );
         })}
       </div>

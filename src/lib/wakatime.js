@@ -5,7 +5,8 @@ const client_secret = process.env.WAKATIME_CLIENT_SECRET;
 const refresh_token = process.env.WAKATIME_CLIENT_REFRESH_TOKEN;
 
 const STATS_ENDPOINT = 'https://wakatime.com/api/v1/users/current/stats';
-const TOKEN_ENDPOINT = `https://wakatime.com/oauth/token`;
+const ALL_TIME_SINCE_TODAY = 'https://wakatime.com/api/v1/users/current/all_time_since_today';
+const TOKEN_ENDPOINT = 'https://wakatime.com/oauth/token';
 
 export const getAccessToken = async () => {
   const response = await fetch(TOKEN_ENDPOINT, {
@@ -47,10 +48,7 @@ export const getReadStats = async () => {
   const human_readable_daily_average = getData?.data?.human_readable_daily_average;
   const human_readable_total = getData?.data?.human_readable_total;
 
-  const filterLanguagesData = getData?.data?.languages.filter(
-    (item) => item.minutes > 0 || item.hours > 0
-  );
-  const languages = filterLanguagesData?.slice(0, 3);
+  const languages = getData?.data?.languages?.slice(0, 4);
   const editors = getData?.data?.editors;
 
   return {
@@ -62,5 +60,32 @@ export const getReadStats = async () => {
       languages,
       editors,
     },
+  };
+};
+
+export const getALLTimeSinceToday = async () => {
+  const { access_token } = await getAccessToken();
+
+  const request = await fetch(ALL_TIME_SINCE_TODAY, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${access_token}`,
+    },
+  });
+
+  const status = request.status;
+
+  if (status > 400) return { status, data: {} };
+
+  const getData = await request?.json();
+
+  const data = {
+    text: getData?.data?.text,
+    total_seconds: getData?.data?.total_seconds,
+  };
+
+  return {
+    status,
+    data,
   };
 };

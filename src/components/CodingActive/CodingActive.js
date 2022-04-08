@@ -1,6 +1,7 @@
 import useSWR from 'swr';
 import fetcher from '@/lib/fetcher';
 
+import Link from '@/components/Common/Link';
 import { WakaTimeIcon } from '@/components/Common/Icons';
 import Overview from '@/components/CodingActive/Overview';
 import CodingActiveList from '@/components/CodingActive/CodingActiveList';
@@ -14,8 +15,17 @@ const CodingActive = () => {
         <WakaTimeIcon className="h-7 w-7" />
         <span>Coding Active</span>
       </h2>
-      <p className="dark:text-zinc-400">My weekly WakaTime stats</p>
 
+      <p className="flex items-center gap-2 dark:text-zinc-400">
+        <span>My</span>
+        <Link
+          href="https://wakatime.com/@Jared"
+          className="underline hover:text-zinc-900 dark:hover:text-zinc-100"
+        >
+          WakaTime
+        </Link>
+        <span>stats</span>
+      </p>
       <Overview data={data} />
       <CodingActiveList data={data} />
     </div>

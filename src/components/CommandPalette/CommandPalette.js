@@ -100,12 +100,12 @@ const CommandPalette = () => {
   return (
     <>
       <button
-        className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg bg-zinc-100 ring-zinc-400 transition duration-200 ease-in-out hover:ring-2 focus:outline-none dark:bg-zinc-800 dark:hover:ring-zinc-600"
+        className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-lg bg-zinc-100 ring-zinc-400 transition duration-200 ease-in-out hover:ring-2 focus:outline-none dark:bg-zinc-800 dark:hover:ring-zinc-600 md:h-10 md:w-10"
         type="button"
         aria-label="Command palette"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <CommandIcon className="h-7 w-7" />
+        <CommandIcon className="h-7 w-7 md:h-6 md:w-6" />
       </button>
 
       <Transition.Root show={isOpen} as={Fragment}>

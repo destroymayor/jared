@@ -1,5 +1,5 @@
 import { MailIcon } from '@heroicons/react/solid';
-import { GithubIcon, LinkedinIcon, TwitterIcon } from '@/components/Common/Icons';
+import { GithubIcon, LinkedinIcon, TwitterIcon, WakaTimeIcon } from '@/components/Common/Icons';
 
 export const mail = {
   link: 'mailto:kuil5230@gmail.com',
@@ -29,6 +29,13 @@ export const twitter = {
   icon: <TwitterIcon className="h-6 w-6" />,
 };
 
-const data = [mail, github, linkedIn, twitter];
+export const wakaTime = {
+  link: 'https://wakatime.com/@Jared',
+  title: '@Jared',
+  label: 'WakaTime',
+  icon: <WakaTimeIcon className="h-6 w-6" />,
+};
+
+const data = [mail, github, twitter, linkedIn, wakaTime];
 
 export default data;

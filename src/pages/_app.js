@@ -1,6 +1,6 @@
 import '@/styles/global.css';
 
-import useGoogleAnalytics from '@/hooks/use-google-analytics';
+import useGoogleAnalytics from '@/hooks/use-google-analytics.hook';
 
 import { ThemeProvider } from 'next-themes';
 import Layout from '@/components/Layout';
