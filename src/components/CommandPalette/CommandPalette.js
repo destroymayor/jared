@@ -10,7 +10,7 @@ import contact from '@/data/contact';
 import clsx from 'clsx';
 import { Dialog, Combobox, Transition } from '@headlessui/react';
 import { ArrowRightIcon, SearchIcon } from '@heroicons/react/outline';
-import { SunIcon, MoonIcon } from '@heroicons/react/solid';
+import { SunIcon, MoonIcon } from '@heroicons/react/outline';
 import { CommandIcon } from '@/components/Common/Icons';
 
 export default function CommandPalette() {
@@ -58,7 +58,7 @@ export default function CommandPalette() {
           icon:
             theme === 'dark' ? <SunIcon className="h-6 w-6" /> : <MoonIcon className="h-6 w-6" />,
           title: `Set theme to ${theme === 'dark' ? 'Light' : 'Dark'}`,
-          click: () => setTheme(theme === 'dark' ? 'Light' : 'Dark'),
+          click: () => setTheme(theme === 'dark' ? 'light' : 'dark'),
           isExternal: false,
         },
       ],
