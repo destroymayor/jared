@@ -22,8 +22,6 @@ export default function CommandPalette() {
   const queryDebounce = useDebounce(query, 300);
   const { theme, setTheme } = useTheme();
 
-  console.log(theme);
-
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === 'k' && (event.metaKey || event.ctrlKey)) {
