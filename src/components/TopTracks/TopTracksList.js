@@ -10,7 +10,7 @@ export default function TopTracksList() {
   const { data } = useSWR('/api/top-tracks', fetcher);
 
   return (
-    <ul className="flex flex-col gap-y-2">
+    <ul className="flex flex-col gap-y-2 py-2">
       {data?.map((item, index) => (
         <div
           key={`${item.title} - ${item.artist} - ${index}`}

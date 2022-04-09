@@ -5,12 +5,13 @@ import fetcher from '@/lib/fetcher';
 
 import AnimatedBars from '@/components/NowPlaying/AnimatedBars';
 import Link from '@/components/Common/Link';
+import { SpotifySolidIcon } from '@/components/Common/Icons';
 
 export default function NowPlaying() {
   const { data } = useSWR('/api/now-playing', fetcher);
 
   return (
-    <div className="flex items-center gap-x-3 py-2">
+    <div className="flex items-center gap-3 py-2">
       {data?.albumImageUrl && (
         <div className="flex h-[60px] w-[60px] flex-none items-center justify-center">
           <Image
@@ -26,6 +27,7 @@ export default function NowPlaying() {
 
       <div className="flex w-3/5 flex-auto flex-col gap-y-1 md:w-full">
         {data?.songUrl && <AnimatedBars />}
+
         <div className="flex flex-col">
           {data?.songUrl ? (
             <Link className="truncate font-medium md:overflow-clip" href={data?.songUrl}>
@@ -35,7 +37,12 @@ export default function NowPlaying() {
             <p className="font-medium">Not Playing</p>
           )}
           <p className="max-w-max truncate text-zinc-500 dark:text-zinc-400 md:overflow-clip">
-            {data?.artist ?? 'Spotify'}
+            {data?.artist ?? (
+              <span className="flex items-center gap-2 py-1">
+                <SpotifySolidIcon className="h-5 w-5" />
+                <span>Spotify</span>
+              </span>
+            )}
           </p>
         </div>
       </div>

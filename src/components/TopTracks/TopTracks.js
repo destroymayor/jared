@@ -1,6 +1,5 @@
 import { SpotifySolidIcon } from '@/components/Common/Icons';
 
-import NowPlaying from '@/components/NowPlaying';
 import TopTracksList from '@/components/TopTracks/TopTracksList';
 
 export default function TopTracks() {
@@ -12,7 +11,6 @@ export default function TopTracks() {
       </h2>
       <p className="dark:text-zinc-400">{`Here's my top tracks on Spotify updated daily.`}</p>
 
-      <NowPlaying />
       <TopTracksList />
     </div>
   );
