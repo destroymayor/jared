@@ -47,11 +47,11 @@ export default function Layout(props) {
       <footer
         className={clsx(
           `${router.pathname === '/' ? 'hidden' : 'flex'}`,
-          'w-11/12 flex-wrap items-center justify-between gap-2 py-6 sm:max-w-[686px]',
+          'w-11/12 flex-wrap items-center justify-between gap-6 py-6 sm:max-w-[686px]',
           'border-t border-dashed border-zinc-300  dark:border-zinc-700'
         )}
       >
-        <span className="flex items-center gap-2">
+        <span className="flex items-center gap-2 text-sm sm:text-base">
           <span>{new Date().getFullYear()}</span>
           <span className="text-zinc-400 dark:text-zinc-600">-</span>
           <span>
@@ -64,7 +64,7 @@ export default function Layout(props) {
           className="flex items-center gap-1  hover:text-zinc-500 dark:hover:text-zinc-400"
         >
           <GithubIcon className="h-6 w-6" />
-          <span>/destroymayor/jared</span>
+          <span className="text-sm sm:text-base">/destroymayor/jared</span>
         </Link>
       </footer>
     </div>

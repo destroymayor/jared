@@ -13,14 +13,16 @@ import { ArrowRightIcon, SearchIcon } from '@heroicons/react/outline';
 import { SunIcon, MoonIcon } from '@heroicons/react/solid';
 import { CommandIcon } from '@/components/Common/Icons';
 
-const CommandPalette = () => {
+export default function CommandPalette() {
   const router = useRouter();
 
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState('');
 
   const queryDebounce = useDebounce(query, 300);
-  const { setTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
+
+  console.log(theme);
 
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -55,15 +57,10 @@ const CommandPalette = () => {
       title: 'Theme',
       children: [
         {
-          icon: <SunIcon className="h-6 w-6" />,
-          title: 'Set theme to Light',
-          click: () => setTheme('light'),
-          isExternal: false,
-        },
-        {
-          icon: <MoonIcon className="h-6 w-6" />,
-          title: 'Set theme to Dark',
-          click: () => setTheme('dark'),
+          icon:
+            theme === 'dark' ? <SunIcon className="h-6 w-6" /> : <MoonIcon className="h-6 w-6" />,
+          title: `Set theme to ${theme === 'dark' ? 'Light' : 'Dark'}`,
+          click: () => setTheme(theme === 'dark' ? 'Light' : 'Dark'),
           isExternal: false,
         },
       ],
@@ -100,7 +97,7 @@ const CommandPalette = () => {
   return (
     <>
       <button
-        className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-lg bg-zinc-100 ring-zinc-400 transition duration-200 ease-in-out hover:ring-2 focus:outline-none dark:bg-zinc-800 dark:hover:ring-zinc-600 md:h-10 md:w-10"
+        className="hidden h-12 w-12 cursor-pointer items-center justify-center rounded-lg bg-zinc-100 ring-zinc-400 transition duration-200 ease-in-out hover:ring-2 focus:outline-none dark:bg-zinc-800 dark:hover:ring-zinc-600 md:flex md:h-10 md:w-10"
         type="button"
         aria-label="Command palette"
         onClick={() => setIsOpen(!isOpen)}
@@ -183,6 +180,4 @@ const CommandPalette = () => {
       </Transition.Root>
     </>
   );
-};
-
-export default CommandPalette;
+}

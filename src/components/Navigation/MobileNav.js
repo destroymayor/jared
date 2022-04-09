@@ -47,7 +47,7 @@ export default function MobileNav(props) {
           <div
             className={clsx(
               `${isOpen ? 'opacity-100' : 'opacity-0'}`,
-              'absolute inset-x-0 top-20 bottom-0 bg-zinc-50 transition duration-500 dark:bg-black dark:bg-opacity-80 dark:backdrop-blur',
+              'absolute inset-x-0 top-[90px] bottom-0 bg-zinc-50 transition duration-500 dark:bg-black dark:bg-opacity-80 dark:backdrop-blur',
               'motion-safe:transition-opacity motion-safe:duration-500'
             )}
           />
@@ -55,7 +55,7 @@ export default function MobileNav(props) {
           <nav
             className={clsx(
               `${isOpen ? 'opacity-100 dark:bg-opacity-70' : 'opacity-0'}`,
-              'absolute inset-x-0 top-20 bottom-0 bg-zinc-50 dark:bg-black'
+              'absolute inset-x-0 top-[90px] bottom-0 bg-zinc-50 dark:bg-black'
             )}
           >
             <ul
