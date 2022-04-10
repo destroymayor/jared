@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { MDXRemote } from 'next-mdx-remote';
 
 import { mdxFilePaths, getMdxFile } from '@/helpers/mdx.helpers';
@@ -20,6 +21,12 @@ const components = {
       </h2>
     );
   },
+  h3: (props) => <h3 {...props} className="pt-2 text-lg"></h3>,
+  Image: (props) => (
+    <div className="my-5 flex items-center justify-center">
+      <Image {...props} className="rounded-lg" />
+    </div>
+  ),
   code: CodeBlock,
 };
 

@@ -1,18 +1,3 @@
----
-title: Slider
-description: Slider allow users to make selections from a range of values.
-category: react-components
-pathname: /snippets/slider
-techStack: ['React']
----
-
-### Demo
-
-<Image priority src={'/images/snippets/slider-demo.png'} width={448} height={120} />
-
-### Code
-
-```jsx
 import { useRef, useState } from 'react';
 
 const clamp = ({ value, min, max }) => {
@@ -53,7 +38,7 @@ export default function Slider(props) {
   };
 
   return (
-    <div className="relative w-full">
+    <div className="relative mt-32 w-3/5">
       <div ref={sliderRef} className="h-1 overflow-hidden rounded-full bg-zinc-600">
         <div
           className="absolute inset-0 rounded-full bg-gradient-to-r from-sky-700 via-sky-500 to-sky-800"
@@ -79,4 +64,3 @@ export default function Slider(props) {
     </div>
   );
 }
-```

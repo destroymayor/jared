@@ -17,16 +17,14 @@ html {
   scroll-behavior: smooth;
 }
 
-@media (orientation: landscape) {
-  ::-webkit-scrollbar {
-    @apply w-2  bg-zinc-200 dark:bg-zinc-700;
-  }
+::-webkit-scrollbar {
+  @apply h-2 w-2 bg-zinc-200 dark:bg-black;
+}
 
-  ::-webkit-scrollbar-track {
-    @apply rounded-[3px] bg-transparent;
-  }
+::-webkit-scrollbar-track {
+  @apply rounded-[3px] bg-transparent;
+}
 
-  ::-webkit-scrollbar-thumb {
-    @apply rounded-[3px] border-2 border-zinc-300 bg-zinc-600 dark:bg-zinc-400;
-  }
+::-webkit-scrollbar-thumb {
+  @apply rounded-[3px] border-2 border-zinc-300 bg-zinc-600 dark:bg-zinc-400;
 }

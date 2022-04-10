@@ -14,7 +14,7 @@ export default function Footer() {
   return (
     <footer
       className={clsx(
-        'flex w-11/12 flex-col gap-4 pt-6 pb-8 sm:max-w-[686px]',
+        'flex w-11/12 flex-col gap-6 pt-6 pb-8 sm:max-w-[686px]',
         'border-t border-dashed border-zinc-300 dark:border-zinc-700'
       )}
     >
@@ -22,6 +22,7 @@ export default function Footer() {
 
       <div className="flex flex-wrap items-center justify-between gap-6">
         <span className="flex items-center gap-2 text-sm sm:text-base">
+          <span className="text-lg">©</span>
           <span>{new Date().getFullYear()}</span>
           <span className="text-zinc-400 dark:text-zinc-600">-</span>
           <span>
