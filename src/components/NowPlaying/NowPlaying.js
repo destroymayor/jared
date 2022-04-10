@@ -25,7 +25,7 @@ export default function NowPlaying() {
         </div>
       )}
 
-      <div className="flex w-3/5 flex-auto flex-col gap-y-1 md:w-full">
+      <div className="flex w-3/5 flex-auto flex-col md:w-full">
         {data?.songUrl && <AnimatedBars />}
 
         <div className="flex flex-col">
@@ -34,15 +34,15 @@ export default function NowPlaying() {
               {data.title}
             </Link>
           ) : (
-            <p className="font-medium">Not Playing</p>
+            <p className="flex items-center gap-2">
+              <SpotifySolidIcon className="h-5 w-5" />
+              <span className="font-bold">Not Playing</span>
+              <span className="text-zinc-400">- Spotify</span>
+            </p>
           )}
+
           <p className="max-w-max truncate text-zinc-500 dark:text-zinc-400 md:overflow-clip">
-            {data?.artist ?? (
-              <span className="flex items-center gap-2 py-1">
-                <SpotifySolidIcon className="h-5 w-5" />
-                <span>Spotify</span>
-              </span>
-            )}
+            {data?.artist}
           </p>
         </div>
       </div>

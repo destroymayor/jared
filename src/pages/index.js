@@ -15,7 +15,7 @@ export default function HomePage() {
       <p className="text-zinc-700 dark:text-zinc-400">
         Build faster and UX-first web products at{' '}
         <Link href="https://github.com/Tagtoo">
-          <span className="border-b border-zinc-300 pb-1 font-semibold transition duration-200 ease-in-out hover:border-zinc-400 dark:border-zinc-700 dark:text-zinc-300">
+          <span className="border-b border-zinc-300 pb-1 font-semibold transition duration-200 ease-in-out hover:border-zinc-400 dark:border-zinc-700 dark:text-zinc-300 dark:hover:border-zinc-400">
             @Tagtoo
           </span>
         </Link>
@@ -29,7 +29,7 @@ export default function HomePage() {
         </li>
         {contact.map((item) => (
           <Link key={item.link} href={item.link} aria-label={item.label}>
-            <li className="flex items-center gap-2 transition duration-200 ease-in-out hover:text-zinc-500 dark:hover:text-zinc-100">
+            <li className="flex items-center gap-2 transition duration-200 ease-in-out hover:text-zinc-500 dark:hover:text-zinc-50">
               {item.icon}
               <span>{item.title}</span>
             </li>
