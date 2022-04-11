@@ -19,7 +19,7 @@ export default function Layout(props) {
       <Header />
 
       <motion.main
-        className="w-11/12 flex-grow pb-12 text-zinc-700 dark:text-zinc-300 sm:max-w-[686px]"
+        className="relative w-11/12 flex-grow pb-12 text-zinc-700 dark:text-zinc-300 sm:max-w-[686px]"
         key={router.route}
         initial={{ opacity: 0 }}
         animate={{

@@ -28,10 +28,10 @@ export default function Quotes(props) {
 
   return (
     <>
-      <h1 className="text-2xl sm:text-3xl">{title}</h1>
-      <p className="mb-6 border-b border-dashed border-zinc-600 pt-2 pb-6 dark:text-zinc-400">
-        {description}
-      </p>
+      <h1 className="text-3xl">{title}</h1>
+      <p className="pt-2 dark:text-zinc-400">{description}</p>
+      <div className="my-6 border-b border-dashed border-zinc-700" />
+
       <MDXRemote {...mdxSource} lazy components={components} />
     </>
   );

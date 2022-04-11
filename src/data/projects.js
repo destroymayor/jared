@@ -1,3 +1,4 @@
+import unsplashGallery from '@/public/images/projects/unsplash-gallery.webp';
 import weatherApp from '@/public/images/projects/weather-app.webp';
 import movieAppImage from '@/public/images/projects/movie-app.webp';
 import memoryCardGameImage from '@/public/images/projects/memory-card-game.webp';
@@ -6,6 +7,17 @@ import spotifyCloneImage from '@/public/images/projects/spotify-clone.webp';
 import fakeFacebookImage from '@/public/images/projects/fake-facebook.webp';
 
 const data = [
+  {
+    image: unsplashGallery.src,
+    title: 'Unsplash Gallery',
+    description: 'A photos gallery app allows the user to search photos from Unsplash.com',
+    tag: 'Next.js',
+    release_year: 2022,
+    links: {
+      repo: 'https://github.com/destroymayor/unsplash-gallery',
+      demo: 'https://unsplash-gallery-plum.vercel.app/',
+    },
+  },
   {
     image: weatherApp.src,
     title: 'Weather App',

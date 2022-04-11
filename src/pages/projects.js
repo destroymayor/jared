@@ -1,8 +1,6 @@
-/* eslint-disable @next/next/no-img-element */
+import Image from 'next/image';
 import projects from '@/data/projects';
 
-import FadeInScrollContainer from '@/components/Common/FadeInScrollContainer';
-import Button from '@/components/Common/Button';
 import Link from '@/components/Common/Link';
 import Tag from '@/components/Common/Tag';
 import { GithubIcon } from '@/components/Common/Icons';
@@ -16,46 +14,61 @@ Projects.description = description;
 export default function Projects() {
   return (
     <>
-      <h1 className="text-2xl sm:text-3xl">{title}</h1>
-      <p className="mb-6 border-b border-dashed border-zinc-600 pt-2 pb-6 dark:text-zinc-400">
-        {description}
-      </p>
+      <h1 className="text-3xl">{title}</h1>
+      <p className="pt-2 dark:text-zinc-400">{description}</p>
+      <div className="my-6 border-b border-dashed border-zinc-700" />
 
-      <div className="grid grid-cols-1 justify-center gap-5 sm:grid-cols-2">
-        {projects.map((project) => {
-          return (
-            <FadeInScrollContainer
-              key={project.title}
-              className="mb-2 flex flex-col rounded-lg shadow-xl dark:bg-zinc-900"
-            >
-              <img
-                className="max-h-[200px] min-h-[200px] w-full rounded-t-lg object-cover"
-                src={project.image}
-                alt={project.title}
-              />
+      <div className="absolute -left-6 hidden h-[calc(100%-170px)] min-h-[calc(100vh-170px)] w-[1px] border-l border-dashed border-zinc-700 md:block"></div>
 
-              <div className="flex flex-1 flex-col gap-3 p-4 pt-4">
-                <div className="flex items-center justify-between">
-                  <Tag label={project.tag} type="primary" />
-                  <Link href={project.links.demo}>
-                    <GithubIcon className="w7 h-7 hover:text-zinc-600 dark:hover:text-zinc-400" />
-                  </Link>
-                </div>
+      <div className="flex flex-col gap-6">
+        {projects.map((project) => (
+          <div
+            key={project.title}
+            className="relative flex flex-col rounded-lg shadow-xl dark:bg-zinc-900 sm:flex-row"
+          >
+            <aside className="absolute -left-12 top-1/2 hidden whitespace-nowrap text-zinc-400 [transform:translate(-50%,-50%)] [writing-mode:vertical-lr] dark:text-zinc-600 md:block">
+              {project.release_year}
+            </aside>
 
-                <div className="flex flex-1 flex-col gap-2 pb-2">
-                  <h2 className="text-xl font-semibold">{project.title}</h2>
-                  <p className="text-sm dark:text-zinc-400">{project.description}</p>
-                </div>
+            <Image
+              className="rounded-t-lg sm:rounded-l-lg sm:rounded-tr-none"
+              objectFit="cover"
+              unoptimized
+              priority
+              alt={project.title}
+              src={project.image}
+              width={300}
+              height={200}
+            />
 
-                <Link href={project.links.demo}>
-                  <Button>
-                    <span className="font-bold">View Demo</span>
-                  </Button>
+            <div className="flex flex-1 flex-col gap-2 p-4">
+              <div className="flex">
+                <Tag label={project.tag} type="primary" />
+              </div>
+
+              <div className="flex flex-1 flex-col gap-2 pb-2">
+                <h2 className="text-xl font-semibold">{project.title}</h2>
+                <p className="text-sm dark:text-zinc-400">{project.description}</p>
+              </div>
+
+              <div className="flex items-center gap-2 text-sm">
+                <Link
+                  href={project.links.demo}
+                  className="rounded-md p-2 font-bold text-blue-600 hover:bg-blue-500/10 dark:text-blue-400"
+                >
+                  View Demo
+                </Link>
+
+                <Link
+                  href={project.links.repo}
+                  className="rounded-md p-2 font-bold text-blue-600 hover:bg-blue-500/10 dark:text-blue-400"
+                >
+                  View Repo
                 </Link>
               </div>
-            </FadeInScrollContainer>
-          );
-        })}
+            </div>
+          </div>
+        ))}
       </div>
     </>
   );

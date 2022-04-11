@@ -24,7 +24,7 @@ const components = {
   h3: (props) => <h3 {...props} className="pt-2 text-lg"></h3>,
   Image: (props) => (
     <div className="my-5 flex items-center justify-center">
-      <Image {...props} className="rounded-lg" />
+      <Image {...props} className="rounded-lg" alt="" />
     </div>
   ),
   code: CodeBlock,
