@@ -3,7 +3,6 @@ import projects from '@/data/projects';
 
 import Link from '@/components/Common/Link';
 import Tag from '@/components/Common/Tag';
-import { GithubIcon } from '@/components/Common/Icons';
 
 const title = `Projects`;
 const description = `My side projects.`;
@@ -16,9 +15,9 @@ export default function Projects() {
     <>
       <h1 className="text-3xl">{title}</h1>
       <p className="pt-2 dark:text-zinc-400">{description}</p>
-      <div className="my-6 border-b border-dashed border-zinc-700" />
+      <div className="my-6 border-b border-dashed border-zinc-300 dark:border-zinc-700" />
 
-      <div className="absolute -left-6 hidden h-[calc(100%-170px)] min-h-[calc(100vh-170px)] w-[1px] border-l border-dashed border-zinc-700 md:block"></div>
+      <div className="absolute -left-6 top-0 hidden h-[calc(100%-40px)] min-h-[calc(100vh-40px)] w-[1px] border-l border-dashed border-zinc-300 dark:border-zinc-700 md:block"></div>
 
       <div className="flex flex-col gap-6">
         {projects.map((project) => (

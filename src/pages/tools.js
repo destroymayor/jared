@@ -14,7 +14,7 @@ export default function Tools() {
     <>
       <h1 className="text-3xl">{title}</h1>
       <p className="pt-2 dark:text-zinc-400">{description}</p>
-      <div className="my-6 border-b border-dashed border-zinc-700" />
+      <div className="my-6 border-b border-dashed border-zinc-300 dark:border-zinc-700" />
 
       <div className="flex flex-col gap-2">
         {tools.map((tool) => {

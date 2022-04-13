@@ -21,16 +21,16 @@ export default function Dashboard(props) {
     <SWRConfig value={{ fallback }}>
       <h1 className="text-3xl">{title}</h1>
       <p className="pt-2 dark:text-zinc-400">{description}</p>
-      <div className="my-6 border-b border-dashed border-zinc-700" />
+      <div className="my-6 border-b border-dashed border-zinc-300 dark:border-zinc-700" />
 
       <div className="flex flex-col gap-y-6">
         <Contributions />
 
-        <div className="border-t border-zinc-800 pt-6">
+        <div className="border-t border-zinc-300 pt-6 dark:border-zinc-800">
           <CodingActive />
         </div>
 
-        <div className="border-t border-zinc-800 pt-6">
+        <div className="border-t border-zinc-300 pt-6 dark:border-zinc-800">
           <TopTracks />
         </div>
       </div>
