@@ -12,7 +12,7 @@ const CodingActive = () => {
   return (
     <div className="flex flex-col gap-y-2">
       <h2 className="flex items-center gap-2 text-2xl">
-        <WakaTimeIcon className="h-7 w-7" />
+        <WakaTimeIcon className="h-6 w-6" />
         <span>Coding Active</span>
       </h2>
 

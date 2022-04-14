@@ -17,19 +17,22 @@ export default function Bookmarks() {
 
       <div className="absolute -left-6 top-0 hidden h-[calc(100%-40px)] min-h-[calc(100vh-40px)] w-[1px] border-l border-dashed border-zinc-300 dark:border-zinc-700 md:block"></div>
 
-      <ul className="flex flex-col gap-10">
+      <ul className="flex flex-col gap-4 md:gap-10">
         {bookmarks.map((bookmarkItem) => (
           <li className="relative flex flex-col gap-2" key={bookmarkItem.collection}>
             <aside className="absolute -left-[60px] top-4 hidden whitespace-nowrap text-zinc-400 [writing-mode:vertical-lr] dark:text-zinc-600 md:block">
               {bookmarkItem.collection}
             </aside>
+            <div className="text-lg text-zinc-400 dark:text-zinc-600 md:hidden">
+              {bookmarkItem.collection}
+            </div>
 
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-2 md:gap-4">
               {bookmarkItem.list.map((item) => (
                 <Link
                   key={item.title}
                   href={item.url}
-                  className="flex flex-col rounded-md px-4 py-2 transition duration-200 ease-in-out hover:bg-zinc-200 dark:hover:bg-zinc-800"
+                  className="flex flex-col rounded-md p-2 transition duration-200 ease-in-out hover:bg-zinc-200 dark:hover:bg-zinc-800 md:px-4 md:py-2"
                 >
                   <div className="flex flex-col gap-1">
                     <span className="dark:text-zinc-200">{item.title}</span>
