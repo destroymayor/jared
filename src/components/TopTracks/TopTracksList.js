@@ -31,7 +31,7 @@ export default function TopTracksList() {
               height={60}
             />
           </div>
-          <div className="flex w-3/5 flex-grow flex-col md:w-full">
+          <div className="flex w-3/5 flex-grow flex-col items-start md:w-full">
             <Link className="truncate font-medium md:overflow-clip" href={item?.songUrl}>
               {item.title}
             </Link>

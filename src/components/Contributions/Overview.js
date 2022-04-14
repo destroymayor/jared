@@ -21,12 +21,12 @@ export default function Overview(props) {
 
   return (
     <div className="grid grid-cols-2 gap-2 py-2 sm:grid-cols-4">
-      <div className="flex flex-col rounded-xl bg-zinc-100 py-2 px-4 shadow-lg dark:bg-zinc-900">
+      <div className="flex flex-col rounded-xl bg-zinc-100 py-2 px-4 shadow-md dark:bg-zinc-900">
         <span className="text-sm dark:text-zinc-400">Total</span>
         <AnimateCounter className="text-2xl font-bold text-green-600" total={totalContributions} />
       </div>
 
-      <div className="flex flex-col rounded-xl bg-zinc-100 py-2 px-4 shadow-lg dark:bg-zinc-900">
+      <div className="flex flex-col rounded-xl bg-zinc-100 py-2 px-4 shadow-md dark:bg-zinc-900">
         <span className="text-sm dark:text-zinc-400">This Week</span>
 
         <AnimateCounter
@@ -35,12 +35,12 @@ export default function Overview(props) {
         />
       </div>
 
-      <div className="flex flex-col rounded-xl bg-zinc-100 py-2 px-4 shadow-lg dark:bg-zinc-900">
+      <div className="flex flex-col rounded-xl bg-zinc-100 py-2 px-4 shadow-md dark:bg-zinc-900">
         <span className="text-sm dark:text-zinc-400">Best Day</span>
         <AnimateCounter className="text-2xl font-bold text-green-600" total={bestContribution} />
       </div>
 
-      <div className="flex flex-col rounded-xl bg-zinc-100 py-2 px-4 shadow-lg dark:bg-zinc-900">
+      <div className="flex flex-col rounded-xl bg-zinc-100 py-2 px-4 shadow-md dark:bg-zinc-900">
         <span className="text-sm dark:text-zinc-400">Average</span>
         <span>
           <AnimateCounter

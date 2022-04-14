@@ -3,6 +3,7 @@ import contact from '@/data/contact';
 
 import avatar from '@/public/images/avatar.webp';
 
+import Layout from '@/layouts/layout';
 import Link from '@/components/Common/Link';
 import { LocationMarkerIcon } from '@heroicons/react/outline';
 
@@ -48,3 +49,7 @@ export default function HomePage() {
     </section>
   );
 }
+
+HomePage.getLayout = function getLayout(page) {
+  return <Layout>{page}</Layout>;
+};

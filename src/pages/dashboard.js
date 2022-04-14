@@ -4,6 +4,7 @@ import { getReadStats } from '@/lib/wakatime';
 import { getNowPlaying, getTopTracks } from '@/lib/spotify';
 import { getGithubUser } from '@/lib/github';
 
+import MainLayout from '@/layouts/main-layout';
 import TopTracks from '@/components/TopTracks';
 import CodingActive from '@/components/CodingActive';
 import Contributions from '@/components/Contributions';
@@ -19,10 +20,6 @@ export default function Dashboard(props) {
 
   return (
     <SWRConfig value={{ fallback }}>
-      <h1 className="text-3xl">{title}</h1>
-      <p className="pt-2 dark:text-zinc-400">{description}</p>
-      <div className="my-6 border-b border-dashed border-zinc-300 dark:border-zinc-700" />
-
       <div className="flex flex-col gap-y-6">
         <Contributions />
 
@@ -37,6 +34,14 @@ export default function Dashboard(props) {
     </SWRConfig>
   );
 }
+
+Dashboard.getLayout = function getLayout(page) {
+  return (
+    <MainLayout title={title} description={description}>
+      {page}
+    </MainLayout>
+  );
+};
 
 export async function getStaticProps() {
   const readStats = await getReadStats();

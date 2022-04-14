@@ -4,6 +4,7 @@ import { MDXRemote } from 'next-mdx-remote';
 import { mdxFilePaths, getMdxFile } from '@/helpers/mdx.helpers';
 import languageMapping from '@/helpers/language-mapping.helper';
 
+import Layout from '@/layouts/layout';
 import Head from '@/components/Head';
 import CodeBlock from '@/components/CodeBlock';
 import Link from '@/components/Common/Link';
@@ -54,6 +55,10 @@ export default function SnippetPage(props) {
     </>
   );
 }
+
+SnippetPage.getLayout = function getLayout(page) {
+  return <Layout>{page}</Layout>;
+};
 
 export async function getStaticProps({ params }) {
   const { mdxSource, data } = await getMdxFile('src/data/snippets', params.slug);

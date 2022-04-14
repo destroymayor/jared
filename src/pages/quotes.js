@@ -1,6 +1,8 @@
 import { MDXRemote } from 'next-mdx-remote';
 import { getMdxFile } from '@/helpers/mdx.helpers';
 
+import MainLayout from '@/layouts/main-layout';
+
 const title = `Quotes`;
 const description = `Collection of famous quotes.`;
 
@@ -26,16 +28,16 @@ const components = {
 export default function Quotes(props) {
   const { mdxSource } = props;
 
-  return (
-    <>
-      <h1 className="text-3xl">{title}</h1>
-      <p className="pt-2 dark:text-zinc-400">{description}</p>
-      <div className="my-6 border-b border-dashed border-zinc-300 dark:border-zinc-700" />
-
-      <MDXRemote {...mdxSource} lazy components={components} />
-    </>
-  );
+  return <MDXRemote {...mdxSource} lazy components={components} />;
 }
+
+Quotes.getLayout = function getLayout(page) {
+  return (
+    <MainLayout title={title} description={description}>
+      {page}
+    </MainLayout>
+  );
+};
 
 export async function getStaticProps() {
   const { mdxSource } = await getMdxFile('src/data', 'quotes');
