@@ -3,8 +3,10 @@ import { motion } from 'framer-motion';
 
 import clsx from 'clsx';
 
+import DesktopNav from '@/components/DesktopNav/DesktopNav';
+import MobileNav from '@/components/MobileNav/MobileNav';
+
 import NowPlaying from '@/components/NowPlaying';
-import Navigation from '@/components/Navigation';
 import ThemeToggle from '@/components/ThemeToggle';
 import CommandPalette from '@/components/CommandPalette';
 
@@ -25,10 +27,12 @@ export default function Layout(props) {
       <header
         className={clsx(
           'm-6 flex w-11/12 items-center justify-between p-2 sm:max-w-[686px]',
-          'rounded-xl bg-zinc-200/60 dark:bg-zinc-900'
+          'rounded-xl md:bg-zinc-200/60 md:dark:bg-zinc-900'
         )}
       >
-        <Navigation />
+        <DesktopNav />
+        <MobileNav />
+
         <div className="flex items-center gap-2">
           <ThemeToggle />
           <CommandPalette />

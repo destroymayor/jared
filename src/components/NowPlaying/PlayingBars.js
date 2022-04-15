@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-export default function AnimatedBars() {
+export default function PlayingBars() {
   return (
     <div className="relative flex w-auto items-end overflow-hidden">
       <motion.span

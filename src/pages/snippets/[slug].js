@@ -5,7 +5,7 @@ import { mdxFilePaths, getMdxFile } from '@/helpers/mdx.helpers';
 import languageMapping from '@/helpers/language-mapping.helper';
 
 import Layout from '@/layouts/layout';
-import Head from '@/components/Head';
+import NextHead from '@/components/NextHead';
 import CodeBlock from '@/components/CodeBlock';
 import Link from '@/components/Common/Link';
 import { LinkIcon } from '@heroicons/react/outline';
@@ -36,7 +36,7 @@ export default function SnippetPage(props) {
 
   return (
     <>
-      <Head title={frontMatter.title} description={frontMatter.description} />
+      <NextHead title={frontMatter.title} description={frontMatter.description} />
       <div className="flex flex-col gap-y-5">
         <div className="flex items-center">
           <div className="flex flex-1 flex-col gap-y-3">

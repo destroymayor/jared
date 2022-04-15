@@ -26,6 +26,7 @@ const CodingActive = () => {
         </Link>
         <span>stats</span>
       </p>
+
       <Overview data={data} />
       <CodingActiveList data={data} />
     </div>

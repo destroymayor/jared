@@ -3,6 +3,7 @@ import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import useRaf from '@rooks/use-raf';
 
 import Link from '@/components/Common/Link';
+import clsx from 'clsx';
 
 const baseWidth = 48;
 const distanceLimit = baseWidth * 6;
@@ -30,6 +31,7 @@ export default function DockItem(props) {
   const { item, mouseX } = props;
 
   const [animateObj, setAnimateObj] = useState({ translateY: ['0%', '0%', '0%'] });
+  const [isHover, setIsHover] = useState(false);
 
   const ref = useRef();
   const distance = useMotionValue(beyondTheDistanceLimit);
@@ -62,9 +64,22 @@ export default function DockItem(props) {
         animate={animateObj}
         transition={{ type: 'spring', duration: 0.5 }}
         transformTemplate={({ translateY }) => `translateY(${translateY})`}
-        className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-[23%] border-0 bg-zinc-800 p-3"
+        className="relative flex h-12 w-12 cursor-pointer items-center justify-center rounded-[23%] border-0 bg-zinc-100 p-3 shadow dark:bg-zinc-800"
         style={{ width, height: width }}
+        onMouseEnter={() => setIsHover(true)}
+        onMouseLeave={() => setIsHover(false)}
       >
+        <motion.span
+          initial={false}
+          animate={{
+            opacity: isHover ? 1 : 0,
+          }}
+          className={clsx(
+            'absolute -top-8 rounded border border-zinc-300 bg-zinc-100 px-2 text-sm dark:border-zinc-600 dark:bg-zinc-800'
+          )}
+        >
+          {item.title}
+        </motion.span>
         <span className="h-full w-full text-zinc-400">{item.icon}</span>
       </motion.div>
     </Link>

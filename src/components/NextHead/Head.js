@@ -1,10 +1,10 @@
-import NextHead from 'next/head';
+import Head from 'next/head';
 
-export default function Head(props) {
+export default function NextHead(props) {
   const { title, description = "Hey, I'm Jared Chen. I'm a front-end developer." } = props;
 
   return (
-    <NextHead>
+    <Head>
       {/* Title */}
       <title>{`${title ? `${title} - ` : ''}Jared Chen`}</title>
       <meta name="og:title" content={`${title ? `${title} - ` : ''}Jared Chen`} />
@@ -39,6 +39,6 @@ export default function Head(props) {
       <link rel="icon" type="image/png" sizes="96x96" href="/favicons/favicon-96x96.png" />
       <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
       <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
-    </NextHead>
+    </Head>
   );
 }

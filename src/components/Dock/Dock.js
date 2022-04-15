@@ -9,7 +9,7 @@ export default function Dock(props) {
 
   return (
     <motion.div
-      className="fixed -bottom-2 left-1/2 z-10 flex h-[70px] w-auto translate-y-16 items-end gap-2 rounded-[20px] border border-zinc-800 bg-black py-[10px] px-[10px] [transform:translate(-50%,-50%)]"
+      className="fixed -bottom-2 left-1/2 z-10 flex h-[70px] w-auto translate-y-16 items-end gap-2 rounded-[20px] border bg-zinc-50 py-[10px] px-[10px] shadow-2xl [transform:translate(-50%,-50%)] dark:border-zinc-800 dark:bg-black"
       initial={{
         opacity: 0,
         transform: 'transform(-50%, -50%) translateY(64px)',

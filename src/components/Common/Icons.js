@@ -58,21 +58,6 @@ export const SpotifySolidIcon = (props) => (
   </svg>
 );
 
-export const CommandIcon = (props) => (
-  <svg
-    {...props}
-    className={`${props.className}`}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"></path>
-  </svg>
-);
-
 export const VSCodeIcon = (props) => (
   <svg {...props} viewBox="-11.9 -2 1003.9 995.6">
     <path

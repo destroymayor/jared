@@ -1,5 +1,7 @@
 import router from 'next/router';
 
+import routes from '@/data/routes';
+
 import useToggle from '@/hooks/use-toggle.hook';
 import useScrollDisabler from '@/hooks/use-scroll-disabler.hook';
 
@@ -9,8 +11,7 @@ import { XIcon, MenuIcon } from '@heroicons/react/solid';
 import clsx from 'clsx';
 import styles from '@/styles/mobile-menu.module.css';
 
-export default function MobileNav(props) {
-  const { routes = [] } = props;
+export default function MobileNav() {
   const [isOpen, toggle] = useToggle();
 
   useScrollDisabler(isOpen);

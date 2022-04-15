@@ -1,12 +1,13 @@
 import { useRouter } from 'next/router';
+import { home, dashboard, projects, snippets, bookmarks } from '@/data/routes';
 
 import clsx from 'clsx';
 
 import Link from '@/components/Common/Link';
 import Tabs from '@/components/Common/Tabs';
 
-export default function DesktopNav(props) {
-  const { routes = [] } = props;
+export default function DesktopNav() {
+  const routes = [home, dashboard, projects, bookmarks, snippets];
   const router = useRouter();
 
   return (

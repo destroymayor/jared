@@ -6,7 +6,7 @@ import Link from '@/components/Common/Link';
 import Tag from '@/components/Common/Tag';
 
 const title = `Projects`;
-const description = `My side projects.`;
+const description = `Internet thingies built with React, Next.js.`;
 
 Projects.title = title;
 Projects.description = description;

@@ -3,7 +3,7 @@ import Image from 'next/image';
 import useSWR from 'swr';
 import fetcher from '@/lib/fetcher';
 
-import AnimatedBars from '@/components/NowPlaying/AnimatedBars';
+import PlayingBars from '@/components/NowPlaying/PlayingBars';
 import Link from '@/components/Common/Link';
 import { SpotifySolidIcon } from '@/components/Common/Icons';
 
@@ -26,7 +26,7 @@ export default function NowPlaying() {
       )}
 
       <div className="flex w-3/5 flex-auto flex-col md:w-full">
-        {data?.songUrl && <AnimatedBars />}
+        {data?.songUrl && <PlayingBars />}
 
         <div className="flex flex-col">
           {data?.songUrl ? (

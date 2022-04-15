@@ -3,7 +3,7 @@ import '@/styles/global.css';
 import useGoogleAnalytics from '@/hooks/use-google-analytics.hook';
 
 import { ThemeProvider } from 'next-themes';
-import Head from '@/components/Head';
+import NextHead from '@/components/NextHead';
 
 import NProgress from '@/components/Common/NProgress';
 
@@ -14,7 +14,7 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
-      <Head title={Component.title} description={Component.description} />
+      <NextHead title={Component.title} description={Component.description} />
       <ThemeProvider attribute="class" defaultTheme="dark">
         <NProgress />
         {getLayout(<Component {...pageProps} />)}

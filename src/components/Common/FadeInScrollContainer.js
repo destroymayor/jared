@@ -10,7 +10,7 @@ export default function FadeInScrollContainer(props) {
 
   useEffect(() => {
     if (isVisible) {
-      controls.start('visible');
+      controls.start({ opacity: 1, transition: { duration: 0.8 } });
     }
 
     return () => {
@@ -22,13 +22,9 @@ export default function FadeInScrollContainer(props) {
     <motion.div
       {...props}
       ref={ref}
-      initial="hidden"
+      initial={{ opacity: 0 }}
       className={className}
       animate={controls}
-      variants={{
-        visible: { opacity: 1, transition: { duration: 1, delay: 0.1 } },
-        hidden: { opacity: 0 },
-      }}
     >
       {children}
     </motion.div>
