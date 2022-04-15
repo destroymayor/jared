@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-has-content */
 import NextLink from 'next/link';
 
 const Link = ({ href, target, rel, getProps, ...delegated }) => {
@@ -13,7 +12,6 @@ const Link = ({ href, target, rel, getProps, ...delegated }) => {
   }
 
   if (typeof target === 'undefined') {
-    // eslint-disable-next-line no-param-reassign
     target = linkType === 'external' ? '_blank' : undefined;
   }
 
