@@ -5,6 +5,9 @@ import MainLayout from '@/layouts/main-layout';
 import Link from '@/components/Common/Link';
 import Tag from '@/components/Common/Tag';
 
+import { GlobeIcon } from '@/components/Common/FeatherIcons';
+import { GithubIcon } from '@/components/Common/Icons';
+
 const title = `Projects`;
 const description = `Internet thingies built with React, Next.js.`;
 
@@ -14,7 +17,7 @@ Projects.description = description;
 export default function Projects() {
   return (
     <>
-      <div className="absolute -left-6 top-0 hidden h-[calc(100%-40px)] min-h-[calc(100vh-40px)] w-[1px] border-l border-dashed border-zinc-300 dark:border-zinc-700 md:block" />
+      <div className="absolute -left-6 top-0 hidden h-[calc(100%)] min-h-[calc(100vh-0px)] w-[1px] border-l border-dashed border-zinc-300 dark:border-zinc-700 md:block" />
 
       <div className="flex flex-col gap-6">
         {projects.map((project) => {
@@ -53,16 +56,18 @@ export default function Projects() {
                 <div className="flex items-center gap-2 text-sm">
                   <Link
                     href={links.demo}
-                    className="rounded-md p-2 font-bold text-blue-600 hover:bg-blue-500/10 dark:text-blue-400"
+                    className="flex items-center gap-2 rounded-md p-2 font-bold text-blue-600 hover:bg-blue-500/10 dark:text-blue-400"
                   >
-                    View Demo
+                    <GlobeIcon className="h-5 w-5" />
+                    <span>Demo</span>
                   </Link>
 
                   <Link
                     href={links.repo}
-                    className="rounded-md p-2 font-bold text-blue-600 hover:bg-blue-500/10 dark:text-blue-400"
+                    className="flex items-center gap-2 rounded-md p-2 font-bold text-blue-600 hover:bg-blue-500/10 dark:text-blue-400"
                   >
-                    View Repo
+                    <GithubIcon className="h-5 w-5" />
+                    <span>Repo</span>
                   </Link>
                 </div>
               </div>
