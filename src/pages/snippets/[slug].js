@@ -49,7 +49,7 @@ export default function SnippetPage(props) {
         </div>
 
         <div className="w-full">
-          <MDXRemote {...mdxSource} lazy components={components} />
+          <MDXRemote {...mdxSource} components={components} />
         </div>
       </div>
     </>
