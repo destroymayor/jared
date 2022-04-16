@@ -2,9 +2,10 @@ import router from 'next/router';
 
 import routes from '@/data/routes';
 
-import useToggle from '@/hooks/use-toggle.hook';
+import { motion, useCycle } from 'framer-motion';
 import useScrollDisabler from '@/hooks/use-scroll-disabler.hook';
 
+import MenuItem from '@/components/MobileNav/MenuItem';
 import InPortal from '@/components/Common/InPortal';
 
 import { XIcon, MenuIcon } from '@heroicons/react/solid';
@@ -12,7 +13,7 @@ import clsx from 'clsx';
 import styles from '@/styles/mobile-menu.module.css';
 
 export default function MobileNav() {
-  const [isOpen, toggle] = useToggle();
+  const [isOpen, toggle] = useCycle(false, true);
 
   useScrollDisabler(isOpen);
 
@@ -38,55 +39,51 @@ export default function MobileNav() {
       </button>
 
       <InPortal>
-        <div
-          className={clsx(
-            `${isOpen ? 'pointer-events-auto' : 'pointer-events-none'}`,
-            'h-full w-full md:hidden'
-          )}
+        <motion.nav
+          initial={false}
+          animate={isOpen ? 'open' : 'closed'}
+          variants={{
+            open: { opacity: 1 },
+            closed: {
+              opacity: 0,
+              transition: { delay: 0.8 },
+            },
+          }}
+          className="absolute inset-x-0 top-[90px] bottom-0 h-full w-full md:hidden"
         >
           {/* backdrop */}
-          <div
-            className={clsx(
-              `${isOpen ? 'opacity-100' : 'opacity-0'}`,
-              'absolute inset-x-0 top-[90px] bottom-0 bg-zinc-50 transition duration-500 dark:bg-black dark:bg-opacity-80 dark:backdrop-blur',
-              'motion-safe:transition-opacity motion-safe:duration-500'
-            )}
+          <motion.div
+            variants={{
+              open: { opacity: 1 },
+              closed: {
+                opacity: 0,
+                transition: { delay: 0.8 },
+              },
+            }}
+            className="absolute inset-0 bg-zinc-50 dark:bg-black dark:bg-opacity-80 dark:backdrop-blur"
           />
 
-          <nav
-            className={clsx(
-              `${isOpen ? 'opacity-100 dark:bg-opacity-70' : 'opacity-0'}`,
-              'absolute inset-x-0 top-[90px] bottom-0 bg-zinc-50 dark:bg-black'
-            )}
+          <motion.ul
+            variants={{
+              open: {
+                transition: { staggerChildren: 0.07, delayChildren: 0.2 },
+              },
+              closed: {
+                transition: { staggerChildren: 0.05, staggerDirection: -1 },
+              },
+            }}
+            className="absolute inset-0 flex flex-col items-start gap-y-8 px-8 py-6"
           >
-            <ul
-              className={clsx(
-                'flex flex-col items-start gap-y-8 px-8 py-6 transition duration-300 ease-in',
-                `${isOpen ? 'opacity-100' : 'opacity-0'}`
-              )}
-            >
-              {routes.map((item, index) => (
-                <li
-                  key={`${index}`}
-                  className={clsx(
-                    'transition duration-300 ease-in',
-                    `${isOpen ? 'translate-x-0 opacity-100' : 'translate-x-[-20px] opacity-0'}`
-                  )}
-                  style={{ transitionDelay: `${index * 50}ms` }}
-                  onClick={() => handleNavigation(item.pathname)}
-                >
-                  <div
-                    className={clsx(
-                      'flex cursor-pointer text-2xl text-black transition duration-200 ease-in-out hover:text-zinc-700 dark:text-zinc-100 dark:hover:text-zinc-400'
-                    )}
-                  >
-                    {item.title}
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </div>
+            {routes.map((item, index) => (
+              <MenuItem
+                key={`${index}`}
+                index={index}
+                item={item}
+                onClick={() => handleNavigation(item.pathname)}
+              />
+            ))}
+          </motion.ul>
+        </motion.nav>
       </InPortal>
     </>
   );
