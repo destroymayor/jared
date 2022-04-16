@@ -60,7 +60,7 @@ export default function MobileNav() {
                 transition: { delay: 0.8 },
               },
             }}
-            className="absolute inset-0 bg-zinc-50 dark:bg-black dark:bg-opacity-80 dark:backdrop-blur"
+            className="absolute inset-0 bg-zinc-50 dark:bg-black dark:bg-opacity-90 dark:backdrop-blur"
           />
 
           <motion.ul
