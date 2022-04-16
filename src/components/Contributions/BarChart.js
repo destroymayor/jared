@@ -22,18 +22,15 @@ export default function BarChart(props) {
         >
           <span className="flex h-[100px] max-h-[100px] w-2 items-end rounded-md bg-zinc-800">
             <motion.span
-              initial="initial"
-              animate="animate"
-              variants={{
-                initial: { height: 0 },
-                animate: {
-                  height: Math.floor((item.contributionsCount / getBarChartMaxCount) * 100),
-                  transition: { delay: 0.8 },
-                },
+              initial={{ height: 0 }}
+              animate={{
+                height: Math.floor((item.contributionsCount / getBarChartMaxCount) * 100),
+                transition: { delay: 0.8 },
               }}
               className="flex w-2 items-end rounded-md bg-green-600 text-white"
             />
           </span>
+          <span className="text-xs">{item.contributionsCount}</span>
         </li>
       ))}
     </ul>

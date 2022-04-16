@@ -54,15 +54,11 @@ export default function Calendar(props) {
                 return (
                   <motion.span
                     key={contribution.date}
-                    initial="initial"
-                    animate="animate"
-                    variants={{
-                      initial: { opacity: 0, translateY: -20 },
-                      animate: {
-                        opacity: 1,
-                        translateY: 0,
-                        transition: { delay: getRandomDelayAnimate },
-                      },
+                    initial={{ opacity: 0, translateY: -20 }}
+                    animate={{
+                      opacity: 1,
+                      translateY: 0,
+                      transition: { delay: getRandomDelayAnimate },
                     }}
                     className="my-[2px] block h-[10px] w-[10px] rounded-sm bg-zinc-300 dark:bg-zinc-800"
                     style={{ backgroundColor }}
@@ -86,20 +82,16 @@ export default function Calendar(props) {
           <span className="dark:text-zinc-400">Less</span>
           <ul className="flex gap-1">
             <motion.li className="h-[10px] w-[10px] rounded-sm bg-zinc-300 dark:bg-zinc-800" />
-            {contributionColors.map((item, index) => (
+            {contributionColors.map((color, colorIndex) => (
               <motion.li
-                key={item}
-                initial="initial"
-                animate="animate"
-                variants={{
-                  initial: { opacity: 0 },
-                  animate: {
-                    opacity: 1,
-                    transition: { delay: index * 0.3 },
-                  },
+                key={color}
+                initial={{ opacity: 0 }}
+                animate={{
+                  opacity: 1,
+                  transition: { delay: colorIndex * 0.3 },
+                  backgroundColor: color,
                 }}
                 className="h-[10px] w-[10px] rounded-sm"
-                style={{ backgroundColor: item }}
               />
             ))}
           </ul>
@@ -109,7 +101,7 @@ export default function Calendar(props) {
         <div
           className={clsx(
             `${selectContribution.date ? 'opacity-100' : 'opacity-0'}`,
-            'rounded bg-zinc-200 px-2 text-sm dark:bg-zinc-700'
+            'rounded bg-zinc-200 px-2 text-sm dark:bg-zinc-800'
           )}
         >
           {selectContribution.count} contributions on {selectContribution.date}
