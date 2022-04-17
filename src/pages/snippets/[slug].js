@@ -61,7 +61,7 @@ SnippetPage.getLayout = function getLayout(page) {
 };
 
 export async function getStaticProps({ params }) {
-  const { mdxSource, data } = await getMdxFile('src/data/snippets', params.slug);
+  const { mdxSource, data } = await getMdxFile({ dirPath: '/snippets', slug: params.slug });
 
   return {
     props: {
