@@ -1,8 +1,0 @@
-/* Make clicks pass-through */
-#nprogress {
-  @apply pointer-events-none;
-}
-
-#nprogress .bar {
-  @apply fixed top-0 left-0 z-[1031] h-[2px] w-full bg-sky-700;
-}
