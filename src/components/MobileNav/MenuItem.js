@@ -9,7 +9,7 @@ const variants = {
     opacity: 1,
     transition: {
       y: {
-        stiffness: 1000,
+        stiffness: 800,
         velocity: -100,
       },
     },
@@ -19,7 +19,7 @@ const variants = {
     opacity: 0,
     transition: {
       y: {
-        stiffness: 1000,
+        stiffness: 800,
       },
     },
   },
