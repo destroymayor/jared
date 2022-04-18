@@ -46,7 +46,7 @@ export default function Layout(props) {
           opacity: 1,
           transition: { delay: 0.2 },
         }}
-        className="relative w-11/12 flex-grow pb-12 text-zinc-700 dark:text-zinc-300 sm:max-w-[686px]"
+        className="relative w-11/12 flex-grow text-zinc-700 dark:text-zinc-300 sm:max-w-[686px]"
       >
         {children}
       </motion.main>
@@ -54,7 +54,7 @@ export default function Layout(props) {
       {router.pathname !== '/' && (
         <footer
           className={clsx(
-            'flex w-11/12 flex-col gap-6 pt-6 pb-8 sm:max-w-[686px]',
+            'mt-12 flex w-11/12 flex-col gap-6 py-6 sm:max-w-[686px]',
             'border-t border-dashed border-zinc-300 dark:border-zinc-700'
           )}
         >
