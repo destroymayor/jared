@@ -5,7 +5,7 @@ export const mail = {
   link: 'mailto:kuil5230@gmail.com',
   title: 'kuil5230@gmail.com',
   label: 'Gmail',
-  icon: <MailIcon className="h-6 w-6 " />,
+  icon: <MailIcon className="h-6 w-6" />,
 };
 
 export const github = {
@@ -29,6 +29,6 @@ export const twitter = {
   icon: <TwitterIcon className="h-6 w-6" />,
 };
 
-const data = [mail, github, twitter, linkedIn];
+const data = [mail, github, linkedIn, twitter];
 
 export default data;
