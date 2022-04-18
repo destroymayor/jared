@@ -1,3 +1,3 @@
-import Head from './Head';
+import NextHead from './NextHead';
 
-export default Head;
+export default NextHead;

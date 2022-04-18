@@ -1,13 +1,13 @@
 import Head from 'next/head';
 
 export default function NextHead(props) {
-  const { title, description = "Hey, I'm Jared Chen. I'm a front-end developer." } = props;
+  const { title, description = "Hey, I'm Jared, a Front-end Developer." } = props;
 
   return (
     <Head>
       {/* Title */}
-      <title>{`${title ? `${title} - ` : ''}Jared Chen`}</title>
-      <meta name="og:title" content={`${title ? `${title} - ` : ''}Jared Chen`} />
+      <title>{`${title ? `${title} - ` : ''}Jared`}</title>
+      <meta name="og:title" content={`${title ? `${title} - ` : ''}Jared`} />
 
       {/* Description */}
       <meta name="description" content={description} />
@@ -17,7 +17,7 @@ export default function NextHead(props) {
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta httpEquiv="Content-Language" content="en" />
       <meta name="apple-mobile-web-app-title" content="Jared" />
-      <meta name="author" content="Jared Chen" />
+      <meta name="author" content="Jared" />
 
       {/* URL */}
       <meta name="og:url" content="https://jared-chen.me" />
