@@ -4,7 +4,7 @@ import { useAnimation, motion } from 'framer-motion';
 import useInView from '@/hooks/use-in-view.hook';
 
 export default function FadeInScrollContainer(props) {
-  const { children, className } = props;
+  const { as = 'div', children, className } = props;
   const controls = useAnimation();
   const { ref, isVisible } = useInView();
 
@@ -18,8 +18,10 @@ export default function FadeInScrollContainer(props) {
     };
   }, [controls, isVisible]);
 
+  const Component = motion?.[as];
+
   return (
-    <motion.div
+    <Component
       {...props}
       ref={ref}
       initial={{ opacity: 0 }}
@@ -27,6 +29,6 @@ export default function FadeInScrollContainer(props) {
       animate={controls}
     >
       {children}
-    </motion.div>
+    </Component>
   );
 }

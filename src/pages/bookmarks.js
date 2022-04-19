@@ -12,7 +12,7 @@ Bookmarks.description = description;
 export default function Bookmarks() {
   return (
     <>
-      <div className="absolute -left-6 top-0 hidden h-[calc(100%-40px)] min-h-[calc(100vh-40px)] w-[1px] border-l border-dashed border-zinc-300 dark:border-zinc-700 md:block"></div>
+      <div className="absolute -left-6 top-0 hidden h-full w-[1px] border-l border-dashed border-zinc-300 dark:border-zinc-700 md:block"></div>
 
       <ul className="flex flex-col gap-4 md:gap-10">
         {bookmarks.map((bookmarkItem) => {
