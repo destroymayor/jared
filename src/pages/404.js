@@ -1,4 +1,4 @@
-import Layout from '@/layouts/layout';
+import Container from '@/components/Container';
 import { EmojiSadIcon } from '@heroicons/react/outline';
 
 Custom404.title = 'Page not found';
@@ -13,5 +13,5 @@ export default function Custom404() {
 }
 
 Custom404.getLayout = function getLayout(page) {
-  return <Layout>{page}</Layout>;
+  return <Container>{page}</Container>;
 };
