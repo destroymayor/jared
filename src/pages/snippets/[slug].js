@@ -4,8 +4,7 @@ import { MDXRemote } from 'next-mdx-remote';
 import { mdxFilePaths, getMdxFile } from '@/helpers/mdx.helpers';
 import languageMapping from '@/helpers/language-mapping.helper';
 
-import Layout from '@/layouts/layout';
-import NextHead from '@/components/NextHead';
+import Container from '@/components/Container';
 import CodeBlock from '@/components/CodeBlock';
 import Link from '@/components/Common/Link';
 import { LinkIcon } from '@heroicons/react/outline';
@@ -35,8 +34,7 @@ export default function SnippetPage(props) {
   const { mdxSource, frontMatter } = props;
 
   return (
-    <>
-      <NextHead title={frontMatter.title} description={frontMatter.description} />
+    <Container title={frontMatter.title} description={frontMatter.description}>
       <div className="flex flex-col gap-y-5">
         <div className="flex items-center">
           <div className="flex flex-1 flex-col gap-y-3">
@@ -52,13 +50,9 @@ export default function SnippetPage(props) {
           <MDXRemote {...mdxSource} components={components} />
         </div>
       </div>
-    </>
+    </Container>
   );
 }
-
-SnippetPage.getLayout = function getLayout(page) {
-  return <Layout>{page}</Layout>;
-};
 
 export async function getStaticProps({ params }) {
   const { mdxSource, data } = await getMdxFile({ dirPath: '/snippets', slug: params.slug });

@@ -3,10 +3,8 @@ import contact from '@/data/contact';
 
 import avatar from '@/public/images/avatar.webp';
 
-import Layout from '@/layouts/layout';
+import Container from '@/components/Container';
 import Link from '@/components/Common/Link';
-
-HomePage.description = `Hey, I'm Jared, a Front-End Developer.`;
 
 export default function HomePage() {
   return (
@@ -40,5 +38,5 @@ export default function HomePage() {
 }
 
 HomePage.getLayout = function getLayout(page) {
-  return <Layout>{page}</Layout>;
+  return <Container>{page}</Container>;
 };

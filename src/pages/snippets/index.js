@@ -1,15 +1,12 @@
 import languageMapping from '@/helpers/language-mapping.helper';
 import { getALLMdxFile } from '@/helpers/mdx.helpers';
 
-import MainLayout from '@/layouts/main-layout';
+import Container from '@/components/Container';
 import Link from '@/components/Common/Link';
 import FadeInScrollContainer from '@/components/Common/FadeInScrollContainer';
 
 const title = `Code Snippets`;
 const description = `Collection of useful code snippets.`;
-
-Snippets.title = title;
-Snippets.description = description;
 
 export default function Snippets(props) {
   const { snippets = [] } = props;
@@ -41,9 +38,13 @@ export default function Snippets(props) {
 
 Snippets.getLayout = function getLayout(page) {
   return (
-    <MainLayout title={title} description={description}>
+    <Container title={title} description={description}>
+      <h1 className="text-3xl">{title}</h1>
+      <p className="pt-2 dark:text-zinc-400">{description}</p>
+      <div className="my-6 border-b border-dashed border-zinc-300 dark:border-zinc-700" />
+
       {page}
-    </MainLayout>
+    </Container>
   );
 };
 

@@ -1,13 +1,10 @@
 import { MDXRemote } from 'next-mdx-remote';
 import { getMdxFile } from '@/helpers/mdx.helpers';
 
-import MainLayout from '@/layouts/main-layout';
+import Container from '@/components/Container';
 
 const title = `Quotes`;
 const description = `Collection of famous quotes.`;
-
-Quotes.title = title;
-Quotes.description = description;
 
 const components = {
   h2: (props) => (
@@ -33,9 +30,12 @@ export default function Quotes(props) {
 
 Quotes.getLayout = function getLayout(page) {
   return (
-    <MainLayout title={title} description={description}>
+    <Container title={title} description={description}>
+      <h1 className="text-3xl">{title}</h1>
+      <p className="pt-2 dark:text-zinc-400">{description}</p>
+      <div className="my-6 border-b border-dashed border-zinc-300 dark:border-zinc-700" />
       {page}
-    </MainLayout>
+    </Container>
   );
 };
 

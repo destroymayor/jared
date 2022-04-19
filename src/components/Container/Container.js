@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 
 import clsx from 'clsx';
 
+import NextHead from '@/components/NextHead';
 import DesktopNav from '@/components/DesktopNav/DesktopNav';
 import MobileNav from '@/components/MobileNav/MobileNav';
 
@@ -13,9 +14,14 @@ import CommandPalette from '@/components/CommandPalette';
 import Link from '@/components/Common/Link';
 import { GithubIcon } from '@/components/Common/Icons';
 
-export default function Layout(props) {
-  const { children } = props;
+export default function Container(props) {
+  const { children, ...customMeta } = props;
   const router = useRouter();
+
+  const meta = {
+    description: `Hey, I'm Jared, a Front-end Developer.`,
+    ...customMeta,
+  };
 
   return (
     <div
@@ -24,6 +30,7 @@ export default function Layout(props) {
         'bg-zinc-50 text-zinc-700 dark:bg-black dark:text-zinc-300'
       )}
     >
+      <NextHead title={meta?.title} description={meta?.description} />
       <header
         className={clsx(
           'm-6 flex w-11/12 items-center justify-between p-2 sm:max-w-[686px]',

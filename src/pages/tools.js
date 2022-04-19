@@ -1,14 +1,11 @@
 import tools from '@/data/tools';
 
-import MainLayout from '@/layouts/main-layout';
+import Container from '@/components/Container';
 import Link from '@/components/Common/Link';
 import Tag from '@/components/Common/Tag';
 
 const title = `Tools`;
 const description = `A list of my favorite tools`;
-
-Tools.title = title;
-Tools.description = description;
 
 export default function Tools() {
   return (
@@ -42,8 +39,11 @@ export default function Tools() {
 
 Tools.getLayout = function getLayout(page) {
   return (
-    <MainLayout title={title} description={description}>
+    <Container title={title} description={description}>
+      <h1 className="text-3xl">{title}</h1>
+      <p className="pt-2 dark:text-zinc-400">{description}</p>
+      <div className="my-6 border-b border-dashed border-zinc-300 dark:border-zinc-700" />
       {page}
-    </MainLayout>
+    </Container>
   );
 };

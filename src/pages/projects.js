@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import projects from '@/data/projects';
 
-import MainLayout from '@/layouts/main-layout';
+import Container from '@/components/Container';
 import Link from '@/components/Common/Link';
 import Tag from '@/components/Common/Tag';
 
@@ -10,10 +10,6 @@ import { GithubIcon } from '@/components/Common/Icons';
 
 const title = `Projects`;
 const description = `Internet thingies built with React, Next.js.`;
-
-Projects.title = title;
-Projects.description = description;
-
 export default function Projects() {
   return (
     <>
@@ -81,8 +77,12 @@ export default function Projects() {
 
 Projects.getLayout = function getLayout(page) {
   return (
-    <MainLayout title={title} description={description}>
+    <Container title={title} description={description}>
+      <h1 className="text-3xl">{title}</h1>
+      <p className="pt-2 dark:text-zinc-400">{description}</p>
+      <div className="my-6 border-b border-dashed border-zinc-300 dark:border-zinc-700" />
+
       {page}
-    </MainLayout>
+    </Container>
   );
 };
