@@ -4,7 +4,6 @@ import movieAppImage from '@/public/images/projects/movie-app.webp';
 import memoryCardGameImage from '@/public/images/projects/memory-card-game.webp';
 import imageConverterImage from '@/public/images/projects/image-converter.webp';
 import spotifyCloneImage from '@/public/images/projects/spotify-clone.webp';
-import fakeFacebookImage from '@/public/images/projects/fake-facebook.webp';
 
 const data = [
   {
@@ -72,17 +71,6 @@ const data = [
     links: {
       repo: 'https://github.com/destroymayor/spotify-clone',
       demo: 'https://spotify-clone-demo.vercel.app',
-    },
-  },
-  {
-    image: fakeFacebookImage.src,
-    title: 'Facebook Clone',
-    description: 'A clone project of the Facebook',
-    tag: 'Next.js',
-    release_year: 2021,
-    links: {
-      repo: 'https://github.com/destroymayor/facebook-clone',
-      demo: 'https://facebook-clone-demo.vercel.app',
     },
   },
 ];
