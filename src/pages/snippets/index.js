@@ -1,4 +1,4 @@
-import languageMapping from '@/helpers/language-mapping.helper';
+import { getCategoryFormatted } from '@/helpers/category.helper';
 import { getALLMdxFile } from '@/helpers/mdx.helpers';
 
 import Container from '@/components/Container';
@@ -16,7 +16,7 @@ export default function Snippets(props) {
       {snippets.map((snippet) => {
         const { title, description, category, slug } = snippet;
 
-        const languageIcon = languageMapping?.[category]?.icon;
+        const languageIcon = getCategoryFormatted(category)?.icon;
 
         return (
           <FadeInScrollContainer key={title + category}>
