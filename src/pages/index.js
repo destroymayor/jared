@@ -1,6 +1,7 @@
 import Image from 'next/image';
-import contact from '@/data/contact';
+import { motion } from 'framer-motion';
 
+import contact from '@/data/contact';
 import avatar from '@/public/images/avatar.webp';
 
 import Container from '@/components/Container';
@@ -9,9 +10,15 @@ import Link from '@/components/Common/Link';
 export default function HomePage() {
   return (
     <div className="flex flex-col items-center pt-6">
-      <div className="flex items-center justify-center rounded-full bg-gradient-to-r from-green-700 via-cyan-600 to-sky-700 p-1">
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{
+          scale: [0.2, 0.6, 1, 0.9, 1],
+        }}
+        className="flex items-center justify-center rounded-full bg-gradient-to-r from-green-700 via-cyan-600 to-sky-700 p-1"
+      >
         <Image src={avatar} alt="Jared" width={120} height={120} className="rounded-full" />
-      </div>
+      </motion.div>
 
       <div className="flex flex-col items-center gap-2 pt-10">
         <h1 className="text-3xl">Jared</h1>
