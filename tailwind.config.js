@@ -1,3 +1,5 @@
+const plugin = require('tailwindcss/plugin');
+
 module.exports = {
   darkMode: 'class',
   content: [
@@ -14,7 +16,18 @@ module.exports = {
       fontFamily: {
         sans: ['Source Code Pro', 'sans-serif'],
       },
+      fontSize: {
+        xl: ['1.25rem', { lineHeight: 1.1 }],
+        '2xl': ['1.5rem', { lineHeight: 1.1 }],
+        '3xl': ['1.875rem', { lineHeight: 1.1 }],
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addBase }) {
+      addBase({
+        p: { maxWidth: '60ch' },
+      });
+    }),
+  ],
 };

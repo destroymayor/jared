@@ -25,7 +25,7 @@ export default function HomePage() {
         <p className="text-zinc-700 dark:text-zinc-400">Front-End Developer</p>
         <hr className="my-2 w-20 border border-zinc-300 dark:border-zinc-700" />
 
-        <p className="max-w-[500px] text-center text-zinc-700 dark:text-zinc-400">
+        <p className="text-center text-zinc-700 dark:text-zinc-400">
           I&#39;m <b>Jared</b>, a Front-end Developer working with <b>React</b> and <b>Next.js</b>{' '}
           who enjoys building great quality and great user experience products.
         </p>
