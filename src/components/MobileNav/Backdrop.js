@@ -4,7 +4,7 @@ const variants = {
   open: { opacity: 1 },
   closed: {
     opacity: 0,
-    transition: { delay: 0.8 },
+    transition: { delay: 0.5 },
   },
 };
 
