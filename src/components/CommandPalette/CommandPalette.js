@@ -11,7 +11,7 @@ import clsx from 'clsx';
 import { Dialog, Combobox, Transition } from '@headlessui/react';
 import { ArrowRightIcon, SearchIcon } from '@heroicons/react/outline';
 import { SunIcon, MoonIcon } from '@heroicons/react/outline';
-import { CommandIcon } from '@/components/Common/FeatherIcons';
+import { CommandIcon } from '@/components/FeatherIcons';
 
 export default function CommandPalette() {
   const router = useRouter();

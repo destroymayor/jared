@@ -11,8 +11,8 @@ import NowPlaying from '@/components/NowPlaying';
 import ThemeToggle from '@/components/ThemeToggle';
 import CommandPalette from '@/components/CommandPalette';
 
-import Link from '@/components/Common/Link';
-import { GithubIcon } from '@/components/Common/Icons';
+import Link from '@/components/Link';
+import { GithubIcon } from '@/components/Icons';
 
 export default function Container(props) {
   const { children, ...customMeta } = props;

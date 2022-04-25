@@ -1,8 +1,8 @@
 import tools from '@/data/tools';
 
 import Container from '@/components/Container';
-import Link from '@/components/Common/Link';
-import Tag from '@/components/Common/Tag';
+import Link from '@/components/Link';
+import Tag from '@/components/Tag';
 
 const title = `Tools`;
 const description = `A list of my favorite tools`;

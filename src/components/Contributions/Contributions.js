@@ -1,7 +1,7 @@
 import useSWR from 'swr';
 import fetcher from '@/lib/fetcher';
 
-import { GithubIcon } from '@/components/Common/Icons';
+import { GithubIcon } from '@/components/Icons';
 import Overview from '@/components/Contributions/Overview';
 import Calendar from '@/components/Contributions/Calendar';
 

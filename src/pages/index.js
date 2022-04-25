@@ -5,7 +5,7 @@ import contact from '@/data/contact';
 import avatar from '@/public/images/avatar.webp';
 
 import Container from '@/components/Container';
-import Link from '@/components/Common/Link';
+import Link from '@/components/Link';
 
 export default function HomePage() {
   return (

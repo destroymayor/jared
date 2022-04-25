@@ -1,8 +1,8 @@
 import useSWR from 'swr';
 import fetcher from '@/lib/fetcher';
 
-import Link from '@/components/Common/Link';
-import { WakaTimeIcon } from '@/components/Common/Icons';
+import Link from '@/components/Link';
+import { WakaTimeIcon } from '@/components/Icons';
 import Overview from '@/components/CodingActive/Overview';
 import CodingActiveList from '@/components/CodingActive/CodingActiveList';
 
