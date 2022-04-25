@@ -5,7 +5,7 @@ import {
   BookmarksIcon,
   ToolIcon,
   PenToolIcon,
-} from '@/components/Common/FeatherIcons';
+} from '@/components/FeatherIcons';
 import { LightBulbIcon } from '@heroicons/react/solid';
 
 export const home = {

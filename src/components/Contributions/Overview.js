@@ -1,4 +1,4 @@
-import AnimateCounter from '@/components/Common/AnimateCounter';
+import AnimateCounter from '@/components/AnimateCounter';
 
 export default function Overview(props) {
   const { data } = props;

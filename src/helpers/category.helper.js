@@ -1,4 +1,4 @@
-import { CSSIcon, JavaScriptIcon, ReactIcon } from '@/components/Common/Icons';
+import { CSSIcon, JavaScriptIcon, ReactIcon } from '@/components/Icons';
 
 export const SNIPPET_CATEGORIES = [
   { slug: 'css', icon: <CSSIcon /> },

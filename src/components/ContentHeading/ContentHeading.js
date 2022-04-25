@@ -1,4 +1,4 @@
-import Link from '@/components/Common/Link';
+import Link from '@/components/Link';
 import { LinkIcon } from '@heroicons/react/outline';
 
 export default function ContentHeading(props) {

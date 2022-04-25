@@ -6,7 +6,7 @@ import {
   FigIcon,
   GithubIcon,
   WakaTimeIcon,
-} from '@/components/Common/Icons';
+} from '@/components/Icons';
 import rectangle from '@/public/images/tools/rectangle.png';
 import airBuddy from '@/public/images/tools/airbuddy.png';
 import omniDiskSweeper from '@/public/images/tools/omnidisksweeper.png';

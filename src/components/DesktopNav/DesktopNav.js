@@ -3,8 +3,8 @@ import { home, dashboard, projects, snippets, bookmarks } from '@/data/routes';
 
 import clsx from 'clsx';
 
-import Link from '@/components/Common/Link';
-import Tabs from '@/components/Common/Tabs';
+import Link from '@/components/Link';
+import Tabs from '@/components/Tabs';
 
 export default function DesktopNav() {
   const routes = [home, dashboard, projects, bookmarks, snippets];

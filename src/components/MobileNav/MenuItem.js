@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import Link from '@/components/Common/Link';
+import Link from '@/components/Link';
 
 import clsx from 'clsx';
 

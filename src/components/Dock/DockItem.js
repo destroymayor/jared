@@ -2,7 +2,7 @@ import { useState, useRef } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import useRaf from '@rooks/use-raf';
 
-import Link from '@/components/Common/Link';
+import Link from '@/components/Link';
 import clsx from 'clsx';
 
 const baseWidth = 48;

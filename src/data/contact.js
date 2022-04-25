@@ -1,5 +1,5 @@
 import { MailIcon } from '@heroicons/react/solid';
-import { GithubIcon, LinkedinIcon, TwitterIcon } from '@/components/Common/Icons';
+import { GithubIcon, LinkedinIcon, TwitterIcon } from '@/components/Icons';
 
 export const mail = {
   link: 'mailto:kuil5230@gmail.com',

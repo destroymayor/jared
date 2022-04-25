@@ -3,7 +3,7 @@ import routes from '@/data/routes';
 import { motion, useCycle } from 'framer-motion';
 import useScrollDisabler from '@/hooks/use-scroll-disabler.hook';
 
-import InPortal from '@/components/Common/InPortal';
+import InPortal from '@/components/InPortal';
 import Backdrop from '@/components/MobileNav/Backdrop';
 import MenuToggle from '@/components/MobileNav/MenuToggle';
 import Menu from '@/components/MobileNav/Menu';

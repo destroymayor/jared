@@ -1,7 +1,7 @@
 import bookmarks from '@/data/bookmarks';
 
 import Container from '@/components/Container';
-import Link from '@/components/Common/Link';
+import Link from '@/components/Link';
 
 const title = `Bookmarks`;
 const description = `Collection of useful tools website.`;

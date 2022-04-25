@@ -2,8 +2,8 @@ import { getCategoryFormatted } from '@/helpers/category.helper';
 import { getALLMdxFile } from '@/helpers/mdx.helpers';
 
 import Container from '@/components/Container';
-import Link from '@/components/Common/Link';
-import FadeInScrollContainer from '@/components/Common/FadeInScrollContainer';
+import Link from '@/components/Link';
+import FadeInScrollContainer from '@/components/FadeInScrollContainer';
 
 const title = `Code Snippets`;
 const description = `Collection of useful code snippets.`;

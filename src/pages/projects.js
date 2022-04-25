@@ -2,11 +2,11 @@ import Image from 'next/image';
 import projects from '@/data/projects';
 
 import Container from '@/components/Container';
-import Link from '@/components/Common/Link';
-import Tag from '@/components/Common/Tag';
+import Link from '@/components/Link';
+import Tag from '@/components/Tag';
 
-import { GlobeIcon } from '@/components/Common/FeatherIcons';
-import { GithubIcon } from '@/components/Common/Icons';
+import { GlobeIcon } from '@/components/FeatherIcons/FeatherIcons';
+import { GithubIcon } from '@/components/Icons';
 
 const title = `Projects`;
 const description = `Internet thingies built with React, Next.js.`;
