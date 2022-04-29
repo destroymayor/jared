@@ -12,16 +12,16 @@
     "format": "prettier --ignore-path .gitignore --write '**/*.{js,jsx,ts,tsx}'"
   },
   "dependencies": {
-    "@headlessui/react": "^1.5.0",
+    "@headlessui/react": "^1.6.0",
     "@heroicons/react": "^1.0.6",
     "@rooks/use-raf": "^4.11.2",
     "clsx": "^1.1.1",
-    "framer-motion": "^6.3.1",
+    "framer-motion": "^6.3.3",
     "next": "^12.1.5",
-    "next-mdx-remote": "^4.0.2",
+    "next-mdx-remote": "^4.0.3",
     "next-themes": "^0.1.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
     "swr": "^1.3.0"
   },
   "devDependencies": {
@@ -31,7 +31,7 @@
     "eslint-config-prettier": "^8.5.0",
     "gray-matter": "^4.0.3",
     "husky": "^7.0.0",
-    "lint-staged": "^12.4.0",
+    "lint-staged": "^12.4.1",
     "postcss": "^8.4.12",
     "prettier": "^2.6.2",
     "prettier-plugin-tailwindcss": "^0.1.10",
