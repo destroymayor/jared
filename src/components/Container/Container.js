@@ -1,8 +1,6 @@
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 
-import clsx from 'clsx';
-
 import NextHead from '@/components/NextHead';
 import DesktopNav from '@/components/DesktopNav/DesktopNav';
 import MobileNav from '@/components/MobileNav/MobileNav';
@@ -24,14 +22,10 @@ export default function Container(props) {
   };
 
   return (
-    <div
-      className={clsx(
-        'flex h-screen flex-col items-center',
-        'bg-zinc-50 text-zinc-700 dark:bg-black dark:text-zinc-300'
-      )}
-    >
+    <div className="flex h-screen flex-col items-center bg-zinc-50 text-zinc-700 dark:bg-black dark:text-zinc-300">
       <NextHead title={meta?.title} description={meta?.description} />
-      <header className="m-6 flex w-11/12 items-center justify-between py-2 px-0 sm:max-w-[686px] md:px-2">
+
+      <header className="m-6 flex w-11/12 items-center justify-between py-2 px-0 sm:max-w-[686px] md:px-0">
         <DesktopNav />
         <MobileNav />
 
@@ -44,22 +38,14 @@ export default function Container(props) {
       <motion.main
         key={router.route}
         initial={{ opacity: 0 }}
-        animate={{
-          opacity: 1,
-          transition: { delay: 0.2 },
-        }}
+        animate={{ opacity: 1, transition: { delay: 0.2 } }}
         className="relative w-11/12 flex-grow pb-6 text-zinc-700 dark:text-zinc-300 sm:max-w-[686px]"
       >
         {children}
       </motion.main>
 
       {router.pathname !== '/' && (
-        <footer
-          className={clsx(
-            'mt-6 flex w-11/12 flex-col gap-6 py-6 sm:max-w-[686px]',
-            'border-t border-dashed border-zinc-300 dark:border-zinc-700'
-          )}
-        >
+        <footer className="mt-6 flex w-11/12 flex-col gap-6 border-t border-dashed border-zinc-300 py-6 dark:border-zinc-700 sm:max-w-[686px]">
           <NowPlaying />
 
           <div className="flex flex-wrap items-center justify-between gap-6 dark:text-zinc-400">

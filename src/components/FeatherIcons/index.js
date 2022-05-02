@@ -8,6 +8,7 @@ import {
   PenToolIcon,
   GlobeIcon,
   GithubIcon,
+  TagIcon,
 } from './FeatherIcons';
 
 export {
@@ -20,4 +21,5 @@ export {
   PenToolIcon,
   GlobeIcon,
   GithubIcon,
+  TagIcon,
 };
