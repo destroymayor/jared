@@ -31,12 +31,7 @@ export default function Container(props) {
       )}
     >
       <NextHead title={meta?.title} description={meta?.description} />
-      <header
-        className={clsx(
-          'm-6 flex w-11/12 items-center justify-between py-2 px-0 sm:max-w-[686px] md:px-2',
-          'rounded-xl md:bg-zinc-200/60 md:dark:bg-zinc-900'
-        )}
-      >
+      <header className="m-6 flex w-11/12 items-center justify-between py-2 px-0 sm:max-w-[686px] md:px-2">
         <DesktopNav />
         <MobileNav />
 

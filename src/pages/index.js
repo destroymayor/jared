@@ -9,7 +9,7 @@ import Link from '@/components/Link';
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col items-center pt-6">
+    <div className="flex h-full flex-col items-center pt-20 sm:pt-32">
       <motion.div
         initial={{ scale: 0 }}
         animate={{
@@ -21,7 +21,7 @@ export default function HomePage() {
       </motion.div>
 
       <div className="flex flex-col items-center gap-2 pt-10">
-        <h1 className="text-3xl">Jared</h1>
+        <h1 className="text-4xl">Jared</h1>
         <p className="text-zinc-700 dark:text-zinc-400">Front-End Developer</p>
         <hr className="my-2 w-20 border border-zinc-300 dark:border-zinc-700" />
 
