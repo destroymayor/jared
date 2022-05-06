@@ -5,7 +5,7 @@ import avatar from '@/public/images/me.webp';
 
 import Container from '@/components/Container';
 import Link from '@/components/Link';
-import { TagIcon } from '@/components/FeatherIcons';
+import { PackageIcon } from '@/components/FeatherIcons';
 
 export default function HomePage() {
   return (
@@ -45,7 +45,7 @@ export default function HomePage() {
                   key={item}
                   className="flex items-center gap-2 text-sm text-zinc-700 dark:text-zinc-400"
                 >
-                  <TagIcon className="h-4 w-4" />
+                  <PackageIcon className="h-4 w-4" />
                   <span>{item}</span>
                 </li>
               ))}
@@ -53,7 +53,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        <ul className="mt-4 flex items-center gap-4 pt-4">
+        <ul className="flex items-center gap-4 py-8">
           {contact.map((item) => (
             <Link key={item.link} href={item.link} aria-label={item.label}>
               <li className="flex items-center gap-2 transition duration-200 ease-in-out hover:text-zinc-500 dark:hover:text-zinc-400">

@@ -1,14 +1,15 @@
 import {
-  CommandIcon,
-  HomeIcon,
-  PieChartIcon,
-  CodePenIcon,
   BookmarksIcon,
-  ToolIcon,
-  PenToolIcon,
-  GlobeIcon,
+  CodePenIcon,
+  CommandIcon,
   GithubIcon,
+  GlobeIcon,
+  HomeIcon,
+  PackageIcon,
+  PenToolIcon,
+  PieChartIcon,
   TagIcon,
+  ToolIcon,
 } from './FeatherIcons';
 
 export {
@@ -17,9 +18,10 @@ export {
   PieChartIcon,
   CodePenIcon,
   BookmarksIcon,
-  ToolIcon,
+  PackageIcon,
   PenToolIcon,
   GlobeIcon,
   GithubIcon,
+  ToolIcon,
   TagIcon,
 };
