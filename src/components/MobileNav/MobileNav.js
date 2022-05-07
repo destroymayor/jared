@@ -31,7 +31,7 @@ export default function MobileNav() {
           initial={false}
           animate={isOpen ? 'open' : 'closed'}
           variants={variants}
-          className="absolute inset-x-0 top-[90px] bottom-0 md:hidden"
+          className="absolute inset-x-0 top-[90px] bottom-0 z-[9999] md:hidden"
         >
           <Backdrop />
           <Menu options={routes} onClose={toggle} />
