@@ -64,6 +64,19 @@ export const PackageIcon = (props) => (
   </FeatherIcon>
 );
 
+export const PlayIcon = (props) => (
+  <FeatherIcon {...props}>
+    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+  </FeatherIcon>
+);
+
+export const PauseIcon = (props) => (
+  <FeatherIcon {...props}>
+    <rect x="6" y="4" width="4" height="16"></rect>
+    <rect x="14" y="4" width="4" height="16"></rect>
+  </FeatherIcon>
+);
+
 export const PenToolIcon = (props) => (
   <FeatherIcon {...props}>
     <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
