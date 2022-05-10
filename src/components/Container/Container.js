@@ -8,6 +8,7 @@ import MobileNav from '@/components/MobileNav/MobileNav';
 import NowPlaying from '@/components/NowPlaying';
 import ThemeToggle from '@/components/ThemeToggle';
 import CommandPalette from '@/components/CommandPalette';
+import BgmPlayer from '@/components/BgmPlayer';
 
 import Link from '@/components/Link';
 import { GithubIcon } from '@/components/Icons';
@@ -31,6 +32,7 @@ export default function Container(props) {
 
         <div className="flex items-center gap-2">
           <ThemeToggle />
+          <BgmPlayer />
           <CommandPalette />
         </div>
       </header>
