@@ -1,5 +1,5 @@
 import { useTheme } from 'next-themes';
-import { SunIcon, MoonIcon } from '@heroicons/react/outline';
+import { SunIcon, MoonIcon } from '@/components/FeatherIcons';
 import useHasMounted from '@/hooks/use-has-mounted.hook';
 
 export default function ThemeToggle() {
@@ -19,9 +19,7 @@ export default function ThemeToggle() {
       aria-label={`Activate ${isDarkTheme ? 'light' : 'dark'} mode`}
       onClick={toggleTheme}
     >
-      {hasMounted && (
-        <span className="h-8 w-8 md:h-6 md:w-6">{isDarkTheme ? <SunIcon /> : <MoonIcon />}</span>
-      )}
+      {hasMounted && <span className="h-6 w-6">{isDarkTheme ? <SunIcon /> : <MoonIcon />}</span>}
     </button>
   );
 }

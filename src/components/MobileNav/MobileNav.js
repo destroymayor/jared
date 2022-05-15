@@ -1,4 +1,4 @@
-import routes from '@/data/routes';
+import routes, { home } from '@/data/routes';
 
 import { motion, useCycle } from 'framer-motion';
 import useScrollDisabler from '@/hooks/use-scroll-disabler.hook';
@@ -22,6 +22,8 @@ export default function MobileNav() {
 
   useScrollDisabler(isOpen);
 
+  const menuOptions = [home, ...routes];
+
   return (
     <>
       <MenuToggle open={isOpen} onClick={toggle} />
@@ -34,7 +36,7 @@ export default function MobileNav() {
           className="absolute inset-x-0 top-[90px] bottom-0 z-[9999] md:hidden"
         >
           <Backdrop />
-          <Menu options={routes} onClose={toggle} />
+          <Menu options={menuOptions} onClose={toggle} />
         </motion.nav>
       </InPortal>
     </>

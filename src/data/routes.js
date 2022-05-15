@@ -4,9 +4,9 @@ import {
   CodePenIcon,
   BookmarksIcon,
   ToolIcon,
+  PackageIcon,
   PenToolIcon,
 } from '@/components/FeatherIcons';
-import { LightBulbIcon } from '@heroicons/react/solid';
 
 export const home = {
   title: 'Home',
@@ -23,7 +23,7 @@ export const dashboard = {
 export const projects = {
   title: 'Projects',
   pathname: '/projects',
-  icon: <LightBulbIcon />,
+  icon: <PackageIcon />,
 };
 
 export const snippets = {
@@ -50,6 +50,6 @@ export const quotes = {
   icon: <PenToolIcon />,
 };
 
-const data = [home, dashboard, projects, snippets, bookmarks, tools, quotes];
+const data = [dashboard, projects, snippets, bookmarks, tools, quotes];
 
 export default data;

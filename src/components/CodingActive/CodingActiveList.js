@@ -1,6 +1,6 @@
 import Progress from '@/components/CodingActive/Progress';
 
-import { ClockIcon } from '@heroicons/react/solid';
+import { ClockIcon } from '@/components/FeatherIcons';
 import clsx from 'clsx';
 
 const sumTotalFromArray = (data = [], key) => {

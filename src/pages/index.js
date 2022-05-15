@@ -1,15 +1,13 @@
 import Image from 'next/image';
 
-import contact from '@/data/contact';
 import avatar from '@/public/images/me.webp';
 
 import Container from '@/components/Container';
-import Link from '@/components/Link';
 import { PackageIcon } from '@/components/FeatherIcons';
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col items-start gap-6 md:flex-row-reverse md:pt-32">
+    <div className="flex flex-col items-start gap-6 md:flex-row-reverse md:pt-12">
       <div className="flex justify-center pt-6 md:flex-1">
         <div className="group relative h-[200px] w-[200px]">
           <Image src={avatar} alt="Jared" width={200} height={200} className="z-10 rounded-md" />
@@ -52,14 +50,6 @@ export default function HomePage() {
             </ul>
           </div>
         </div>
-
-        <ul className="flex items-center gap-4 py-8">
-          {contact.map((item) => (
-            <Link key={item.link} href={item.link} aria-label={item.label}>
-              <li className="flex items-center gap-2">{item.icon}</li>
-            </Link>
-          ))}
-        </ul>
       </div>
     </div>
   );

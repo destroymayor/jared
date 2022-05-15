@@ -13,7 +13,6 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.6.1",
-    "@heroicons/react": "^1.0.6",
     "@rooks/use-raf": "^4.11.2",
     "clsx": "^1.1.1",
     "framer-motion": "^6.3.3",
@@ -34,8 +33,8 @@
     "lint-staged": "^12.4.1",
     "postcss": "^8.4.13",
     "prettier": "^2.6.2",
-    "prettier-plugin-tailwindcss": "^0.1.10",
-    "prism-react-renderer": "^1.3.1",
+    "prettier-plugin-tailwindcss": "^0.1.11",
+    "prism-react-renderer": "^1.3.3",
     "tailwindcss": "^3.0.24"
   },
   "lint-staged": {

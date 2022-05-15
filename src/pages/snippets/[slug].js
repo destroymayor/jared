@@ -15,7 +15,7 @@ export default function SnippetPage(props) {
 
   return (
     <Container title={title} description={description}>
-      <div className="flex flex-col gap-y-5">
+      <div className="flex flex-col gap-y-5 pt-2 md:pt-12">
         <div className="flex items-center">
           <div className="flex flex-1 flex-col gap-y-3">
             <h1 className="text-2xl sm:text-3xl">{title}</h1>
