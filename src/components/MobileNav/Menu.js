@@ -1,5 +1,7 @@
 import router from 'next/router';
 
+import ThemeToggle from '@/components/ThemeToggle';
+
 import { motion } from 'framer-motion';
 import MenuItem from '@/components/MobileNav/MenuItem';
 
@@ -39,6 +41,10 @@ export default function Menu(props) {
           onClick={() => handleNavigation(item.pathname)}
         />
       ))}
+
+      <motion.li variants={{ open: { opacity: 1 }, closed: { opacity: 0 } }} className="pt-4">
+        <ThemeToggle />
+      </motion.li>
     </motion.ul>
   );
 }

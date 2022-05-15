@@ -11,41 +11,43 @@ export default function NowPlaying() {
   const { data } = useSWR('/api/now-playing', fetcher);
 
   return (
-    <div className="flex items-center gap-3 py-2">
-      {data?.albumImageUrl && (
-        <div className="flex h-[60px] w-[60px] flex-none items-center justify-center">
+    <div className="flex flex-col gap-3">
+      <div className="flex max-h-72 items-end justify-center truncate">
+        <div className="-rotate-180 transform text-sm [writing-mode:vertical-lr]">
+          {data?.songUrl ? (
+            <Link href={data?.songUrl} className="hover:underline">
+              {data.title}
+            </Link>
+          ) : (
+            <span className="dark:text-zinc-400">Not Playing</span>
+          )}
+        </div>
+
+        <p className="-rotate-180 transform text-sm text-zinc-500 [writing-mode:vertical-lr] dark:text-zinc-400">
+          {data?.songUrl && data?.artist}
+        </p>
+
+        {data?.songUrl && (
+          <div className="pb-2">
+            <PlayingBars />
+          </div>
+        )}
+      </div>
+
+      {data?.albumImageUrl ? (
+        <Link href={data?.songUrl}>
           <Image
-            className="rounded-md"
+            className="min-h-[60px] min-w-[60px] rounded-md"
             unoptimized
             alt={data?.album}
             src={data?.albumImageUrl}
             width={60}
             height={60}
           />
-        </div>
+        </Link>
+      ) : (
+        <SpotifySolidIcon className="h-7 w-7" />
       )}
-
-      <div className="flex w-3/5 flex-auto flex-col md:w-full">
-        {data?.songUrl && <PlayingBars />}
-
-        <div className="flex flex-col">
-          {data?.songUrl ? (
-            <Link className="truncate font-medium md:overflow-clip" href={data?.songUrl}>
-              {data.title}
-            </Link>
-          ) : (
-            <p className="flex items-center gap-2">
-              <SpotifySolidIcon className="h-5 w-5" />
-              <span className="font-bold">Not Playing</span>
-              <span className="text-zinc-400">- Spotify</span>
-            </p>
-          )}
-
-          <p className="max-w-max truncate text-zinc-500 dark:text-zinc-400 md:overflow-clip">
-            {data?.artist}
-          </p>
-        </div>
-      </div>
     </div>
   );
 }

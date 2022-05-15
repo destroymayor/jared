@@ -9,8 +9,7 @@ import contact from '@/data/contact';
 
 import clsx from 'clsx';
 import { Dialog, Combobox, Transition } from '@headlessui/react';
-import { ArrowRightIcon, SearchIcon } from '@heroicons/react/outline';
-import { SunIcon, MoonIcon } from '@heroicons/react/outline';
+import { ArrowRightIcon, SearchIcon, SunIcon, MoonIcon } from '@/components/FeatherIcons';
 import { CommandIcon } from '@/components/FeatherIcons';
 
 export default function CommandPalette() {
@@ -95,12 +94,12 @@ export default function CommandPalette() {
   return (
     <>
       <button
-        className="hidden h-10 w-10 cursor-pointer items-center justify-center rounded-lg ring-zinc-400 transition duration-200 ease-in-out hover:ring-2 focus:outline-none dark:hover:ring-zinc-600 md:flex"
+        className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg ring-zinc-400 transition duration-200 ease-in-out hover:ring-2 focus:outline-none dark:hover:ring-zinc-600"
         type="button"
         aria-label="Command palette"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <CommandIcon className="h-7 w-7 md:h-6 md:w-6" />
+        <CommandIcon className="h-6 w-6" />
       </button>
 
       <Transition.Root show={isOpen} as={Fragment}>

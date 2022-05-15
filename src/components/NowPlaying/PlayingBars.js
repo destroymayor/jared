@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 export default function PlayingBars() {
   return (
-    <div className="relative flex w-auto items-end overflow-hidden">
+    <div className="relative flex w-auto rotate-90 transform items-end overflow-hidden">
       <motion.span
         animate={{
           scaleY: [1.0, 1.5, 1.0],

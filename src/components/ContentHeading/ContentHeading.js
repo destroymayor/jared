@@ -1,5 +1,5 @@
 import Link from '@/components/Link';
-import { LinkIcon } from '@heroicons/react/outline';
+import { LinkIcon } from '@/components/FeatherIcons';
 
 export default function ContentHeading(props) {
   const { children } = props;

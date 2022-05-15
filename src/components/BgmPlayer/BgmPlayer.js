@@ -13,12 +13,12 @@ export default function BgmPlayer() {
 
   return (
     <button
-      className="hidden h-10 w-10 cursor-pointer items-center justify-center rounded-lg ring-zinc-400 transition duration-200 ease-in-out hover:ring-2 dark:hover:ring-zinc-600 sm:flex"
+      className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg ring-zinc-400 transition duration-200 ease-in-out hover:ring-2 dark:hover:ring-zinc-600"
       type="button"
       aria-label="Play/pause BGM"
       onClick={toggle}
     >
-      <span className="h-8 w-8 md:h-6 md:w-6">{playing ? <PauseIcon /> : <PlayIcon />}</span>
+      <span className="h-6 w-6">{playing ? <PauseIcon /> : <PlayIcon />}</span>
     </button>
   );
 }
