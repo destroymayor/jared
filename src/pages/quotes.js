@@ -3,6 +3,7 @@ import { getMdxFile } from '@/helpers/mdx.helpers';
 import { COMPONENTS } from '@/helpers/mdx-components.helper';
 
 import Container from '@/components/Container';
+import Hero from '@/components/Hero';
 
 const title = `Quotes`;
 const description = `Collection of famous quotes.`;
@@ -16,11 +17,7 @@ export default function Quotes(props) {
 Quotes.getLayout = function getLayout(page) {
   return (
     <Container title={title} description={description}>
-      <div className="pt-2 md:pt-12">
-        <h1 className="text-3xl">{title}</h1>
-        <p className="pt-2 text-sm dark:text-zinc-400">{description}</p>
-        <div className="my-6 border-b border-dashed border-zinc-300 dark:border-zinc-700" />
-      </div>
+      <Hero title={title} description={description} />
 
       {page}
     </Container>

@@ -1,7 +1,7 @@
 import Head from 'next/head';
 
-export default function NextHead(props) {
-  const { title, description } = props;
+export default function SEO(props) {
+  const { title, description = `Hey, I'm Jared, a Front-end Developer.` } = props;
 
   return (
     <Head>

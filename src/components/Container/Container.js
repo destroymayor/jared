@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 
-import NextHead from '@/components/NextHead';
+import SEO from '@/components/SEO';
 import Header from '@/components/Container/Header';
 import Footer from '@/components/Container/Footer';
 
@@ -9,14 +9,9 @@ export default function Container(props) {
   const { children, ...customMeta } = props;
   const router = useRouter();
 
-  const meta = {
-    description: `Hey, I'm Jared, a Front-end Developer.`,
-    ...customMeta,
-  };
-
   return (
     <div className="flex h-screen flex-col items-center bg-zinc-50 text-zinc-700 dark:bg-black dark:text-zinc-300">
-      <NextHead title={meta?.title} description={meta?.description} />
+      <SEO title={customMeta?.title} description={customMeta?.description} />
 
       <Header />
 

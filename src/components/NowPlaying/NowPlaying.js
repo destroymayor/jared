@@ -12,7 +12,7 @@ export default function NowPlaying() {
 
   return (
     <div className="flex flex-col gap-3">
-      <div className="flex items-end justify-center">
+      <div className="flex max-h-72 items-end justify-center truncate">
         <div className="-rotate-180 transform text-sm [writing-mode:vertical-lr]">
           {data?.songUrl ? (
             <Link href={data?.songUrl} className="hover:underline">

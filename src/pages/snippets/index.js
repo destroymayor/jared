@@ -2,6 +2,7 @@ import { getCategoryFormatted } from '@/helpers/category.helper';
 import { getALLMdxFile } from '@/helpers/mdx.helpers';
 
 import Container from '@/components/Container';
+import Hero from '@/components/Hero';
 import Link from '@/components/Link';
 import FadeInScrollContainer from '@/components/FadeInScrollContainer';
 
@@ -59,11 +60,7 @@ export default function Snippets(props) {
 Snippets.getLayout = function getLayout(page) {
   return (
     <Container title={title} description={description}>
-      <div className="pt-2 md:pt-12">
-        <h1 className="text-3xl">{title}</h1>
-        <p className="pt-2 text-sm dark:text-zinc-400">{description}</p>
-        <div className="my-6 border-b border-dashed border-zinc-300 dark:border-zinc-700" />
-      </div>
+      <Hero title={title} description={description} />
 
       <div className="absolute -left-6 top-12 hidden h-full w-[1px] border-l border-dashed border-zinc-300 dark:border-zinc-700 md:block" />
 
