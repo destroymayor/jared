@@ -54,3 +54,7 @@ export default function HomePage() {
     </div>
   );
 }
+
+HomePage.getLayout = function getLayout(page) {
+  return <Container>{page}</Container>;
+};
