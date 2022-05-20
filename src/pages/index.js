@@ -3,16 +3,7 @@ import Image from 'next/image';
 import avatar from '@/public/images/me.webp';
 
 import Container from '@/components/Container';
-import { PackageIcon } from '@/components/FeatherIcons';
-
-const tech_stacks = [
-  'JavaScript (ES6+)',
-  'styled-components',
-  'React',
-  'TailwindCSS',
-  'Next.js',
-  'Git',
-];
+import skills from '@/data/skills';
 
 export default function HomePage() {
   return (
@@ -36,16 +27,16 @@ export default function HomePage() {
           who enjoys building great quality and great user experience products.
         </p>
 
-        <div className="flex flex-col gap-2 text-zinc-700 dark:text-zinc-400">
+        <div className="flex flex-col gap-3 text-zinc-700 dark:text-zinc-400">
           <p>{`A few technologies I've been working with recently:`}</p>
-          <ul className="grid grid-cols-2 gap-2">
-            {tech_stacks.map((item) => (
+          <ul className="grid grid-cols-2 gap-3">
+            {skills.map((item) => (
               <li
-                key={item}
+                key={item.label}
                 className="flex items-center gap-2 text-sm text-zinc-700 dark:text-zinc-400"
               >
-                <PackageIcon className="h-4 w-4" />
-                <span>{item}</span>
+                <span className="h-6 w-6">{item.icon}</span>
+                <span>{item.label}</span>
               </li>
             ))}
           </ul>
