@@ -15,7 +15,7 @@ export default function Bookmarks() {
 
         return (
           <li className="relative flex flex-col gap-2" key={collection}>
-            <aside className="absolute -left-[60px] top-4 hidden whitespace-nowrap text-zinc-400 [writing-mode:vertical-lr] dark:text-zinc-600 md:block">
+            <aside className="absolute -left-[60px] top-4 hidden whitespace-nowrap text-zinc-400 [writing-mode:vertical-lr] dark:text-zinc-500 md:block">
               {collection}
             </aside>
             <div className="text-lg text-zinc-400 dark:text-zinc-600 md:hidden">{collection}</div>

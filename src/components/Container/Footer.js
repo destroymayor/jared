@@ -59,7 +59,7 @@ export default function Footer() {
               </Link>
             </li>
           ))}
-          <div className="h-24 border-l border-zinc-300 dark:border-zinc-700"></div>
+          <li className="h-24 border-l border-zinc-300 dark:border-zinc-700"></li>
         </ul>
       </div>
     </footer>
