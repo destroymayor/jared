@@ -1,18 +1,23 @@
 import { useRef } from 'react';
 
+import { useTheme } from 'next-themes';
+
 import Highlight, { defaultProps } from 'prism-react-renderer';
+import vsLight from 'prism-react-renderer/themes/vsLight';
 import vsDark from 'prism-react-renderer/themes/vsDark';
 
 export default function CodeBlock({ children, className }) {
   const textInput = useRef(null);
+  const { theme } = useTheme();
 
   const language = className.replace(/language-/, '');
+  const codeBlockTheme = theme === 'light' ? vsLight : vsDark;
 
   return (
-    <Highlight {...defaultProps} code={children} theme={vsDark} language={language}>
+    <Highlight {...defaultProps} code={children} theme={codeBlockTheme} language={language}>
       {({ tokens, getLineProps, getTokenProps }) => (
-        <div className="relative my-10 flex flex-col items-start rounded-xl border border-zinc-700 bg-zinc-700 px-2 dark:border-zinc-700 dark:bg-black">
-          <span className="absolute -top-[34px] right-10 rounded-t-lg border border-zinc-700 bg-zinc-700 px-3 py-1 text-zinc-400 dark:border-zinc-700 dark:bg-black">
+        <div className="relative my-10 flex flex-col items-start rounded-xl border border-zinc-100 bg-zinc-100 px-2 dark:border-zinc-700 dark:bg-black">
+          <span className="absolute -top-[34px] right-10 rounded-t-lg border border-zinc-100 bg-zinc-100 px-3 py-1 text-zinc-700 dark:border-zinc-700 dark:bg-black dark:text-zinc-400">
             {language?.toUpperCase() ?? 'unknown'}
           </span>
           <pre ref={textInput} className="w-full overflow-auto pt-6 pb-3">
