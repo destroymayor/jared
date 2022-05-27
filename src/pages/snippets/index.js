@@ -19,13 +19,13 @@ export default function Snippets(props) {
   }));
 
   return (
-    <ul className="flex flex-col gap-4 md:gap-10">
+    <ul className="flex flex-col gap-10">
       {filterSnippets.map((item) => {
         const getCategory = getCategoryFormatted(item.category)?.label;
 
         return (
           <li className="relative flex flex-col gap-2" key={item.category}>
-            <aside className="absolute -left-[60px] top-2 hidden whitespace-nowrap text-zinc-400 [writing-mode:vertical-lr] dark:text-zinc-500 md:block">
+            <aside className="top-2 whitespace-nowrap text-lg text-zinc-400 dark:text-zinc-500 lg:absolute lg:-left-[60px] lg:text-base lg:[writing-mode:vertical-lr]">
               {getCategory}
             </aside>
 
@@ -62,7 +62,7 @@ Snippets.getLayout = function getLayout(page) {
     <Container title={title} description={description}>
       <Hero title={title} description={description} />
 
-      <div className="absolute -left-6 top-12 hidden h-full w-[1px] border-l border-dashed border-zinc-300 dark:border-zinc-700 md:block" />
+      <div className="absolute -left-6 top-12 hidden h-full w-[1px] border-l border-dashed border-zinc-300 dark:border-zinc-700 lg:block" />
 
       {page}
     </Container>
