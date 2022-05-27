@@ -1,14 +1,13 @@
 import Image from 'next/image';
 
 import useSWR from 'swr';
-import fetcher from '@/lib/fetcher';
 
 import PlayingBars from '@/components/NowPlaying/PlayingBars';
 import Link from '@/components/Link';
 import { SpotifySolidIcon } from '@/components/Icons';
 
 export default function NowPlaying() {
-  const { data } = useSWR('/api/now-playing', fetcher);
+  const { data } = useSWR('/api/now-playing');
 
   return (
     <div className="flex flex-col gap-3">

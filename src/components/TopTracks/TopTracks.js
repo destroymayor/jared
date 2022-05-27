@@ -1,14 +1,13 @@
 import Image from 'next/image';
 
 import useSWR from 'swr';
-import fetcher from '@/lib/fetcher';
 
 import clsx from 'clsx';
 import Link from '@/components/Link';
 import { SpotifySolidIcon } from '@/components/Icons';
 
 export default function TopTracks() {
-  const { data } = useSWR('/api/top-tracks', fetcher);
+  const { data } = useSWR('/api/top-tracks');
 
   return (
     <div className="flex flex-col gap-y-2">

@@ -1,12 +1,11 @@
 import useSWR from 'swr';
-import fetcher from '@/lib/fetcher';
 
 import { GithubIcon } from '@/components/FeatherIcons';
 import Overview from '@/components/Contributions/Overview';
 import Calendar from '@/components/Contributions/Calendar';
 
 export default function Contributions() {
-  const { data } = useSWR('/api/github', fetcher);
+  const { data } = useSWR('/api/github');
 
   const contributionCalendar = data?.contributionsCollection?.contributionCalendar;
 
