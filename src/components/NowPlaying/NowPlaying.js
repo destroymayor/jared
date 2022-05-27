@@ -1,19 +1,18 @@
 import Image from 'next/image';
 
 import useSWR from 'swr';
-import fetcher from '@/lib/fetcher';
 
 import PlayingBars from '@/components/NowPlaying/PlayingBars';
 import Link from '@/components/Link';
 import { SpotifySolidIcon } from '@/components/Icons';
 
 export default function NowPlaying() {
-  const { data } = useSWR('/api/now-playing', fetcher);
+  const { data } = useSWR('/api/now-playing');
 
   return (
-    <div className="flex flex-col gap-3">
-      <div className="flex max-h-72 items-end justify-center truncate">
-        <div className="-rotate-180 transform text-sm [writing-mode:vertical-lr]">
+    <div className="flex flex-row-reverse items-center gap-3 lg:flex-col">
+      <div className="flex max-h-72 flex-col items-start justify-center truncate lg:flex-row lg:items-end">
+        <div className="transform text-sm lg:-rotate-180 lg:[writing-mode:vertical-lr]">
           {data?.songUrl ? (
             <Link href={data?.songUrl} className="hover:underline">
               {data.title}
@@ -23,7 +22,7 @@ export default function NowPlaying() {
           )}
         </div>
 
-        <p className="-rotate-180 transform text-sm text-zinc-500 [writing-mode:vertical-lr] dark:text-zinc-400">
+        <p className="transform text-sm text-zinc-500 dark:text-zinc-400 lg:-rotate-180 lg:[writing-mode:vertical-lr]">
           {data?.songUrl && data?.artist}
         </p>
 
