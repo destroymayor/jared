@@ -1,7 +1,6 @@
 import { MDXRemote } from 'next-mdx-remote';
 
 import { mdxFilePaths, getMdxFile } from '@/helpers/mdx.helpers';
-import { getCategoryFormatted } from '@/helpers/category.helper';
 import { COMPONENTS } from '@/helpers/mdx-components.helper';
 
 import Container from '@/components/Container';
@@ -11,19 +10,14 @@ export default function SnippetPage(props) {
 
   const title = frontMatter.title;
   const description = frontMatter.description;
-  const languageIcon = getCategoryFormatted(frontMatter?.category)?.icon;
 
   return (
     <Container title={title} description={description}>
       <div className="flex flex-col gap-y-5 pt-2 md:pt-12">
-        <div className="flex items-center">
-          <div className="flex flex-1 flex-col gap-y-3">
-            <h1 className="text-2xl sm:text-3xl">{title}</h1>
-            <p className="text-zinc-600 dark:text-zinc-400">{description}</p>
-          </div>
-          <div className="flex flex-[0.3] items-center justify-center">
-            <span className="h-14 w-14">{languageIcon}</span>
-          </div>
+        <div className="flex flex-col items-center justify-center gap-4">
+          <div className="text-lg uppercase text-sky-700 dark:text-sky-600">Snippet</div>
+          <h1 className="text-2xl font-semibold sm:text-3xl">{title}</h1>
+          <p className="text-center text-zinc-600 dark:text-zinc-400">{description}</p>
         </div>
 
         <div className="w-full">

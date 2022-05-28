@@ -1,7 +1,7 @@
-const renderItem = (label, text) => (
+const Item = ({ label, children }) => (
   <div className="col-span-2 flex flex-col justify-around rounded-xl bg-zinc-100 py-2 px-4 shadow-md dark:bg-zinc-900 sm:col-span-1">
     <span className="text-sm dark:text-zinc-400">{label}</span>
-    <span className="text-lg font-semibold">{text}</span>
+    <span className="text-lg font-semibold">{children}</span>
   </div>
 );
 
@@ -15,10 +15,10 @@ export default function Overview(props) {
 
   return (
     <div className="grid grid-cols-2 gap-2 py-2">
-      {renderItem('Best Day', bestDay)}
-      {renderItem('Daily Average', dailyAverage)}
-      {renderItem('Last Week', dailyTotal)}
-      {renderItem('All Time Since Today', allTimeSinceToday)}
+      <Item label="Best Day">{bestDay}</Item>
+      <Item label="Daily Average">{dailyAverage}</Item>
+      <Item label="Last Week">{dailyTotal}</Item>
+      <Item label="All Time Since Today">{allTimeSinceToday}</Item>
     </div>
   );
 }
