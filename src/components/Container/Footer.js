@@ -7,7 +7,7 @@ import { GithubIcon } from '@/components/FeatherIcons';
 export default function Footer() {
   return (
     <footer className="mt-12 flex w-11/12 flex-col border-t border-dashed border-zinc-300 pt-8 pb-6 dark:border-zinc-700 sm:max-w-[686px]">
-      <div className="relative flex flex-wrap items-center justify-between gap-6 pb-6">
+      <div className="relative flex flex-col gap-6 pb-6">
         <div className="flex items-center lg:fixed lg:bottom-0 lg:left-12 lg:flex-col">
           <NowPlaying />
           <div className="mt-4 hidden h-24 border-l border-zinc-300 dark:border-zinc-700 lg:block"></div>
