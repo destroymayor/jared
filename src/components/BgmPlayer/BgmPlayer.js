@@ -26,7 +26,7 @@ export default function BgmPlayer() {
 
   return (
     <>
-      <audio ref={audioRef}>
+      <audio ref={audioRef} loop>
         <source src={BGM_PATH} type="audio/ogg" />
       </audio>
       <button
