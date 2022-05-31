@@ -19,7 +19,7 @@ export default function Projects() {
         return (
           <div
             key={title}
-            className="relative flex flex-col rounded-lg shadow-xl dark:bg-zinc-900 sm:flex-row"
+            className="relative flex flex-col rounded-lg bg-zinc-100/40 shadow-md dark:bg-zinc-900 sm:flex-row"
           >
             <aside className="absolute -left-12 top-1/2 hidden whitespace-nowrap text-zinc-400 [transform:translate(-50%,-50%)] [writing-mode:vertical-lr] dark:text-zinc-500 md:block">
               {release_year}

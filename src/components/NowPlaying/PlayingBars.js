@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import clsx from 'clsx';
 
 const bars = [
   {
@@ -12,7 +11,6 @@ const bars = [
       easings: 'easeInOut',
       repeat: Infinity,
     },
-    className: 'mr-[2px] opacity-75',
   },
   {
     animate: {
@@ -25,7 +23,6 @@ const bars = [
       repeat: Infinity,
       repeatDelay: 0.2,
     },
-    className: 'mr-[2px]',
   },
   {
     animate: {
@@ -38,19 +35,18 @@ const bars = [
       repeat: Infinity,
       repeatDelay: 0.2,
     },
-    className: 'opacity-80',
   },
 ];
 
 export default function PlayingBars() {
   return (
-    <div className="flex w-auto items-end overflow-hidden pt-2">
+    <div className="flex w-auto items-end gap-[2px] overflow-hidden pt-2">
       {bars.map((bar, index) => (
         <motion.span
           key={`${index}`}
           animate={bar.animate}
           transition={bar.transition}
-          className={clsx('h-2 w-1 bg-zinc-800 dark:bg-zinc-500', bar.className)}
+          className="h-2 w-1 bg-zinc-800 dark:bg-zinc-500"
         />
       ))}
     </div>

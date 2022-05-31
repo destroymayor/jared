@@ -29,20 +29,22 @@ export default function NowPlaying() {
         {data?.songUrl && <PlayingBars />}
       </div>
 
-      {data?.albumImageUrl ? (
-        <Link href={data?.songUrl}>
-          <Image
-            className="min-h-[60px] min-w-[60px] rounded-md"
-            unoptimized
-            alt={data?.album}
-            src={data?.albumImageUrl}
-            width={60}
-            height={60}
-          />
-        </Link>
-      ) : (
-        <SpotifySolidIcon className="h-7 w-7" />
-      )}
+      <div className="flex min-h-[60px] min-w-[60px] items-center justify-center">
+        {data?.albumImageUrl ? (
+          <Link href={data?.songUrl}>
+            <Image
+              className="rounded-md"
+              unoptimized
+              alt={data?.album}
+              src={data?.albumImageUrl}
+              width={60}
+              height={60}
+            />
+          </Link>
+        ) : (
+          <SpotifySolidIcon className="h-7 w-7" />
+        )}
+      </div>
     </div>
   );
 }
