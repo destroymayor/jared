@@ -11,7 +11,7 @@ export default function NowPlaying() {
 
   return (
     <div className="flex flex-row-reverse items-center gap-3 lg:flex-col">
-      <div className="flex max-h-72 flex-col items-start justify-center truncate lg:flex-row lg:items-end">
+      <div className="flex max-h-72 flex-col-reverse items-start justify-center truncate lg:flex-row lg:items-end">
         <div className="transform text-sm lg:-rotate-180 lg:[writing-mode:vertical-lr]">
           {data?.songUrl ? (
             <Link href={data?.songUrl} className="hover:underline">
@@ -26,27 +26,25 @@ export default function NowPlaying() {
           {data?.songUrl && data?.artist}
         </p>
 
-        {data?.songUrl && (
-          <div className="pb-2">
-            <PlayingBars />
-          </div>
-        )}
+        {data?.songUrl && <PlayingBars />}
       </div>
 
-      {data?.albumImageUrl ? (
-        <Link href={data?.songUrl}>
-          <Image
-            className="min-h-[60px] min-w-[60px] rounded-md"
-            unoptimized
-            alt={data?.album}
-            src={data?.albumImageUrl}
-            width={60}
-            height={60}
-          />
-        </Link>
-      ) : (
-        <SpotifySolidIcon className="h-7 w-7" />
-      )}
+      <div className="flex min-h-[60px] min-w-[60px] items-center justify-center">
+        {data?.albumImageUrl ? (
+          <Link href={data?.songUrl}>
+            <Image
+              className="rounded-md"
+              unoptimized
+              alt={data?.album}
+              src={data?.albumImageUrl}
+              width={60}
+              height={60}
+            />
+          </Link>
+        ) : (
+          <SpotifySolidIcon className="h-7 w-7" />
+        )}
+      </div>
     </div>
   );
 }
