@@ -7,7 +7,7 @@ import skills from '@/data/skills';
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col items-start gap-6 pt-6 md:flex-row-reverse md:pt-20">
+    <div className="flex flex-col items-start gap-12 pt-6 md:flex-row-reverse md:gap-6 md:pt-20">
       <div className="flex justify-center md:flex-1">
         <div className="group relative h-[200px] w-[200px]">
           <Image src={avatar} alt="Jared" width={200} height={200} className="z-10 rounded-md" />
