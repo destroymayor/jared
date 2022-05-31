@@ -31,17 +31,27 @@ export default function Snippets(props) {
 
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
               {item.snippets.map((snippet) => {
-                const { title, description, category, slug } = snippet;
+                const { title, description, category, slug, humanReadableDate } = snippet;
 
                 const languageIcon = getCategoryFormatted(category)?.icon;
 
                 return (
                   <FadeInScrollContainer key={title + category}>
                     <Link href={`/snippets/${slug}`}>
-                      <div className="group flex h-full cursor-pointer gap-2 rounded-md bg-zinc-100 p-4 shadow-md transition-all duration-150 ease-out hover:scale-[1.05] dark:bg-zinc-900">
-                        <div className="flex flex-1 flex-col gap-2">
-                          <h3 className="text-lg font-bold group-hover:text-sky-500">{title}</h3>
-                          <p className="text-sm text-zinc-600 dark:text-zinc-400">{description}</p>
+                      <div className="flex h-full cursor-pointer gap-6 rounded-md bg-zinc-100 p-4 shadow-md transition-all duration-150 ease-out dark:bg-zinc-900 md:hover:scale-[1.05]">
+                        <div className="flex flex-1 flex-col justify-between gap-6">
+                          <div className="flex flex-col gap-2">
+                            <h3 className="text-lg font-bold text-sky-800 dark:text-sky-600">
+                              {title}
+                            </h3>
+                            <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                              {description}
+                            </p>
+                          </div>
+                          <span className="text-sm italic text-zinc-500">
+                            <span className="pr-2">Last Updated:</span>
+                            {humanReadableDate}
+                          </span>
                         </div>
                         <div className="h-8 w-8 pt-2">{languageIcon}</div>
                       </div>

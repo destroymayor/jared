@@ -3,8 +3,10 @@ import { MDXRemote } from 'next-mdx-remote';
 import { COMPONENTS } from '@/helpers/mdx-components.helper';
 
 import Container from '@/components/Container';
+import ContentFooter from '@/components/ContentFooter';
+
 export default function SnippetLayout({ frontMatter, mdxSource }) {
-  const { title, description } = frontMatter;
+  const { title, description, humanReadableDate } = frontMatter;
 
   return (
     <Container title={title} description={description}>
@@ -15,6 +17,8 @@ export default function SnippetLayout({ frontMatter, mdxSource }) {
       </div>
 
       <MDXRemote {...mdxSource} components={COMPONENTS} />
+
+      <ContentFooter lastUpdated={humanReadableDate} />
     </Container>
   );
 }
