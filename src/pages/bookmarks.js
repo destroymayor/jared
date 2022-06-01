@@ -15,9 +15,9 @@ export default function Bookmarks() {
 
         return (
           <li className="relative flex flex-col gap-2" key={collection}>
-            <aside className="top-2 whitespace-nowrap text-lg text-zinc-400 dark:text-zinc-500 lg:absolute lg:-left-[60px] lg:text-base lg:[writing-mode:vertical-lr]">
+            <div className="whitespace-nowrap py-2 text-xl text-zinc-400 dark:text-zinc-500">
               {collection}
-            </aside>
+            </div>
 
             <div className="flex flex-col gap-2 md:gap-4">
               {list.map((item) => (
@@ -46,8 +46,6 @@ Bookmarks.getLayout = function getLayout(page) {
   return (
     <Container title={title} description={description}>
       <Hero title={title} description={description} />
-      <div className="absolute -left-6 top-12 hidden h-full w-[1px] border-l border-dashed border-zinc-300 dark:border-zinc-700 lg:block" />
-
       {page}
     </Container>
   );

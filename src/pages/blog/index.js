@@ -11,7 +11,7 @@ const description = `Write something here.`;
 export default function Blog(props) {
   const { posts = [] } = props;
 
-  if (posts.length === 0) return <div>{`I'm lazy... :)`}</div>;
+  if (posts.length === 0) return <div className="h-80">{`I'm lazy... :)`}</div>;
 
   return (
     <ul className="flex flex-col gap-10">
@@ -38,9 +38,6 @@ Blog.getLayout = function getLayout(page) {
   return (
     <Container title={title} description={description}>
       <Hero title={title} description={description} />
-
-      <div className="absolute -left-6 top-12 hidden h-full w-[1px] border-l border-dashed border-zinc-300 dark:border-zinc-700 lg:block" />
-
       {page}
     </Container>
   );

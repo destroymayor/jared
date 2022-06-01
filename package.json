@@ -12,8 +12,6 @@
     "format": "prettier --ignore-path .gitignore --write '**/*.{js,jsx,ts,tsx}'"
   },
   "dependencies": {
-    "@headlessui/react": "^1.6.1",
-    "@rooks/use-raf": "^4.11.2",
     "clsx": "^1.1.1",
     "framer-motion": "^6.3.3",
     "next": "^12.1.6",

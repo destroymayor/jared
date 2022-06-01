@@ -3,8 +3,8 @@ import { CSSIcon, JavaScriptIcon, ReactIcon } from '@/components/Icons';
 export const SNIPPET_CATEGORIES = [
   { slug: 'css', label: 'CSS', icon: <CSSIcon /> },
   { slug: 'javascript', label: 'JavaScript', icon: <JavaScriptIcon /> },
-  { slug: 'react-hooks', label: 'Hooks', icon: <ReactIcon /> },
-  { slug: 'react-components', label: 'Components', icon: <ReactIcon /> },
+  { slug: 'react-hook', label: 'React Hook', icon: <ReactIcon /> },
+  { slug: 'react-component', label: 'React Component', icon: <ReactIcon /> },
 ];
 
 export const getCategoryFormatted = (categorySlug) => {

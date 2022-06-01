@@ -21,10 +21,6 @@ export default function Projects() {
             key={title}
             className="relative flex flex-col rounded-lg bg-zinc-100/40 shadow-md dark:bg-zinc-900 sm:flex-row"
           >
-            <aside className="absolute -left-12 top-1/2 hidden whitespace-nowrap text-zinc-400 [transform:translate(-50%,-50%)] [writing-mode:vertical-lr] dark:text-zinc-500 md:block">
-              {release_year}
-            </aside>
-
             <Image
               className="rounded-t-lg sm:rounded-l-lg sm:rounded-tr-none"
               objectFit="cover"
@@ -37,8 +33,11 @@ export default function Projects() {
             />
 
             <div className="flex flex-1 flex-col gap-2 p-4">
-              <div className="flex">
+              <div className="flex items-center justify-between">
                 <Tag label={tag} type="primary" />
+                <span className="whitespace-nowrap text-zinc-400 dark:text-zinc-500">
+                  {release_year}
+                </span>
               </div>
 
               <div className="flex flex-1 flex-col gap-2 pb-2">
@@ -75,9 +74,6 @@ Projects.getLayout = function getLayout(page) {
   return (
     <Container title={title} description={description}>
       <Hero title={title} description={description} />
-
-      <div className="absolute -left-6 top-12 hidden h-full w-[1px] border-l border-dashed border-zinc-300 dark:border-zinc-700 md:block" />
-
       {page}
     </Container>
   );

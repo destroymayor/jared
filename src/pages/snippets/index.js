@@ -25,9 +25,9 @@ export default function Snippets(props) {
 
         return (
           <li className="relative flex flex-col gap-2" key={item.category}>
-            <aside className="top-2 whitespace-nowrap text-lg text-zinc-400 dark:text-zinc-500 lg:absolute lg:-left-[60px] lg:text-base lg:[writing-mode:vertical-lr]">
+            <div className="whitespace-nowrap py-2 text-xl text-zinc-400 dark:text-zinc-500">
               {getCategory}
-            </aside>
+            </div>
 
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
               {item.snippets.map((snippet) => {
@@ -71,9 +71,6 @@ Snippets.getLayout = function getLayout(page) {
   return (
     <Container title={title} description={description}>
       <Hero title={title} description={description} />
-
-      <div className="absolute -left-6 top-12 hidden h-full w-[1px] border-l border-dashed border-zinc-300 dark:border-zinc-700 lg:block" />
-
       {page}
     </Container>
   );
