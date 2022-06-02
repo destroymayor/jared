@@ -15,19 +15,19 @@ export default function Bookmarks() {
 
         return (
           <li className="relative flex flex-col gap-2" key={collection}>
-            <div className="whitespace-nowrap py-2 text-xl text-zinc-400 dark:text-zinc-500">
+            <div className="whitespace-nowrap px-2 text-xl text-zinc-400 dark:text-zinc-500">
               {collection}
             </div>
 
-            <div className="flex flex-col gap-2 md:gap-4">
+            <div className="flex flex-col">
               {list.map((item) => (
                 <Link
                   key={item.title}
                   href={item.url}
-                  className="flex flex-col rounded-md p-2 transition duration-200 ease-in-out hover:bg-zinc-200 dark:hover:bg-zinc-800 md:px-4 md:py-2"
+                  className="flex flex-col rounded-md p-2 transition duration-200 ease-in-out hover:bg-zinc-200 dark:hover:bg-zinc-800 "
                 >
                   <div className="flex flex-col gap-1">
-                    <span className="dark:text-zinc-200">{item.title}</span>
+                    <span className="dark:text-zinc-100">{item.title}</span>
                     <span className="text-sm text-zinc-500 dark:text-zinc-400">
                       {item.description ?? 'No description'}
                     </span>

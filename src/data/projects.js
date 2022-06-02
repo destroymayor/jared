@@ -10,7 +10,7 @@ const data = [
     image: unsplashGallery.src,
     title: 'Unsplash Gallery',
     description: 'A photos gallery app allows the user to search photos from Unsplash.com',
-    tag: 'Next.js',
+    tags: ['Next.js', 'Tailwind CSS', 'Unsplash API'],
     release_year: 2022,
     links: {
       repo: 'https://github.com/destroymayor/unsplash-gallery',
@@ -21,7 +21,7 @@ const data = [
     image: weatherApp.src,
     title: 'Weather App',
     description: 'A weather app that shows the current weather in your search.',
-    tag: 'Next.js',
+    tags: ['Next.js', 'Tailwind CSS', 'OpenWeatherMap API'],
     release_year: 2022,
     links: {
       repo: 'https://github.com/destroymayor/weather-app',
@@ -33,7 +33,7 @@ const data = [
     title: 'Movie App',
     description:
       'A movie app allows the user to search movies they want to watch from The Movie DB API.',
-    tag: 'Next.js',
+    tags: ['Next.js', 'Tailwind CSS', 'The Movie DB API'],
     release_year: 2021,
     links: {
       repo: 'https://github.com/destroymayor/movie-app',
@@ -44,7 +44,7 @@ const data = [
     image: memoryCardGameImage.src,
     title: 'Memory Card Game',
     description: 'Test your memory with this memory game.',
-    tag: 'Next.js',
+    tags: ['Next.js', 'Tailwind CSS'],
     release_year: 2021,
     links: {
       repo: 'https://github.com/destroymayor/memory-card-game',
@@ -55,7 +55,7 @@ const data = [
     image: imageConverterImage.src,
     title: 'Image Converter',
     description: 'A simple image convert tool',
-    tag: 'Next.js',
+    tags: ['Next.js', 'Tailwind CSS'],
     release_year: 2021,
     links: {
       repo: 'https://github.com/destroymayor/image-converter',
@@ -66,7 +66,7 @@ const data = [
     image: spotifyCloneImage.src,
     title: 'Spotify Clone',
     description: 'A clone project of the Spotify web player.',
-    tag: 'Next.js',
+    tags: ['Next.js', 'Tailwind CSS'],
     release_year: 2021,
     links: {
       repo: 'https://github.com/destroymayor/spotify-clone',

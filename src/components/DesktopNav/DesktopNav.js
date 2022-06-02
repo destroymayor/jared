@@ -7,7 +7,7 @@ import Link from '@/components/Link';
 import Tabs from '@/components/Tabs';
 
 export default function DesktopNav() {
-  const routes = [dashboard, projects, bookmarks, snippets, blog];
+  const routes = [dashboard, projects, snippets, bookmarks, blog];
   const router = useRouter();
 
   return (
