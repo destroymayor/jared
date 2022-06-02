@@ -5,7 +5,7 @@ export default function MenuToggle(props) {
 
   return (
     <button
-      className="visible relative border-0 bg-transparent transition-opacity duration-300 ease-in md:hidden"
+      className="visible relative z-[9999] border-0 bg-transparent transition-opacity duration-300 ease-in md:hidden"
       onClick={onClick}
       aria-label="Toggle menu"
     >

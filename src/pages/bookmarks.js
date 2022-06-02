@@ -15,7 +15,7 @@ export default function Bookmarks() {
 
         return (
           <li className="relative flex flex-col gap-2" key={collection}>
-            <div className="whitespace-nowrap px-2 text-xl text-zinc-400 dark:text-zinc-500">
+            <div className="bg-gradient-to-r from-sky-600 to-green-600 bg-clip-text px-2 text-xl font-extrabold text-transparent">
               {collection}
             </div>
 

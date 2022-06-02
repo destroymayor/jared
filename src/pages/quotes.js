@@ -31,6 +31,5 @@ export async function getStaticProps() {
     props: {
       mdxSource,
     },
-    revalidate: 720,
   };
 }

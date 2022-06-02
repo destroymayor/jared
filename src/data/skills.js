@@ -8,11 +8,11 @@ import {
 } from '@/components/Icons';
 
 const data = [
-  { label: 'JavaScript (ES6+)', icon: <JavaScriptWhiteIcon /> },
-  { label: 'styled-components', icon: <StyledComponentsIcon /> },
+  { label: 'JavaScript', icon: <JavaScriptWhiteIcon /> },
   { label: 'React', icon: <ReactWhiteIcon /> },
-  { label: 'TailwindCSS', icon: <TailwindCSSIcon /> },
   { label: 'Next.js', icon: <NextJSIcon /> },
+  { label: 'Tailwind CSS', icon: <TailwindCSSIcon /> },
+  { label: 'styled-components', icon: <StyledComponentsIcon /> },
   { label: 'Git', icon: <GitIcon /> },
 ];
 

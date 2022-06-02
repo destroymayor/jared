@@ -2,23 +2,39 @@ import { MDXRemote } from 'next-mdx-remote';
 
 import { COMPONENTS } from '@/helpers/mdx-components.helper';
 
+import Link from '@/components/Link';
 import Container from '@/components/Container';
-import ContentFooter from '@/components/ContentFooter';
+import { ChevronLeftIcon } from '@/components/FeatherIcons';
 
 export default function SnippetLayout({ frontMatter, mdxSource }) {
-  const { title, description, humanReadableDate } = frontMatter;
+  const { title, description, date } = frontMatter;
+
+  const formatDate =
+    new Intl.DateTimeFormat('en', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    })?.format(new Date(date)) ?? 'unknown';
 
   return (
     <Container title={title} description={description}>
-      <div className="flex flex-col items-center justify-center gap-4 py-12">
-        <div className="text-lg uppercase text-sky-700 dark:text-sky-600">Snippet</div>
+      <div className="flex flex-col items-start gap-4 py-10">
+        <Link
+          href="/snippets"
+          className="my-2 flex items-center gap-2 font-semibold text-zinc-600 transition duration-200 ease-in-out hover:text-sky-800 dark:text-zinc-400 dark:hover:text-sky-600"
+        >
+          <ChevronLeftIcon className="h-4 w-4" />
+          <span className="text-sm">Back to snippets</span>
+        </Link>
+        <time dateTime={date} className="text-xs text-zinc-600 dark:text-zinc-400">
+          {formatDate}
+        </time>
         <h1 className="text-2xl font-semibold sm:text-3xl">{title}</h1>
-        <p className="text-center text-zinc-600 dark:text-zinc-400">{description}</p>
+        <p className="text-zinc-600 dark:text-zinc-400">{description}</p>
       </div>
 
       <MDXRemote {...mdxSource} components={COMPONENTS} />
-
-      <ContentFooter lastUpdated={humanReadableDate} />
     </Container>
   );
 }

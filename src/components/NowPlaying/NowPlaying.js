@@ -2,6 +2,7 @@ import Image from 'next/image';
 
 import useSWR from 'swr';
 
+import clsx from 'clsx';
 import PlayingBars from '@/components/NowPlaying/PlayingBars';
 import Link from '@/components/Link';
 import { SpotifySolidIcon } from '@/components/Icons';
@@ -9,39 +10,60 @@ import { SpotifySolidIcon } from '@/components/Icons';
 export default function NowPlaying() {
   const { data } = useSWR('/api/now-playing');
 
+  const isLoading = !data;
+  const isPlaying = data?.isPlaying;
+
+  const songUrl = data?.songUrl;
+  const songTitle = data?.title;
+  const artist = data?.artist;
+  const album = data?.album;
+  const albumImageUrl = data?.albumImageUrl;
+
   return (
     <div className="flex flex-row-reverse items-center gap-3 lg:flex-col">
-      <div className="flex max-h-72 flex-col items-start justify-center truncate lg:flex-row lg:items-end">
-        {data?.songUrl && <PlayingBars />}
-
-        <div className="transform text-sm lg:-rotate-180 lg:[writing-mode:vertical-lr]">
-          {data?.songUrl ? (
-            <Link href={data?.songUrl} className="hover:underline">
-              {data.title}
-            </Link>
-          ) : (
-            <span className="dark:text-zinc-400">Not Playing</span>
+      <div className={clsx('flex flex-col-reverse', isLoading ? 'invisible' : 'visible')}>
+        <div
+          className={clsx(
+            'flex w-60 flex-col truncate text-sm sm:w-auto',
+            isPlaying ? 'lg:hidden' : 'hidden'
           )}
+        >
+          <Link href={songUrl ?? '#'} className="hover:underline">
+            {songTitle}
+          </Link>
+          <span className="text-zinc-500 dark:text-zinc-400">{artist}</span>
         </div>
 
-        <p className="transform text-sm text-zinc-500 dark:text-zinc-400 lg:-rotate-180 lg:[writing-mode:vertical-lr]">
-          {data?.songUrl && data?.artist}
-        </p>
+        <div
+          className={clsx(
+            'transform dark:text-zinc-400 lg:w-auto lg:-rotate-180 lg:[writing-mode:vertical-lr]',
+            isPlaying ? 'hidden' : ''
+          )}
+        >
+          Not Playing
+        </div>
+
+        <PlayingBars show={isPlaying} />
       </div>
 
-      {data?.albumImageUrl ? (
-        <Link href={data?.songUrl} className="flex">
+      {isPlaying && albumImageUrl ? (
+        <Link href={songUrl} className="flex">
           <Image
             className="rounded-md"
             unoptimized
-            alt={data?.album}
-            src={data?.albumImageUrl}
+            alt={album}
+            src={albumImageUrl}
             width={60}
             height={60}
           />
         </Link>
       ) : (
-        <div className="flex h-[60px] w-[60px] items-center justify-center rounded-lg border border-zinc-200 dark:border-zinc-800 md:border-0">
+        <div
+          className={clsx(
+            'flex h-[60px] w-[60px] items-center justify-center rounded-lg border border-zinc-200 dark:border-zinc-800 lg:border-0',
+            isLoading ? 'invisible' : 'visible'
+          )}
+        >
           <SpotifySolidIcon className="h-7 w-7" />
         </div>
       )}

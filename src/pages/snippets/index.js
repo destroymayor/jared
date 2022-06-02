@@ -6,7 +6,7 @@ import Hero from '@/components/Hero';
 import Link from '@/components/Link';
 import FadeInScrollContainer from '@/components/FadeInScrollContainer';
 
-const title = `Code Snippets`;
+const title = `Snippets`;
 const description = `Collection of useful code snippets.`;
 
 export default function Snippets(props) {
@@ -25,32 +25,35 @@ export default function Snippets(props) {
 
         return (
           <li className="relative flex flex-col gap-2" key={item.category}>
-            <div className="whitespace-nowrap py-2 text-xl text-zinc-400 dark:text-zinc-500">
+            <div className="bg-gradient-to-r from-sky-600 to-green-600 bg-clip-text py-2 text-xl font-extrabold text-transparent">
               {getCategory}
             </div>
 
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
               {item.snippets.map((snippet) => {
-                const { title, description, category, slug, humanReadableDate } = snippet;
+                const { title, description, category, slug, date } = snippet;
 
                 const languageIcon = getCategoryFormatted(category)?.icon;
+                const formatDate = new Intl.DateTimeFormat('en', {
+                  year: 'numeric',
+                  month: 'short',
+                  day: 'numeric',
+                })?.format(new Date(date));
 
                 return (
                   <FadeInScrollContainer key={title + category}>
                     <Link href={`/snippets/${slug}`}>
-                      <div className="flex h-full cursor-pointer gap-6 rounded-md bg-zinc-100 p-4 shadow-md transition-all duration-150 ease-out dark:bg-zinc-900 md:hover:scale-[1.05]">
+                      <div className="flex h-full cursor-pointer gap-6 rounded-md border border-zinc-100 bg-zinc-100 p-4 shadow-md transition-all duration-150 ease-out dark:border-zinc-900 dark:bg-zinc-900 md:hover:scale-[1.05] md:dark:hover:border-zinc-600">
                         <div className="flex flex-1 flex-col justify-between gap-6">
                           <div className="flex flex-col gap-2">
-                            <h3 className="text-lg font-bold text-sky-800 dark:text-sky-600">
-                              {title}
-                            </h3>
+                            <h3 className="text-lg font-bold">{title}</h3>
                             <p className="text-sm text-zinc-600 dark:text-zinc-400">
                               {description}
                             </p>
                           </div>
-                          <span className="text-sm italic text-zinc-500">
+                          <span className="text-sm italic tracking-tighter text-zinc-500">
                             <span className="pr-2">Last Updated:</span>
-                            {humanReadableDate}
+                            {formatDate}
                           </span>
                         </div>
                         <div className="h-8 w-8 pt-2">{languageIcon}</div>

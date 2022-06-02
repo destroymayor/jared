@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
-const Progress = (props) => {
+export default function Progress(props) {
   const { data, className } = props;
 
   const name = data.name;
@@ -25,6 +25,4 @@ const Progress = (props) => {
       <div className="w-8 text-right text-zinc-600 dark:text-zinc-100">{Math.floor(percent)}%</div>
     </div>
   );
-};
-
-export default Progress;
+}

@@ -10,7 +10,7 @@ export default function Container(props) {
   const router = useRouter();
 
   return (
-    <div className="flex h-screen flex-col items-center bg-zinc-50 text-zinc-700 dark:bg-black dark:text-zinc-300">
+    <div className="flex h-screen flex-col items-center">
       <SEO title={customMeta?.title} description={customMeta?.description} />
 
       <Header />
@@ -19,7 +19,7 @@ export default function Container(props) {
         key={router.route}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, transition: { delay: 0.2 } }}
-        className="relative w-11/12 flex-grow text-zinc-700 dark:text-zinc-300 sm:max-w-[686px]"
+        className="relative w-11/12 flex-grow sm:max-w-[686px]"
       >
         {children}
       </motion.main>

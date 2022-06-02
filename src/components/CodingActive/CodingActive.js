@@ -5,7 +5,7 @@ import { WakaTimeIcon } from '@/components/Icons';
 import Overview from '@/components/CodingActive/Overview';
 import CodingActiveList from '@/components/CodingActive/CodingActiveList';
 
-const CodingActive = () => {
+export default function CodingActive() {
   const { data } = useSWR('/api/read-stats');
 
   return (
@@ -30,6 +30,4 @@ const CodingActive = () => {
       <CodingActiveList data={data} />
     </div>
   );
-};
-
-export default CodingActive;
+}

@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @font-face {
+  font-display: swap;
   font-family: 'Source Code Pro';
   src: url(/fonts/source-code-pro.ttf) format('truetype');
 }

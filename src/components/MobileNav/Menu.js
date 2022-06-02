@@ -31,7 +31,7 @@ export default function Menu(props) {
   return (
     <motion.ul
       variants={variants}
-      className="absolute inset-0 flex flex-col items-start gap-y-8 px-8 py-6"
+      className="absolute inset-0 flex flex-col items-start gap-y-8 p-8"
     >
       {options.map((item, index) => (
         <MenuItem

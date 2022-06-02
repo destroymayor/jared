@@ -45,9 +45,9 @@ export const blog = {
   icon: <Edit3Icon />,
 };
 
-export const tools = {
-  title: 'Tools',
-  pathname: '/tools',
+export const uses = {
+  title: 'Uses',
+  pathname: '/uses',
   icon: <ToolIcon />,
 };
 
@@ -57,6 +57,6 @@ export const quotes = {
   icon: <PenToolIcon />,
 };
 
-const data = [dashboard, projects, bookmarks, snippets, blog, tools, quotes];
+const data = [dashboard, projects, bookmarks, snippets, blog, uses, quotes];
 
 export default data;

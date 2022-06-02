@@ -37,7 +37,7 @@ class MyDocument extends Document {
           <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
         </Head>
 
-        <body className="bg-zinc-50 dark:bg-black">
+        <body className="bg-zinc-50 text-zinc-700 dark:bg-black dark:text-zinc-300">
           <Main />
           <NextScript />
         </body>

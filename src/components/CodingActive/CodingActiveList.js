@@ -7,7 +7,7 @@ const sumTotalFromArray = (data = [], key) => {
   return data.reduce((previousValue, currentValue) => previousValue + currentValue[key], 0) ?? 0;
 };
 
-const CodingActiveList = (props) => {
+export default function CodingActiveList(props) {
   const { data } = props;
 
   const getLanguagesTotalHours = sumTotalFromArray(data?.languages, 'hours');
@@ -68,6 +68,4 @@ const CodingActiveList = (props) => {
       ))}
     </div>
   );
-};
-
-export default CodingActiveList;
+}

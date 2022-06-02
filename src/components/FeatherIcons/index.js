@@ -42,6 +42,30 @@ export const CodePenIcon = (props) => (
   </FeatherIcon>
 );
 
+export const ChevronDownIcon = (props) => (
+  <FeatherIcon {...props}>
+    <polyline points="6 9 12 15 18 9"></polyline>
+  </FeatherIcon>
+);
+
+export const ChevronLeftIcon = (props) => (
+  <FeatherIcon {...props}>
+    <polyline points="15 18 9 12 15 6"></polyline>
+  </FeatherIcon>
+);
+
+export const ChevronRightIcon = (props) => (
+  <FeatherIcon {...props}>
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </FeatherIcon>
+);
+
+export const ChevronUpIcon = (props) => (
+  <FeatherIcon {...props}>
+    <polyline points="18 15 12 9 6 15"></polyline>
+  </FeatherIcon>
+);
+
 export const CommandIcon = (props) => (
   <FeatherIcon {...props}>
     <path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"></path>

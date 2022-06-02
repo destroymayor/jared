@@ -1,6 +1,6 @@
 import NextLink from 'next/link';
 
-const Link = ({ href, target, rel, getProps, ...delegated }) => {
+export default function Link({ href, target, rel, getProps, ...delegated }) {
   let linkType;
 
   if (href && href?.match(/^#/)) {
@@ -26,6 +26,4 @@ const Link = ({ href, target, rel, getProps, ...delegated }) => {
   }
 
   return <a as="a" href={href} rel={safeRel} target={target} {...delegated} />;
-};
-
-export default Link;
+}
