@@ -44,7 +44,7 @@ Blog.getLayout = function getLayout(page) {
 };
 
 export async function getStaticProps() {
-  const posts = await getAllMdxFolder('content/blog');
+  const posts = await getAllMdxFolder('content/blog').filter(Boolean);
 
   return { props: { posts } };
 }
