@@ -25,7 +25,7 @@ Quotes.getLayout = function getLayout(page) {
 };
 
 export async function getStaticProps() {
-  const { mdxSource } = await getMdxFile({ dirPath: '', slug: 'quotes' });
+  const { mdxSource } = await getMdxFile({ dirPath: 'content/', slug: 'quotes' });
 
   return {
     props: {

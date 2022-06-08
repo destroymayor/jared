@@ -1,5 +1,5 @@
 import BlogLayout from '@/layouts/blog';
-import { mdxFilePaths, getMdxFile } from '@/helpers/mdx.helpers';
+import { getMdxFilePaths, getMdxFile } from '@/helpers/mdx.helpers';
 
 export default function BlogPage(props) {
   const { mdxSource, frontMatter } = props;
@@ -8,7 +8,8 @@ export default function BlogPage(props) {
 }
 
 export async function getStaticProps({ params }) {
-  const { mdxSource, data } = await getMdxFile({ dirPath: '/blog', slug: params.slug });
+  const { slug } = params;
+  const { mdxSource, data } = await getMdxFile({ dirPath: 'content/blog', slug });
 
   return {
     props: {
@@ -19,12 +20,14 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const paths = mdxFilePaths('src/data/blog')
-    .map((path) => path.replace(/\.mdx?$/, ''))
-    .map((slug) => ({ params: { slug } }));
+  const paths = await getMdxFilePaths('content/blog');
 
   return {
-    paths,
+    paths: paths.map((item) => ({
+      params: {
+        slug: item.slug,
+      },
+    })),
     fallback: false,
   };
 }

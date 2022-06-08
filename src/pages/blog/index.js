@@ -1,4 +1,4 @@
-import { getALLMdxFile } from '@/helpers/mdx.helpers';
+import { getAllMdxFolder } from '@/helpers/mdx.helpers';
 
 import Container from '@/components/Container';
 import Hero from '@/components/Hero';
@@ -14,12 +14,12 @@ export default function Blog(props) {
   if (posts.length === 0) return <div className="h-80">{`I'm lazy... :)`}</div>;
 
   return (
-    <ul className="flex flex-col gap-10">
+    <ul className="flex min-h-[500px] flex-col gap-10">
       {posts.map((post) => {
         const { title, description, slug } = post;
         return (
           <FadeInScrollContainer key={title}>
-            <Link href={`/blog/${slug}`}>
+            <Link href={slug}>
               <div className="group flex h-full cursor-pointer gap-2 rounded-md bg-zinc-100 p-4 shadow-md transition-all duration-150 ease-out hover:scale-[1.05] dark:bg-zinc-900">
                 <div className="flex flex-1 flex-col gap-2">
                   <h3 className="text-lg font-bold group-hover:text-sky-500">{title}</h3>
@@ -44,7 +44,7 @@ Blog.getLayout = function getLayout(page) {
 };
 
 export async function getStaticProps() {
-  const posts = await getALLMdxFile('src/data/blog');
+  const posts = await getAllMdxFolder('content/blog');
 
   return { props: { posts } };
 }

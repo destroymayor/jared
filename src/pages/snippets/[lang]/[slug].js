@@ -1,5 +1,5 @@
 import SnippetLayout from '@/layouts/snippets';
-import { mdxFilePaths, getMdxFile } from '@/helpers/mdx.helpers';
+import { getMdxFilePaths, getMdxFile } from '@/helpers/mdx.helpers';
 
 export default function SnippetPage(props) {
   const { mdxSource, frontMatter } = props;
@@ -8,7 +8,11 @@ export default function SnippetPage(props) {
 }
 
 export async function getStaticProps({ params }) {
-  const { mdxSource, data } = await getMdxFile({ dirPath: '/snippets', slug: params.slug });
+  const { lang, slug } = params;
+  const { mdxSource, data } = await getMdxFile({
+    dirPath: `content/snippets/${lang}`,
+    slug,
+  });
 
   return {
     props: {
@@ -19,12 +23,15 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const paths = mdxFilePaths('src/data/snippets')
-    .map((path) => path.replace(/\.mdx?$/, ''))
-    .map((slug) => ({ params: { slug } }));
+  const paths = await getMdxFilePaths('content/snippets');
 
   return {
-    paths,
+    paths: paths.map((item) => ({
+      params: {
+        lang: item.folder,
+        slug: item.slug,
+      },
+    })),
     fallback: false,
   };
 }
