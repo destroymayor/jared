@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { dashboard, projects, snippets, uses, blog } from '@/data/routes';
+import { dashboard, projects, snippets, uses } from '@/data/routes';
 
 import clsx from 'clsx';
 
@@ -7,7 +7,7 @@ import Link from '@/components/Link';
 import Tabs from '@/components/Tabs';
 
 export default function DesktopNav() {
-  const routes = [dashboard, projects, snippets, uses, blog];
+  const routes = [dashboard, projects, snippets, uses];
   const router = useRouter();
 
   return (

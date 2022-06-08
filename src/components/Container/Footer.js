@@ -1,11 +1,11 @@
 import contact from '@/data/contact';
-import { home, snippets, blog, bookmarks, uses, quotes } from '@/data/routes';
+import { home, snippets, bookmarks, uses, quotes } from '@/data/routes';
 
 import NowPlaying from '@/components/NowPlaying';
 import Link from '@/components/Link';
 import { GithubIcon } from '@/components/FeatherIcons';
 
-const routes = [home, quotes, uses, bookmarks, snippets, blog];
+const routes = [home, quotes, uses, bookmarks, snippets];
 
 export default function Footer() {
   return (
