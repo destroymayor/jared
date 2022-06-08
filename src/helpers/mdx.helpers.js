@@ -7,8 +7,6 @@ export const getAllMdxFolder = (directory) => {
   return fs.readdirSync(directory).flatMap((item) => {
     const subpath = `${directory}/${item}`;
 
-    if (!/.mdx/.test(subpath)) return;
-
     if (fs.statSync(subpath).isDirectory()) {
       return getAllMdxFolder(subpath);
     }

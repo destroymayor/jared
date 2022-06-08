@@ -10,8 +10,15 @@ export default function CodeBlock({ children, className }) {
   const textInput = useRef(null);
   const { theme } = useTheme();
 
-  const language = className.replace(/language-/, '');
+  const language = className?.replace(/language-/, '');
   const codeBlockTheme = theme === 'light' ? vsLight : vsDark;
+
+  if (!language)
+    return (
+      <code className="whitespace-nowrap rounded-md bg-zinc-300 p-1 dark:bg-zinc-800">
+        {children}
+      </code>
+    );
 
   return (
     <Highlight {...defaultProps} code={children} theme={codeBlockTheme} language={language}>
