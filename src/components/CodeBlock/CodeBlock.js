@@ -15,7 +15,7 @@ export default function CodeBlock({ children, className }) {
 
   if (!language)
     return (
-      <code className="whitespace-nowrap rounded-md bg-zinc-300 p-1 dark:bg-zinc-800">
+      <code className="whitespace-nowrap rounded-md bg-zinc-300 px-2 py-1 dark:bg-zinc-800">
         {children}
       </code>
     );
