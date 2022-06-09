@@ -24,7 +24,7 @@ export default function NowPlaying() {
       <div className={clsx('flex flex-col-reverse', isLoading ? 'invisible' : 'visible')}>
         <div
           className={clsx(
-            'flex w-60 flex-col truncate text-sm sm:w-auto',
+            'flex w-52 flex-col truncate text-sm sm:w-auto',
             isPlaying ? 'lg:hidden' : 'hidden'
           )}
         >
@@ -47,7 +47,7 @@ export default function NowPlaying() {
       </div>
 
       {isPlaying && albumImageUrl ? (
-        <Link href={songUrl} className="flex">
+        <Link href={songUrl} className="flex h-[60px] w-[60px]">
           <Image
             className="rounded-md"
             unoptimized

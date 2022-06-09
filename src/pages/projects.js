@@ -22,7 +22,7 @@ export default function Projects() {
           <div
             key={title}
             className={clsx(
-              'flex flex-col rounded-md py-2 shadow-lg dark:bg-zinc-900/20 md:px-2 md:py-4',
+              'flex flex-col rounded-md py-2 shadow-lg dark:bg-zinc-800/20 md:px-2 md:py-4',
               getReverseItem
             )}
           >

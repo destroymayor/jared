@@ -44,10 +44,7 @@ export default function Uses() {
           {applications.map((app) => {
             const { title, description, logo, link, tag } = app;
             return (
-              <li
-                key={title}
-                className="flex gap-4 rounded-2xl py-2 md:hover:bg-zinc-200 md:dark:hover:bg-zinc-900"
-              >
+              <li key={title} className="flex gap-4 rounded-2xl py-2">
                 <span className="grid max-h-[70px] min-h-[70px] min-w-[70px] max-w-[70px] items-center rounded-2xl p-2 dark:bg-zinc-900">
                   {logo}
                 </span>
