@@ -1,6 +1,4 @@
 import { motion } from 'framer-motion';
-import Link from '@/components/Link';
-
 import clsx from 'clsx';
 
 const variants = {
@@ -26,24 +24,23 @@ const variants = {
 };
 
 export default function MenuItem(props) {
-  const { item, index, onClick } = props;
+  const { children, onClick, className } = props;
 
   return (
     <motion.li
-      key={`${index}`}
       variants={variants}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
       onClick={onClick}
     >
-      <Link
-        href={item.pathname}
+      <div
         className={clsx(
-          'cursor-pointer text-2xl text-black transition duration-200 ease-in-out hover:text-zinc-700 dark:text-zinc-100 dark:hover:text-zinc-400'
+          'dark:hover:text-zinc-400" cursor-pointer text-2xl text-black transition duration-200 ease-in-out hover:text-zinc-700 dark:text-zinc-100',
+          className
         )}
       >
-        {item.title}
-      </Link>
+        {children}
+      </div>
     </motion.li>
   );
 }

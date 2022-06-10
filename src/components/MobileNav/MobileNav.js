@@ -1,3 +1,5 @@
+import router from 'next/router';
+
 import routes, { home } from '@/data/routes';
 
 import { motion, useCycle } from 'framer-motion';
@@ -7,6 +9,8 @@ import InPortal from '@/components/InPortal';
 import Backdrop from '@/components/MobileNav/Backdrop';
 import MenuToggle from '@/components/MobileNav/MenuToggle';
 import Menu from '@/components/MobileNav/Menu';
+import MenuItem from '@/components/MobileNav/MenuItem';
+import ThemeToggle from '@/components/ThemeToggle';
 
 const variants = {
   open: { opacity: 1, visibility: 'visible' },
@@ -22,6 +26,11 @@ export default function MobileNav() {
 
   useScrollDisabler(isOpen);
 
+  const handleNavigation = (pathname) => {
+    router.push(pathname);
+    toggle();
+  };
+
   const menuOptions = [home, ...routes];
 
   return (
@@ -36,7 +45,16 @@ export default function MobileNav() {
           className="absolute inset-0 z-[999] md:hidden"
         >
           <Backdrop />
-          <Menu options={menuOptions} onClose={toggle} />
+          <Menu>
+            {menuOptions.map((item, index) => (
+              <MenuItem key={`${index}`} onClick={() => handleNavigation(item.pathname)}>
+                {item.title}
+              </MenuItem>
+            ))}
+            <MenuItem className="pt-10">
+              <ThemeToggle />
+            </MenuItem>
+          </Menu>
         </motion.nav>
       </InPortal>
     </>

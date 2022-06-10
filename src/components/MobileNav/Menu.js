@@ -1,9 +1,4 @@
-import router from 'next/router';
-
-import ThemeToggle from '@/components/ThemeToggle';
-
 import { motion } from 'framer-motion';
-import MenuItem from '@/components/MobileNav/MenuItem';
 
 const variants = {
   open: {
@@ -21,30 +16,14 @@ const variants = {
 };
 
 export default function Menu(props) {
-  const { options = [], onClose } = props;
-
-  const handleNavigation = (pathname) => {
-    router.push(pathname);
-    onClose();
-  };
+  const { children } = props;
 
   return (
     <motion.ul
       variants={variants}
       className="absolute inset-0 flex flex-col items-start gap-y-8 p-8"
     >
-      {options.map((item, index) => (
-        <MenuItem
-          key={`${index}`}
-          index={index}
-          item={item}
-          onClick={() => handleNavigation(item.pathname)}
-        />
-      ))}
-
-      <motion.li variants={{ open: { opacity: 1 }, closed: { opacity: 0 } }} className="pt-4">
-        <ThemeToggle />
-      </motion.li>
+      {children}
     </motion.ul>
   );
 }
