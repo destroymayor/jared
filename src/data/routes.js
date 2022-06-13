@@ -43,6 +43,6 @@ export const uses = {
   icon: <ToolIcon />,
 };
 
-const data = [dashboard, projects, bookmarks, snippets, uses];
+const data = [dashboard, projects, snippets, uses, bookmarks];
 
 export default data;

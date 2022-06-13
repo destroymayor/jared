@@ -21,7 +21,12 @@ export default function NowPlaying() {
 
   return (
     <div className="flex flex-row-reverse items-center gap-3 lg:flex-col">
-      <div className={clsx('flex flex-col-reverse', isLoading ? 'invisible' : 'visible')}>
+      <div
+        className={clsx(
+          'flex flex-col-reverse items-start lg:items-center',
+          isLoading ? 'invisible' : 'visible'
+        )}
+      >
         <div
           className={clsx(
             'flex w-52 flex-col truncate text-sm sm:w-auto',
@@ -43,7 +48,7 @@ export default function NowPlaying() {
           Not Playing
         </div>
 
-        <PlayingBars show={isPlaying} />
+        {isPlaying && <PlayingBars />}
       </div>
 
       {isPlaying && albumImageUrl ? (

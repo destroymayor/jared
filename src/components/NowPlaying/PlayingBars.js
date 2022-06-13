@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import clsx from 'clsx';
 
 const bars = [
   {
@@ -51,16 +50,9 @@ const bars = [
   },
 ];
 
-export default function PlayingBars(props) {
-  const { show } = props;
-
+export default function PlayingBars() {
   return (
-    <div
-      className={clsx(
-        'mb-[2px] flex w-auto items-end gap-[2px] overflow-hidden pt-2',
-        show ? '' : 'hidden'
-      )}
-    >
+    <div className="mb-[2px] flex w-auto items-end gap-[2px] overflow-hidden pt-2">
       {bars.map((bar, index) => (
         <motion.span
           key={`${index}`}

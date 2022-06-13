@@ -16,7 +16,7 @@ export default function HomePage() {
       </div>
 
       <div className="flex flex-[2] flex-col items-center gap-4 md:items-start">
-        <h1 className="bg-gradient-to-r from-sky-600 via-sky-500 to-sky-500 bg-clip-text text-4xl font-extrabold text-transparent dark:from-sky-700 md:text-5xl">
+        <h1 className="bg-gradient-to-r from-sky-600 via-sky-500 to-sky-500 bg-clip-text text-4xl font-extrabold text-transparent dark:from-sky-700 dark:via-sky-600 dark:to-sky-500 md:text-5xl">
           Jared
         </h1>
         <p className="text-zinc-700 dark:text-zinc-400">Front-End Developer</p>

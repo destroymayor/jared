@@ -29,7 +29,16 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="flex flex-col-reverse flex-wrap items-start justify-between gap-4 dark:text-zinc-400 lg:items-center lg:gap-2">
+      <div className="flex flex-col flex-wrap items-start justify-between gap-4 dark:text-zinc-400 lg:items-center lg:gap-2">
+        <Link
+          href="https://github.com/destroymayor/jared"
+          className="flex items-center transition duration-200 ease-in-out dark:hover:text-zinc-50"
+        >
+          <GithubIcon className="h-4 w-4" />
+          <span className="px-1 text-zinc-400 dark:text-zinc-600">/</span>
+          <span className="text-sm">Designed & Built by Jared</span>
+        </Link>
+
         <span className="flex items-center gap-2 text-sm sm:text-base">
           <span className="text-lg">©</span>
           <span>{new Date().getFullYear()}</span>
@@ -40,15 +49,6 @@ export default function Footer() {
             <span>him</span>
           </span>
         </span>
-
-        <Link
-          href="https://github.com/destroymayor/jared"
-          className="flex items-center transition duration-200 ease-in-out dark:hover:text-zinc-50"
-        >
-          <GithubIcon className="h-5 w-5" />
-          <span className="px-1 text-zinc-400 dark:text-zinc-600">/</span>
-          <span className="text-sm">Designed & Built by Jared</span>
-        </Link>
       </div>
     </footer>
   );

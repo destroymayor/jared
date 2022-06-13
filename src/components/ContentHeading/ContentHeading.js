@@ -14,10 +14,16 @@ export default function ContentHeading(props) {
         {...props}
         aria-hidden
         id={getHeadingId}
-        className={clsx('group flex cursor-pointer items-center gap-x-2 text-2xl', className)}
+        className={clsx(
+          'group flex cursor-pointer items-center justify-start gap-x-2 px-2 py-3',
+          className
+        )}
       >
-        {children}
-        <LinkIcon className="invisible h-5 w-5 transition duration-150 ease-in-out group-hover:visible" />
+        <span className="bg-gradient-to-r from-sky-700 to-sky-500 bg-clip-text text-xl font-extrabold text-transparent">
+          {children}
+        </span>
+
+        <LinkIcon className="invisible h-4 w-4 text-zinc-600 transition duration-150 ease-in-out group-hover:visible dark:text-zinc-500" />
       </h2>
     </Link>
   );

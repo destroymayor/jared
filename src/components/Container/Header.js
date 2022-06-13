@@ -18,8 +18,9 @@ export default function Header() {
             J
           </span>
         </Link>
-        <DesktopNav />
       </div>
+
+      <DesktopNav />
 
       <div className="hidden items-center gap-2 md:flex">
         <ThemeToggle />

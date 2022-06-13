@@ -1,7 +1,5 @@
 import { useState, useRef } from 'react';
 
-import useHasMounted from '@/hooks/use-has-mounted.hook';
-
 import { PlayIcon, PauseIcon } from '@/components/FeatherIcons';
 
 const BGM_PATH = '/bgm/bloody_ice.ogg';
@@ -10,15 +8,11 @@ export default function BgmPlayer() {
   const audioRef = useRef(null);
   const [playing, setPlaying] = useState(false);
 
-  const hasMounted = useHasMounted();
-
   const handlePlaying = () => {
     playing ? audioRef.current.pause() : audioRef.current.play();
 
     setPlaying((prev) => !prev);
   };
-
-  if (!hasMounted) return null;
 
   return (
     <>
