@@ -1,5 +1,3 @@
-import querystring from 'querystring';
-
 const client_id = process.env.WAKATIME_CLIENT_ID;
 const client_secret = process.env.WAKATIME_CLIENT_SECRET;
 const refresh_token = process.env.WAKATIME_CLIENT_REFRESH_TOKEN;
@@ -14,7 +12,7 @@ export const getAccessToken = async () => {
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
     },
-    body: querystring.stringify({
+    body: new URLSearchParams({
       grant_type: 'refresh_token',
       client_id,
       client_secret,
