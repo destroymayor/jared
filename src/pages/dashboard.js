@@ -7,7 +7,7 @@ import { getGithubUser } from '@/lib/github';
 import Container from '@/components/Container';
 import Hero from '@/components/Hero';
 import TopTracks from '@/components/TopTracks';
-import CodingActive from '@/components/CodingActive';
+import CodingStats from '@/components/CodingStats';
 import Contributions from '@/components/Contributions';
 
 const title = 'Dashboard';
@@ -18,11 +18,11 @@ export default function Dashboard(props) {
 
   return (
     <SWRConfig value={{ fallback }}>
-      <div className="flex flex-col gap-y-6">
+      <div className="flex flex-col gap-y-10">
         <Contributions />
 
         <div className="border-t border-zinc-300 pt-6 dark:border-zinc-800">
-          <CodingActive />
+          <CodingStats />
         </div>
 
         <div className="border-t border-zinc-300 pt-6 dark:border-zinc-800">

@@ -23,7 +23,7 @@ export default function TopTracks() {
             <div
               className={clsx(
                 'flex items-center p-2',
-                'rounded-2xl hover:bg-zinc-200 dark:hover:bg-zinc-900'
+                'rounded-2xl md:hover:bg-zinc-200 md:dark:hover:bg-zinc-900'
               )}
             >
               <span className="w-5 text-center dark:text-zinc-400">{index + 1}</span>

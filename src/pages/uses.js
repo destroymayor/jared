@@ -14,7 +14,7 @@ export default function Uses() {
   return (
     <div className="flex flex-col gap-8">
       <div className="flex flex-col gap-4">
-        <h2 className="bg-gradient-to-r from-sky-600 to-green-600 bg-clip-text text-2xl font-extrabold text-transparent">
+        <h2 className="bg-gradient-to-r from-sky-600 to-green-600 bg-clip-text text-xl font-extrabold text-transparent">
           Equipment
         </h2>
         <ul className="ml-4 flex list-disc flex-col gap-4">
@@ -37,7 +37,7 @@ export default function Uses() {
       </div>
 
       <div className="flex flex-col gap-4">
-        <h2 className="bg-gradient-to-r from-sky-600 to-green-600 bg-clip-text text-2xl font-extrabold text-transparent">
+        <h2 className="bg-gradient-to-r from-sky-600 to-green-600 bg-clip-text text-xl font-extrabold text-transparent">
           Applications
         </h2>
         <ul>

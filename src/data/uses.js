@@ -132,7 +132,7 @@ const applications = [
     title: 'WakaTime',
     description: 'Record coding stats in your editor',
     link: 'https://wakatime.com/',
-    tag: { type: 'error', label: 'Website' },
+    tag: { type: 'primary', label: 'Indie' },
   },
   {
     logo: <GithubIcon />,

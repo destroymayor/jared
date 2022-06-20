@@ -1,4 +1,4 @@
-import Progress from '@/components/CodingActive/Progress';
+import Progress from '@/components/CodingStats/Progress';
 
 import { ClockIcon } from '@/components/FeatherIcons';
 import clsx from 'clsx';
@@ -7,7 +7,7 @@ const sumTotalFromArray = (data = [], key) => {
   return data.reduce((previousValue, currentValue) => previousValue + currentValue[key], 0) ?? 0;
 };
 
-export default function CodingActiveList(props) {
+export default function CodingStatsList(props) {
   const { data } = props;
 
   const getLanguagesTotalHours = sumTotalFromArray(data?.languages, 'hours');
@@ -28,7 +28,7 @@ export default function CodingActiveList(props) {
       total: getLanguagesTotalTimeDisplay,
       data: data?.languages,
       styles: {
-        bg: 'bg-gradient-to-r from-amber-400 to-rose-600',
+        bg: 'bg-gradient-to-r from-green-600 to-cyan-700',
       },
     },
     {
@@ -36,7 +36,7 @@ export default function CodingActiveList(props) {
       total: getEditorTotalTimeDisplay,
       data: data?.editors,
       styles: {
-        bg: 'bg-gradient-to-r from-blue-400 to-purple-600',
+        bg: 'bg-gradient-to-r from-sky-600 to-purple-500',
       },
     },
   ];
