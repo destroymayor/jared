@@ -3,7 +3,6 @@ import weatherApp from '@/public/images/projects/weather-app.webp';
 import movieAppImage from '@/public/images/projects/movie-app.webp';
 import memoryCardGameImage from '@/public/images/projects/memory-card-game.webp';
 import imageConverterImage from '@/public/images/projects/image-converter.webp';
-import spotifyCloneImage from '@/public/images/projects/spotify-clone.webp';
 
 const data = [
   {
@@ -60,17 +59,6 @@ const data = [
     links: {
       repo: 'https://github.com/destroymayor/image-converter',
       demo: 'https://simple-image-converter.vercel.app',
-    },
-  },
-  {
-    image: spotifyCloneImage.src,
-    title: 'Spotify Clone',
-    description: 'A clone project of the Spotify web player.',
-    tags: ['Next.js', 'Tailwind CSS'],
-    release_year: 2021,
-    links: {
-      repo: 'https://github.com/destroymayor/spotify-clone',
-      demo: 'https://spotify-clone-demo.vercel.app',
     },
   },
 ];
