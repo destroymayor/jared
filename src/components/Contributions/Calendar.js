@@ -47,7 +47,8 @@ export default function Calendar(props) {
           {weeks?.map((week) => (
             <div key={week.firstDay}>
               {week.contributionDays.map((contribution) => {
-                const backgroundColor = contribution.contributionCount > 0 && contribution.color;
+                const backgroundColor =
+                  contribution.contributionCount > 0 ? contribution?.color : null;
 
                 const getRandomDelayAnimate = Math.random() * week.contributionDays.length * 0.15;
 
