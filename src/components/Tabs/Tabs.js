@@ -1,15 +1,21 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, Children } from 'react';
+
+import { motion } from 'framer-motion';
+import clsx from 'clsx';
+
+import { directionType } from './constants';
+import Tab from './Tab';
 
 export default function Tabs(props) {
-  const { data = [], children } = props;
+  const { children, direction = 'horizontal', className } = props;
+
+  const highlightRef = useRef(null);
+  const wrapperRef = useRef(null);
 
   const [tabBoundingBox, setTabBoundingBox] = useState(null);
   const [wrapperBoundingBox, setWrapperBoundingBox] = useState(null);
   const [highlightedTab, setHighlightedTab] = useState(null);
   const [isHoveredFromNull, setIsHoveredFromNull] = useState(true);
-
-  const highlightRef = useRef(null);
-  const wrapperRef = useRef(null);
 
   const repositionHighlight = (e, tab) => {
     setTabBoundingBox(e.target.getBoundingClientRect());
@@ -20,31 +26,37 @@ export default function Tabs(props) {
 
   const resetHighlight = () => setHighlightedTab(null);
 
-  const highlightStyles = {};
-  if (tabBoundingBox && wrapperBoundingBox) {
-    highlightStyles.transitionDuration = isHoveredFromNull ? '0ms' : '150ms';
-    highlightStyles.opacity = highlightedTab ? 1 : 0;
-    highlightStyles.width = `${tabBoundingBox.width}px`;
-    highlightStyles.transform = `translateX(${tabBoundingBox?.left - wrapperBoundingBox?.left}px)`;
-  }
+  const highlightAnimate = tabBoundingBox && {
+    height: tabBoundingBox?.height,
+    width: directionType?.[direction]?.width(tabBoundingBox),
+    transform: directionType?.[direction]?.transform(tabBoundingBox, wrapperBoundingBox),
+  };
 
   return (
-    <div ref={wrapperRef} className="relative" onMouseLeave={resetHighlight}>
-      <div
+    <ul
+      ref={wrapperRef}
+      className={clsx('relative', directionType?.[direction]?.container, className)}
+      onMouseLeave={resetHighlight}
+    >
+      <motion.div
         ref={highlightRef}
-        className="absolute left-0 -top-1 rounded-md bg-zinc-300 py-4 duration-150 dark:bg-zinc-800"
-        style={{ ...highlightStyles, transitionProperty: 'width, transform, opacity' }}
+        transition={{ duration: isHoveredFromNull ? 0 : 0.2 }}
+        animate={{
+          ...highlightAnimate,
+          opacity: highlightedTab ? 1 : 0,
+          transitionDuration: isHoveredFromNull ? 0 : '50ms',
+          transitionProperty: 'width transform opacity',
+        }}
+        className="absolute rounded-md bg-zinc-300 py-4 dark:bg-zinc-800"
       />
-      {data.map((item, index) => (
-        <div
-          className="relative inline-block"
-          key={`${index}`}
-          onMouseOver={(ev) => repositionHighlight(ev, item)}
-          onFocus={() => {}}
-        >
-          {children({ item })}
-        </div>
+
+      {Children.map(children, (child) => (
+        <li className="relative" onMouseOver={(ev) => repositionHighlight(ev, child)}>
+          {child}
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }
+
+Tabs.Tab = Tab;
