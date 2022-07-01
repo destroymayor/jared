@@ -14,12 +14,12 @@ export default function DesktopNav() {
         {routes.map((tab) => (
           <Tabs.Tab
             key={tab.pathname}
+            value={tab.pathname}
             className={clsx(
               tab.pathname === router.pathname
                 ? 'bg-gradient-to-r from-sky-500 to-sky-700 bg-clip-text font-semibold text-transparent'
                 : 'text-zinc-700 hover:text-zinc-700 dark:text-zinc-300 dark:hover:text-zinc-300'
             )}
-            onClick={() => router.push(tab.pathname)}
           >
             {tab.title}
           </Tabs.Tab>

@@ -1,13 +1,14 @@
 import { forwardRef } from 'react';
 
 import clsx from 'clsx';
+import Link from '@/components/Link';
 
 export default forwardRef(function Tabs(props, ref) {
-  const { children, className } = props;
+  const { children, className, value } = props;
 
   return (
-    <button {...props} className={clsx('p-2', className)} ref={ref}>
+    <Link {...props} ref={ref} href={value} className={clsx('inline-block p-2', className)}>
       {children}
-    </button>
+    </Link>
   );
 });
