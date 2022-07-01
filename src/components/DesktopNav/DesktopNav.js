@@ -13,7 +13,7 @@ export default function DesktopNav() {
       <Tabs>
         {routes.map((tab) => (
           <Tabs.Tab
-            key={tab.value}
+            key={tab.pathname}
             className={clsx(
               tab.pathname === router.pathname
                 ? 'bg-gradient-to-r from-sky-500 to-sky-700 bg-clip-text font-semibold text-transparent'
