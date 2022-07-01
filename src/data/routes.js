@@ -1,17 +1,10 @@
 import {
-  HomeIcon,
   PieChartIcon,
   CodePenIcon,
   BookmarksIcon,
   ToolIcon,
   PackageIcon,
 } from '@/components/FeatherIcons';
-
-export const home = {
-  title: 'Home',
-  pathname: '/',
-  icon: <HomeIcon />,
-};
 
 export const dashboard = {
   title: 'Dashboard',

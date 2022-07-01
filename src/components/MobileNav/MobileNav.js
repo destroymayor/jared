@@ -1,6 +1,6 @@
 import router from 'next/router';
 
-import routes, { home } from '@/data/routes';
+import routes from '@/data/routes';
 
 import { motion, useCycle } from 'framer-motion';
 import useScrollDisabler from '@/hooks/use-scroll-disabler.hook';
@@ -31,8 +31,6 @@ export default function MobileNav() {
     toggle();
   };
 
-  const menuOptions = [home, ...routes];
-
   return (
     <>
       <MenuToggle open={isOpen} onClick={toggle} />
@@ -46,7 +44,7 @@ export default function MobileNav() {
         >
           <Backdrop />
           <Menu>
-            {menuOptions.map((item, index) => (
+            {routes.map((item, index) => (
               <MenuItem key={`${index}`} onClick={() => handleNavigation(item.pathname)}>
                 {item.title}
               </MenuItem>
