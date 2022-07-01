@@ -2,7 +2,7 @@ import contact from '@/data/contact';
 
 import NowPlaying from '@/components/NowPlaying';
 import Link from '@/components/Link';
-import { GithubIcon } from '@/components/FeatherIcons';
+import { GithubIcon } from '@/components/Icons';
 
 export default function Footer() {
   return (

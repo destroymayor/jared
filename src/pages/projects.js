@@ -6,7 +6,7 @@ import Hero from '@/components/Hero';
 import Link from '@/components/Link';
 
 import clsx from 'clsx';
-import { GlobeIcon, GithubIcon } from '@/components/FeatherIcons';
+import { GlobeIcon, GithubIcon } from '@/components/Icons';
 
 const title = `Projects`;
 const description = `Internet thingies built with React, Next.js.`;

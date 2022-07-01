@@ -4,7 +4,7 @@ import {
   BookmarksIcon,
   ToolIcon,
   PackageIcon,
-} from '@/components/FeatherIcons';
+} from '@/components/Icons';
 
 export const dashboard = {
   title: 'Dashboard',

@@ -1,4 +1,4 @@
-import { HexagonIcon } from '@/components/FeatherIcons';
+import { HexagonIcon } from '@/components/Icons';
 
 import Link from '@/components/Link';
 

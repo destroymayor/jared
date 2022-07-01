@@ -1,4 +1,4 @@
-import { XIcon, MenuIcon } from '@/components/FeatherIcons';
+import { XIcon, MenuIcon } from '@/components/Icons';
 
 export default function MenuToggle(props) {
   const { open, onClick } = props;

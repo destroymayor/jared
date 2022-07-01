@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 
-import { PlayIcon, PauseIcon } from '@/components/FeatherIcons';
+import { PlayIcon, PauseIcon } from '@/components/Icons';
 
 const BGM_PATH = '/bgm/bloody_ice.ogg';
 

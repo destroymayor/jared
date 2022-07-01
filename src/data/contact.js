@@ -1,10 +1,4 @@
-import {
-  MailIcon,
-  InstagramIcon,
-  LinkedinIcon,
-  GithubIcon,
-  TwitterIcon,
-} from '@/components/FeatherIcons';
+import { MailIcon, InstagramIcon, LinkedinIcon, GithubIcon, TwitterIcon } from '@/components/Icons';
 
 export const mail = {
   link: 'mailto:kuil5230@gmail.com',

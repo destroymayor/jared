@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 
 import Link from 'next/link';
-import { LinkIcon } from '@/components/FeatherIcons';
+import { LinkIcon } from '@/components/Icons';
 
 export default function ContentHeading(props) {
   const { children, className } = props;

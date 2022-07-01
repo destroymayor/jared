@@ -1,5 +1,5 @@
 import Container from '@/components/Container';
-import { FrownIcon } from '@/components/FeatherIcons';
+import { FrownIcon } from '@/components/Icons';
 
 Custom404.title = 'Page not found';
 

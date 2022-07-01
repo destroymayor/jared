@@ -5,7 +5,7 @@ import { getMdxFilePaths, getMdxFile } from '@/helpers/mdx.helpers';
 
 import Link from '@/components/Link';
 import Container from '@/components/Container';
-import { ChevronLeftIcon } from '@/components/FeatherIcons';
+import { ChevronLeftIcon } from '@/components/Icons';
 
 export default function SnippetPage(props) {
   const { mdxSource, frontMatter } = props;
