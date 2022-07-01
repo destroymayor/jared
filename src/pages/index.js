@@ -10,7 +10,7 @@ export default function HomePage() {
   return (
     <div className="flex flex-col items-center gap-12 pb-44 pt-16 md:flex-row-reverse md:gap-6 md:pt-20">
       <div className="group relative flex h-40 w-40 items-center justify-center md:h-52 md:w-52 md:flex-1">
-        <div className="absolute inset-0 rounded-[50%] bg-gradient-to-b from-sky-600 via-sky-700 to-sky-800 blur-[52px] md:blur-[72px]" />
+        <div className="absolute inset-0 rounded-[50%] bg-gradient-to-b from-sky-600 via-sky-700 to-sky-800 md:blur-[72px]" />
         <Image src={avatar} alt="Jared" width={200} height={200} className="rounded-full" />
       </div>
 
