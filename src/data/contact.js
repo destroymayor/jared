@@ -10,35 +10,35 @@ export const mail = {
   link: 'mailto:kuil5230@gmail.com',
   title: 'kuil5230@gmail.com',
   label: 'Gmail',
-  icon: <MailIcon className="h-6 w-6" />,
+  icon: <MailIcon />,
 };
 
 export const github = {
   link: 'https://github.com/destroymayor',
   title: '/destroymayor',
   label: 'Github',
-  icon: <GithubOutlineIcon className="h-6 w-6" />,
+  icon: <GithubOutlineIcon />,
 };
 
 export const linkedIn = {
   link: 'https://www.linkedin.com/in/jared-chen/',
   title: '/in/jared-chen',
   label: 'Linkedin',
-  icon: <LinkedinIcon className="h-6 w-6" />,
+  icon: <LinkedinIcon />,
 };
 
 export const twitter = {
   link: 'https://twitter.com/destroymayor',
   title: '@destroymayor',
   label: 'Twitter',
-  icon: <TwitterIcon className="h-6 w-6" />,
+  icon: <TwitterIcon />,
 };
 
 export const instagram = {
   link: 'https://www.instagram.com/jared.nov',
   title: '@jared.nov',
   label: 'Instagram',
-  icon: <InstagramIcon className="h-6 w-6" />,
+  icon: <InstagramIcon />,
 };
 
 const data = [mail, github, linkedIn, twitter, instagram];
