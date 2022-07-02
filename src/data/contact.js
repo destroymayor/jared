@@ -1,4 +1,10 @@
-import { MailIcon, InstagramIcon, LinkedinIcon, GithubIcon, TwitterIcon } from '@/components/Icons';
+import {
+  MailIcon,
+  InstagramIcon,
+  LinkedinIcon,
+  GithubOutlineIcon,
+  TwitterIcon,
+} from '@/components/Icons';
 
 export const mail = {
   link: 'mailto:kuil5230@gmail.com',
@@ -11,7 +17,7 @@ export const github = {
   link: 'https://github.com/destroymayor',
   title: '/destroymayor',
   label: 'Github',
-  icon: <GithubIcon className="h-6 w-6" />,
+  icon: <GithubOutlineIcon className="h-6 w-6" />,
 };
 
 export const linkedIn = {

@@ -2,7 +2,7 @@ import contact from '@/data/contact';
 
 import NowPlaying from '@/components/NowPlaying';
 import Link from '@/components/Link';
-import { GithubIcon } from '@/components/Icons';
+import { GithubOutlineIcon } from '@/components/Icons';
 
 export default function Footer() {
   return (
@@ -34,7 +34,7 @@ export default function Footer() {
           href="https://github.com/destroymayor/jared"
           className="flex items-center transition duration-200 ease-in-out dark:hover:text-zinc-50"
         >
-          <GithubIcon className="h-4 w-4" />
+          <GithubOutlineIcon className="h-4 w-4" />
           <span className="px-1 text-zinc-400 dark:text-zinc-600">/</span>
           <span className="text-sm">Designed & Built by Jared</span>
         </Link>
