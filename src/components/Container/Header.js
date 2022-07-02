@@ -7,6 +7,7 @@ import MobileNav from '@/components/MobileNav';
 
 import ThemeToggle from '@/components/ThemeToggle';
 import BgmPlayer from '@/components/BgmPlayer';
+import CommandPalette from '@/components/CommandPalette';
 
 export default function Header() {
   return (
@@ -25,6 +26,7 @@ export default function Header() {
       <div className="hidden items-center gap-2 md:flex">
         <ThemeToggle />
         <BgmPlayer />
+        <CommandPalette />
       </div>
 
       <MobileNav />

@@ -16,7 +16,7 @@ export default function Footer() {
                 href={item.link}
                 aria-label={item.label}
               >
-                {item.icon}
+                <span className="h-6 w-6">{item.icon}</span>
               </Link>
             </li>
           ))}

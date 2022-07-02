@@ -12,7 +12,7 @@ export default function ThemeToggle() {
 
   return (
     <button
-      className="group flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg ring-zinc-400 transition duration-200 ease-in-out hover:ring-2 dark:hover:ring-zinc-600"
+      className="flex h-10 w-10 items-center justify-center rounded-lg ring-zinc-400 transition duration-200 ease-in-out hover:ring-2 focus:outline-none dark:hover:ring-zinc-600"
       type="button"
       aria-label={`Activate ${isDarkTheme ? 'light' : 'dark'} mode`}
       onClick={toggleTheme}
