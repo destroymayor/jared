@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import clsx from 'clsx';
 
 import { directionType } from './constants';
-import Tab from './Tab';
 
 export default function Tabs(props) {
   const { children, direction = 'horizontal', className } = props;
@@ -51,12 +50,10 @@ export default function Tabs(props) {
       />
 
       {Children.map(children, (child) => (
-        <li className="relative" onMouseOver={(ev) => repositionHighlight(ev, child)}>
+        <li className="relative" onMouseEnter={(ev) => repositionHighlight(ev, child)}>
           {child}
         </li>
       ))}
     </ul>
   );
 }
-
-Tabs.Tab = Tab;

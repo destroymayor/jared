@@ -1,20 +1,26 @@
-import { Fragment, useState, useEffect } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 import useDebounce from '@/hooks/use-debounce.hook';
+import useOnClickOutside from '@/hooks/use-on-click-outside.hook';
+import useScrollDisabler from '@/hooks/use-scroll-disabler.hook';
 import { useTheme } from 'next-themes';
 
 import routes from '@/data/routes';
 import contact from '@/data/contact';
 
-import Button from './Button';
+import { AnimatePresence, motion } from 'framer-motion';
+import { CommandIcon, SunIcon, MoonIcon } from '@/components/Icons';
 
-import clsx from 'clsx';
-import { Dialog, Combobox, Transition } from '@headlessui/react';
-import { CommandIcon, SearchIcon, SunIcon, MoonIcon } from '@/components/Icons';
+import Button from './Button';
+import Backdrop from './Backdrop';
+import Search from './Search';
+import Menu from './Menu';
 
 export default function CommandPalette() {
   const router = useRouter();
+
+  const containerRef = useRef(null);
 
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState('');
@@ -22,16 +28,19 @@ export default function CommandPalette() {
   const queryDebounce = useDebounce(query, 300);
   const { theme, setTheme } = useTheme();
 
+  useOnClickOutside(containerRef, () => setIsOpen(false));
+  useScrollDisabler(isOpen);
+
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === 'k' && (event.metaKey || event.ctrlKey)) {
-        setIsOpen(!isOpen);
+        handleToggle();
       }
     };
     window.addEventListener('keydown', handleKeyDown);
 
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isOpen]);
+  }, []);
 
   const options = [
     {
@@ -55,8 +64,7 @@ export default function CommandPalette() {
       title: 'Theme',
       children: [
         {
-          icon:
-            theme === 'dark' ? <SunIcon className="h-6 w-6" /> : <MoonIcon className="h-6 w-6" />,
+          icon: theme === 'dark' ? <SunIcon /> : <MoonIcon />,
           title: `Set theme to ${theme === 'dark' ? 'Light' : 'Dark'}`,
           click: () => setTheme(theme === 'dark' ? 'light' : 'dark'),
           isExternal: false,
@@ -73,6 +81,8 @@ export default function CommandPalette() {
         ),
       }))
     : options;
+
+  const handleToggle = () => setIsOpen((prevState) => !prevState);
 
   const handleSelect = (option) => {
     setQuery('');
@@ -94,83 +104,38 @@ export default function CommandPalette() {
 
   return (
     <>
-      <Button onClick={() => setIsOpen(!isOpen)}>
+      <Button onClick={handleToggle}>
         <CommandIcon className="h-6 w-6" />
       </Button>
 
-      <Transition.Root show={isOpen} as={Fragment}>
-        <Dialog onClose={setIsOpen} className="fixed inset-0 z-[999] overflow-y-auto p-4 pt-[25vh]">
-          <Transition.Child
-            enter="duration-200 ease-out"
-            enterFrom="opacity-0"
-            enterTo="opacity-100"
-            leave="duration-100 ease-in"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            animate={isOpen ? 'open' : 'closed'}
+            variants={{
+              open: { opacity: 1 },
+              closed: { opacity: 0 },
+            }}
+            exit={{ opacity: 0 }}
+            className="bg-zinc-20 fixed inset-0 z-[999] overflow-y-auto p-4 pt-[25vh]"
           >
-            <Dialog.Overlay className="fixed inset-0 bg-zinc-600/90 dark:bg-zinc-900/90" />
-          </Transition.Child>
-          <Transition.Child
-            enter="duration-200 ease-out"
-            enterFrom="opacity-0 scale-95"
-            enterTo="opacity-100 scale-100"
-            leave="duration-100 ease-in"
-            leaveFrom="opacity-100 scale-100"
-            leaveTo="opacity-0 scale-95"
-          >
-            <Combobox
-              onChange={(option) => handleSelect(option)}
-              as="div"
-              className="relative mx-auto max-w-lg overflow-hidden rounded-lg border border-zinc-300 bg-white shadow-2xl ring-1 ring-black/5 dark:divide-zinc-600 dark:border-zinc-800  dark:bg-black/90"
+            <Backdrop />
+
+            <motion.div
+              ref={containerRef}
+              className="relative mx-auto max-w-lg overflow-hidden rounded-lg border border-zinc-300 bg-white p-2 shadow-2xl ring-1 ring-black/5 dark:divide-zinc-600 dark:border-zinc-900 dark:bg-black/90"
             >
-              <div className="flex items-center border-b border-zinc-300 dark:border-zinc-800">
-                <SearchIcon className="mx-3 h-6 w-6 text-zinc-500" />
-                <Combobox.Input
-                  onChange={handleSearch}
-                  className="h-12 w-full border-0 bg-transparent text-sm text-zinc-800 placeholder-zinc-400 focus:outline-none focus:ring-0 dark:text-zinc-100"
-                  placeholder="Search..."
-                />
-              </div>
+              <Search onChange={handleSearch} />
+              <hr className="relative -left-2 my-2 w-[calc(100%+16px)]" />
+              <Menu options={filterOptions} onSelect={(value) => handleSelect(value)} />
 
-              <div className="max-h-80 overflow-y-auto">
-                {filterOptions.map((option) => (
-                  <div
-                    key={option.title}
-                    className={clsx(`${option.children.length === 0 ? 'hidden' : ''}`, 'py-1')}
-                  >
-                    <div className="my-2 px-4 text-sm text-zinc-400">{option.title}</div>
-                    <Combobox.Options static>
-                      {option.children.map((child, index) => (
-                        <Combobox.Option key={`${index.toString()}`} value={child}>
-                          {({ active }) => (
-                            <div
-                              className={clsx(
-                                `${
-                                  active
-                                    ? 'bg-zinc-200 text-zinc-600 dark:bg-zinc-700/60 dark:text-white'
-                                    : 'text-zinc-600 dark:text-zinc-400'
-                                }`,
-                                'mx-2 flex cursor-pointer items-center gap-3 rounded-md p-2'
-                              )}
-                            >
-                              {child.icon && <span className="h-5 w-5">{child.icon}</span>}
-                              <span>{child.title}</span>
-                            </div>
-                          )}
-                        </Combobox.Option>
-                      ))}
-                    </Combobox.Options>
-                  </div>
-                ))}
-              </div>
-
-              {queryDebounce && filterOptions.map((item) => item.children).flat(1).length === 0 && (
+              {filterOptions.map((item) => item.children).flat(1).length === 0 && (
                 <p className="p-4 text-sm text-zinc-500">No results found.</p>
               )}
-            </Combobox>
-          </Transition.Child>
-        </Dialog>
-      </Transition.Root>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

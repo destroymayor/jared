@@ -6,7 +6,7 @@ export const directionType = {
       `translateX(${tabBoundingBox?.left - wrapperBoundingBox?.left - 1}px)`,
   },
   vertical: {
-    container: 'flex flex-col items-start',
+    container: 'flex flex-col',
     width: () => '100%',
     transform: (tabBoundingBox, wrapperBoundingBox) =>
       `translateY(${tabBoundingBox?.top - wrapperBoundingBox?.top - 1}px)`,
