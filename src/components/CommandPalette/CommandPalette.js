@@ -26,7 +26,10 @@ export default function CommandPalette() {
 
   const { theme, setTheme } = useTheme();
 
-  useOnClickOutside(containerRef, () => setIsOpen(false));
+  useOnClickOutside(containerRef, () => {
+    setIsOpen(false);
+    setQuery('');
+  });
   useScrollDisabler(isOpen);
 
   useEffect(() => {
@@ -48,9 +51,9 @@ export default function CommandPalette() {
     {
       title: 'Navigation',
       children: routes.map((route) => ({
-        ...route,
         icon: route.icon,
-        isExternal: false,
+        title: route.title,
+        click: () => router.push(route.pathname),
       })),
     },
     {
@@ -58,8 +61,7 @@ export default function CommandPalette() {
       children: contact.map((item) => ({
         icon: item.icon,
         title: item.label,
-        pathname: item.link,
-        isExternal: true,
+        click: () => window.open(item.link, '_blank'),
       })),
     },
     {
@@ -69,11 +71,23 @@ export default function CommandPalette() {
           icon: theme === 'dark' ? <SunIcon /> : <MoonIcon />,
           title: `Set theme to ${theme === 'dark' ? 'Light' : 'Dark'}`,
           click: () => setTheme(theme === 'dark' ? 'light' : 'dark'),
-          isExternal: false,
         },
       ],
     },
   ];
+
+  const handleToggle = () => setIsOpen((prevState) => !prevState);
+
+  const handleSelect = (option) => {
+    option.click();
+
+    setQuery('');
+    setIsOpen(false);
+  };
+
+  const handleSearch = (event) => setQuery(event.target.value);
+
+  const handleFilterMenu = (value) => setQuery(value);
 
   const filterOptions =
     query === ''
@@ -85,26 +99,6 @@ export default function CommandPalette() {
           ),
         }));
 
-  const handleToggle = () => setIsOpen((prevState) => !prevState);
-
-  const handleSelect = (option) => {
-    setQuery('');
-    setIsOpen(false);
-
-    if (option.click) {
-      option.click();
-      return;
-    }
-
-    if (option.isExternal) {
-      window.open(option.pathname, '_blank');
-    } else {
-      router.push(option.pathname);
-    }
-  };
-
-  const handleSearch = (event) => setQuery(event.target.value);
-
   return (
     <>
       <Button onClick={handleToggle}>
@@ -115,27 +109,26 @@ export default function CommandPalette() {
         {isOpen && (
           <motion.div
             transition={{ duration: 0.2 }}
-            animate={isOpen ? 'open' : 'closed'}
             exit={{ opacity: 0 }}
             className="bg-zinc-20 fixed inset-0 z-[999] overflow-y-auto p-4 pt-[25vh]"
           >
             <Backdrop />
-
             <motion.div
               ref={containerRef}
               transition={{ duration: 0.2 }}
-              variants={{
-                open: { scale: [0.95, 1] },
+              animate={{
+                scale: [0.95, 1],
               }}
               className="relative mx-auto max-w-lg overflow-hidden rounded-lg border border-zinc-300 bg-white p-2 shadow-2xl ring-1 ring-black/5 dark:divide-zinc-600 dark:border-zinc-900 dark:bg-black/90"
             >
-              <CommandSearch onChange={handleSearch} onClose={handleToggle} />
+              <CommandSearch
+                value={query}
+                onChange={handleSearch}
+                onClose={handleToggle}
+                onFilterMenu={handleFilterMenu}
+              />
               <hr className="relative -left-2 my-2 w-[calc(100%+16px)]" />
               <CommandMenu options={filterOptions} onSelect={(value) => handleSelect(value)} />
-
-              {filterOptions.map((item) => item.children).flat(1).length === 0 && (
-                <p className="p-4 text-sm text-zinc-500">No results found.</p>
-              )}
             </motion.div>
           </motion.div>
         )}
