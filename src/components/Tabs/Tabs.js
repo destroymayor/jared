@@ -1,9 +1,14 @@
-import { useState, useRef, Children } from 'react';
+import { useState, useRef, createContext } from 'react';
 
 import { motion } from 'framer-motion';
 import clsx from 'clsx';
 
 import { directionType } from './constants';
+import Tab from './Tab';
+
+Tabs.Tab = Tab;
+
+export const TabsContext = createContext();
 
 export default function Tabs(props) {
   const { children, direction = 'horizontal', className } = props;
@@ -32,28 +37,27 @@ export default function Tabs(props) {
   };
 
   return (
-    <ul
-      ref={wrapperRef}
-      className={clsx('relative', directionType?.[direction]?.container, className)}
-      onMouseLeave={resetHighlight}
-    >
-      <motion.div
-        ref={highlightRef}
-        transition={{ duration: isHoveredFromNull ? 0 : 0.2 }}
-        animate={{
-          ...highlightAnimate,
-          opacity: highlightedTab ? 1 : 0,
-          transitionDuration: isHoveredFromNull ? 0 : '50ms',
-          transitionProperty: 'width transform opacity',
-        }}
-        className="absolute rounded-md bg-zinc-300 py-4 dark:bg-zinc-800"
-      />
+    <TabsContext.Provider value={{ repositionHighlight, resetHighlight }}>
+      <ul
+        {...props}
+        ref={wrapperRef}
+        className={clsx('relative', directionType?.[direction]?.container, className)}
+        onMouseLeave={resetHighlight}
+      >
+        <motion.div
+          ref={highlightRef}
+          transition={{ duration: isHoveredFromNull ? 0 : 0.2 }}
+          animate={{
+            ...highlightAnimate,
+            opacity: highlightedTab ? 1 : 0,
+            transitionDuration: isHoveredFromNull ? 0 : '50ms',
+            transitionProperty: 'width transform opacity',
+          }}
+          className="absolute rounded-md bg-zinc-300 py-4 dark:bg-zinc-800"
+        />
 
-      {Children.map(children, (child) => (
-        <li className="relative" onMouseEnter={(ev) => repositionHighlight(ev, child)}>
-          {child}
-        </li>
-      ))}
-    </ul>
+        {children}
+      </ul>
+    </TabsContext.Provider>
   );
 }

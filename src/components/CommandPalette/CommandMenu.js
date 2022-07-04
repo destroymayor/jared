@@ -1,5 +1,4 @@
-import { useCallback } from 'react';
-import { motion } from 'framer-motion';
+import { useCallback, Fragment } from 'react';
 
 import Tabs from '@/components/Tabs';
 
@@ -19,31 +18,31 @@ export default function CommandMenu(props) {
   }
 
   return (
-    <motion.ul
+    <Tabs
+      direction="vertical"
       className="overflow-y-auto transition-[height] duration-100 will-change-[height] [transition-timing-function:ease]"
       style={{ height: getMenuContainerHeight < 340 ? getMenuContainerHeight : 340 }}
     >
       {options.map((option) => (
-        <li key={option.title}>
+        <Fragment key={option.title}>
           {option.children.length > 0 && (
             <>
-              <div className="p-2 text-xs text-zinc-400">{option.title}</div>
-              <Tabs direction="vertical">
-                {option.children.map((child) => (
+              <span className="p-2 text-xs text-zinc-400">{option.title}</span>
+              {option.children.map((child) => (
+                <Tabs.Tab key={child.title} value={child}>
                   <button
-                    key={child.title}
                     className="flex w-full items-center gap-3 p-2 text-zinc-600 transition-colors duration-200 ease-in-out hover:text-zinc-600 dark:text-zinc-400 dark:hover:text-white"
                     onClick={() => handleSelect(child)}
                   >
                     <span className="h-5 w-5">{child.icon}</span>
                     <span>{child.title}</span>
                   </button>
-                ))}
-              </Tabs>
+                </Tabs.Tab>
+              ))}
             </>
           )}
-        </li>
+        </Fragment>
       ))}
-    </motion.ul>
+    </Tabs>
   );
 }
