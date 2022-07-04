@@ -19,6 +19,13 @@ export const ArrowRightIcon = (props) => (
   </FeatherIcon>
 );
 
+export const BookIcon = (props) => (
+  <FeatherIcon {...props}>
+    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+  </FeatherIcon>
+);
+
 export const BookmarksIcon = (props) => (
   <FeatherIcon {...props}>
     <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
