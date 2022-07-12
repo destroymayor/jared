@@ -34,11 +34,11 @@ export default function CommandPalette() {
 
   useEffect(() => {
     const handleKeyDown = (event) => {
-      if (event.key === 'k' && (event.metaKey || event.ctrlKey)) {
+      if (event.code === 'KeyK' && (event.metaKey || event.ctrlKey)) {
         handleToggle();
       }
 
-      if (event.key === 'Escape' && isOpen) {
+      if (event.code === 'Escape' && isOpen) {
         handleToggle();
       }
     };
