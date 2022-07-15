@@ -28,7 +28,7 @@ export default function CommandMenu(props) {
           <Fragment key={option.title}>
             {option.children.length > 0 && (
               <>
-                <span className="p-2 text-xs text-zinc-400">{option.title}</span>
+                <span className="relative p-2 text-xs text-zinc-400">{option.title}</span>
                 {option.children.map((child) => (
                   <Tabs.Tab key={child.title} value={child}>
                     <button
