@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from 'next/future/image';
 import projects from '@/data/projects';
 
 import Container from '@/components/Container';
@@ -28,10 +28,7 @@ export default function Projects() {
           >
             <div className="flex flex-[1.5] flex-col">
               <Image
-                className="rounded-md"
-                objectFit="contain"
-                unoptimized
-                priority
+                className="rounded-md object-contain"
                 alt={title}
                 src={image}
                 width={714}

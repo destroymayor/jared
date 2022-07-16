@@ -2,9 +2,16 @@ module.exports = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domain: [
+    domains: [
       'i.scdn.co', // Spotify Album Art
       'avatars.githubusercontent.com',
     ],
+  },
+  experimental: {
+    legacyBrowsers: false,
+    browsersListForSwc: true,
+    images: {
+      allowFutureImage: true,
+    },
   },
 };

@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from 'next/future/image';
 
 import useSWR from 'swr';
 
@@ -53,14 +53,7 @@ export default function NowPlaying() {
 
       {isPlaying && albumImageUrl ? (
         <Link href={songUrl} className="flex h-[60px] w-[60px]">
-          <Image
-            className="rounded-md"
-            unoptimized
-            alt={album}
-            src={albumImageUrl}
-            width={60}
-            height={60}
-          />
+          <Image className="rounded-md" alt={album} src={albumImageUrl} width={60} height={60} />
         </Link>
       ) : (
         <div

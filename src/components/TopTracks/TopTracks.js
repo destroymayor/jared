@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from 'next/future/image';
 
 import useSWR from 'swr';
 
@@ -31,7 +31,6 @@ export default function TopTracks() {
               <div className="mx-2 grid min-h-[60px] min-w-[60px] items-center">
                 <Image
                   className="rounded-md"
-                  unoptimized
                   alt={item?.album?.name}
                   src={item?.album?.image?.url}
                   width={60}
