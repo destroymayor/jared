@@ -1,4 +1,4 @@
-import { useCallback, Fragment } from 'react';
+import { Fragment } from 'react';
 import { motion } from 'framer-motion';
 
 import Tabs from '@/components/Tabs';
@@ -6,7 +6,7 @@ import Tabs from '@/components/Tabs';
 export default function CommandMenu(props) {
   const { options, onSelect } = props;
 
-  const handleSelect = useCallback((option) => onSelect(option), []);
+  const handleSelect = (option) => onSelect(option);
 
   const getFlatOptionsLength = options.map((item) => item.children).flat(1).length;
 
