@@ -38,7 +38,7 @@ export default function Projects() {
 
             <div className="flex flex-1 flex-col px-6 md:gap-2 md:py-2 md:px-4">
               <div className="flex flex-row-reverse items-center justify-between gap-2 md:flex-col md:items-start">
-                <span className="text-zinc-500">{release_year}</span>
+                <span className="text-zinc-600 dark:text-zinc-400">{release_year}</span>
                 <h2 className="text-xl font-semibold">{title}</h2>
               </div>
               <p className="py-4 text-sm dark:text-zinc-400 md:py-2">{description}</p>
@@ -46,7 +46,7 @@ export default function Projects() {
               <div className="mt-auto mb-1 flex items-center gap-2 py-4 text-sm md:py-0">
                 <Link
                   href={links.demo}
-                  className="flex items-center gap-2 rounded-md p-2 font-bold text-sky-700 hover:bg-sky-600/10 dark:text-sky-600"
+                  className="flex items-center gap-2 rounded-md p-2 font-bold text-sky-700 hover:bg-sky-600/10 dark:text-sky-500"
                 >
                   <GlobeIcon className="h-5 w-5" />
                   <span>Demo</span>
@@ -54,7 +54,7 @@ export default function Projects() {
 
                 <Link
                   href={links.repo}
-                  className="flex items-center gap-2 rounded-md p-2 font-bold text-sky-700 hover:bg-sky-600/10 dark:text-sky-600"
+                  className="flex items-center gap-2 rounded-md p-2 font-bold text-sky-700 hover:bg-sky-600/10 dark:text-sky-500"
                 >
                   <GithubIcon className="h-5 w-5" />
                   <span>Repo</span>

@@ -19,8 +19,9 @@ export default function TopTracks() {
 
       <ul className="flex flex-col gap-y-2 py-2">
         {data?.map((item, index) => (
-          <Link key={`${item.title} - ${item.artist} - ${index}`} href={item?.songUrl}>
-            <div
+          <li key={`${item.title} - ${item.artist}`}>
+            <Link
+              href={item?.songUrl}
               className={clsx(
                 'flex items-center p-2',
                 'rounded-2xl md:hover:bg-zinc-200 md:dark:hover:bg-zinc-900'
@@ -43,8 +44,8 @@ export default function TopTracks() {
                   {item?.artist ?? 'Spotify'}
                 </p>
               </div>
-            </div>
-          </Link>
+            </Link>
+          </li>
         ))}
       </ul>
     </div>

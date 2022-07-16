@@ -44,7 +44,7 @@ export default function Tabs(props) {
         className={clsx('relative', directionType?.[direction]?.container, className)}
         onMouseLeave={resetHighlight}
       >
-        <motion.div
+        <motion.li
           ref={highlightRef}
           transition={{ duration: isHoveredFromNull ? 0 : 0.2 }}
           animate={{

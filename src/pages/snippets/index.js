@@ -26,9 +26,9 @@ export default function Snippets(props) {
         return (
           <li key={item.category}>
             <FadeInScrollContainer className="relative flex flex-col gap-2">
-              <div className="bg-gradient-to-r from-sky-600 to-green-600 bg-clip-text py-2 text-xl font-extrabold text-transparent">
+              <h2 className="bg-gradient-to-r from-sky-600 to-green-600 bg-clip-text py-2 text-xl font-extrabold text-transparent">
                 {getCategory}
-              </div>
+              </h2>
 
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                 {item.snippets.map((snippet) => {
@@ -51,7 +51,7 @@ export default function Snippets(props) {
                               {description}
                             </p>
                           </div>
-                          <span className="text-sm italic tracking-tighter text-zinc-500">
+                          <span className="text-sm italic tracking-tighter text-zinc-600 dark:text-zinc-400">
                             <span className="pr-2">Last Updated:</span>
                             {formatDate}
                           </span>
