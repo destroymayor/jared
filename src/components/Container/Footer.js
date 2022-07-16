@@ -1,10 +1,14 @@
+import useSWR from 'swr';
+
 import contact from '@/data/contact';
 
 import NowPlaying from '@/components/NowPlaying';
 import Link from '@/components/Link';
-import { GithubOutlineIcon } from '@/components/Icons';
+import { StartIcon } from '@/components/Icons';
 
 export default function Footer() {
+  const { data: githubInfo } = useSWR('https://api.github.com/repos/destroymayor/jared');
+
   return (
     <footer className="mt-12 flex w-11/12 flex-col gap-6 border-t border-dashed border-zinc-300 py-6 dark:border-zinc-700 sm:max-w-[686px]">
       <div className="relative flex flex-col-reverse gap-6">
@@ -34,8 +38,14 @@ export default function Footer() {
           href="https://github.com/destroymayor/jared"
           className="flex items-center transition duration-200 ease-in-out dark:hover:text-zinc-50"
         >
-          <GithubOutlineIcon className="h-4 w-4" />
-          <span className="px-1 text-zinc-400 dark:text-zinc-600">/</span>
+          {githubInfo?.stargazers_count && (
+            <div className="flex items-center gap-1 px-1">
+              <StartIcon className="h-4 w-4" />
+              <span>{githubInfo?.stargazers_count?.toLocaleString()}</span>
+              <span className="text-zinc-400 dark:text-zinc-600">/</span>
+            </div>
+          )}
+
           <span className="text-sm">Designed & Built by Jared</span>
         </Link>
 

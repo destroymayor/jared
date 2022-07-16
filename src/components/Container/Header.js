@@ -5,7 +5,6 @@ import Link from '@/components/Link';
 import DesktopNav from '@/components/DesktopNav';
 import MobileNav from '@/components/MobileNav';
 
-import ThemeToggle from '@/components/ThemeToggle';
 import CommandPalette from '@/components/CommandPalette';
 
 export default function Header() {
@@ -22,8 +21,7 @@ export default function Header() {
 
       <DesktopNav />
 
-      <div className="hidden items-center gap-2 md:flex">
-        <ThemeToggle />
+      <div className="hidden md:block">
         <CommandPalette />
       </div>
 
