@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
+
 import { motion } from 'framer-motion';
 
 import clsx from 'clsx';
@@ -125,3 +127,8 @@ export default function Calendar(props) {
     </>
   );
 }
+
+Calendar.propTypes = {
+  loading: PropTypes.bool,
+  data: PropTypes.object,
+};

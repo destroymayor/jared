@@ -1,5 +1,7 @@
-import { animate } from 'framer-motion';
 import { useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
+
+import { animate } from 'framer-motion';
 
 export default function AnimateCounter(props) {
   const { total } = props;
@@ -22,3 +24,7 @@ export default function AnimateCounter(props) {
 
   return <span {...props} ref={countRef} />;
 }
+
+AnimateCounter.propTypes = {
+  total: PropTypes.number,
+};

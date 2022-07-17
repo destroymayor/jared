@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export default function Hero(props) {
   const { title, description } = props;
 
@@ -11,3 +13,8 @@ export default function Hero(props) {
     </div>
   );
 }
+
+Hero.propTypes = {
+  title: PropTypes.string,
+  description: PropTypes.string,
+};

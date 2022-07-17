@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
@@ -26,3 +28,8 @@ export default function Progress(props) {
     </div>
   );
 }
+
+Progress.propTypes = {
+  data: PropTypes.object,
+  className: PropTypes.string,
+};

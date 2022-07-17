@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import clsx from 'clsx';
 
 const types = {
@@ -15,10 +17,17 @@ export default function Tag(props) {
     <span
       className={clsx(
         'flex flex-none items-center justify-center gap-2 whitespace-nowrap rounded-2xl border bg-opacity-5 px-3 py-[2px] text-xs font-semibold tracking-wide hover:bg-opacity-40 dark:bg-opacity-10 dark:hover:bg-opacity-30',
-        `${types?.[type]} ${className}`
+        types?.[type],
+        className
       )}
     >
       {label}
     </span>
   );
 }
+
+Tag.propTypes = {
+  className: PropTypes.string,
+  type: PropTypes.string,
+  label: PropTypes.node,
+};

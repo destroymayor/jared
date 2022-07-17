@@ -54,7 +54,7 @@ export default function CommandSearch(props) {
 
 CommandSearch.propTypes = {
   value: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
-  onFilterMenu: PropTypes.func.isRequired,
-  onClose: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
+  onFilterMenu: PropTypes.func,
+  onClose: PropTypes.func,
 };

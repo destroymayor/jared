@@ -52,5 +52,5 @@ export default function CommandMenu(props) {
 
 CommandMenu.propTypes = {
   options: PropTypes.array,
-  onSelect: PropTypes.func.isRequired,
+  onSelect: PropTypes.func,
 };

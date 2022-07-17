@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 
 const variants = {
@@ -27,3 +28,7 @@ export default function Menu(props) {
     </motion.ul>
   );
 }
+
+Menu.propTypes = {
+  children: PropTypes.node.isRequired,
+};

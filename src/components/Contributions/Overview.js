@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import clsx from 'clsx';
 import AnimateCounter from '@/components/AnimateCounter';
 
@@ -49,3 +51,8 @@ export default function Overview(props) {
     </ul>
   );
 }
+
+Overview.propTypes = {
+  loading: PropTypes.bool,
+  data: PropTypes.object,
+};
