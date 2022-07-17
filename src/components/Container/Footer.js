@@ -7,7 +7,9 @@ import Link from '@/components/Link';
 import { StartIcon } from '@/components/Icons';
 
 export default function Footer() {
-  const { data: githubInfo } = useSWR('https://api.github.com/repos/destroymayor/jared');
+  const { data: githubInfo } = useSWR('https://api.github.com/repos/destroymayor/jared', {
+    revalidateOnFocus: false,
+  });
 
   return (
     <footer className="mt-12 flex w-11/12 flex-col gap-6 border-t border-dashed border-zinc-300 py-6 dark:border-zinc-700 sm:max-w-[686px]">

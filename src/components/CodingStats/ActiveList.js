@@ -7,8 +7,10 @@ const sumTotalFromArray = (data = [], key) => {
   return data.reduce((previousValue, currentValue) => previousValue + currentValue[key], 0) ?? 0;
 };
 
-export default function CodingStatsList(props) {
+export default function ActiveList(props) {
   const { data } = props;
+
+  const loading = !data;
 
   const getLanguagesTotalHours = sumTotalFromArray(data?.languages, 'hours');
   const getLanguagesTotalMinutes = sumTotalFromArray(data?.languages, 'minutes');
@@ -40,6 +42,19 @@ export default function CodingStatsList(props) {
       },
     },
   ];
+
+  if (loading) {
+    return (
+      <div className="mt-2 flex flex-col gap-6 sm:flex-row sm:gap-4">
+        {actives.map((item) => (
+          <div
+            key={item.title}
+            className="h-[108px] flex-1 animate-pulse rounded-xl bg-zinc-300 dark:bg-zinc-800"
+          ></div>
+        ))}
+      </div>
+    );
+  }
 
   return (
     <div className="mt-2 flex flex-col gap-6 sm:flex-row sm:gap-4">

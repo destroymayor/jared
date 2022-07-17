@@ -5,9 +5,10 @@ import Overview from '@/components/Contributions/Overview';
 import Calendar from '@/components/Contributions/Calendar';
 
 export default function Contributions() {
-  const { data } = useSWR('/api/github');
+  const { data } = useSWR('/api/github', { revalidateOnFocus: false });
 
   const contributionCalendar = data?.contributionsCollection?.contributionCalendar;
+  const isLoading = !data?.contributionsCollection;
 
   return (
     <div className="flex flex-col gap-y-2">
@@ -17,14 +18,8 @@ export default function Contributions() {
       </h2>
       <p className="dark:text-zinc-400">{`My last year's contributions in Github.`}</p>
 
-      {!data && <div className="dark:text-zinc-400">No Data</div>}
-
-      {data && (
-        <>
-          <Overview data={contributionCalendar} />
-          <Calendar data={contributionCalendar} />
-        </>
-      )}
+      <Overview loading={isLoading} data={contributionCalendar} />
+      <Calendar loading={isLoading} data={contributionCalendar} />
     </div>
   );
 }

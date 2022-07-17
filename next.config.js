@@ -5,6 +5,7 @@ module.exports = {
     domains: [
       'i.scdn.co', // Spotify Album Art
       'avatars.githubusercontent.com',
+      'wakatime.com',
     ],
   },
   experimental: {

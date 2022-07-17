@@ -1,13 +1,14 @@
-/* eslint-disable @next/next/no-img-element */
+import Image from 'next/future/image';
+
 import useSWR from 'swr';
 
 import Link from '@/components/Link';
 import { WakaTimeIcon } from '@/components/Icons';
 import Overview from '@/components/CodingStats/Overview';
-import CodingStatsList from '@/components/CodingStats/CodingStatsList';
+import ActiveList from '@/components/CodingStats/ActiveList';
 
 export default function CodingStats() {
-  const { data } = useSWR('/api/read-stats');
+  const { data } = useSWR('/api/read-stats', { revalidateOnFocus: false });
 
   return (
     <div className="flex flex-col gap-y-2">
@@ -27,15 +28,17 @@ export default function CodingStats() {
           </Link>
         </p>
         <Link href="https://wakatime.com/@74937d38-0477-4acf-a1fe-3ad38f267774">
-          <img
+          <Image
             src="https://wakatime.com/badge/user/74937d38-0477-4acf-a1fe-3ad38f267774.svg"
             alt="Total time coded since Jun 17 2017"
+            width={190}
+            height={20}
           />
         </Link>
       </div>
 
       <Overview data={data} />
-      <CodingStatsList data={data} />
+      <ActiveList data={data} />
     </div>
   );
 }
