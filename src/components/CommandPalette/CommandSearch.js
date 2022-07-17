@@ -1,4 +1,6 @@
 import { Fragment } from 'react';
+import PropTypes from 'prop-types';
+
 import { ChevronRightIcon, SearchIcon } from '@/components/Icons';
 
 export default function CommandSearch(props) {
@@ -49,3 +51,10 @@ export default function CommandSearch(props) {
     </div>
   );
 }
+
+CommandSearch.propTypes = {
+  value: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
+  onFilterMenu: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired,
+};

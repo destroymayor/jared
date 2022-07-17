@@ -1,4 +1,6 @@
 import { useContext } from 'react';
+import PropTypes from 'prop-types';
+
 import { TabsContext } from './Tabs';
 
 export default function Tab(props) {
@@ -11,3 +13,7 @@ export default function Tab(props) {
     </li>
   );
 }
+
+Tab.propTypes = {
+  value: PropTypes.node.isRequired,
+};

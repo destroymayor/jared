@@ -10,6 +10,8 @@ import ActiveList from '@/components/CodingStats/ActiveList';
 export default function CodingStats() {
   const { data } = useSWR('/api/read-stats', { revalidateOnFocus: false });
 
+  const isLoading = !data;
+
   return (
     <div className="flex flex-col gap-y-2">
       <h2 className="flex items-center gap-2 text-2xl">
@@ -37,8 +39,8 @@ export default function CodingStats() {
         </Link>
       </div>
 
-      <Overview data={data} />
-      <ActiveList data={data} />
+      <Overview loading={isLoading} data={data} />
+      <ActiveList loading={isLoading} data={data} />
     </div>
   );
 }

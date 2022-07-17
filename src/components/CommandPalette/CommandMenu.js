@@ -1,4 +1,5 @@
 import { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 
 import Tabs from '@/components/Tabs';
@@ -48,3 +49,8 @@ export default function CommandMenu(props) {
     </motion.div>
   );
 }
+
+CommandMenu.propTypes = {
+  options: PropTypes.array,
+  onSelect: PropTypes.func.isRequired,
+};

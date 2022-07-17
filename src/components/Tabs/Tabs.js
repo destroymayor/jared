@@ -1,4 +1,5 @@
 import { useState, useRef, createContext } from 'react';
+import PropTypes from 'prop-types';
 
 import { motion } from 'framer-motion';
 import clsx from 'clsx';
@@ -11,7 +12,7 @@ Tabs.Tab = Tab;
 export const TabsContext = createContext();
 
 export default function Tabs(props) {
-  const { children, direction = 'horizontal', className } = props;
+  const { direction = 'horizontal', className, children } = props;
 
   const highlightRef = useRef(null);
   const wrapperRef = useRef(null);
@@ -50,10 +51,10 @@ export default function Tabs(props) {
           animate={{
             ...highlightAnimate,
             opacity: highlightedTab ? 1 : 0,
-            transitionDuration: isHoveredFromNull ? 0 : '50ms',
+            transitionDuration: isHoveredFromNull ? 0 : '20ms',
             transitionProperty: 'width transform opacity',
           }}
-          className="absolute rounded-md bg-zinc-300 py-4 dark:bg-zinc-800"
+          className="absolute rounded-md bg-zinc-300 py-4 dark:bg-zinc-800/60"
         />
 
         {children}
@@ -61,3 +62,9 @@ export default function Tabs(props) {
     </TabsContext.Provider>
   );
 }
+
+Tabs.propTypes = {
+  direction: PropTypes.string,
+  className: PropTypes.string,
+  children: PropTypes.node.isRequired,
+};

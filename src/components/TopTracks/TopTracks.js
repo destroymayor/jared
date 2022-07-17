@@ -2,8 +2,8 @@ import Image from 'next/future/image';
 
 import useSWR from 'swr';
 
-import clsx from 'clsx';
 import Link from '@/components/Link';
+import Tabs from '@/components/Tabs';
 import { SpotifySolidIcon } from '@/components/Icons';
 
 export default function TopTracks() {
@@ -22,37 +22,33 @@ export default function TopTracks() {
       {isLoading ? (
         <div className="h-[76px] w-full animate-pulse rounded-2xl bg-zinc-300 dark:bg-zinc-800" />
       ) : (
-        <ul className="flex flex-col gap-y-2 py-2">
-          {data?.map((item, index) => (
-            <li key={`${item.title} - ${item.artist}`}>
-              <Link
-                href={item?.songUrl}
-                className={clsx(
-                  'flex items-center p-2',
-                  'rounded-2xl md:hover:bg-zinc-200 md:dark:hover:bg-zinc-900'
-                )}
-              >
-                <span className="w-5 text-center dark:text-zinc-400">{index + 1}</span>
+        <div className="py-2">
+          <Tabs direction="vertical">
+            {data?.map((item, index) => (
+              <Tabs.Tab key={`${item.title} - ${item.artist}`} value={item}>
+                <Link href={item?.songUrl} className="flex items-center rounded-2xl p-2">
+                  <span className="w-5 text-center dark:text-zinc-400">{index + 1}</span>
 
-                <div className="mx-2 grid min-h-[60px] min-w-[60px] items-center">
-                  <Image
-                    className="rounded-md"
-                    alt={item?.album?.name}
-                    src={item?.album?.image?.url}
-                    width={60}
-                    height={60}
-                  />
-                </div>
-                <div className="flex w-3/5 flex-grow flex-col md:w-full">
-                  <div className="truncate font-medium md:overflow-clip">{item.title}</div>
-                  <p className="truncate text-sm text-zinc-500 dark:text-zinc-400 md:overflow-clip">
-                    {item?.artist ?? 'Spotify'}
-                  </p>
-                </div>
-              </Link>
-            </li>
-          ))}
-        </ul>
+                  <div className="mx-2 grid min-h-[60px] min-w-[60px] items-center">
+                    <Image
+                      className="rounded-md"
+                      alt={item?.album?.name}
+                      src={item?.album?.image?.url}
+                      width={60}
+                      height={60}
+                    />
+                  </div>
+                  <div className="flex w-3/5 flex-grow flex-col md:w-full">
+                    <div className="truncate font-medium md:overflow-clip">{item.title}</div>
+                    <p className="truncate text-sm text-zinc-500 dark:text-zinc-400 md:overflow-clip">
+                      {item?.artist ?? 'Spotify'}
+                    </p>
+                  </div>
+                </Link>
+              </Tabs.Tab>
+            ))}
+          </Tabs>
+        </div>
       )}
     </div>
   );

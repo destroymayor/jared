@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export default function Button(props) {
   const { children } = props;
 
@@ -12,3 +14,7 @@ export default function Button(props) {
     </button>
   );
 }
+
+Button.propTypes = {
+  children: PropTypes.node.isRequired,
+};

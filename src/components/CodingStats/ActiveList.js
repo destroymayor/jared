@@ -8,9 +8,7 @@ const sumTotalFromArray = (data = [], key) => {
 };
 
 export default function ActiveList(props) {
-  const { data } = props;
-
-  const loading = !data;
+  const { loading, data } = props;
 
   const getLanguagesTotalHours = sumTotalFromArray(data?.languages, 'hours');
   const getLanguagesTotalMinutes = sumTotalFromArray(data?.languages, 'minutes');
