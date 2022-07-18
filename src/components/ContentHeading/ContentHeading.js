@@ -19,9 +19,7 @@ export default function ContentHeading(props) {
           className
         )}
       >
-        <span className="bg-gradient-to-r from-sky-700 to-sky-500 bg-clip-text text-xl font-extrabold text-transparent">
-          {children}
-        </span>
+        <span className="text-xl font-extrabold">{children}</span>
 
         <LinkIcon className="invisible h-4 w-4 text-zinc-600 transition duration-150 ease-in-out group-hover:visible dark:text-zinc-500" />
       </h2>

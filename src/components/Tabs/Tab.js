@@ -16,5 +16,5 @@ export default function Tab(props) {
 
 Tab.propTypes = {
   children: PropTypes.node,
-  value: PropTypes.node.isRequired,
+  value: PropTypes.any,
 };
