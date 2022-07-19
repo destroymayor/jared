@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import clsx from 'clsx';
@@ -19,7 +20,7 @@ export default function Overview(props) {
     )
     .flat(1);
 
-  const bestContribution = Math.max(...totalContributionList) ?? 0;
+  const bestContribution = Math.max(...totalContributionList);
   const averageContribution = totalContributions / totalContributionList.length;
 
   const overviews = [
@@ -32,21 +33,18 @@ export default function Overview(props) {
   return (
     <ul className="grid grid-cols-2 gap-2 py-2 md:grid-cols-4">
       {overviews.map((item) => (
-        <li
-          key={item.title}
-          className={clsx(
-            'flex flex-col rounded-xl bg-zinc-100 py-2 px-4 shadow-md',
-            loading
-              ? 'animate-pulse bg-zinc-300 text-transparent dark:bg-zinc-800'
-              : 'dark:bg-zinc-900'
+        <Fragment key={item.title}>
+          {loading ? (
+            <li className="h-[62px] animate-pulse rounded-xl bg-zinc-300 text-transparent dark:bg-zinc-800" />
+          ) : (
+            <li className="flex flex-col rounded-xl bg-zinc-100 py-2 px-4 shadow-md dark:bg-zinc-900">
+              <span className={clsx('text-sm', loading ? '' : 'dark:text-zinc-400')}>
+                {item.title}
+              </span>
+              <AnimateCounter className="text-2xl font-bold text-green-600" total={item.value} />
+            </li>
           )}
-        >
-          <span className={clsx('text-sm', loading ? '' : 'dark:text-zinc-400')}>{item.title}</span>
-          <AnimateCounter
-            className={clsx('text-2xl font-bold', loading ? '' : 'text-green-600')}
-            total={item.value}
-          />
-        </li>
+        </Fragment>
       ))}
     </ul>
   );

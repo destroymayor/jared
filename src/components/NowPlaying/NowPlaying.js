@@ -8,7 +8,7 @@ import Link from '@/components/Link';
 import { SpotifySolidIcon } from '@/components/Icons';
 
 export default function NowPlaying() {
-  const { data } = useSWR('/api/now-playing');
+  const { data } = useSWR('/api/spotify/now-playing');
 
   const isLoading = !data;
   const isPlaying = data?.isPlaying;

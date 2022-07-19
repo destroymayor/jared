@@ -6,7 +6,7 @@ import Link from '@/components/Link';
 import { SpotifySolidIcon } from '@/components/Icons';
 
 export default function TopTracks() {
-  const { data } = useSWR('/api/top-tracks', { revalidateOnFocus: false });
+  const { data } = useSWR('/api/spotify/top-tracks', { revalidateOnFocus: false });
 
   const isLoading = !data;
 
