@@ -30,14 +30,19 @@ export default function Calendar(props) {
 
   const contributionColors = data?.colors ?? [];
 
+  const handleSelectContribution = (data) => {
+    const { count, date } = data;
+    setSelectContribution({ count, date });
+  };
+
   return (
     <>
       <div className="relative flex flex-col gap-[2px]">
-        <ul className="flex justify-end gap-[3px] overflow-hidden text-xs dark:text-zinc-400 md:justify-start">
-          {loading ? (
-            <li className="h-4 w-full" />
-          ) : (
-            <>
+        {loading ? (
+          <div className="h-[104px] w-full animate-pulse rounded-xl bg-zinc-300 dark:bg-zinc-800"></div>
+        ) : (
+          <>
+            <ul className="flex justify-end gap-[3px] overflow-hidden text-xs dark:text-zinc-400 md:justify-start">
               {months.map((month) => (
                 <li
                   key={month.firstDay}
@@ -47,46 +52,43 @@ export default function Calendar(props) {
                   {month.name}
                 </li>
               ))}
-            </>
-          )}
-        </ul>
+            </ul>
 
-        {loading ? (
-          <div className="h-[86px] w-full animate-pulse rounded-md bg-zinc-300 dark:bg-zinc-800"></div>
-        ) : (
-          <div className="flex justify-end gap-[3px] overflow-hidden">
-            {weeks?.map((week) => (
-              <div key={week.firstDay}>
-                {week.contributionDays.map((contribution) => {
-                  const backgroundColor =
-                    contribution.contributionCount > 0 ? contribution?.color : null;
+            <div className="flex justify-end gap-[3px] overflow-hidden">
+              {weeks?.map((week) => (
+                <div key={week.firstDay}>
+                  {week.contributionDays.map((contribution) => {
+                    const backgroundColor =
+                      contribution.contributionCount > 0 ? contribution?.color : null;
 
-                  const getRandomDelayAnimate = Math.random() * week.contributionDays.length * 0.15;
+                    const getRandomDelayAnimate =
+                      Math.random() * week.contributionDays.length * 0.15;
 
-                  return (
-                    <motion.span
-                      key={contribution.date}
-                      initial={{ opacity: 0, translateY: -20 }}
-                      animate={{
-                        opacity: 1,
-                        translateY: 0,
-                        transition: { delay: getRandomDelayAnimate },
-                      }}
-                      className="my-[2px] block h-[10px] w-[10px] rounded-sm bg-zinc-300 dark:bg-zinc-800"
-                      style={{ backgroundColor }}
-                      onMouseEnter={() =>
-                        setSelectContribution({
-                          count: contribution.contributionCount,
-                          date: contribution.date,
-                        })
-                      }
-                      onMouseLeave={() => setSelectContribution({ count: null, date: null })}
-                    />
-                  );
-                })}
-              </div>
-            ))}
-          </div>
+                    return (
+                      <motion.span
+                        key={contribution.date}
+                        initial={{ opacity: 0, translateY: -20 }}
+                        animate={{
+                          opacity: 1,
+                          translateY: 0,
+                          transition: { delay: getRandomDelayAnimate },
+                        }}
+                        className="my-[2px] block h-[10px] w-[10px] rounded-sm bg-zinc-300 dark:bg-zinc-800"
+                        style={{ backgroundColor }}
+                        onMouseEnter={() =>
+                          handleSelectContribution({
+                            count: contribution.contributionCount,
+                            date: contribution.date,
+                          })
+                        }
+                        onMouseLeave={() => handleSelectContribution({ count: null, date: null })}
+                      />
+                    );
+                  })}
+                </div>
+              ))}
+            </div>
+          </>
         )}
       </div>
 
