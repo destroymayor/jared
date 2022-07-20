@@ -4,11 +4,11 @@ import useSWR from 'swr';
 
 import Link from '@/components/Link';
 import { WakaTimeIcon } from '@/components/Icons';
-import Overview from '@/components/CodingStats/Overview';
-import ActiveList from '@/components/CodingStats/ActiveList';
+import Overview from '@/components/WakaTimeStats/Overview';
+import ActiveList from '@/components/WakaTimeStats/ActiveList';
 
-export default function CodingStats() {
-  const { data } = useSWR('/api/read-stats', { revalidateOnFocus: false });
+export default function WakaTimeStats() {
+  const { data } = useSWR('/api/wakatime/current-stats', { revalidateOnFocus: false });
 
   const isLoading = !data;
 

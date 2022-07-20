@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import Progress from '@/components/CodingStats/Progress';
+import Progress from '@/components/WakaTimeStats/Progress';
 
 import { ClockIcon } from '@/components/Icons';
 import clsx from 'clsx';
@@ -49,7 +49,7 @@ export default function ActiveList(props) {
         {actives.map((item) => (
           <div
             key={item.title}
-            className="h-[108px] flex-1 animate-pulse rounded-xl bg-zinc-300 dark:bg-zinc-800"
+            className="h-[112px] flex-1 animate-pulse rounded-xl bg-zinc-300 dark:bg-zinc-800"
           ></div>
         ))}
       </div>

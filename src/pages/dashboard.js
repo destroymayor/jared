@@ -1,7 +1,7 @@
 import Container from '@/components/Container';
 import Hero from '@/components/Hero';
 import TopTracks from '@/components/TopTracks';
-import CodingStats from '@/components/CodingStats';
+import WakaTimeStats from '@/components/WakaTimeStats';
 import Contributions from '@/components/Contributions';
 
 const title = 'Dashboard';
@@ -13,7 +13,7 @@ export default function Dashboard() {
       <Contributions />
 
       <div className="border-t border-zinc-300 pt-6 dark:border-zinc-800">
-        <CodingStats />
+        <WakaTimeStats />
       </div>
 
       <div className="border-t border-zinc-300 pt-6 dark:border-zinc-800">

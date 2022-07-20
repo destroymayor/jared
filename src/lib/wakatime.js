@@ -22,7 +22,7 @@ export const getAccessToken = async () => {
   return response.json();
 };
 
-export const getReadStats = async () => {
+export const getWakaTimeCurrentStats = async () => {
   const { access_token } = await getAccessToken();
 
   const request = await fetch(`${STATS_ENDPOINT}/last_7_days`, {
