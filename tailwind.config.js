@@ -14,7 +14,7 @@ module.exports = {
         black: '#111111',
       },
       fontFamily: {
-        sans: ['Source Code Pro', 'sans-serif'],
+        sans: ['Source Code Pro'],
       },
       fontSize: {
         xl: ['1.25rem', { lineHeight: 1.1 }],
