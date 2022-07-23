@@ -2,13 +2,15 @@ import PropTypes from 'prop-types';
 import Head from 'next/head';
 
 export default function SEO(props) {
-  const { title, description = `Hey, I'm Jared, a Front-end Developer.` } = props;
+  const { title, description = `Jared Chen, a Front-end Developer.` } = props;
+
+  const metaTitle = `${title ? `${title} - ` : ''}Jared`;
 
   return (
     <Head>
       {/* Title */}
-      <title>{`${title ? `${title} - ` : ''}Jared`}</title>
-      <meta name="og:title" content={`${title ? `${title} - ` : ''}Jared`} />
+      <title>{metaTitle}</title>
+      <meta name="og:title" content={metaTitle} />
 
       {/* Description */}
       <meta name="description" content={description} />
@@ -16,10 +18,10 @@ export default function SEO(props) {
 
       {/* General */}
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <meta httpEquiv="Content-Language" content="en" />
       <meta name="apple-mobile-web-app-title" content="Jared" />
       <meta name="author" content="Jared" />
       <meta property="og:type" content="website" />
+      <meta property="og:site_name" content="Jared Chen" />
 
       {/* URL */}
       <meta name="og:url" content="https://jared-chen.me" />
