@@ -41,9 +41,10 @@ export default function NowPlaying() {
             </div>
           </>
         ) : (
-          <div className="flex items-center">
+          <div className="flex items-center gap-2">
             <span>Not Playing</span>
-            <span className="text-sm dark:text-zinc-400"> - Spotify</span>
+            <span className="text-sm dark:text-zinc-400">-</span>
+            <span className="text-sm dark:text-zinc-400">Spotify</span>
           </div>
         )}
       </div>
