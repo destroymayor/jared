@@ -9,9 +9,8 @@ export default function ContentHeading(props) {
   const getHeadingId = children?.toLowerCase().replace(new RegExp(' ', 'g'), '-');
 
   return (
-    <Link passHref href={`#${getHeadingId}`}>
+    <Link href={`#${getHeadingId}`}>
       <h2
-        {...props}
         aria-hidden
         id={getHeadingId}
         className={clsx(
