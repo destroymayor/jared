@@ -25,5 +25,5 @@ export default function Link({ href, target, rel, getProps, ...delegated }) {
     );
   }
 
-  return <a as="a" href={href} rel={safeRel} target={target} {...delegated} />;
+  return <a href={href} rel={safeRel} target={target} {...delegated} />;
 }

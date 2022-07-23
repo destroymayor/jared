@@ -33,22 +33,23 @@ export default function HomePage() {
           who enjoys building great quality and great user experience products.
         </p>
 
-        <div className="flex flex-col items-center gap-4 text-zinc-700 dark:text-zinc-400 md:items-start">
+        <div className="flex flex-col items-center gap-2 text-zinc-700 dark:text-zinc-400 md:items-start">
           <p className="text-center leading-7 md:text-left">{`A few technologies I've been working with recently:`}</p>
-          <div className="flex flex-wrap justify-center gap-2 md:justify-start">
+          <ul className="flex flex-wrap justify-center gap-2 md:justify-start">
             {skills.map((item) => (
-              <Tag
-                key={item.label}
-                type="default"
-                label={
-                  <>
-                    <span className="h-6 w-6">{item.icon}</span>
-                    <span>{item.label}</span>
-                  </>
-                }
-              ></Tag>
+              <li key={item.label}>
+                <Tag
+                  type="default"
+                  label={
+                    <>
+                      <span className="h-6 w-6">{item.icon}</span>
+                      <span>{item.label}</span>
+                    </>
+                  }
+                />
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </div>
     </div>

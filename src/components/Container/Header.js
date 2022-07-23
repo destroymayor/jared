@@ -9,7 +9,7 @@ import CommandPalette from '@/components/CommandPalette';
 
 export default function Header() {
   return (
-    <header className="relative flex w-full items-center justify-between px-5 py-6 md:px-12">
+    <header className="flex w-11/12 items-center justify-between py-6 sm:max-w-[686px]">
       <div className="flex items-center gap-4">
         <Link href="/" className="relative">
           <HexagonIcon className="h-10 w-10" />
@@ -17,9 +17,9 @@ export default function Header() {
             J
           </span>
         </Link>
-      </div>
 
-      <DesktopNav />
+        <DesktopNav />
+      </div>
 
       <div className="hidden md:block">
         <CommandPalette />
