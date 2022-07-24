@@ -18,13 +18,13 @@ html {
 }
 
 ::-webkit-scrollbar {
-  @apply h-[6px] w-[6px] bg-zinc-100 dark:bg-black;
+  @apply md:h-[6px] md:w-[6px] md:bg-zinc-100 md:dark:bg-black;
 }
 
 ::-webkit-scrollbar-track {
-  @apply rounded-[3px] bg-transparent;
+  @apply md:rounded-[3px] md:bg-transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply rounded-[3px] border-2 border-zinc-300 bg-zinc-400 dark:bg-zinc-700;
+  @apply md:rounded-[3px] md:border-2 md:border-zinc-300 md:bg-zinc-400 md:dark:bg-zinc-700;
 }

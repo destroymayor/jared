@@ -23,17 +23,17 @@ export default function CodeBlock({ children, className }) {
   return (
     <Highlight {...defaultProps} code={children} theme={codeBlockTheme} language={language}>
       {({ tokens, getLineProps, getTokenProps }) => (
-        <div className="relative my-10 mx-[-10px] flex flex-col items-start rounded-xl border border-zinc-300 bg-zinc-100 px-2 dark:border-zinc-700 dark:bg-black sm:mx-0">
-          <span className="absolute -top-[34px] right-10 rounded-t-lg border border-zinc-300 bg-zinc-100 px-3 py-1 text-zinc-700 dark:border-zinc-700 dark:bg-black dark:text-zinc-400">
+        <div className="relative mx-[calc(100vw-104vw)] my-14 flex flex-col items-start border border-zinc-100 bg-zinc-100 px-2 dark:border-zinc-800 dark:bg-zinc-800 sm:rounded-xl md:mx-0">
+          <span className="absolute -top-[33px] right-10 rounded-t-lg border-b border-b-zinc-100 bg-zinc-100 px-4 py-1 font-bold text-zinc-700 dark:border-zinc-800 dark:bg-zinc-800 dark:text-zinc-400">
             {language?.toUpperCase() ?? 'unknown'}
           </span>
           <pre ref={textInput} className="w-full overflow-auto pt-6 pb-3">
             {tokens.map((line, i) => (
-              <div className="table-row" key={i} {...getLineProps({ line, key: i })}>
-                <span className="sticky left-0 table-cell w-6 min-w-[24px] select-none bg-zinc-100 pr-2 text-right text-zinc-400 dark:bg-black dark:text-zinc-600">
+              <div className="relative table-row" key={i} {...getLineProps({ line, key: i })}>
+                <span className="absolute left-2 table-cell w-6 min-w-[24px] select-none bg-zinc-100 pr-2 text-right text-zinc-400 dark:bg-zinc-800 dark:text-zinc-400">
                   {i + 1}
                 </span>
-                <span className="table-cell pl-4">
+                <span className="table-cell pl-8">
                   {line.map((token, key) => (
                     <span key={key} {...getTokenProps({ token, key })} />
                   ))}
