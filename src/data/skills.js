@@ -8,7 +8,7 @@ import {
 } from '@/components/Icons';
 
 const data = [
-  { label: 'JavaScript', icon: <JavaScriptWhiteIcon /> },
+  { label: 'JavaScript(ES6+)', icon: <JavaScriptWhiteIcon /> },
   { label: 'React', icon: <ReactWhiteIcon /> },
   { label: 'Next.js', icon: <NextJSIcon /> },
   { label: 'Tailwind CSS', icon: <TailwindCSSIcon /> },

@@ -1,6 +1,7 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 
+import useKeyPress from '@/hooks/use-key-press.hook';
 import useOnClickOutside from '@/hooks/use-on-click-outside.hook';
 import useScrollDisabler from '@/hooks/use-scroll-disabler.hook';
 import { useTheme } from 'next-themes';
@@ -32,20 +33,13 @@ export default function CommandPalette() {
   });
   useScrollDisabler(isOpen);
 
-  useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (event.code === 'KeyK' && (event.metaKey || event.ctrlKey)) {
-        handleToggle();
-      }
+  useKeyPress('Escape', () => {
+    if (isOpen) handleToggle();
+  });
 
-      if (event.code === 'Escape' && isOpen) {
-        handleToggle();
-      }
-    };
-    window.addEventListener('keydown', handleKeyDown);
-
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isOpen]);
+  useKeyPress('KeyK', (event) => {
+    if (event.metaKey || event.ctrlKey) handleToggle();
+  });
 
   const options = [
     {
@@ -110,15 +104,12 @@ export default function CommandPalette() {
           <motion.div
             transition={{ duration: 0.2 }}
             exit={{ opacity: 0 }}
-            className="bg-zinc-20 fixed inset-0 z-[999] overflow-y-auto p-4 pt-[25vh]"
+            className="bg-zinc-20 fixed inset-0 z-[999] overflow-y-auto pt-[20vh] md:px-4"
           >
             <Backdrop />
             <motion.div
               ref={containerRef}
               transition={{ duration: 0.2 }}
-              animate={{
-                scale: [0.95, 1],
-              }}
               className="relative mx-auto max-w-lg overflow-hidden rounded-lg border border-zinc-300 bg-white p-2 shadow-2xl ring-1 ring-black/5 dark:divide-zinc-600 dark:border-zinc-900 dark:bg-black/90"
             >
               <CommandSearch

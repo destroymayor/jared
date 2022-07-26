@@ -22,8 +22,8 @@ export default function Tabs(props) {
   const [highlightedTab, setHighlightedTab] = useState(null);
   const [isHoveredFromNull, setIsHoveredFromNull] = useState(true);
 
-  const repositionHighlight = (e, tab) => {
-    setTabBoundingBox(e.target.getBoundingClientRect());
+  const repositionHighlight = (rect, tab) => {
+    setTabBoundingBox(rect);
     setWrapperBoundingBox(wrapperRef.current.getBoundingClientRect());
     setIsHoveredFromNull(!highlightedTab);
     setHighlightedTab(tab);
@@ -32,7 +32,6 @@ export default function Tabs(props) {
   const resetHighlight = () => setHighlightedTab(null);
 
   const highlightAnimate = tabBoundingBox && {
-    height: tabBoundingBox?.height,
     width: directionType?.[direction]?.width(tabBoundingBox),
     transform: directionType?.[direction]?.transform(tabBoundingBox, wrapperBoundingBox),
   };
@@ -42,8 +41,8 @@ export default function Tabs(props) {
       <ul
         {...props}
         ref={wrapperRef}
+        role="listbox"
         className={clsx('relative', directionType?.[direction]?.container, className)}
-        onMouseLeave={resetHighlight}
       >
         <motion.li
           ref={highlightRef}
@@ -54,7 +53,7 @@ export default function Tabs(props) {
             transitionDuration: isHoveredFromNull ? 0 : '20ms',
             transitionProperty: 'width transform opacity',
           }}
-          className="absolute rounded-md bg-zinc-300 py-4 dark:bg-zinc-800/60"
+          className="absolute top-0 left-0 h-10 w-full rounded-md bg-zinc-300 dark:bg-zinc-800/60"
         />
 
         {children}
@@ -64,7 +63,7 @@ export default function Tabs(props) {
 }
 
 Tabs.propTypes = {
-  direction: PropTypes.string,
+  direction: PropTypes.oneOf([directionType.horizontal.type, directionType.vertical.type]),
   className: PropTypes.string,
   children: PropTypes.node.isRequired,
 };

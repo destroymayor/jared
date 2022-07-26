@@ -73,12 +73,6 @@ export const ChevronUpIcon = (props) => (
   </FeatherIcon>
 );
 
-export const CommandIcon = (props) => (
-  <FeatherIcon {...props}>
-    <path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"></path>
-  </FeatherIcon>
-);
-
 export const Edit3Icon = (props) => (
   <FeatherIcon {...props}>
     <path d="M12 20h9"></path>
