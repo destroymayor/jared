@@ -24,9 +24,7 @@ export default function NowPlaying() {
           <Image className="rounded-md" alt={album} src={albumImageUrl} width={60} height={60} />
         </Link>
       ) : (
-        <div className="flex items-center justify-center rounded-lg border border-zinc-200 dark:border-zinc-800">
-          <SpotifySolidIcon className="h-7 w-7" />
-        </div>
+        <SpotifySolidIcon className="h-7 w-7" />
       )}
 
       <div className="flex flex-col items-start justify-center">

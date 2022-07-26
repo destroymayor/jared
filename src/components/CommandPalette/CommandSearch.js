@@ -1,16 +1,22 @@
 import { Fragment } from 'react';
-import PropTypes from 'prop-types';
 
-import { ChevronRightIcon, SearchIcon } from '@/components/Icons';
+import { useCommandPalette } from './CommandPaletteProvider';
 
-export default function CommandSearch(props) {
-  const { value, onChange, onFilterMenu, onClose } = props;
+import { ChevronRightIcon } from '@/components/Icons';
+
+export default function CommandSearch() {
+  const { searchTerm, setIsOpen, setSelected, setSearchTerm } = useCommandPalette();
 
   const breadcrumbs = [{ label: 'Home', value: '' }];
 
-  const handleFilterMenu = (value) => {
-    onFilterMenu(value);
+  const handleSearch = (event) => {
+    setSelected(0);
+    setSearchTerm(event.target.value);
   };
+
+  const handleToggle = () => setIsOpen((prevState) => !prevState);
+
+  const handleFilterMenu = (value) => setSearchTerm(value);
 
   return (
     <div className="flex flex-col gap-2 px-2">
@@ -18,7 +24,7 @@ export default function CommandSearch(props) {
         {breadcrumbs.map((item, index, { length, lastIndex = length - 1 }) => (
           <Fragment key={item.label}>
             <button
-              className="rounded bg-zinc-300 p-1 text-xs text-zinc-600 transition duration-200 ease-in-out hover:bg-zinc-400 hover:text-zinc-800 dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-zinc-700 dark:hover:text-zinc-50"
+              className="rounded bg-zinc-200 p-1 text-xs text-zinc-600 transition duration-200 ease-in-out hover:bg-zinc-400 hover:text-zinc-800 dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-zinc-700 dark:hover:text-zinc-50"
               onClick={() => handleFilterMenu(item.value)}
             >
               {item.label}
@@ -30,19 +36,21 @@ export default function CommandSearch(props) {
       </div>
 
       <div className="flex items-center">
-        <SearchIcon className="mr-2 h-5 w-5 text-zinc-500" />
         <input
           autoFocus
+          placeholder="Search"
           type="text"
-          placeholder="Search..."
-          value={value}
-          className="h-10 w-full flex-1 border-0 bg-transparent text-sm text-zinc-800 placeholder-zinc-400 focus:outline-none focus:ring-0 dark:text-zinc-100"
-          onChange={onChange}
+          value={searchTerm}
+          role="combobox"
+          aria-controls="combobox"
+          aria-expanded
+          className="h-10 w-full flex-1 border-0 bg-transparent text-zinc-800 placeholder-zinc-400 focus:outline-none focus:ring-0 dark:text-zinc-100"
+          onChange={handleSearch}
         />
         <div className="flex w-10 items-center justify-center ">
           <button
-            className="h-6 w-10 rounded bg-zinc-300 text-xs text-zinc-600 transition duration-200 ease-in-out hover:bg-zinc-400 hover:text-zinc-800 dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-zinc-700 dark:hover:text-zinc-50"
-            onClick={onClose}
+            className="h-6 w-10 rounded bg-zinc-200 text-xs text-zinc-600 transition duration-200 ease-in-out hover:bg-zinc-400 hover:text-zinc-800 dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-zinc-700 dark:hover:text-zinc-50"
+            onClick={handleToggle}
           >
             ESC
           </button>
@@ -51,10 +59,3 @@ export default function CommandSearch(props) {
     </div>
   );
 }
-
-CommandSearch.propTypes = {
-  value: PropTypes.string,
-  onChange: PropTypes.func,
-  onFilterMenu: PropTypes.func,
-  onClose: PropTypes.func,
-};

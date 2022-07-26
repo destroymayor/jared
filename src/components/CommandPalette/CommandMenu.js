@@ -1,29 +1,38 @@
-import { Fragment, useState } from 'react';
-import PropTypes from 'prop-types';
+import { Fragment } from 'react';
+
+import { useCommandPalette } from './CommandPaletteProvider';
 
 import useKeyPress from '@/hooks/use-key-press.hook';
 import Tabs from '@/components/Tabs';
 
-export default function CommandMenu(props) {
-  const { options, onSelect } = props;
-
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  const handleSelect = (option) => onSelect(option);
-
-  const getFlatOptions = options.map((item) => item.children).flat(1);
-
-  const getTitleHeight = options.filter((item) => item.children.length > 0).length * 32;
-  const getMenuHeight = getFlatOptions.length * 40;
-  const getMenuContainerHeight = getTitleHeight + getMenuHeight;
+export default function CommandMenu() {
+  const { filterOptions, selected, setIsOpen, setSelected, setSearchTerm } = useCommandPalette();
+  const getFlatOptions = filterOptions.map((item) => item.children).flat(1);
 
   useKeyPress('ArrowUp', () => {
-    if (activeIndex > 0) setActiveIndex((prevState) => prevState - 1);
+    if (selected > 0) setSelected((prevState) => prevState - 1);
   });
 
   useKeyPress('ArrowDown', () => {
-    if (getFlatOptions.length - 1 > activeIndex) setActiveIndex((prevState) => prevState + 1);
+    if (getFlatOptions.length - 1 > selected) setSelected((prevState) => prevState + 1);
   });
+
+  useKeyPress('Enter', () => {
+    getFlatOptions.find((item, index) => selected === index)?.click();
+    setIsOpen(false);
+    setSearchTerm('');
+    setSelected(0);
+  });
+
+  const handleSelect = (option) => {
+    option.click();
+    setSearchTerm('');
+    setIsOpen(false);
+  };
+
+  const getTitleHeight = filterOptions.filter((item) => item.children.length > 0).length * 32;
+  const getMenuHeight = getFlatOptions.length * 40;
+  const getMenuContainerHeight = getTitleHeight + getMenuHeight;
 
   if (getFlatOptions.length === 0) {
     return <p className="p-4 text-sm text-zinc-500">No results found.</p>;
@@ -35,7 +44,7 @@ export default function CommandMenu(props) {
       style={{ height: getMenuContainerHeight < 340 ? getMenuContainerHeight : 340 }}
     >
       <Tabs direction="vertical">
-        {options.map((option) => (
+        {filterOptions.map((option) => (
           <Fragment key={option.title}>
             {option.children.length > 0 && (
               <>
@@ -44,7 +53,7 @@ export default function CommandMenu(props) {
                 </span>
                 {option.children.map((child) => {
                   const isSelected =
-                    activeIndex === getFlatOptions.findIndex((item) => item.title === child.title);
+                    selected === getFlatOptions.findIndex((item) => item.title === child.title);
                   const getChildIndex = getFlatOptions.findIndex(
                     (item) => item.title === child.title
                   );
@@ -70,8 +79,3 @@ export default function CommandMenu(props) {
     </div>
   );
 }
-
-CommandMenu.propTypes = {
-  options: PropTypes.array,
-  onSelect: PropTypes.func,
-};
