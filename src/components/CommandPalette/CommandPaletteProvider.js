@@ -110,7 +110,7 @@ export default function CommandPaletteProvider() {
       children: snippetsData?.map((snippet) => ({
         title: snippet.title,
         icon: <ArrowRightIcon />,
-        click: () => router.push(snippet.slug),
+        click: () => handleNavigation(snippet.slug),
       })),
     },
   ];
