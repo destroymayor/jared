@@ -10,8 +10,8 @@ export default function CommandSearch() {
   const breadcrumbs = [{ label: 'Home', value: '' }];
 
   const handleSearch = (event) => {
-    setSelected(0);
     setSearchTerm(event.target.value);
+    setSelected(0);
   };
 
   const handleToggle = () => setIsOpen((prevState) => !prevState);
@@ -24,7 +24,7 @@ export default function CommandSearch() {
         {breadcrumbs.map((item, index, { length, lastIndex = length - 1 }) => (
           <Fragment key={item.label}>
             <button
-              className="rounded bg-zinc-200 p-1 text-xs text-zinc-600 transition duration-200 ease-in-out hover:bg-zinc-400 hover:text-zinc-800 dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-zinc-700 dark:hover:text-zinc-50"
+              className="rounded bg-zinc-200 p-1 text-xs text-zinc-600 transition duration-200 ease-in-out hover:bg-zinc-300 hover:text-zinc-800 dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-zinc-700 dark:hover:text-zinc-50"
               onClick={() => handleFilterMenu(item.value)}
             >
               {item.label}
@@ -47,9 +47,10 @@ export default function CommandSearch() {
           className="h-10 w-full flex-1 border-0 bg-transparent text-zinc-800 placeholder-zinc-400 focus:outline-none focus:ring-0 dark:text-zinc-100"
           onChange={handleSearch}
         />
+
         <div className="flex w-10 items-center justify-center ">
           <button
-            className="h-6 w-10 rounded bg-zinc-200 text-xs text-zinc-600 transition duration-200 ease-in-out hover:bg-zinc-400 hover:text-zinc-800 dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-zinc-700 dark:hover:text-zinc-50"
+            className="h-6 w-10 rounded bg-zinc-200 text-xs text-zinc-600 transition duration-200 ease-in-out hover:bg-zinc-300 hover:text-zinc-800 dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-zinc-700 dark:hover:text-zinc-50"
             onClick={handleToggle}
           >
             ESC

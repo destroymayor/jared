@@ -12,7 +12,7 @@ Tabs.Tab = Tab;
 export const TabsContext = createContext();
 
 export default function Tabs(props) {
-  const { direction = 'horizontal', className, children } = props;
+  const { direction = 'horizontal', shouldResetHighlight, className, children } = props;
 
   const highlightRef = useRef(null);
   const wrapperRef = useRef(null);
@@ -29,7 +29,11 @@ export default function Tabs(props) {
     setHighlightedTab(tab);
   };
 
-  const resetHighlight = () => setHighlightedTab(null);
+  const resetHighlight = () => {
+    if (shouldResetHighlight) {
+      setHighlightedTab(null);
+    }
+  };
 
   const highlightAnimate = tabBoundingBox && {
     width: directionType?.[direction]?.width(tabBoundingBox),
@@ -39,21 +43,21 @@ export default function Tabs(props) {
   return (
     <TabsContext.Provider value={{ repositionHighlight, resetHighlight }}>
       <ul
-        {...props}
         ref={wrapperRef}
         role="listbox"
         className={clsx('relative', directionType?.[direction]?.container, className)}
+        onMouseLeave={resetHighlight}
       >
         <motion.li
           ref={highlightRef}
-          transition={{ duration: isHoveredFromNull ? 0 : 0.2 }}
+          transition={{ duration: isHoveredFromNull ? 0 : 0.2, delay: 0 }}
           animate={{
             ...highlightAnimate,
             opacity: highlightedTab ? 1 : 0,
             transitionDuration: isHoveredFromNull ? 0 : '20ms',
             transitionProperty: 'width transform opacity',
           }}
-          className="absolute top-0 left-0 h-10 w-full rounded-md bg-zinc-200 dark:bg-zinc-800/60"
+          className="absolute top-0 left-0 h-10 rounded-md bg-zinc-200 dark:bg-zinc-800/60"
         />
 
         {children}
@@ -64,6 +68,7 @@ export default function Tabs(props) {
 
 Tabs.propTypes = {
   direction: PropTypes.oneOf([directionType.horizontal.type, directionType.vertical.type]),
+  shouldResetHighlight: PropTypes.bool,
   className: PropTypes.string,
   children: PropTypes.node.isRequired,
 };

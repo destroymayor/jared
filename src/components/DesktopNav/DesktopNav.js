@@ -15,9 +15,13 @@ export default function DesktopNav() {
 
   return (
     <div className="hidden h-10 items-center md:flex">
-      <Tabs>
+      <Tabs shouldResetHighlight>
         {routes.map((tab) => (
-          <Tabs.Tab key={tab.pathname} name={tab} onClick={() => handleNavigation(tab.pathname)}>
+          <Tabs.Tab
+            key={tab.pathname}
+            name={tab.title}
+            onClick={() => handleNavigation(tab.pathname)}
+          >
             <div
               className={clsx(
                 'flex items-center',

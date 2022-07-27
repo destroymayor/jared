@@ -7,6 +7,7 @@ import Tabs from '@/components/Tabs';
 
 export default function CommandMenu() {
   const { filterOptions, selected, setIsOpen, setSelected, setSearchTerm } = useCommandPalette();
+
   const getFlatOptions = filterOptions.map((item) => item.children).flat(1);
 
   useKeyPress('ArrowUp', () => {
@@ -19,15 +20,18 @@ export default function CommandMenu() {
 
   useKeyPress('Enter', () => {
     getFlatOptions.find((item, index) => selected === index)?.click();
+    handleResetCommandPalette();
+  });
+
+  const handleResetCommandPalette = () => {
     setIsOpen(false);
     setSearchTerm('');
     setSelected(0);
-  });
+  };
 
-  const handleSelect = (option) => {
+  const handleTabSelect = (option) => {
     option.click();
-    setSearchTerm('');
-    setIsOpen(false);
+    handleResetCommandPalette();
   };
 
   const getTitleHeight = filterOptions.filter((item) => item.children.length > 0).length * 32;
@@ -47,32 +51,23 @@ export default function CommandMenu() {
         {filterOptions.map((option) => (
           <Fragment key={option.title}>
             {option.children.length > 0 && (
-              <>
-                <span className="relative ml-2 flex h-7 items-center text-xs text-zinc-400">
-                  {option.title}
-                </span>
-                {option.children.map((child) => {
-                  const isSelected =
-                    selected === getFlatOptions.findIndex((item) => item.title === child.title);
-                  const getChildIndex = getFlatOptions.findIndex(
-                    (item) => item.title === child.title
-                  );
-
-                  return (
-                    <Tabs.Tab
-                      key={child.title}
-                      name={child.title}
-                      icon={child.icon}
-                      selected={isSelected}
-                      index={getChildIndex}
-                      onClick={() => handleSelect(child)}
-                    >
-                      {child.title}
-                    </Tabs.Tab>
-                  );
-                })}
-              </>
+              <span className="relative ml-2 flex h-7 items-center text-xs text-zinc-400">
+                {option.title}
+              </span>
             )}
+
+            {option.children.map((child) => (
+              <Tabs.Tab
+                key={child.title}
+                name={child.title}
+                icon={child.icon}
+                selected={selected}
+                index={getFlatOptions.findIndex((item) => item.title === child.title)}
+                onClick={() => handleTabSelect(child)}
+              >
+                {child.title}
+              </Tabs.Tab>
+            ))}
           </Fragment>
         ))}
       </Tabs>

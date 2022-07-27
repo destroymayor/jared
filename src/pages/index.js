@@ -10,7 +10,7 @@ export default function HomePage() {
   return (
     <div className="flex flex-col items-center pb-44 pt-6 md:flex-row-reverse md:gap-6">
       <div className="relative mx-auto h-52 w-52 md:h-64 md:w-64 md:flex-1">
-        <div className="absolute left-1/2 top-1/2 h-40 w-40 rounded-[50%] blur-2xl [transform:translate(-50%,-50%)] [background-image:linear-gradient(-45deg,rgb(78,70,229)50%,rgb(2,133,199)50%)] md:h-52 md:w-52 md:blur-[56px]" />
+        <div className="absolute left-1/2 top-1/2 h-40 w-40 rounded-[50%] blur-[32px] [transform:translate(-50%,-50%)] [background-image:linear-gradient(-45deg,rgb(78,70,229)50%,rgb(2,133,199)50%)] md:h-52 md:w-52 md:blur-[56px]" />
         <Image
           priority
           src={avatar}
