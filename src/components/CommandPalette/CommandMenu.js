@@ -6,7 +6,7 @@ import useKeyPress from '@/hooks/use-key-press.hook';
 import Tabs from '@/components/Tabs';
 
 export default function CommandMenu() {
-  const { filterOptions, selected, setIsOpen, setSelected, setSearchTerm } = useCommandPalette();
+  const { filterOptions, selected, setSelected } = useCommandPalette();
 
   const getFlatOptions = filterOptions.map((item) => item.children).flat(1);
 
@@ -19,20 +19,10 @@ export default function CommandMenu() {
   });
 
   useKeyPress('Enter', () => {
-    getFlatOptions.find((item, index) => selected === index)?.click();
-    handleResetCommandPalette();
+    getFlatOptions.find((item, index) => selected === index).click();
   });
 
-  const handleResetCommandPalette = () => {
-    setIsOpen(false);
-    setSearchTerm('');
-    setSelected(0);
-  };
-
-  const handleTabSelect = (option) => {
-    option.click();
-    handleResetCommandPalette();
-  };
+  const handleTabSelect = (option) => option.click();
 
   const getTitleHeight = filterOptions.filter((item) => item.children.length > 0).length * 32;
   const getMenuHeight = getFlatOptions.length * 40;
@@ -50,7 +40,7 @@ export default function CommandMenu() {
       <Tabs direction="vertical">
         {filterOptions.map((option) => (
           <Fragment key={option.title}>
-            {option.children.length > 0 && (
+            {option.children.length > 0 && option.title && (
               <span className="relative ml-2 flex h-7 items-center text-xs text-zinc-400">
                 {option.title}
               </span>
