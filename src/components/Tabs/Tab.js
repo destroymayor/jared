@@ -1,6 +1,7 @@
 import { useEffect, useContext, useRef } from 'react';
 import PropTypes from 'prop-types';
 
+import clsx from 'clsx';
 import { TabsContext } from './Tabs';
 
 export default function Tab(props) {
@@ -30,7 +31,9 @@ export default function Tab(props) {
       onMouseEnter={handleMouseEnter}
       onClick={onClick}
     >
-      {icon && <div className="mr-2 flex h-5 w-5 items-center justify-center">{icon}</div>}
+      <span className={clsx(icon ? 'flex' : 'hidden', 'mr-2 h-5 w-5 items-center justify-center')}>
+        {icon}
+      </span>
 
       <span className="pointer-events-none">{children}</span>
     </li>

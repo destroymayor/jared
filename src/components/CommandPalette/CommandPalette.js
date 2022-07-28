@@ -59,7 +59,7 @@ export default function CommandPalette() {
                 <CommandBreadcrumbs />
                 <CommandSearch />
               </div>
-              <hr className="relative -left-2 my-2 w-[calc(100%+16px)]" />
+              <hr className="relative -left-2 my-1 w-[calc(100%+16px)]" />
               <CommandMenu />
             </motion.div>
           </motion.div>
