@@ -1,11 +1,10 @@
 import { useEffect, useContext, useRef } from 'react';
 import PropTypes from 'prop-types';
 
-import clsx from 'clsx';
 import { TabsContext } from './Tabs';
 
 export default function Tab(props) {
-  const { name, selected = 0, index, icon, children, onClick } = props;
+  const { name, selected = 0, index, children, onClick } = props;
 
   const { repositionHighlight } = useContext(TabsContext);
   const tabRef = useRef(null);
@@ -31,11 +30,7 @@ export default function Tab(props) {
       onMouseEnter={handleMouseEnter}
       onClick={onClick}
     >
-      <span className={clsx(icon ? 'flex' : 'hidden', 'mr-2 h-5 w-5 items-center justify-center')}>
-        {icon}
-      </span>
-
-      <span className="pointer-events-none">{children}</span>
+      {children}
     </li>
   );
 }
@@ -44,6 +39,5 @@ Tab.propTypes = {
   name: PropTypes.any,
   selected: PropTypes.number,
   index: PropTypes.number,
-  icon: PropTypes.node,
   children: PropTypes.node,
 };

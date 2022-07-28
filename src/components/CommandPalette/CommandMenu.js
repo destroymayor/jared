@@ -50,12 +50,12 @@ export default function CommandMenu() {
               <Tabs.Tab
                 key={child.title}
                 name={child.title}
-                icon={child.icon}
                 selected={selected}
                 index={getFlatOptions.findIndex((item) => item.title === child.title)}
                 onClick={() => handleTabSelect(child)}
               >
-                {child.title}
+                <span className="mr-2 min-h-[20px] min-w-[20px]">{child.icon}</span>
+                <span>{child.title}</span>
               </Tabs.Tab>
             ))}
           </Fragment>
