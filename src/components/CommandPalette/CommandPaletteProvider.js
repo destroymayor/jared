@@ -32,8 +32,7 @@ export default function CommandPaletteProvider() {
   };
 
   const handleNavigation = (pathname) => {
-    router.push(pathname);
-    handleResetStatus();
+    router.push(pathname).then(() => handleResetStatus());
   };
 
   const handleBreadcrumbs = (slug) => {
@@ -57,7 +56,7 @@ export default function CommandPaletteProvider() {
           click: () => handleNavigation(projects.pathname),
         },
         {
-          icon: <ArrowRightIcon />,
+          icon: snippets.icon,
           title: snippets.title,
           click: () => handleBreadcrumbs(snippets.title),
         },
