@@ -21,6 +21,16 @@ module.exports = {
         '2xl': ['1.5rem', { lineHeight: 1.1 }],
         '3xl': ['1.875rem', { lineHeight: 1.1 }],
       },
+      animation: {
+        'fade-in': 'fade-in 1.5s ease-in-out 0.5s',
+      },
+      keyframes: {
+        'fade-in': {
+          '0%': { opacity: 0, filter: 'brightness(1) blur(20px)' },
+          '10%': { opacity: 1, filter: 'brightness(2) blur(10px)' },
+          '100%': { opacity: 1, filter: 'brightness(1) blur(0px)' },
+        },
+      },
     },
   },
   plugins: [

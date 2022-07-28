@@ -4,7 +4,6 @@ import { getAllMdxFolder } from '@/helpers/mdx.helpers';
 import Container from '@/components/Container';
 import Hero from '@/components/Hero';
 import Link from '@/components/Link';
-import FadeInScrollContainer from '@/components/FadeInScrollContainer';
 
 const title = `Snippets`;
 const description = `Collection of useful code snippets.`;
@@ -25,7 +24,7 @@ export default function Snippets(props) {
 
         return (
           <li key={item.category}>
-            <FadeInScrollContainer className="relative flex flex-col gap-2">
+            <div className="relative flex flex-col gap-2">
               <h2 className="bg-gradient-to-r from-sky-600 to-green-600 bg-clip-text py-2 text-xl font-extrabold text-transparent">
                 {getCategory}
               </h2>
@@ -62,7 +61,7 @@ export default function Snippets(props) {
                   );
                 })}
               </div>
-            </FadeInScrollContainer>
+            </div>
           </li>
         );
       })}

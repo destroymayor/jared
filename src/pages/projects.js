@@ -2,6 +2,7 @@ import Image from 'next/future/image';
 import projects from '@/data/projects';
 
 import Container from '@/components/Container';
+import FadeInContainer from '@/components/FadeInContainer';
 import Hero from '@/components/Hero';
 import Link from '@/components/Link';
 
@@ -26,7 +27,7 @@ export default function Projects() {
               getReverseItem
             )}
           >
-            <div className="flex flex-[1.5] flex-col">
+            <FadeInContainer className="flex flex-[1.5] flex-col">
               <Image
                 className="rounded-md object-contain"
                 alt={title}
@@ -34,7 +35,7 @@ export default function Projects() {
                 width={714}
                 height={429}
               />
-            </div>
+            </FadeInContainer>
 
             <div className="flex flex-1 flex-col px-6 md:gap-2 md:py-2 md:px-4">
               <div className="flex flex-row-reverse items-center justify-between gap-2 md:flex-col md:items-start">
