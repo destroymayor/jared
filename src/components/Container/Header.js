@@ -1,4 +1,6 @@
-import { HexagonIcon } from '@/components/Icons';
+import Image from 'next/future/image';
+
+import avatar from '@/public/images/avatar.webp';
 
 import Link from '@/components/Link';
 import DesktopNav from '@/components/DesktopNav';
@@ -7,12 +9,9 @@ import CommandPalette from '@/components/CommandPalette';
 export default function Header() {
   return (
     <header className="flex w-11/12 items-center justify-between py-10 sm:max-w-[686px]">
-      <div className="flex items-center gap-2">
-        <Link href="/" className="relative">
-          <HexagonIcon className="h-10 w-10" />
-          <span className="absolute top-1/2 left-1/2 font-bold [transform:translate(-50%,-50%)]">
-            J
-          </span>
+      <div className="flex items-center gap-4">
+        <Link href="/" className="">
+          <Image priority src={avatar} alt="Jared" width={40} height={40} />
         </Link>
         <DesktopNav />
       </div>
