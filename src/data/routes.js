@@ -2,9 +2,16 @@ import {
   PieChartIcon,
   CodePenIcon,
   BookmarksIcon,
+  Edit3Icon,
   ToolIcon,
   PackageIcon,
 } from '@/components/Icons';
+
+export const blog = {
+  title: 'Blog',
+  pathname: '/blog',
+  icon: <Edit3Icon />,
+};
 
 export const dashboard = {
   title: 'Dashboard',
@@ -36,6 +43,6 @@ export const uses = {
   icon: <ToolIcon />,
 };
 
-const data = [dashboard, projects, snippets, uses, bookmarks];
+const data = [dashboard, projects, snippets, blog, uses, bookmarks];
 
 export default data;

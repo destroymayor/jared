@@ -22,7 +22,7 @@ module.exports = {
         '3xl': ['1.875rem', { lineHeight: 1.1 }],
       },
       animation: {
-        'fade-in': 'fade-in 1.5s ease-in-out 0.5s',
+        'fade-in': 'fade-in 1s ease-in-out 0.5s',
       },
       keyframes: {
         'fade-in': {

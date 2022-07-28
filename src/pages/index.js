@@ -4,22 +4,25 @@ import avatar from '@/public/images/me.webp';
 import skills from '@/data/skills';
 
 import Container from '@/components/Container';
+import FadeInContainer from '@/components/FadeInContainer';
 import Tag from '@/components/Tag';
 
 export default function HomePage() {
   return (
     <div className="flex flex-col items-center pb-44 pt-6 md:flex-row-reverse md:gap-6">
-      <div className="relative mx-auto h-52 w-52 md:h-64 md:w-64 md:flex-1">
-        <div className="absolute left-1/2 top-1/2 h-40 w-40 rounded-[50%] blur-[32px] [transform:translate(-50%,-50%)] [background-image:linear-gradient(-45deg,rgb(78,70,229)50%,rgb(2,133,199)50%)] md:h-52 md:w-52 md:blur-[56px]" />
-        <Image
-          priority
-          src={avatar}
-          alt="Jared"
-          width={150}
-          height={150}
-          className="absolute left-1/2 top-1/2 h-32 w-32 rounded-full [transform:translate(-50%,-50%)] md:h-40 md:w-40"
-        />
-      </div>
+      <FadeInContainer>
+        <div className="relative mx-auto h-52 w-52 md:h-64 md:w-64 md:flex-1">
+          <div className="absolute left-1/2 top-1/2 h-40 w-40 rounded-[50%] blur-[32px] [transform:translate(-50%,-50%)] [background-image:linear-gradient(-45deg,rgb(78,70,229)50%,rgb(2,133,199)50%)] md:h-52 md:w-52 md:blur-[56px]" />
+          <Image
+            priority
+            src={avatar}
+            alt="Jared"
+            width={150}
+            height={150}
+            className="absolute left-1/2 top-1/2 h-32 w-32 rounded-full [transform:translate(-50%,-50%)] md:h-40 md:w-40"
+          />
+        </div>
+      </FadeInContainer>
 
       <div className="flex flex-[2] flex-col items-center gap-3 md:items-start">
         <h1 className="bg-gradient-to-r from-sky-600 via-sky-500 to-sky-500 bg-clip-text text-4xl font-extrabold text-transparent dark:from-sky-700 dark:via-sky-600 dark:to-sky-500 md:text-5xl">

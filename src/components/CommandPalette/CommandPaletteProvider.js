@@ -5,7 +5,7 @@ import useSWR from 'swr';
 import { useTheme } from 'next-themes';
 import { useAnimationControls } from 'framer-motion';
 
-import { dashboard, projects, bookmarks, snippets, uses } from '@/data/routes';
+import { dashboard, projects, bookmarks, snippets, blog, uses } from '@/data/routes';
 import contact from '@/data/contact';
 import { getCategoryFormatted } from '@/helpers/category.helper';
 
@@ -64,6 +64,11 @@ export default function CommandPaletteProvider() {
           icon: snippets.icon,
           title: snippets.title,
           click: () => handleBreadcrumbs(snippets.title),
+        },
+        {
+          icon: blog.icon,
+          title: blog.title,
+          click: () => handleNavigation(blog.pathname),
         },
         {
           icon: uses.icon,
