@@ -18,11 +18,12 @@ import CommandMenu from './CommandMenu';
 export default function CommandPalette() {
   const containerRef = useRef(null);
 
-  const { isOpen, setIsOpen, setSearchTerm } = useCommandPalette();
+  const { animationControls, isOpen, setIsOpen, setSearchTerm, setSelected } = useCommandPalette();
 
   useOnClickOutside(containerRef, () => {
     setIsOpen(false);
     setSearchTerm('');
+    setSelected(0);
   });
   useScrollDisabler(isOpen);
 
@@ -49,18 +50,20 @@ export default function CommandPalette() {
             className="bg-zinc-20 fixed inset-0 z-[999] overflow-y-auto pt-[20vh] md:px-4"
           >
             <Backdrop />
-            <motion.div
-              ref={containerRef}
-              transition={{ duration: 0.2 }}
-              animate={{ scale: [1, 0.97, 1] }}
-              className="relative mx-auto max-w-lg overflow-hidden rounded-lg border border-zinc-300 bg-white p-2 shadow-2xl ring-1 ring-black/5 dark:divide-zinc-600 dark:border-zinc-900 dark:bg-black/90"
-            >
-              <div className="flex flex-col gap-2 px-2">
-                <CommandBreadcrumbs />
-                <CommandSearch />
-              </div>
-              <hr className="relative -left-2 my-1 w-[calc(100%+16px)]" />
-              <CommandMenu />
+            <motion.div transition={{ duration: 0.2 }} animate={animationControls}>
+              <motion.div
+                ref={containerRef}
+                transition={{ duration: 0.2 }}
+                animate={{ scale: [1, 0.97, 1] }}
+                className="relative mx-auto max-w-xl overflow-hidden rounded-lg border border-zinc-300 bg-white p-2 shadow-2xl ring-1 ring-black/5 dark:divide-zinc-600 dark:border-zinc-900 dark:bg-black/90"
+              >
+                <div className="flex flex-col gap-2 px-2">
+                  <CommandBreadcrumbs />
+                  <CommandSearch />
+                </div>
+                <hr className="relative -left-2 my-1 w-[calc(100%+16px)]" />
+                <CommandMenu />
+              </motion.div>
             </motion.div>
           </motion.div>
         )}

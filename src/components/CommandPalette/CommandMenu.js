@@ -24,7 +24,7 @@ export default function CommandMenu() {
 
   const handleTabSelect = (option) => option.click();
 
-  const getTitleHeight = filterOptions.filter((item) => item.children.length > 0).length * 32;
+  const getTitleHeight = filterOptions.filter((item) => item.children.length > 0).length * 36;
   const getMenuHeight = getFlatOptions.length * 40;
   const getMenuContainerHeight = getTitleHeight + getMenuHeight;
 

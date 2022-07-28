@@ -5,12 +5,15 @@ import { useCommandPalette } from './CommandPaletteProvider';
 import { ChevronRightIcon } from '@/components/Icons';
 
 export default function CommandBreadcrumbs() {
-  const { breadcrumbs, setBreadcrumbs, setSearchTerm, setSelected } = useCommandPalette();
+  const { breadcrumbs, animationControls, setBreadcrumbs, setSearchTerm, setSelected } =
+    useCommandPalette();
 
   const handleSelect = () => {
     setBreadcrumbs(breadcrumbs.slice(0, 1));
     setSearchTerm('');
     setSelected(0);
+
+    animationControls.start({ scale: [1, 0.97, 1] });
   };
 
   return (

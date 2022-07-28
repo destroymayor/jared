@@ -3,18 +3,22 @@ import { useRouter } from 'next/router';
 
 import useSWR from 'swr';
 import { useTheme } from 'next-themes';
+import { useAnimationControls } from 'framer-motion';
 
 import { dashboard, projects, bookmarks, snippets, uses } from '@/data/routes';
 import contact from '@/data/contact';
+import { getCategoryFormatted } from '@/helpers/category.helper';
 
 import CommandPalette from './CommandPalette';
-import { ArrowRightIcon, SunIcon, MoonIcon, MonitorIcon } from '@/components/Icons';
+import { SunIcon, MoonIcon, MonitorIcon } from '@/components/Icons';
 
 export const CommandPaletteContext = createContext();
 
 export default function CommandPaletteProvider() {
   const router = useRouter();
   const { resolvedTheme, setTheme } = useTheme();
+
+  const animationControls = useAnimationControls();
 
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
@@ -36,9 +40,10 @@ export default function CommandPaletteProvider() {
   };
 
   const handleBreadcrumbs = (slug) => {
+    animationControls.start({ scale: [1, 0.97, 1] });
+    setSelected(0);
     setBreadcrumbs((prevState) => [...prevState, slug]);
     setSearchTerm('');
-    setSelected(0);
   };
 
   const options = [
@@ -103,16 +108,17 @@ export default function CommandPaletteProvider() {
     },
   ];
 
-  const snippetsOptions = [
-    {
-      title: null,
-      children: snippetsData?.map((snippet) => ({
-        title: snippet.title,
-        icon: <ArrowRightIcon />,
-        click: () => handleNavigation(snippet.slug),
-      })),
-    },
-  ];
+  const snippetsOptions =
+    [...new Set(snippetsData?.map((snippet) => snippet.category))].map((category) => ({
+      title: getCategoryFormatted(category)?.label,
+      children: snippetsData
+        ?.filter((item) => item.category === category)
+        ?.map((el) => ({
+          title: el.title,
+          icon: getCategoryFormatted(el.category)?.icon,
+          click: () => handleNavigation(el.slug),
+        })),
+    })) ?? [];
 
   const optionsType = {
     Home: options,
@@ -145,7 +151,15 @@ export default function CommandPaletteProvider() {
   );
 
   return (
-    <CommandPaletteContext.Provider value={{ options, filterOptions, breadcrumbs, ...value }}>
+    <CommandPaletteContext.Provider
+      value={{
+        options,
+        filterOptions,
+        breadcrumbs,
+        animationControls,
+        ...value,
+      }}
+    >
       <CommandPalette />
     </CommandPaletteContext.Provider>
   );

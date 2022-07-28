@@ -13,7 +13,6 @@ export default function CommandSearch() {
   return (
     <div className="flex items-center">
       <input
-        autoFocus
         placeholder="Search"
         type="text"
         value={searchTerm}
