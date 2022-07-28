@@ -54,8 +54,10 @@ export default function CommandMenu() {
                 index={getFlatOptions.findIndex((item) => item.title === child.title)}
                 onClick={() => handleTabSelect(child)}
               >
-                <span className="mr-2 min-h-[20px] min-w-[20px]">{child.icon}</span>
-                <span>{child.title}</span>
+                <div className="flex items-center gap-3 p-2 text-zinc-600 transition-colors duration-200 ease-in-out hover:text-zinc-600 dark:text-zinc-400 dark:hover:text-white">
+                  <span className="min-h-[20px] min-w-[20px]">{child.icon}</span>
+                  <span>{child.title}</span>
+                </div>
               </Tabs.Tab>
             ))}
           </Fragment>

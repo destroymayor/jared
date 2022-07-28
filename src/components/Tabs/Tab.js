@@ -28,7 +28,7 @@ export default function Tab(props) {
     <li
       ref={tabRef}
       id={tabItemIndex}
-      className="relative flex cursor-pointer items-center justify-start gap-1 p-2 text-zinc-600 transition-colors duration-200 ease-in-out hover:text-zinc-600 dark:text-zinc-400 dark:hover:text-white"
+      className="relative cursor-pointer"
       onMouseEnter={handleMouseEnter}
       onClick={onClick}
     >

@@ -30,15 +30,16 @@ export default function Tabs(props) {
   };
 
   const resetHighlight = () => {
-    if (shouldResetHighlight) {
-      setHighlightedTab(null);
-    }
+    // if (shouldResetHighlight) {
+    setHighlightedTab(null);
+    // }
   };
 
-  const highlightAnimate = tabBoundingBox && {
-    width: directionType?.[direction]?.width(tabBoundingBox),
-    transform: directionType?.[direction]?.transform(tabBoundingBox, wrapperBoundingBox),
-  };
+  const highlightAnimate = tabBoundingBox &&
+    wrapperBoundingBox && {
+      width: directionType?.[direction]?.width(tabBoundingBox),
+      transform: directionType?.[direction]?.transform(tabBoundingBox, wrapperBoundingBox),
+    };
 
   return (
     <TabsContext.Provider value={{ repositionHighlight, resetHighlight }}>
@@ -50,7 +51,7 @@ export default function Tabs(props) {
       >
         <motion.li
           ref={highlightRef}
-          transition={{ duration: isHoveredFromNull ? 0 : 0.2, delay: 0 }}
+          transition={{ duration: isHoveredFromNull ? 0 : 0.2 }}
           animate={{
             ...highlightAnimate,
             opacity: highlightedTab ? 1 : 0,
