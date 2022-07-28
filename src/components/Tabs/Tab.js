@@ -9,23 +9,25 @@ export default function Tab(props) {
   const { repositionHighlight } = useContext(TabsContext);
   const tabRef = useRef(null);
 
+  const tabItemIndex = index ? `tab-item-${index}` : name;
+
   const handleMouseEnter = (e) => {
     repositionHighlight(e.target.getBoundingClientRect(), name);
   };
 
   useEffect(() => {
     const tabNode = tabRef.current;
-    const getTabItem = document.getElementById(`tab-item-${index}`);
+    const getTabItem = document.getElementById(tabItemIndex);
     if (selected === index && tabNode) {
       getTabItem.scrollIntoView({ behavior: 'smooth', block: 'end' });
       repositionHighlight(tabNode.getBoundingClientRect(), name);
     }
-  }, [selected, index, name]);
+  }, [selected, index, name, tabItemIndex]);
 
   return (
     <li
       ref={tabRef}
-      id={`tab-item-${index}`}
+      id={tabItemIndex}
       className="relative flex cursor-pointer items-center justify-start gap-1 p-2 text-zinc-600 transition-colors duration-200 ease-in-out hover:text-zinc-600 dark:text-zinc-400 dark:hover:text-white"
       onMouseEnter={handleMouseEnter}
       onClick={onClick}
