@@ -18,21 +18,21 @@ import CommandMenu from './CommandMenu';
 export default function CommandPalette() {
   const containerRef = useRef(null);
 
-  const { animationControls, isOpen, setIsOpen, setSearchTerm, setSelectedIndex } =
-    useCommandPalette();
+  const { animationControls, isOpen, setIsOpen, resetCommandPaletteStatus } = useCommandPalette();
 
-  useOnClickOutside(containerRef, () => {
-    setIsOpen(false);
-    setSearchTerm('');
-    setSelectedIndex(0);
-  });
   useScrollDisabler(isOpen);
+  useOnClickOutside(containerRef, () => resetCommandPaletteStatus());
 
-  useKeyPress('Escape', () => {
-    if (isOpen) handleToggle();
-  });
+  useKeyPress('Escape', () => resetCommandPaletteStatus());
   useKeyPress('KeyK', (event) => {
-    if (event.metaKey || event.ctrlKey) handleToggle();
+    if (event.metaKey || event.ctrlKey) {
+      if (isOpen) {
+        resetCommandPaletteStatus();
+        return;
+      }
+
+      handleToggle();
+    }
   });
 
   const handleToggle = () => setIsOpen((prevState) => !prevState);
@@ -48,7 +48,7 @@ export default function CommandPalette() {
           <motion.div
             transition={{ duration: 0.2 }}
             exit={{ opacity: 0 }}
-            className="bg-zinc-20 fixed inset-0 z-[999] overflow-y-auto pt-[20vh] md:px-4"
+            className="bg-zinc-20 fixed inset-0 z-[999] overflow-y-auto pt-[10vh] md:px-4"
           >
             <Backdrop />
             <motion.div transition={{ duration: 0.2 }} animate={animationControls}>
@@ -56,9 +56,9 @@ export default function CommandPalette() {
                 ref={containerRef}
                 transition={{ duration: 0.2 }}
                 animate={{ scale: [1, 0.97, 1] }}
-                className="relative mx-auto max-w-xl overflow-hidden rounded-lg border border-zinc-300 bg-white p-2 shadow-2xl ring-1 ring-black/5 dark:divide-zinc-600 dark:border-zinc-900 dark:bg-black/90"
+                className="relative mx-auto max-w-xl overflow-hidden rounded-lg border border-zinc-300 bg-white p-2 shadow-2xl ring-1 ring-black/5 dark:divide-zinc-600 dark:border-black/90 dark:bg-black/90"
               >
-                <div className="flex flex-col gap-2 px-2">
+                <div className="flex flex-col gap-2 px-2 pt-2">
                   <CommandBreadcrumbs />
                   <CommandSearch />
                 </div>

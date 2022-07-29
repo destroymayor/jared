@@ -9,8 +9,6 @@ export default function Tab(props) {
   const { repositionHighlight } = useContext(TabsContext);
   const tabRef = useRef(null);
 
-  const tabItemIndex = index ? `tab-item-${index}` : name;
-
   const handleClick = (e) => {
     onClick?.(e);
   };
@@ -22,17 +20,15 @@ export default function Tab(props) {
 
   useEffect(() => {
     const tabNode = tabRef.current;
-    const getTabItem = document.getElementById(tabItemIndex);
     if (selected === index && tabNode) {
-      getTabItem.scrollIntoView({ behavior: 'smooth', block: 'end' });
       repositionHighlight(tabNode.getBoundingClientRect(), name);
     }
-  }, [selected, index, name, tabItemIndex]);
+  }, [selected, index, name]);
 
   return (
     <li
+      {...props}
       ref={tabRef}
-      id={tabItemIndex}
       className="relative cursor-pointer"
       onMouseEnter={handleMouseEnter}
       onClick={handleClick}

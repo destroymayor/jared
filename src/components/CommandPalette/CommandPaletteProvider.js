@@ -23,7 +23,7 @@ export default function CommandPaletteProvider() {
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [breadcrumbs, setBreadcrumbs] = useState(['Home']);
+  const [breadcrumbs, setBreadcrumbs] = useState([]);
 
   const { data: snippetsData } = useSWR(isOpen ? '/api/snippets' : null, {
     revalidateOnFocus: false,
@@ -33,15 +33,16 @@ export default function CommandPaletteProvider() {
     revalidateOnFocus: false,
   });
 
-  const handleResetStatus = () => {
+  const resetCommandPaletteStatus = () => {
     setIsOpen(false);
     setSearchTerm('');
     setSelectedIndex(0);
+    setBreadcrumbs([]);
   };
 
   const handleNavigation = (pathname) => {
     router.push(pathname);
-    handleResetStatus();
+    resetCommandPaletteStatus();
   };
 
   const handleBreadcrumbs = (slug) => {
@@ -54,7 +55,7 @@ export default function CommandPaletteProvider() {
 
   const handleThemeToggle = (theme) => {
     setTheme(theme);
-    handleResetStatus();
+    resetCommandPaletteStatus();
   };
 
   const options = [
@@ -142,11 +143,10 @@ export default function CommandPaletteProvider() {
   ];
 
   const optionsType = {
-    Home: options,
     [snippets.title]: snippetsOptions,
     [blog.title]: postsOptions,
   };
-  const getOptions = optionsType[breadcrumbs.at(-1)];
+  const getOptions = optionsType[breadcrumbs.at(-1)] ?? options;
 
   const filterOptions =
     searchTerm === ''
@@ -163,21 +163,22 @@ export default function CommandPaletteProvider() {
       isOpen,
       searchTerm,
       selectedIndex,
-      setIsOpen,
-      setSearchTerm,
-      setSelectedIndex,
-      setBreadcrumbs,
     }),
-    [isOpen, searchTerm, selectedIndex, setIsOpen, setSearchTerm, setSelectedIndex, setBreadcrumbs]
+    [isOpen, searchTerm, selectedIndex]
   );
 
   return (
     <CommandPaletteContext.Provider
       value={{
+        ...value,
         filterOptions,
         breadcrumbs,
         animationControls,
-        ...value,
+        setIsOpen,
+        setSearchTerm,
+        setSelectedIndex,
+        setBreadcrumbs,
+        resetCommandPaletteStatus,
       }}
     >
       <CommandPalette />

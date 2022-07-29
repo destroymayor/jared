@@ -11,16 +11,37 @@ export default function CommandMenu() {
   const getFlatOptions = filterOptions.map((item) => item.children).flat(1);
 
   useKeyPress('ArrowUp', () => {
-    if (selectedIndex > 0) setSelectedIndex((prevState) => prevState - 1);
+    if (selectedIndex > 0) {
+      setSelectedIndex((prevState) => {
+        handleCommandItemScrollIntoView(prevState - 1);
+
+        return prevState - 1;
+      });
+    }
   });
 
   useKeyPress('ArrowDown', () => {
-    if (getFlatOptions.length - 1 > selectedIndex) setSelectedIndex((prevState) => prevState + 1);
+    if (getFlatOptions.length - 1 > selectedIndex) {
+      setSelectedIndex((prevState) => {
+        handleCommandItemScrollIntoView(prevState + 1);
+
+        return prevState + 1;
+      });
+    }
   });
 
   useKeyPress('Enter', () => {
     getFlatOptions.find((item, index) => selectedIndex === index).click();
   });
+
+  const handleCommandItemScrollIntoView = (index) => {
+    const getCommandPaletteItemElement = document.getElementById(`command-palette-item-${index}`);
+
+    return getCommandPaletteItemElement.scrollIntoView({
+      behavior: 'smooth',
+      block: 'end',
+    });
+  };
 
   const handleTabSelect = (option) => option.click();
 
@@ -28,9 +49,10 @@ export default function CommandMenu() {
     setSelectedIndex(getFlatOptions.findIndex((item) => item.title === e.target.innerText));
   };
 
-  const getTitleHeight = filterOptions?.filter((item) => item?.children?.length > 0)?.length * 36;
+  const getCommandItemHeight =
+    filterOptions?.filter((item) => item?.children?.length > 0)?.length * 36;
   const getMenuHeight = getFlatOptions?.length * 40;
-  const getMenuContainerHeight = getTitleHeight + getMenuHeight;
+  const getMenuContainerHeight = getCommandItemHeight + getMenuHeight;
 
   if (getFlatOptions.length === 0) {
     return <p className="p-4 text-sm text-zinc-500">No results found.</p>;
@@ -50,21 +72,25 @@ export default function CommandMenu() {
               </span>
             )}
 
-            {option?.children?.map((child) => (
-              <Tabs.Tab
-                key={child.title}
-                name={child.title}
-                selected={selectedIndex}
-                index={getFlatOptions.findIndex((item) => item.title === child.title)}
-                onClick={() => handleTabSelect(child)}
-                onMouseEnter={handleMouseEnter}
-              >
-                <div className="flex items-center gap-3 p-2 text-zinc-600 transition-colors duration-200 ease-in-out hover:text-zinc-600 dark:text-zinc-400 dark:hover:text-white">
-                  <span className="min-h-[20px] min-w-[20px]">{child.icon}</span>
-                  <span>{child.title}</span>
-                </div>
-              </Tabs.Tab>
-            ))}
+            {option?.children?.map((child) => {
+              const getChildIndex = getFlatOptions.findIndex((item) => item.title === child.title);
+              return (
+                <Tabs.Tab
+                  id={`command-palette-item-${getChildIndex}`}
+                  key={child.title}
+                  name={child.title}
+                  selected={selectedIndex}
+                  index={getChildIndex}
+                  onClick={() => handleTabSelect(child)}
+                  onMouseEnter={handleMouseEnter}
+                >
+                  <div className="flex items-center gap-3 p-2 text-zinc-600 transition-colors duration-200 ease-in-out hover:text-zinc-600 dark:text-zinc-400 dark:hover:text-white">
+                    <span className="min-h-[20px] min-w-[20px]">{child.icon}</span>
+                    <span>{child.title}</span>
+                  </div>
+                </Tabs.Tab>
+              );
+            })}
           </Fragment>
         ))}
       </Tabs>
