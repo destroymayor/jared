@@ -13,7 +13,7 @@ export default function Tab(props) {
 
   const handleMouseEnter = (e) => {
     repositionHighlight(e.target.getBoundingClientRect(), name);
-    onMouseEnter(e);
+    onMouseEnter?.(e);
   };
 
   useEffect(() => {
