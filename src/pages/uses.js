@@ -6,7 +6,7 @@ import { getMdxFile } from '@/helpers/mdx.helpers';
 import Container from '@/components/Container';
 import Hero from '@/components/Hero';
 
-const title = `Uses`;
+const title = `My Gear`;
 const description = `A list of tech equipment I currently use.`;
 
 export default function Uses(props) {
