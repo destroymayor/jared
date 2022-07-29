@@ -1,11 +1,11 @@
 import { useCommandPalette } from './CommandPaletteProvider';
 
 export default function CommandSearch() {
-  const { searchTerm, setIsOpen, setSelected, setSearchTerm } = useCommandPalette();
+  const { searchTerm, setIsOpen, setSelectedIndex, setSearchTerm } = useCommandPalette();
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
-    setSelected(0);
+    setSelectedIndex(0);
   };
 
   const handleToggle = () => setIsOpen((prevState) => !prevState);
@@ -13,7 +13,7 @@ export default function CommandSearch() {
   return (
     <div className="flex items-center">
       <input
-        placeholder="Search"
+        placeholder="What do you need?"
         type="text"
         value={searchTerm}
         role="combobox"

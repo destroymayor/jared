@@ -10,7 +10,7 @@ import contact from '@/data/contact';
 import { getCategoryFormatted } from '@/helpers/category.helper';
 
 import CommandPalette from './CommandPalette';
-import { SunIcon, MoonIcon, MonitorIcon } from '@/components/Icons';
+import { Edit2Icon, SunIcon, MoonIcon, MonitorIcon } from '@/components/Icons';
 
 export const CommandPaletteContext = createContext();
 
@@ -22,28 +22,39 @@ export default function CommandPaletteProvider() {
 
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
-  const [selected, setSelected] = useState(0);
+  const [selectedIndex, setSelectedIndex] = useState(0);
   const [breadcrumbs, setBreadcrumbs] = useState(['Home']);
 
-  const { data: snippetsData } = useSWR('/api/snippets', {
+  const { data: snippetsData } = useSWR(isOpen ? '/api/snippets' : null, {
+    revalidateOnFocus: false,
+  });
+
+  const { data: postsData } = useSWR(isOpen ? '/api/posts' : null, {
     revalidateOnFocus: false,
   });
 
   const handleResetStatus = () => {
     setIsOpen(false);
     setSearchTerm('');
-    setSelected(0);
+    setSelectedIndex(0);
   };
 
   const handleNavigation = (pathname) => {
-    router.push(pathname).then(() => handleResetStatus());
+    router.push(pathname);
+    handleResetStatus();
   };
 
   const handleBreadcrumbs = (slug) => {
-    animationControls.start({ scale: [1, 0.97, 1] });
-    setSelected(0);
     setBreadcrumbs((prevState) => [...prevState, slug]);
+    setSelectedIndex(0);
     setSearchTerm('');
+
+    animationControls.start({ scale: [1, 0.97, 1] });
+  };
+
+  const handleThemeToggle = (theme) => {
+    setTheme(theme);
+    handleResetStatus();
   };
 
   const options = [
@@ -68,7 +79,7 @@ export default function CommandPaletteProvider() {
         {
           icon: blog.icon,
           title: blog.title,
-          click: () => handleNavigation(blog.pathname),
+          click: () => handleBreadcrumbs(blog.title),
         },
         {
           icon: uses.icon,
@@ -96,41 +107,46 @@ export default function CommandPaletteProvider() {
         {
           icon: resolvedTheme === 'dark' ? <SunIcon /> : <MoonIcon />,
           title: `Set theme to ${resolvedTheme === 'dark' ? 'Light' : 'Dark'}`,
-          click: () => {
-            setTheme(resolvedTheme === 'dark' ? 'light' : 'dark');
-            handleResetStatus();
-          },
+          click: () => handleThemeToggle(resolvedTheme === 'dark' ? 'light' : 'dark'),
         },
         {
           icon: <MonitorIcon />,
           title: `Set theme to System`,
-          click: () => {
-            setTheme('system');
-            handleResetStatus();
-          },
+          click: () => handleThemeToggle('system'),
         },
       ],
     },
   ];
 
-  const snippetsOptions =
-    [...new Set(snippetsData?.map((snippet) => snippet.category))].map((category) => ({
-      title: getCategoryFormatted(category)?.label,
-      children: snippetsData
-        ?.filter((item) => item.category === category)
-        ?.map((el) => ({
-          title: el.title,
-          icon: getCategoryFormatted(el.category)?.icon,
-          click: () => handleNavigation(el.slug),
-        })),
-    })) ?? [];
+  const filterSnippetsCategories = [...new Set(snippetsData?.map((snippet) => snippet.category))];
+  const snippetsOptions = filterSnippetsCategories.map((category) => ({
+    title: getCategoryFormatted(category)?.label,
+    children: snippetsData
+      ?.filter((item) => item.category === category)
+      ?.map((el) => ({
+        title: el.title,
+        icon: getCategoryFormatted(el.category)?.icon,
+        click: () => handleNavigation(el.slug),
+      })),
+  }));
+
+  const postsOptions = [
+    {
+      title: null,
+      children: postsData?.map((post) => ({
+        title: post.title,
+        icon: <Edit2Icon />,
+        click: () => handleNavigation(post.slug),
+      })),
+    },
+  ];
 
   const optionsType = {
     Home: options,
     [snippets.title]: snippetsOptions,
+    [blog.title]: postsOptions,
   };
-
-  const getOptions = optionsType[breadcrumbs.at(-1)] ?? options;
+  const getOptions = optionsType[breadcrumbs.at(-1)];
 
   const filterOptions =
     searchTerm === ''
@@ -146,19 +162,18 @@ export default function CommandPaletteProvider() {
     () => ({
       isOpen,
       searchTerm,
-      selected,
+      selectedIndex,
       setIsOpen,
       setSearchTerm,
-      setSelected,
+      setSelectedIndex,
       setBreadcrumbs,
     }),
-    [isOpen, searchTerm, selected, setIsOpen, setSearchTerm, setSelected, setBreadcrumbs]
+    [isOpen, searchTerm, selectedIndex, setIsOpen, setSearchTerm, setSelectedIndex, setBreadcrumbs]
   );
 
   return (
     <CommandPaletteContext.Provider
       value={{
-        options,
         filterOptions,
         breadcrumbs,
         animationControls,

@@ -6,26 +6,26 @@ import useKeyPress from '@/hooks/use-key-press.hook';
 import Tabs from '@/components/Tabs';
 
 export default function CommandMenu() {
-  const { filterOptions, selected, setSelected } = useCommandPalette();
+  const { filterOptions, selectedIndex, setSelectedIndex } = useCommandPalette();
 
   const getFlatOptions = filterOptions.map((item) => item.children).flat(1);
 
   useKeyPress('ArrowUp', () => {
-    if (selected > 0) setSelected((prevState) => prevState - 1);
+    if (selectedIndex > 0) setSelectedIndex((prevState) => prevState - 1);
   });
 
   useKeyPress('ArrowDown', () => {
-    if (getFlatOptions.length - 1 > selected) setSelected((prevState) => prevState + 1);
+    if (getFlatOptions.length - 1 > selectedIndex) setSelectedIndex((prevState) => prevState + 1);
   });
 
   useKeyPress('Enter', () => {
-    getFlatOptions.find((item, index) => selected === index).click();
+    getFlatOptions.find((item, index) => selectedIndex === index).click();
   });
 
   const handleTabSelect = (option) => option.click();
 
   const handleMouseEnter = (e) => {
-    setSelected(getFlatOptions.findIndex((item) => item.title === e.target.innerText));
+    setSelectedIndex(getFlatOptions.findIndex((item) => item.title === e.target.innerText));
   };
 
   const getTitleHeight = filterOptions.filter((item) => item.children.length > 0).length * 36;
@@ -54,7 +54,7 @@ export default function CommandMenu() {
               <Tabs.Tab
                 key={child.title}
                 name={child.title}
-                selected={selected}
+                selected={selectedIndex}
                 index={getFlatOptions.findIndex((item) => item.title === child.title)}
                 onClick={() => handleTabSelect(child)}
                 onMouseEnter={handleMouseEnter}

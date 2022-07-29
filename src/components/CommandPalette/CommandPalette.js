@@ -18,12 +18,13 @@ import CommandMenu from './CommandMenu';
 export default function CommandPalette() {
   const containerRef = useRef(null);
 
-  const { animationControls, isOpen, setIsOpen, setSearchTerm, setSelected } = useCommandPalette();
+  const { animationControls, isOpen, setIsOpen, setSearchTerm, setSelectedIndex } =
+    useCommandPalette();
 
   useOnClickOutside(containerRef, () => {
     setIsOpen(false);
     setSearchTerm('');
-    setSelected(0);
+    setSelectedIndex(0);
   });
   useScrollDisabler(isOpen);
 
