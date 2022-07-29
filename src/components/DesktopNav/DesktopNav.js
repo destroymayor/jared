@@ -3,26 +3,20 @@ import { dashboard, projects, snippets, uses } from '@/data/routes';
 
 import clsx from 'clsx';
 import Tabs from '@/components/Tabs';
+import Link from '@/components/Link';
 
 export default function DesktopNav() {
   const router = useRouter();
 
   const routes = [dashboard, projects, snippets, uses];
 
-  const handleNavigation = (pathname) => {
-    router.push(pathname);
-  };
-
   return (
     <div className="hidden h-10 items-center md:flex">
       <Tabs shouldResetHighlight>
         {routes.map((tab) => (
-          <Tabs.Tab
-            key={tab.pathname}
-            name={tab.title}
-            onClick={() => handleNavigation(tab.pathname)}
-          >
-            <div
+          <Tabs.Tab key={tab.pathname} name={tab.title}>
+            <Link
+              href={tab.pathname}
               className={clsx(
                 'flex items-center p-2',
                 tab.pathname === router.pathname
@@ -31,7 +25,7 @@ export default function DesktopNav() {
               )}
             >
               {tab.title}
-            </div>
+            </Link>
           </Tabs.Tab>
         ))}
       </Tabs>

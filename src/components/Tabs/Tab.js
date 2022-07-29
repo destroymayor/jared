@@ -11,6 +11,10 @@ export default function Tab(props) {
 
   const tabItemIndex = index ? `tab-item-${index}` : name;
 
+  const handleClick = (e) => {
+    onClick?.(e);
+  };
+
   const handleMouseEnter = (e) => {
     repositionHighlight(e.target.getBoundingClientRect(), name);
     onMouseEnter?.(e);
@@ -31,7 +35,7 @@ export default function Tab(props) {
       id={tabItemIndex}
       className="relative cursor-pointer"
       onMouseEnter={handleMouseEnter}
-      onClick={onClick}
+      onClick={handleClick}
     >
       {children}
     </li>
