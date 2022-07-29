@@ -28,8 +28,8 @@ export default function CommandMenu() {
     setSelectedIndex(getFlatOptions.findIndex((item) => item.title === e.target.innerText));
   };
 
-  const getTitleHeight = filterOptions.filter((item) => item.children.length > 0).length * 36;
-  const getMenuHeight = getFlatOptions.length * 40;
+  const getTitleHeight = filterOptions?.filter((item) => item?.children?.length > 0)?.length * 36;
+  const getMenuHeight = getFlatOptions?.length * 40;
   const getMenuContainerHeight = getTitleHeight + getMenuHeight;
 
   if (getFlatOptions.length === 0) {
@@ -44,13 +44,13 @@ export default function CommandMenu() {
       <Tabs direction="vertical">
         {filterOptions.map((option) => (
           <Fragment key={option.title}>
-            {option.children.length > 0 && option.title && (
+            {option?.children?.length > 0 && option?.title && (
               <span className="relative ml-2 flex h-7 items-center text-xs text-zinc-400">
                 {option.title}
               </span>
             )}
 
-            {option.children.map((child) => (
+            {option?.children?.map((child) => (
               <Tabs.Tab
                 key={child.title}
                 name={child.title}
