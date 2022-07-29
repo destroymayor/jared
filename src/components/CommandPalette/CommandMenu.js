@@ -85,7 +85,7 @@ export default function CommandMenu() {
                   onMouseEnter={handleMouseEnter}
                 >
                   <div className="flex items-center gap-3 p-2 text-zinc-600 transition-colors duration-200 ease-in-out hover:text-zinc-600 dark:text-zinc-400 dark:hover:text-white">
-                    <span className="min-h-[20px] min-w-[20px]">{child.icon}</span>
+                    <span className="h-5 w-5">{child.icon}</span>
                     <span>{child.title}</span>
                   </div>
                 </Tabs.Tab>
