@@ -24,6 +24,10 @@ export default function CommandMenu() {
 
   const handleTabSelect = (option) => option.click();
 
+  const handleMouseEnter = (e) => {
+    setSelected(getFlatOptions.findIndex((item) => item.title === e.target.innerText));
+  };
+
   const getTitleHeight = filterOptions.filter((item) => item.children.length > 0).length * 36;
   const getMenuHeight = getFlatOptions.length * 40;
   const getMenuContainerHeight = getTitleHeight + getMenuHeight;
@@ -53,6 +57,7 @@ export default function CommandMenu() {
                 selected={selected}
                 index={getFlatOptions.findIndex((item) => item.title === child.title)}
                 onClick={() => handleTabSelect(child)}
+                onMouseEnter={handleMouseEnter}
               >
                 <div className="flex items-center gap-3 p-2 text-zinc-600 transition-colors duration-200 ease-in-out hover:text-zinc-600 dark:text-zinc-400 dark:hover:text-white">
                   <span className="min-h-[20px] min-w-[20px]">{child.icon}</span>

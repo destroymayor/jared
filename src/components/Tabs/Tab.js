@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { TabsContext } from './Tabs';
 
 export default function Tab(props) {
-  const { name, selected = 0, index, children, onClick } = props;
+  const { name, selected = 0, index, children, onClick, onMouseEnter } = props;
 
   const { repositionHighlight } = useContext(TabsContext);
   const tabRef = useRef(null);
@@ -13,6 +13,7 @@ export default function Tab(props) {
 
   const handleMouseEnter = (e) => {
     repositionHighlight(e.target.getBoundingClientRect(), name);
+    onMouseEnter(e);
   };
 
   useEffect(() => {

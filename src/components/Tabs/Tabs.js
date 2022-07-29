@@ -30,9 +30,9 @@ export default function Tabs(props) {
   };
 
   const resetHighlight = () => {
-    // if (shouldResetHighlight) {
-    setHighlightedTab(null);
-    // }
+    if (shouldResetHighlight) {
+      setHighlightedTab(null);
+    }
   };
 
   const highlightAnimate = tabBoundingBox &&
