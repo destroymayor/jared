@@ -8,7 +8,7 @@ import CommandPalette from '@/components/CommandPalette';
 
 export default function Header() {
   return (
-    <header className="flex w-11/12 items-center justify-between py-10 sm:max-w-[686px]">
+    <header className="flex w-full max-w-2xl items-center justify-between px-2 py-10 md:px-0">
       <div className="flex items-center gap-4">
         <Link href="/" className="">
           <Image priority src={avatar} alt="Jared" width={40} height={40} />

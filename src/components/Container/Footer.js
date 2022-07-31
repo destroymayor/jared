@@ -4,7 +4,7 @@ import { GithubOutlineIcon } from '@/components/Icons';
 
 export default function Footer() {
   return (
-    <footer className="mt-12 flex w-11/12 flex-col gap-6 border-t border-dashed border-zinc-300 py-6 dark:border-zinc-700 sm:max-w-[686px]">
+    <footer className="mt-12 flex w-full max-w-2xl flex-col gap-6 border-t border-dashed border-zinc-300 py-6 dark:border-zinc-700">
       <NowPlaying />
 
       <div className="flex flex-col items-start gap-2 dark:text-zinc-400 sm:flex-row sm:items-center sm:justify-between">

@@ -22,18 +22,19 @@ export default function HomePage() {
       </div>
 
       <div className="flex flex-[2] flex-col items-center gap-3 md:items-start">
-        <h1 className="bg-gradient-to-r from-sky-600 via-sky-500 to-sky-500 bg-clip-text text-4xl font-extrabold text-transparent dark:from-sky-700 dark:via-sky-600 dark:to-sky-500 md:text-5xl">
+        <h1 className="bg-gradient-to-r from-sky-600 via-sky-500 to-sky-500 bg-clip-text text-4xl font-extrabold text-transparent dark:from-sky-700 dark:via-sky-600 dark:to-sky-500 md:text-4xl">
           Jared
         </h1>
         <p className="text-zinc-700 dark:text-zinc-400">Front-End Developer</p>
-        <hr className="w-24 border border-zinc-300 dark:border-zinc-700" />
 
-        <p className="text-center leading-7 text-zinc-700 dark:text-zinc-400 md:text-left">
+        <hr className="w-28 border border-zinc-300 dark:border-zinc-700" />
+
+        <p className="text-center text-sm leading-7 text-zinc-700 dark:text-zinc-400 md:text-left">
           I&#39;m <b>Jared</b>, a Front-end Developer working with <b>React</b> and <b>Next.js</b>{' '}
           who enjoys building great quality and great user experience products.
         </p>
 
-        <div className="flex flex-col items-center gap-2 text-zinc-700 dark:text-zinc-400 md:items-start">
+        <div className="flex flex-col items-center gap-2 text-sm text-zinc-700 dark:text-zinc-400 md:items-start">
           <p className="text-center leading-7 md:text-left">{`A few technologies I've been working with recently:`}</p>
 
           <ul className="flex flex-wrap justify-center gap-2 md:justify-start">
