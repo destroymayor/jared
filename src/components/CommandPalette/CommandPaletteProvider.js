@@ -7,7 +7,7 @@ import { useAnimationControls } from 'framer-motion';
 
 import { dashboard, projects, bookmarks, snippets, blog, uses } from '@/data/routes';
 import contact from '@/data/contact';
-import { getCategoryFormatted } from '@/helpers/category.helper';
+import { getCategoryFormatted, SNIPPET_CATEGORIES } from '@/helpers/category.helper';
 
 import CommandPalette from './CommandPalette';
 import { Edit2Icon, SunIcon, MoonIcon, MonitorIcon } from '@/components/Icons';
@@ -119,7 +119,7 @@ export default function CommandPaletteProvider() {
     },
   ];
 
-  const filterSnippetsCategories = [...new Set(snippetsData?.map((snippet) => snippet.category))];
+  const filterSnippetsCategories = SNIPPET_CATEGORIES.map((category) => category.slug);
   const snippetsOptions = filterSnippetsCategories.map((category) => ({
     title: getCategoryFormatted(category)?.label,
     children: snippetsData
