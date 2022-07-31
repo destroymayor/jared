@@ -1,71 +1,108 @@
-import { getCategoryFormatted } from '@/helpers/category.helper';
+import { useState } from 'react';
+
+import { getCategoryFormatted, SNIPPET_CATEGORIES } from '@/helpers/category.helper';
 import { getAllMdxFolder } from '@/helpers/mdx.helpers';
 
 import Container from '@/components/Container';
 import Hero from '@/components/Hero';
 import Link from '@/components/Link';
+import Tag from '@/components/Tag';
 
 const title = `Snippets`;
 const description = `Collection of useful code snippets.`;
 
+const snippetCategories = SNIPPET_CATEGORIES;
+
 export default function Snippets(props) {
   const { snippets = [] } = props;
 
-  const getCategories = [...new Set(snippets.map((item) => item.category))];
+  const [filterCategories, setFilterCategories] = useState([]);
+
+  const handleFilter = (slug) => {
+    if (filterCategories.includes(slug)) {
+      setFilterCategories((prevState) => prevState.filter((item) => item !== slug));
+      return;
+    }
+
+    setFilterCategories((prevState) => [...prevState, slug]);
+  };
+
+  const getCategories = SNIPPET_CATEGORIES.map((category) => category.slug);
   const filterSnippets = getCategories.map((item) => ({
     category: item,
+    selected: filterCategories.includes(item),
     snippets: snippets.filter((el) => el.category === item),
   }));
 
   return (
-    <ul className="flex flex-col gap-10">
-      {filterSnippets.map((item) => {
-        const getCategory = getCategoryFormatted(item.category)?.label;
+    <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-3">
+        <span className="text-xl text-sky-700 dark:text-sky-600">Categories</span>
+        <ul className="flex flex-wrap items-center gap-2">
+          {snippetCategories.map((category) => (
+            <li
+              key={category.slug}
+              onClick={() => handleFilter(category.slug)}
+              className="cursor-pointer"
+            >
+              <Tag
+                type={filterCategories.includes(category.slug) ? 'primary' : 'default'}
+                label={category.label}
+              />
+            </li>
+          ))}
+        </ul>
+      </div>
 
-        return (
-          <li key={item.category}>
-            <div className="relative flex flex-col gap-2">
-              <h2 className="bg-gradient-to-r from-sky-600 to-green-600 bg-clip-text py-2 text-xl font-extrabold text-transparent">
-                {getCategory}
-              </h2>
+      <ul className="flex flex-col gap-10">
+        {filterSnippets.map((item) => {
+          const getCategory = getCategoryFormatted(item.category)?.label;
 
-              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                {item.snippets.map((snippet) => {
-                  const { title, description, category, slug, date } = snippet;
+          if (!item.selected && filterCategories.length > 0) return null;
 
-                  const languageIcon = getCategoryFormatted(category)?.icon;
-                  const formatDate = new Intl.DateTimeFormat('en', {
-                    year: 'numeric',
-                    month: 'short',
-                    day: 'numeric',
-                  })?.format(new Date(date));
+          return (
+            <li key={item.category}>
+              <div className="relative flex flex-col gap-2">
+                <h2 className="py-2 text-xl font-extrabold">{getCategory}</h2>
 
-                  return (
-                    <Link href={slug} key={title + category}>
-                      <div className="flex h-full cursor-pointer gap-6 rounded-md border border-zinc-100 bg-zinc-100 p-4 shadow-md transition-all duration-150 ease-out dark:border-zinc-900 dark:bg-zinc-900 md:hover:scale-[1.05] md:dark:hover:border-zinc-600">
-                        <div className="flex flex-1 flex-col justify-between gap-6">
-                          <div className="flex flex-col gap-2">
-                            <h3 className="text-lg font-bold">{title}</h3>
-                            <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                              {description}
-                            </p>
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                  {item.snippets.map((snippet) => {
+                    const { title, description, category, slug, date } = snippet;
+
+                    const languageIcon = getCategoryFormatted(category)?.icon;
+                    const formatDate = new Intl.DateTimeFormat('en', {
+                      year: 'numeric',
+                      month: 'short',
+                      day: 'numeric',
+                    })?.format(new Date(date));
+
+                    return (
+                      <Link href={slug} key={title + category}>
+                        <div className="flex h-full cursor-pointer gap-6 rounded-md border border-zinc-100 bg-zinc-100 p-4 shadow-md transition-all duration-150 ease-out dark:border-zinc-900 dark:bg-zinc-900 md:hover:scale-[1.05] md:dark:hover:border-zinc-600">
+                          <div className="flex flex-1 flex-col justify-between gap-6">
+                            <div className="flex flex-col gap-2">
+                              <h3 className="text-lg font-bold">{title}</h3>
+                              <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                                {description}
+                              </p>
+                            </div>
+                            <span className="text-sm italic tracking-tighter text-zinc-600 dark:text-zinc-400">
+                              <span className="pr-2">Last Updated:</span>
+                              {formatDate}
+                            </span>
                           </div>
-                          <span className="text-sm italic tracking-tighter text-zinc-600 dark:text-zinc-400">
-                            <span className="pr-2">Last Updated:</span>
-                            {formatDate}
-                          </span>
+                          <div className="h-8 w-8 pt-2">{languageIcon}</div>
                         </div>
-                        <div className="h-8 w-8 pt-2">{languageIcon}</div>
-                      </div>
-                    </Link>
-                  );
-                })}
+                      </Link>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
-          </li>
-        );
-      })}
-    </ul>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
   );
 }
 
