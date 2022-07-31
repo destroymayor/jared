@@ -10,7 +10,7 @@ export default function Container(props) {
   const router = useRouter();
 
   return (
-    <div className="flex flex-col items-center px-4 sm:px-8">
+    <div className="flex h-screen flex-col items-center px-4 sm:px-8">
       <SEO title={customMeta?.title} description={customMeta?.description} />
 
       <Header />
