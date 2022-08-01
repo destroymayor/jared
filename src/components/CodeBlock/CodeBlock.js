@@ -23,7 +23,7 @@ export default function CodeBlock({ children, className }) {
   return (
     <Highlight {...defaultProps} code={children} theme={codeBlockTheme} language={language}>
       {({ tokens, getLineProps, getTokenProps }) => (
-        <div className="relative mx-[calc(100vw-104vw)] my-14 flex flex-col items-start border border-zinc-100 bg-zinc-100 px-2 dark:border-zinc-800 dark:bg-zinc-800 sm:rounded-xl md:mx-0">
+        <div className="relative -mx-4 my-14 flex flex-col items-start border border-zinc-100 bg-zinc-100 px-2 dark:border-zinc-800 dark:bg-zinc-800 sm:mx-[calc(100vw-103vw)] sm:rounded-xl md:mx-0">
           <span className="absolute -top-[33px] right-10 rounded-t-lg border-b border-b-zinc-100 bg-zinc-100 px-4 py-1 font-bold text-zinc-700 dark:border-zinc-800 dark:bg-zinc-800 dark:text-zinc-400">
             {language?.toUpperCase() ?? 'unknown'}
           </span>
