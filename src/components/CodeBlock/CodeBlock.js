@@ -3,15 +3,14 @@ import { useRef } from 'react';
 import { useTheme } from 'next-themes';
 
 import Highlight, { defaultProps } from 'prism-react-renderer';
-import vsLight from 'prism-react-renderer/themes/vsLight';
-import vsDark from 'prism-react-renderer/themes/vsDark';
+import githubTheme from 'prism-react-renderer/themes/github';
+import oceanicNextTheme from 'prism-react-renderer/themes/vsDark';
 
 export default function CodeBlock({ children, className }) {
   const textInput = useRef(null);
-  const { theme } = useTheme();
-
+  const { resolvedTheme } = useTheme();
   const language = className?.replace(/language-/, '');
-  const codeBlockTheme = theme === 'light' ? vsLight : vsDark;
+  const codeBlockTheme = resolvedTheme === 'light' ? githubTheme : oceanicNextTheme;
 
   if (!language)
     return (

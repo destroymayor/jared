@@ -1,19 +1,20 @@
 import { CSSIcon, JavaScriptIcon, ReactWhiteIcon, GitIcon } from '@/components/Icons';
 
 export const SNIPPET_CATEGORIES = [
-  { slug: 'css', label: 'CSS', icon: <CSSIcon /> },
-  { slug: 'javascript', label: 'JavaScript', icon: <JavaScriptIcon /> },
-  { slug: 'react-hook', label: 'React Hook', icon: <ReactWhiteIcon className="text-sky-500" /> },
+  { label: 'CSS', slug: 'css', icon: <CSSIcon /> },
+  { label: 'JavaScript', slug: 'javascript', icon: <JavaScriptIcon /> },
+  { label: 'React Hook', slug: 'react-hook', icon: <ReactWhiteIcon className="text-sky-500" /> },
   {
-    slug: 'react-component',
     label: 'React Component',
+    slug: 'react-component',
     icon: <ReactWhiteIcon className="text-sky-500" />,
   },
-  { slug: 'git', label: 'Git', icon: <GitIcon className="text-orange-600" /> },
+  { label: 'Git', slug: 'git', icon: <GitIcon className="text-orange-600" /> },
 ];
 
 export const getCategoryFormatted = (categorySlug) => {
-  const category = SNIPPET_CATEGORIES.find((category) => category.slug === categorySlug);
+  const ALL_CATS = [...SNIPPET_CATEGORIES];
+  const category = ALL_CATS.find((category) => category.slug === categorySlug);
 
   return category;
 };
