@@ -19,7 +19,7 @@ export default function CommandBreadcrumbs() {
   const data = ['Home', ...breadcrumbs];
 
   return (
-    <div className="flex items-center gap-1 pl-1">
+    <div className="flex items-center gap-1">
       {data.map((item, index, { length, lastIndex = length - 1 }) => (
         <Fragment key={item}>
           <button

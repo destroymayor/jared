@@ -12,7 +12,7 @@ export default function CommandSearch() {
   const handleClose = () => resetCommandPaletteStatus();
 
   return (
-    <div className="flex items-center py-1">
+    <div className="flex items-center">
       <input
         placeholder="Search or jump to..."
         type="text"

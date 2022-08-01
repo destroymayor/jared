@@ -37,6 +37,7 @@ export default function Tabs(props) {
 
   const highlightAnimate = tabBoundingBox &&
     wrapperBoundingBox && {
+      height: tabBoundingBox?.height,
       width: directionType?.[direction]?.width(tabBoundingBox),
       transform: directionType?.[direction]?.transform(tabBoundingBox, wrapperBoundingBox),
     };
@@ -58,7 +59,7 @@ export default function Tabs(props) {
             transitionDuration: isHoveredFromNull ? 0 : '20ms',
             transitionProperty: 'width transform opacity',
           }}
-          className="absolute top-0 left-0 h-10 rounded-md bg-zinc-200 dark:bg-zinc-800/60"
+          className="absolute top-0 left-0 rounded-md bg-zinc-200 dark:bg-zinc-800/60"
         />
 
         {children}

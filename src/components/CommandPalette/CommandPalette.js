@@ -58,11 +58,11 @@ export default function CommandPalette() {
                 animate={{ scale: [1, 0.97, 1] }}
                 className="relative mx-auto max-w-xl overflow-hidden rounded-lg border border-zinc-300 bg-white p-2 shadow-2xl ring-1 ring-black/5 dark:divide-zinc-600 dark:border-black/90 dark:bg-black/90"
               >
-                <div className="flex flex-col gap-2 px-2 pt-2">
+                <div className="flex flex-col gap-3 px-2 pt-1 pb-3">
                   <CommandBreadcrumbs />
                   <CommandSearch />
                 </div>
-                <hr className="relative -left-2 my-1 w-[calc(100%+16px)]" />
+                <duv className="relative -left-2 block h-[1px] w-[calc(100%+16px)] bg-zinc-200 dark:bg-zinc-800" />
                 <CommandMenu />
               </motion.div>
             </motion.div>
