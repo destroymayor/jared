@@ -37,7 +37,7 @@ export default function Snippets(props) {
   return (
     <div className="flex flex-col gap-6">
       <div className="flex flex-col gap-3">
-        <span className="text-xl text-sky-700 dark:text-sky-600">Categories</span>
+        <span className="text-xl text-zinc-600 dark:text-zinc-400">Categories</span>
         <ul className="flex flex-wrap items-center gap-2">
           {snippetCategories.map((category) => (
             <li

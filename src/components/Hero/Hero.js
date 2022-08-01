@@ -5,7 +5,7 @@ export default function Hero(props) {
 
   return (
     <div className="pt-2 md:pt-8">
-      <h1 className="bg-gradient-to-r from-sky-600 to-green-600 bg-clip-text py-2 text-4xl font-extrabold text-transparent">
+      <h1 className="bg-gradient-to-r from-sky-600 via-sky-500 to-sky-500 bg-clip-text py-2 text-4xl font-extrabold text-transparent">
         {title}
       </h1>
       <p className="pt-2 dark:text-zinc-400">{description}</p>
