@@ -1,24 +1,34 @@
-import Script from 'next/script';
+import { useEffect } from 'react';
+
+import { useRouter } from 'next/router';
 
 export default function Giscus() {
-  return (
-    <div className="giscus">
-      <Script
-        src="https://giscus.app/client.js"
-        data-repo="destroymayor/guestbook"
-        data-repo-id="R_kgDOHwPSeA"
-        data-category="General"
-        data-category-id="DIC_kwDOHwPSeM4CQkUo"
-        data-mapping="title"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="top"
-        data-theme="transparent_dark"
-        data-lang="en"
-        crossOrigin="anonymous"
-        async
-      ></Script>
-    </div>
-  );
+  const router = useRouter();
+
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://giscus.app/client.js';
+    script.async = true;
+    script.crossOrigin = 'anonymous';
+
+    script.setAttribute('data-repo', 'destroymayor/guestbook');
+    script.setAttribute('data-repo-id', 'R_kgDOHwPSeA');
+    script.setAttribute('data-category', 'General');
+    script.setAttribute('data-category-id', 'DIC_kwDOHwPSeM4CQkUo');
+    script.setAttribute('data-mapping', 'title');
+    script.setAttribute('data-strict', '0');
+    script.setAttribute('data-reactions-enabled', '1');
+    script.setAttribute('data-emit-metadata', '0');
+    script.setAttribute('data-input-position', 'top');
+    script.setAttribute('data-theme', 'transparent_dark');
+    script.setAttribute('data-lang', 'en');
+
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, [router]);
+
+  return <div className="giscus"></div>;
 }
