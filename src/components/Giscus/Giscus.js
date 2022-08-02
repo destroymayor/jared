@@ -35,5 +35,5 @@ export default function Giscus() {
     };
   }, [router, theme]);
 
-  return <div className="giscus"></div>;
+  return <div className="giscus min-h-[600px]"></div>;
 }
