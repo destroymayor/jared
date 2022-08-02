@@ -1,9 +1,14 @@
 import { useEffect } from 'react';
 
 import { useRouter } from 'next/router';
+import { useTheme } from 'next-themes';
 
 export default function Giscus() {
   const router = useRouter();
+
+  const { resolvedTheme } = useTheme();
+
+  const theme = resolvedTheme === 'dark' ? 'transparent_dark' : 'light';
 
   useEffect(() => {
     const script = document.createElement('script');
@@ -20,7 +25,7 @@ export default function Giscus() {
     script.setAttribute('data-reactions-enabled', '1');
     script.setAttribute('data-emit-metadata', '0');
     script.setAttribute('data-input-position', 'top');
-    script.setAttribute('data-theme', 'transparent_dark');
+    script.setAttribute('data-theme', theme);
     script.setAttribute('data-lang', 'en');
 
     document.body.appendChild(script);
@@ -28,7 +33,7 @@ export default function Giscus() {
     return () => {
       document.body.removeChild(script);
     };
-  }, [router]);
+  }, [router, theme]);
 
   return <div className="giscus"></div>;
 }
