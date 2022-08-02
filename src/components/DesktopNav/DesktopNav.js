@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { dashboard, projects, snippets, uses } from '@/data/routes';
+import { dashboard, projects, snippets, guestbook } from '@/data/routes';
 
 import clsx from 'clsx';
 import Tabs from '@/components/Tabs';
@@ -8,7 +8,7 @@ import Link from '@/components/Link';
 export default function DesktopNav() {
   const router = useRouter();
 
-  const routes = [dashboard, projects, snippets, uses];
+  const routes = [dashboard, projects, snippets, guestbook];
 
   return (
     <div className="hidden h-10 items-center md:flex">

@@ -145,6 +145,12 @@ export const MailIcon = (props) => (
   </FeatherIcon>
 );
 
+export const MessageSquareIcon = (props) => (
+  <FeatherIcon {...props}>
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+  </FeatherIcon>
+);
+
 export const MenuIcon = (props) => (
   <FeatherIcon {...props}>
     <line x1="3" y1="12" x2="21" y2="12"></line>

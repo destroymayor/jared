@@ -3,6 +3,7 @@ import {
   CodePenIcon,
   BookmarksIcon,
   Edit3Icon,
+  MessageSquareIcon,
   ToolIcon,
   PackageIcon,
 } from '@/components/Icons';
@@ -17,6 +18,12 @@ export const dashboard = {
   title: 'Dashboard',
   pathname: '/dashboard',
   icon: <PieChartIcon />,
+};
+
+export const guestbook = {
+  title: 'Guestbook',
+  pathname: '/guestbook',
+  icon: <MessageSquareIcon />,
 };
 
 export const projects = {
@@ -43,6 +50,6 @@ export const uses = {
   icon: <ToolIcon />,
 };
 
-const data = [dashboard, projects, snippets, blog, uses, bookmarks];
+const data = [dashboard, projects, snippets, blog, guestbook, uses, bookmarks];
 
 export default data;
