@@ -1,10 +1,10 @@
 import {
   PieChartIcon,
   CodePenIcon,
+  CPUIcon,
   BookmarksIcon,
   Edit3Icon,
   MessageSquareIcon,
-  ToolIcon,
   PackageIcon,
 } from '@/components/Icons';
 
@@ -47,7 +47,7 @@ export const snippets = {
 export const uses = {
   title: 'Uses',
   pathname: '/uses',
-  icon: <ToolIcon />,
+  icon: <CPUIcon />,
 };
 
 const data = [dashboard, projects, snippets, blog, guestbook, uses, bookmarks];
