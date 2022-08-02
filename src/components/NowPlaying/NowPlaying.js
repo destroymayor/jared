@@ -17,35 +17,39 @@ export default function NowPlaying() {
   const album = data?.album;
   const albumImageUrl = data?.albumImageUrl;
 
-  return (
-    <div className="flex  items-center gap-3">
-      {isPlaying && albumImageUrl ? (
-        <Link href={songUrl} className="flex h-[60px] w-[60px]">
-          <Image className="rounded-md" alt={album} src={albumImageUrl} width={60} height={60} />
-        </Link>
-      ) : (
+  if (!isPlaying) {
+    return (
+      <div className="flex h-[60px] items-center gap-4">
         <SpotifySolidIcon className="h-7 w-7" />
-      )}
-
-      <div className="flex flex-col items-start justify-center">
-        {isPlaying ? (
-          <>
-            <PlayingBars />
-            <div className="flex w-52 flex-col truncate text-sm sm:w-auto">
-              <Link href={songUrl} className="hover:underline">
-                {songTitle}
-              </Link>
-              <span className="text-zinc-500 dark:text-zinc-400">{artist}</span>
-            </div>
-          </>
-        ) : (
-          <div className="flex items-center gap-2">
-            <span>Not Playing</span>
-            <span className="text-sm dark:text-zinc-400">-</span>
-            <span className="text-sm dark:text-zinc-400">Spotify</span>
-          </div>
-        )}
+        <div className="flex flex-col">
+          <span className="text-sm">Not Playing</span>
+          <span className="text-sm dark:text-zinc-400">Spotify</span>
+        </div>
       </div>
-    </div>
+    );
+  }
+
+  return (
+    <Link href={songUrl}>
+      <div className="flex  items-center gap-3">
+        {albumImageUrl && (
+          <Image
+            className="h-[60px] w-[60px] rounded-md"
+            alt={album}
+            src={albumImageUrl}
+            width={60}
+            height={60}
+          />
+        )}
+
+        <div className="flex flex-col items-start justify-center">
+          <PlayingBars />
+          <p className="w-64 truncate text-sm sm:w-3/4">{songTitle}</p>
+          <p className="w-64 truncate text-sm text-zinc-500 dark:text-zinc-400 sm:w-3/4">
+            {artist}
+          </p>
+        </div>
+      </div>
+    </Link>
   );
 }
