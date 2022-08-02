@@ -1,11 +1,8 @@
 import { useEffect } from 'react';
 
-import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
 
 export default function Giscus() {
-  const router = useRouter();
-
   const { resolvedTheme } = useTheme();
 
   const theme = resolvedTheme === 'dark' ? 'transparent_dark' : 'light';
@@ -21,9 +18,9 @@ export default function Giscus() {
     script.setAttribute('data-category', 'General');
     script.setAttribute('data-category-id', 'DIC_kwDOHwPSeM4CQkUo');
     script.setAttribute('data-mapping', 'title');
-    script.setAttribute('data-strict', '0');
-    script.setAttribute('data-reactions-enabled', '1');
-    script.setAttribute('data-emit-metadata', '0');
+    script.setAttribute('data-strict', 0);
+    script.setAttribute('data-reactions-enabled', 1);
+    script.setAttribute('data-emit-metadata', 0);
     script.setAttribute('data-input-position', 'top');
     script.setAttribute('data-theme', theme);
     script.setAttribute('data-lang', 'en');
@@ -33,7 +30,7 @@ export default function Giscus() {
     return () => {
       document.body.removeChild(script);
     };
-  }, [router, theme]);
+  }, [theme]);
 
   return <div className="giscus min-h-[600px]"></div>;
 }

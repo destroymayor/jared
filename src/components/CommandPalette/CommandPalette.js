@@ -62,7 +62,7 @@ export default function CommandPalette() {
                   <CommandBreadcrumbs />
                   <CommandSearch />
                 </div>
-                <duv className="relative -left-2 block h-[1px] w-[calc(100%+16px)] bg-zinc-200 dark:bg-zinc-800" />
+                <div className="relative -left-2 block h-[1px] w-[calc(100%+16px)] bg-zinc-200 dark:bg-zinc-800" />
                 <CommandMenu />
               </motion.div>
             </motion.div>
