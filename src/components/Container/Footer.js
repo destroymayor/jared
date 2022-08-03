@@ -15,7 +15,7 @@ export default function Footer() {
           <Link
             key={route.pathname}
             href={route.pathname}
-            className="text-zinc-500 transition-colors duration-300 ease-in-out hover:text-zinc-900 dark:text-zinc-500 dark:hover:text-zinc-300"
+            className="text-zinc-500 transition-colors duration-300 ease-in-out hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200"
           >
             {route.title}
           </Link>

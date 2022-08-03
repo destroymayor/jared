@@ -46,7 +46,6 @@ export default function Tabs(props) {
     <TabsContext.Provider value={{ repositionHighlight, resetHighlight }}>
       <ul
         ref={wrapperRef}
-        role="listbox"
         className={clsx('relative', directionType?.[direction]?.container, className)}
         onMouseLeave={resetHighlight}
       >
