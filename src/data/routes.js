@@ -1,12 +1,19 @@
 import {
-  PieChartIcon,
+  BookmarksIcon,
   CodePenIcon,
   CPUIcon,
-  BookmarksIcon,
   Edit3Icon,
+  HomeIcon,
   MessageSquareIcon,
   PackageIcon,
+  PieChartIcon,
 } from '@/components/Icons';
+
+export const home = {
+  title: 'Home',
+  pathname: '/',
+  icon: <HomeIcon />,
+};
 
 export const blog = {
   title: 'Blog',
