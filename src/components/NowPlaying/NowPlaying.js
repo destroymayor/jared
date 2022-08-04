@@ -19,7 +19,7 @@ export default function NowPlaying() {
 
   if (!isPlaying) {
     return (
-      <div className="flex h-[60px] items-center gap-4">
+      <div className="flex items-center gap-4">
         <SpotifySolidIcon className="h-7 w-7" />
         <div className="flex flex-col">
           <span className="text-sm">Not Playing</span>
