@@ -47,7 +47,7 @@ export default function CommandPalette() {
         {isOpen && (
           <motion.div
             transition={{ duration: 0.2 }}
-            exit={{ opacity: 0 }}
+            exit={{ opacity: 0, transition: { duration: 0.2 } }}
             className="bg-zinc-20 fixed inset-0 z-[999] overflow-y-auto pt-[10vh] md:px-4"
           >
             <Backdrop />
