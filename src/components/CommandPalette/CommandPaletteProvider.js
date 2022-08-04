@@ -1,4 +1,4 @@
-import { useState, useMemo, useContext, createContext } from 'react';
+import { useState, useContext, createContext } from 'react';
 import { useRouter } from 'next/router';
 
 import useSWR from 'swr';
@@ -6,11 +6,13 @@ import { useTheme } from 'next-themes';
 import { useAnimationControls } from 'framer-motion';
 
 import { dashboard, projects, bookmarks, snippets, blog, uses, guestbook } from '@/data/routes';
-import contact from '@/data/contact';
+import projectsData from '@/data/projects';
+import contactData from '@/data/contact';
+
 import { getCategoryFormatted, SNIPPET_CATEGORIES } from '@/helpers/category.helper';
 
 import CommandPalette from './CommandPalette';
-import { Edit2Icon, SunIcon, MoonIcon, MonitorIcon } from '@/components/Icons';
+import { Edit2Icon, SunIcon, MoonIcon, MonitorIcon, PackageIcon } from '@/components/Icons';
 
 export const CommandPaletteContext = createContext();
 
@@ -70,7 +72,7 @@ export default function CommandPaletteProvider() {
         {
           icon: projects.icon,
           title: projects.title,
-          click: () => handleNavigation(projects.pathname),
+          click: () => handleBreadcrumbs(projects.title),
         },
         {
           icon: snippets.icon,
@@ -101,7 +103,7 @@ export default function CommandPaletteProvider() {
     },
     {
       title: 'Contact',
-      children: contact.map((item) => ({
+      children: contactData.map((item) => ({
         icon: item.icon,
         title: item.label,
         click: () => window.open(item.link, '_blank'),
@@ -112,17 +114,31 @@ export default function CommandPaletteProvider() {
       children: [
         {
           icon: resolvedTheme === 'dark' ? <SunIcon /> : <MoonIcon />,
-          title: `Set theme to ${resolvedTheme === 'dark' ? 'Light' : 'Dark'}`,
+          title: `Change Theme to ${resolvedTheme === 'dark' ? 'Light' : 'Dark'}`,
           click: () => handleThemeToggle(resolvedTheme === 'dark' ? 'light' : 'dark'),
         },
         {
           icon: <MonitorIcon />,
-          title: `Set theme to System`,
+          title: `Change Theme to System`,
           click: () => handleThemeToggle('system'),
         },
       ],
     },
   ];
+
+  const filterProjectReleaseYear = [
+    ...new Set(projectsData.map((project) => project.release_year)),
+  ];
+  const projectsOptions = filterProjectReleaseYear.map((releaseYear) => ({
+    title: releaseYear,
+    children: projectsData
+      ?.filter((item) => item.release_year === releaseYear)
+      ?.map((el) => ({
+        title: el.title,
+        icon: <PackageIcon />,
+        click: () => window.open(el.links.repo, '_blank'),
+      })),
+  }));
 
   const filterSnippetsCategories = SNIPPET_CATEGORIES.map((category) => category.slug);
   const snippetsOptions = filterSnippetsCategories.map((category) => ({
@@ -148,6 +164,7 @@ export default function CommandPaletteProvider() {
   ];
 
   const optionsType = {
+    [projects.title]: projectsOptions,
     [snippets.title]: snippetsOptions,
     [blog.title]: postsOptions,
   };
@@ -163,19 +180,12 @@ export default function CommandPaletteProvider() {
           ),
         }));
 
-  const value = useMemo(
-    () => ({
-      isOpen,
-      searchTerm,
-      selectedIndex,
-    }),
-    [isOpen, searchTerm, selectedIndex]
-  );
-
   return (
     <CommandPaletteContext.Provider
       value={{
-        ...value,
+        isOpen,
+        searchTerm,
+        selectedIndex,
         filterOptions,
         breadcrumbs,
         animationControls,
