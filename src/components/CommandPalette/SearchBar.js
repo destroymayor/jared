@@ -1,6 +1,6 @@
-import { useCommandPalette } from './CommandPaletteProvider';
+import { useCommandPalette } from './Provider';
 
-export default function CommandSearch() {
+export default function SearchBar() {
   const { searchTerm, setSelectedIndex, setSearchTerm, resetCommandPaletteStatus } =
     useCommandPalette();
 

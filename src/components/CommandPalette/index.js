@@ -1,3 +1,3 @@
-import CommandPaletteProvider from './CommandPaletteProvider';
+import Provider from './Provider';
 
-export default CommandPaletteProvider;
+export default Provider;

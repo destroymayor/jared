@@ -12,11 +12,11 @@ import contactData from '@/data/contact';
 import { getCategoryFormatted, SNIPPET_CATEGORIES } from '@/helpers/category.helper';
 
 import CommandPalette from './CommandPalette';
-import { Edit2Icon, SunIcon, MoonIcon, MonitorIcon, PackageIcon } from '@/components/Icons';
+import { Edit2Icon, SunIcon, MoonIcon, MonitorIcon } from '@/components/Icons';
 
 export const CommandPaletteContext = createContext();
 
-export default function CommandPaletteProvider() {
+export default function Provider() {
   const router = useRouter();
   const { resolvedTheme, setTheme } = useTheme();
 
@@ -135,7 +135,7 @@ export default function CommandPaletteProvider() {
       ?.filter((item) => item.release_year === releaseYear)
       ?.map((el) => ({
         title: el.title,
-        icon: <PackageIcon />,
+        icon: el.builtWith,
         click: () => window.open(el.links.repo, '_blank'),
       })),
   }));

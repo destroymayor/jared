@@ -1,11 +1,11 @@
 import { Fragment } from 'react';
 
-import { useCommandPalette } from './CommandPaletteProvider';
+import { useCommandPalette } from './Provider';
 
 import useKeyPress from '@/hooks/use-key-press.hook';
 import Tabs from '@/components/Tabs';
 
-export default function CommandMenu() {
+export default function Menu() {
   const { filterOptions, selectedIndex, setSelectedIndex } = useCommandPalette();
 
   const getFlatOptions = filterOptions.map((item) => item.children).flat(1);

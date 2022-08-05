@@ -1,10 +1,10 @@
 import { Fragment } from 'react';
 
-import { useCommandPalette } from './CommandPaletteProvider';
+import { useCommandPalette } from './Provider';
 
 import { ChevronRightIcon } from '@/components/Icons';
 
-export default function CommandBreadcrumbs() {
+export default function Breadcrumbs() {
   const { breadcrumbs, animationControls, setBreadcrumbs, setSearchTerm, setSelectedIndex } =
     useCommandPalette();
 

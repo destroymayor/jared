@@ -4,16 +4,16 @@ import useKeyPress from '@/hooks/use-key-press.hook';
 import useOnClickOutside from '@/hooks/use-on-click-outside.hook';
 import useScrollDisabler from '@/hooks/use-scroll-disabler.hook';
 
-import { useCommandPalette } from './CommandPaletteProvider';
+import { useCommandPalette } from './Provider';
 
 import { AnimatePresence, motion } from 'framer-motion';
 import { CommandIcon } from '@/components/Icons';
 
 import Button from './Button';
 import Backdrop from './Backdrop';
-import CommandBreadcrumbs from './CommandBreadcrumbs';
-import CommandSearch from './CommandSearch';
-import CommandMenu from './CommandMenu';
+import Breadcrumbs from './Breadcrumbs';
+import SearchBar from './SearchBar';
+import Menu from './Menu';
 
 export default function CommandPalette() {
   const containerRef = useRef(null);
@@ -59,11 +59,11 @@ export default function CommandPalette() {
                 className="relative mx-auto max-w-xl overflow-hidden rounded-lg border border-zinc-300 bg-white p-2 shadow-2xl ring-1 ring-black/5 dark:divide-zinc-600 dark:border-black/90 dark:bg-black/90"
               >
                 <div className="flex flex-col gap-3 px-2 pt-1 pb-3">
-                  <CommandBreadcrumbs />
-                  <CommandSearch />
+                  <Breadcrumbs />
+                  <SearchBar />
                 </div>
                 <div className="relative -left-2 block h-[1px] w-[calc(100%+16px)] bg-zinc-200 dark:bg-zinc-800" />
-                <CommandMenu />
+                <Menu />
               </motion.div>
             </motion.div>
           </motion.div>
