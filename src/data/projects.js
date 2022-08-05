@@ -4,11 +4,14 @@ import movieAppImage from '@/public/images/projects/movie-app.webp';
 import memoryCardGameImage from '@/public/images/projects/memory-card-game.webp';
 import imageConverterImage from '@/public/images/projects/image-converter.webp';
 
+import { NextJSIcon } from '@/components/Icons';
+
 const data = [
   {
     image: unsplashGallery.src,
     title: 'Unsplash Gallery',
     description: 'A photos gallery app allows the user to search photos from Unsplash.com',
+    builtWith: <NextJSIcon />,
     tags: ['Next.js', 'Tailwind CSS', 'Unsplash API'],
     release_year: 2022,
     links: {
@@ -20,6 +23,7 @@ const data = [
     image: weatherApp.src,
     title: 'Weather App',
     description: 'A weather app that shows the current weather in your search.',
+    builtWith: <NextJSIcon />,
     tags: ['Next.js', 'Tailwind CSS', 'OpenWeatherMap API'],
     release_year: 2022,
     links: {
@@ -32,6 +36,7 @@ const data = [
     title: 'Movie App',
     description:
       'A movie app allows the user to search movies they want to watch from The Movie DB API.',
+    builtWith: <NextJSIcon />,
     tags: ['Next.js', 'Tailwind CSS', 'The Movie DB API'],
     release_year: 2021,
     links: {
@@ -43,6 +48,7 @@ const data = [
     image: memoryCardGameImage.src,
     title: 'Memory Card Game',
     description: 'Test your memory with this memory game.',
+    builtWith: <NextJSIcon />,
     tags: ['Next.js', 'Tailwind CSS'],
     release_year: 2021,
     links: {
@@ -54,6 +60,7 @@ const data = [
     image: imageConverterImage.src,
     title: 'Image Converter',
     description: 'A simple image convert tool',
+    builtWith: <NextJSIcon />,
     tags: ['Next.js', 'Tailwind CSS'],
     release_year: 2021,
     links: {
