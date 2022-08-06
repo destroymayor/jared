@@ -5,29 +5,21 @@ import Container from '@/components/Container';
 import FadeInContainer from '@/components/FadeInContainer';
 import Hero from '@/components/Hero';
 import Link from '@/components/Link';
+import Tag from '@/components/Tag';
 
-import clsx from 'clsx';
-import { GlobeIcon, GithubIcon } from '@/components/Icons';
+import { GlobeIcon, GithubOutlineIcon } from '@/components/Icons';
 
 const title = `Projects`;
 const description = `Internet thingies built with React, Next.js.`;
 export default function Projects() {
   return (
-    <div className="flex flex-col gap-8">
-      {projects.map((project, projectIndex) => {
-        const { title, description, release_year, image, links } = project;
-
-        const getReverseItem = projectIndex % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse';
+    <ul className="flex flex-col gap-10">
+      {projects.map((project) => {
+        const { tags, title, description, release_year, image, links } = project;
 
         return (
-          <div
-            key={title}
-            className={clsx(
-              'flex flex-col rounded-md py-2 shadow-lg dark:bg-zinc-800/20 md:px-2 md:py-4',
-              getReverseItem
-            )}
-          >
-            <FadeInContainer className="flex flex-[1.5] flex-col">
+          <li key={title}>
+            <FadeInContainer className="-mx-4 -my-3">
               <Image
                 className="rounded-md object-contain"
                 alt={title}
@@ -37,17 +29,23 @@ export default function Projects() {
               />
             </FadeInContainer>
 
-            <div className="flex flex-1 flex-col px-6 md:gap-2 md:py-2 md:px-4">
-              <div className="flex flex-row-reverse items-center justify-between gap-2 md:flex-col md:items-start">
+            <div className="px-4 flex flex-col">
+              <div className="flex flex-wrap justify-between gap-2">
+                <div className="flex flex-wrap items-center gap-2">
+                  {tags.map((tag) => (
+                    <Tag key={tag} label={tag} />
+                  ))}
+                </div>
                 <span className="text-zinc-600 dark:text-zinc-400">{release_year}</span>
-                <h2 className="text-xl font-semibold">{title}</h2>
               </div>
-              <p className="py-4 text-sm dark:text-zinc-400 md:py-2">{description}</p>
 
-              <div className="mt-auto mb-1 flex items-center gap-2 py-4 text-sm md:py-0">
+              <h2 className="text-xl font-semibold py-4">{title}</h2>
+              <p className="text-sm dark:text-zinc-400">{description}</p>
+
+              <div className="flex items-center gap-2 text-sm pt-2">
                 <Link
                   href={links.demo}
-                  className="flex items-center gap-2 rounded-md p-2 font-bold text-sky-700 hover:bg-sky-600/10 dark:text-sky-500"
+                  className="flex items-center gap-2 rounded-md p-2 font-bold hover:bg-sky-600/10 dark:text-zinc-400 dark:hover:text-zinc-100"
                 >
                   <GlobeIcon className="h-5 w-5" />
                   <span>Demo</span>
@@ -55,17 +53,17 @@ export default function Projects() {
 
                 <Link
                   href={links.repo}
-                  className="flex items-center gap-2 rounded-md p-2 font-bold text-sky-700 hover:bg-sky-600/10 dark:text-sky-500"
+                  className="flex items-center gap-2 rounded-md p-2 font-bold hover:bg-sky-600/10 dark:text-zinc-400 dark:hover:text-zinc-100"
                 >
-                  <GithubIcon className="h-5 w-5" />
+                  <GithubOutlineIcon className="h-5 w-5" />
                   <span>Repo</span>
                 </Link>
               </div>
             </div>
-          </div>
+          </li>
         );
       })}
-    </div>
+    </ul>
   );
 }
 
