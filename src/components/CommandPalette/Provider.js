@@ -129,28 +129,53 @@ export default function Provider() {
   const filterProjectReleaseYear = [
     ...new Set(projectsData.map((project) => project.release_year)),
   ];
-  const projectsOptions = filterProjectReleaseYear.map((releaseYear) => ({
-    title: releaseYear,
-    children: projectsData
-      ?.filter((item) => item.release_year === releaseYear)
-      ?.map((el) => ({
-        title: el.title,
-        icon: el.builtWith,
-        click: () => window.open(el.links.repo, '_blank'),
-      })),
-  }));
+  const projectsOptions = [
+    {
+      title: 'General',
+      children: [
+        {
+          title: `${projects.title} Overview`,
+          icon: projects.icon,
+          click: () => handleNavigation(projects.pathname),
+        },
+      ],
+    },
+    ...filterProjectReleaseYear.map((releaseYear) => ({
+      title: releaseYear,
+      children: projectsData
+        ?.filter((item) => item.release_year === releaseYear)
+        ?.map((el) => ({
+          title: el.title,
+          icon: el.builtWith,
+          click: () => window.open(el.links.repo, '_blank'),
+        })),
+    })),
+  ];
 
   const filterSnippetsCategories = SNIPPET_CATEGORIES.map((category) => category.slug);
-  const snippetsOptions = filterSnippetsCategories.map((category) => ({
-    title: getCategoryFormatted(category)?.label,
-    children: snippetsData
-      ?.filter((item) => item.category === category)
-      ?.map((el) => ({
-        title: el.title,
-        icon: getCategoryFormatted(el.category)?.icon,
-        click: () => handleNavigation(el.slug),
-      })),
-  }));
+  const snippetsOptions = [
+    {
+      title: 'General',
+      children: [
+        {
+          title: `${snippets.title} Overview`,
+          icon: snippets.icon,
+          click: () => handleNavigation(snippets.pathname),
+        },
+      ],
+    },
+    ,
+    ...filterSnippetsCategories.map((category) => ({
+      title: getCategoryFormatted(category)?.label,
+      children: snippetsData
+        ?.filter((item) => item.category === category)
+        ?.map((el) => ({
+          title: el.title,
+          icon: getCategoryFormatted(el.category)?.icon,
+          click: () => handleNavigation(el.slug),
+        })),
+    })),
+  ];
 
   const postsOptions = [
     {
