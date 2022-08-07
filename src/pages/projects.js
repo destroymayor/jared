@@ -19,7 +19,7 @@ export default function Projects() {
 
         return (
           <li key={title}>
-            <FadeInContainer className="-mx-4 -my-3">
+            <FadeInContainer className="-mx-4">
               <Image
                 className="rounded-md object-contain"
                 alt={title}
@@ -29,20 +29,21 @@ export default function Projects() {
               />
             </FadeInContainer>
 
-            <div className="px-4 flex flex-col">
-              <div className="flex flex-wrap justify-between gap-2">
+            <div className="sm:px-2 flex flex-col gap-2 sm:gap-4">
+              <div className="flex flex-wrap justify-between gap-4">
                 <div className="flex flex-wrap items-center gap-2">
                   {tags.map((tag) => (
                     <Tag key={tag} label={tag} />
                   ))}
                 </div>
+
                 <span className="text-zinc-600 dark:text-zinc-400">{release_year}</span>
               </div>
 
-              <h2 className="text-xl font-semibold py-4">{title}</h2>
+              <h2 className="text-xl font-semibold">{title}</h2>
               <p className="text-sm dark:text-zinc-400">{description}</p>
 
-              <div className="flex items-center gap-2 text-sm pt-2">
+              <div className="flex items-center gap-2 text-sm">
                 <Link
                   href={links.demo}
                   className="flex items-center gap-2 rounded-md p-2 font-bold hover:bg-sky-600/10 dark:text-zinc-400 dark:hover:text-zinc-100"
