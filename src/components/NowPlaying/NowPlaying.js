@@ -3,7 +3,7 @@ import Image from 'next/future/image';
 import useSWR from 'swr';
 
 import PlayingBars from '@/components/NowPlaying/PlayingBars';
-import Link from '@/components/Link';
+import ExternalLink from '@/components/ExternalLink';
 import { SpotifySolidIcon } from '@/components/Icons';
 
 export default function NowPlaying() {
@@ -30,7 +30,7 @@ export default function NowPlaying() {
   }
 
   return (
-    <Link href={songUrl}>
+    <ExternalLink href={songUrl}>
       <div className="flex  items-center gap-3">
         {albumImageUrl && (
           <Image
@@ -50,6 +50,6 @@ export default function NowPlaying() {
           </p>
         </div>
       </div>
-    </Link>
+    </ExternalLink>
   );
 }

@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 import clsx from 'clsx';
 
 export default function Overview(props) {
@@ -32,8 +30,3 @@ export default function Overview(props) {
     </ul>
   );
 }
-
-Overview.propTypes = {
-  loading: PropTypes.bool,
-  data: PropTypes.object,
-};

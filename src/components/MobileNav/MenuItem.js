@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 import { motion } from 'framer-motion';
 import clsx from 'clsx';
 
@@ -46,9 +44,3 @@ export default function MenuItem(props) {
     </motion.li>
   );
 }
-
-MenuItem.propTypes = {
-  children: PropTypes.node.isRequired,
-  onClick: PropTypes.func,
-  className: PropTypes.string,
-};

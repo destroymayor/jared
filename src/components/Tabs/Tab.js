@@ -1,5 +1,4 @@
 import { useEffect, useContext, useRef } from 'react';
-import PropTypes from 'prop-types';
 
 import { TabsContext } from './Tabs';
 
@@ -37,10 +36,3 @@ export default function Tab(props) {
     </li>
   );
 }
-
-Tab.propTypes = {
-  name: PropTypes.any,
-  selected: PropTypes.number,
-  index: PropTypes.number,
-  children: PropTypes.node,
-};

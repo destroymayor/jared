@@ -10,7 +10,6 @@ import Backdrop from '@/components/MobileNav/Backdrop';
 import MenuToggle from '@/components/MobileNav/MenuToggle';
 import Menu from '@/components/MobileNav/Menu';
 import MenuItem from '@/components/MobileNav/MenuItem';
-import ThemeToggle from '@/components/ThemeToggle';
 
 const variants = {
   open: { opacity: 1, visibility: 'visible' },
@@ -49,9 +48,6 @@ export default function MobileNav() {
                 {item.title}
               </MenuItem>
             ))}
-            <MenuItem className="pt-10">
-              <ThemeToggle />
-            </MenuItem>
           </Menu>
         </motion.nav>
       </InPortal>

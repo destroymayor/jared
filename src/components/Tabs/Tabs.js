@@ -1,5 +1,4 @@
 import { useState, useRef, createContext } from 'react';
-import PropTypes from 'prop-types';
 
 import { motion } from 'framer-motion';
 import clsx from 'clsx';
@@ -66,10 +65,3 @@ export default function Tabs(props) {
     </TabsContext.Provider>
   );
 }
-
-Tabs.propTypes = {
-  direction: PropTypes.oneOf([directionType.horizontal.type, directionType.vertical.type]),
-  shouldResetHighlight: PropTypes.bool,
-  className: PropTypes.string,
-  children: PropTypes.node.isRequired,
-};
