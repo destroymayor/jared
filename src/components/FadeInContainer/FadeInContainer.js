@@ -8,7 +8,7 @@ export default function FadeInContainer(props) {
   return (
     <motion.div
       {...props}
-      className={clsx('animate-fade-in', className)}
+      className={clsx('animate-revealing', className)}
       initial={{ opacity: 0 }}
       transition={{ delay: 0.5 }}
       animate={{ opacity: 1 }}
