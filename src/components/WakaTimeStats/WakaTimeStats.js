@@ -2,7 +2,7 @@ import Image from 'next/future/image';
 
 import useSWR from 'swr';
 
-import Link from '@/components/Link';
+import Link from '@/components/ExternalLink';
 import { WakaTimeIcon } from '@/components/Icons';
 import Overview from '@/components/WakaTimeStats/Overview';
 import ActiveList from '@/components/WakaTimeStats/ActiveList';

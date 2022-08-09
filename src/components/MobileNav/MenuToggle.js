@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 import { XIcon, MenuIcon } from '@/components/Icons';
 
 export default function MenuToggle(props) {
@@ -15,8 +13,3 @@ export default function MenuToggle(props) {
     </button>
   );
 }
-
-MenuToggle.propTypes = {
-  open: PropTypes.bool,
-  onClick: PropTypes.func,
-};

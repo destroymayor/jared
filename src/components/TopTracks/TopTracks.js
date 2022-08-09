@@ -2,7 +2,7 @@ import Image from 'next/future/image';
 
 import useSWR from 'swr';
 
-import Link from '@/components/Link';
+import ExternalLink from '@/components/ExternalLink';
 import { SpotifySolidIcon } from '@/components/Icons';
 
 export default function TopTracks() {
@@ -24,7 +24,7 @@ export default function TopTracks() {
         <ul>
           {data?.map((item, index) => (
             <li key={`${item.title} - ${item.artist}`}>
-              <Link href={item?.songUrl} className="flex items-center gap-2 py-2">
+              <ExternalLink href={item?.songUrl} className="flex items-center gap-2 py-2">
                 <span className="w-5 text-center dark:text-zinc-400">{index + 1}</span>
 
                 <Image
@@ -40,7 +40,7 @@ export default function TopTracks() {
                     {item?.artist ?? 'Spotify'}
                   </p>
                 </div>
-              </Link>
+              </ExternalLink>
             </li>
           ))}
         </ul>

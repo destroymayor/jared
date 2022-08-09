@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 import Progress from '@/components/WakaTimeStats/Progress';
 
 import { ClockIcon } from '@/components/Icons';
@@ -84,8 +82,3 @@ export default function ActiveList(props) {
     </div>
   );
 }
-
-ActiveList.propTypes = {
-  loading: PropTypes.bool,
-  data: PropTypes.object,
-};
