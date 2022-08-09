@@ -5,10 +5,12 @@ import {
   StyledComponentsIcon,
   TailwindCSSIcon,
   GitIcon,
+  TypeScriptIcon,
 } from '@/components/Icons';
 
 const data = [
-  { label: 'JavaScript(ES6+)', icon: <JavaScriptWhiteIcon /> },
+  { label: 'JavaScript', icon: <JavaScriptWhiteIcon /> },
+  { label: 'TypeScript', icon: <TypeScriptIcon /> },
   { label: 'React', icon: <ReactWhiteIcon /> },
   { label: 'Next.js', icon: <NextJSIcon /> },
   { label: 'Tailwind CSS', icon: <TailwindCSSIcon /> },
