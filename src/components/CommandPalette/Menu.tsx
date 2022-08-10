@@ -76,7 +76,7 @@ export default function Menu() {
 
   return (
     <div
-      className="relative overflow-y-auto py-1 transition-[height] duration-100 will-change-[height] [transition-timing-function:ease]"
+      className="relative my-1 overflow-y-auto transition-[height] duration-100 will-change-[height] [transition-timing-function:ease]"
       style={{ height: getMenuContainerHeight < 340 ? getMenuContainerHeight : 340 }}
     >
       <Tabs direction="vertical">

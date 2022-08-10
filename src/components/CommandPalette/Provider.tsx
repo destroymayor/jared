@@ -52,15 +52,20 @@ export default function Provider() {
   const [selectedIndex, setSelectedIndex] = React.useState<number>(0);
   const [breadcrumbs, setBreadcrumbs] = React.useState<string[]>([]);
 
-  const { data: snippetsData } = useSWR(isOpen ? '/api/snippets' : null, {
-    revalidateOnFocus: false,
-  });
+  const getCurrentBreadcrumbPath = breadcrumbs.at(-1);
+  const { data: snippetsData } = useSWR(
+    getCurrentBreadcrumbPath === snippets.title ? '/api/snippets' : null,
+    {
+      revalidateOnFocus: false,
+    }
+  );
 
-  const { data: postsData } = useSWR(isOpen ? '/api/posts' : null, {
-    revalidateOnFocus: false,
-  });
-
-  const isLoading = !snippetsData || !postsData;
+  const { data: postsData } = useSWR(
+    getCurrentBreadcrumbPath === blog.title ? '/api/posts' : null,
+    {
+      revalidateOnFocus: false,
+    }
+  );
 
   const resetCommandPaletteStatus = () => {
     setIsOpen(false);
@@ -220,13 +225,23 @@ export default function Provider() {
   ];
 
   const optionsType = {
-    [projects.title]: projectsOptions,
-    [snippets.title]: snippetsOptions,
-    [blog.title]: postsOptions,
+    [projects.title]: {
+      loading: !projectsData && getCurrentBreadcrumbPath === projects.title,
+      data: projectsOptions,
+    },
+    [snippets.title]: {
+      loading: !snippetsData && getCurrentBreadcrumbPath === snippets.title,
+      data: snippetsOptions,
+    },
+    [blog.title]: {
+      loading: !postsData && getCurrentBreadcrumbPath === blog.title,
+      data: postsOptions,
+    },
   };
-  const getOptions: any[] = optionsType[breadcrumbs.at(-1) as string] ?? options;
+  const getOptions: any[] = optionsType[breadcrumbs.at(-1) as string]?.data ?? options;
+  const isLoading = isOpen && optionsType[breadcrumbs.at(-1) as string]?.loading;
 
-  const filterOptions: any[] =
+  const filterOptions =
     searchTerm === ''
       ? getOptions
       : getOptions.map((option) => ({
