@@ -58,7 +58,6 @@ export const getWakaTimeCurrentStats = async () => {
   return {
     status,
     data: {
-      getData,
       best_day,
       human_readable_daily_average,
       human_readable_total,
