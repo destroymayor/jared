@@ -1,8 +1,15 @@
+import { useRef } from 'react';
+
 import { useCommandPalette } from './Provider';
 
+import useKeyPress from '@/hooks/use-key-press.hook';
+
 export default function SearchBar() {
+  const searchBarRef = useRef<HTMLInputElement>(null);
   const { searchTerm, setSelectedIndex, setSearchTerm, resetCommandPaletteStatus } =
     useCommandPalette();
+
+  useKeyPress('KeyS', () => searchBarRef.current?.focus());
 
   const handleSearch = (event: { target: HTMLInputElement }) => {
     setSearchTerm(event.target.value);
@@ -14,12 +21,10 @@ export default function SearchBar() {
   return (
     <div className="flex items-center">
       <input
+        ref={searchBarRef}
         placeholder="Search or jump to..."
         type="text"
         value={searchTerm}
-        role="combobox"
-        aria-controls="combobox"
-        aria-expanded
         className="h-10 w-full flex-1 border-0 bg-transparent text-zinc-800 placeholder-zinc-500 focus:outline-none focus:ring-0 dark:text-zinc-100"
         onChange={handleSearch}
       />

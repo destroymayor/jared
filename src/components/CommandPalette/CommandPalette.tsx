@@ -43,7 +43,7 @@ export default function CommandPalette() {
         <CommandIcon className="h-6 w-6" />
       </Button>
 
-      <AnimatePresence>
+      <AnimatePresence exitBeforeEnter initial={false}>
         {isOpen && (
           <motion.div
             transition={{ duration: 0.2 }}
@@ -51,14 +51,17 @@ export default function CommandPalette() {
             className="bg-zinc-20 fixed inset-0 z-[999] overflow-y-auto pt-[10vh] md:px-4"
           >
             <Backdrop />
+
             <motion.div transition={{ duration: 0.2 }} animate={animationControls}>
               <motion.div
                 ref={containerRef}
+                initial={{ opacity: 0, scale: 0.98 }}
+                animate={{ opacity: 1, scale: [1, 0.98, 1] }}
                 transition={{ duration: 0.2 }}
-                animate={{ scale: [1, 0.97, 1] }}
+                exit={{ opacity: 0, scale: 0.98 }}
                 className="relative mx-auto max-w-xl overflow-hidden rounded-lg border border-zinc-300 bg-white p-2 shadow-2xl ring-1 ring-black/5 dark:divide-zinc-600 dark:border-black/90 dark:bg-black/90"
               >
-                <div className="flex flex-col gap-3 px-2 pt-1 pb-3">
+                <div className="flex flex-col gap-3 p-2">
                   <Breadcrumbs />
                   <SearchBar />
                 </div>

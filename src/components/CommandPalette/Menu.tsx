@@ -3,12 +3,14 @@ import { Fragment, ReactNode } from 'react';
 import { useCommandPalette } from './Provider';
 
 import useKeyPress from '@/hooks/use-key-press.hook';
+
+import Spinner from '@/components/Spinner';
 import Tabs from '@/components/Tabs';
 
 const LIST_SELECTOR: string = `command-palette-item-select`;
 
 export default function Menu() {
-  const { filterOptions, selectedIndex, setSelectedIndex } = useCommandPalette();
+  const { isLoading, filterOptions, selectedIndex, setSelectedIndex } = useCommandPalette();
 
   const getFlatOptions = filterOptions
     .map((item: { children: ReactNode }) => item.children)
@@ -59,6 +61,14 @@ export default function Menu() {
     filterOptions?.filter((item: { children: any }) => item?.children?.length > 0)?.length * 36;
   const getMenuHeight = getFlatOptions?.length * 40;
   const getMenuContainerHeight = getCommandItemHeight + getMenuHeight;
+
+  if (isLoading) {
+    return (
+      <p className="p-4 text-sm text-zinc-500">
+        <Spinner className="h-6 w-6" />
+      </p>
+    );
+  }
 
   if (getFlatOptions.length === 0) {
     return <p className="p-4 text-sm text-zinc-500">No results found.</p>;

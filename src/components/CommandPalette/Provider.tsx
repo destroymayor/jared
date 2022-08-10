@@ -1,4 +1,4 @@
-import { useState, useContext, createContext, Dispatch, SetStateAction, ReactNode } from 'react';
+import React, { useMemo } from 'react';
 import { useRouter } from 'next/router';
 
 import useSWR from 'swr';
@@ -21,16 +21,16 @@ type CommandPaletteContextProps = {
   filterOptions: any[];
   breadcrumbs: string[];
   animationControls: AnimationControls;
-  setIsOpen: Dispatch<SetStateAction<boolean>>;
-  setSearchTerm: Dispatch<SetStateAction<string>>;
-  setSelectedIndex: Dispatch<SetStateAction<number>>;
-  setBreadcrumbs: Dispatch<SetStateAction<string[]>>;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
+  setSelectedIndex: React.Dispatch<React.SetStateAction<number>>;
+  setBreadcrumbs: React.Dispatch<React.SetStateAction<string[]>>;
   resetCommandPaletteStatus: () => void;
 };
 
 type OptionChildrenProps = {
   title: string;
-  icon: ReactNode;
+  icon: React.ReactNode;
   click: () => void;
 };
 
@@ -39,7 +39,7 @@ type OptionProps = {
   children: OptionChildrenProps[];
 };
 
-export const CommandPaletteContext = createContext<CommandPaletteContextProps | any>(null);
+export const CommandPaletteContext = React.createContext<CommandPaletteContextProps | any>(null);
 
 export default function Provider() {
   const router = useRouter();
@@ -47,10 +47,10 @@ export default function Provider() {
 
   const animationControls = useAnimationControls();
 
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [searchTerm, setSearchTerm] = useState<string>('');
-  const [selectedIndex, setSelectedIndex] = useState<number>(0);
-  const [breadcrumbs, setBreadcrumbs] = useState<string[]>([]);
+  const [isOpen, setIsOpen] = React.useState<boolean>(false);
+  const [searchTerm, setSearchTerm] = React.useState<string>('');
+  const [selectedIndex, setSelectedIndex] = React.useState<number>(0);
+  const [breadcrumbs, setBreadcrumbs] = React.useState<string[]>([]);
 
   const { data: snippetsData } = useSWR(isOpen ? '/api/snippets' : null, {
     revalidateOnFocus: false,
@@ -59,6 +59,8 @@ export default function Provider() {
   const { data: postsData } = useSWR(isOpen ? '/api/posts' : null, {
     revalidateOnFocus: false,
   });
+
+  const isLoading = !snippetsData || !postsData;
 
   const resetCommandPaletteStatus = () => {
     setIsOpen(false);
@@ -234,12 +236,15 @@ export default function Provider() {
           ),
         }));
 
+  const value = useMemo(
+    () => ({ isOpen, isLoading, searchTerm, selectedIndex }),
+    [isOpen, isLoading, searchTerm, selectedIndex]
+  );
+
   return (
     <CommandPaletteContext.Provider
       value={{
-        isOpen,
-        searchTerm,
-        selectedIndex,
+        ...value,
         filterOptions,
         breadcrumbs,
         animationControls,
@@ -255,4 +260,4 @@ export default function Provider() {
   );
 }
 
-export const useCommandPalette = () => useContext(CommandPaletteContext);
+export const useCommandPalette = () => React.useContext(CommandPaletteContext);

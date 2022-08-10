@@ -4,9 +4,6 @@ import { motion } from 'framer-motion';
 import clsx from 'clsx';
 
 import { directionType } from './constants';
-import Tab from './Tab';
-
-Tabs.Tab = Tab;
 
 export const TabsContext = createContext();
 

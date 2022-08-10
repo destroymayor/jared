@@ -1,3 +1,8 @@
 import Tabs from './Tabs';
+import Tab from './Tab';
 
-export default Tabs;
+const pkg = Object.assign(Tabs, {
+  Tab,
+});
+
+export default pkg;
