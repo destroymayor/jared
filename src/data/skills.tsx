@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 import {
   NextJSIcon,
   ReactWhiteIcon,
@@ -8,7 +10,12 @@ import {
   TypeScriptIcon,
 } from '@/components/Icons';
 
-const data = [
+interface ISkill {
+  label: string;
+  icon: ReactNode;
+}
+
+const data: ISkill[] = [
   { label: 'JavaScript', icon: <JavaScriptWhiteIcon /> },
   { label: 'TypeScript', icon: <TypeScriptIcon /> },
   { label: 'React', icon: <ReactWhiteIcon /> },

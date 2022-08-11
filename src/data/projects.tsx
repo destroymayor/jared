@@ -8,7 +8,7 @@ import imageConverterImage from '@/public/images/projects/image-converter.webp';
 
 import { NextJSIcon } from '@/components/Icons';
 
-export type DataTypes = {
+export interface DataTypes {
   image: string;
   title: string;
   description: string;
@@ -19,7 +19,7 @@ export type DataTypes = {
     repo: string;
     demo: string;
   };
-};
+}
 
 const data: DataTypes[] = [
   {
