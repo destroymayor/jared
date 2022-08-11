@@ -1,7 +1,15 @@
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
-export default function Progress(props) {
+type Props = {
+  data: {
+    name: string;
+    percent: number;
+  };
+  className?: string;
+};
+
+export default function Progress(props: Props) {
   const { data, className } = props;
 
   const name = data.name;

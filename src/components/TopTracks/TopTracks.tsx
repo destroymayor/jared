@@ -5,8 +5,22 @@ import useSWR from 'swr';
 import ExternalLink from '@/components/ExternalLink';
 import { SpotifySolidIcon } from '@/components/Icons';
 
+type TopTracksTypes = {
+  title: string;
+  artist: string;
+  songUrl: string;
+  album: {
+    name: string;
+    image: {
+      url: string;
+    };
+  };
+};
+
 export default function TopTracks() {
-  const { data } = useSWR('/api/spotify/top-tracks', { revalidateOnFocus: false });
+  const { data } = useSWR<TopTracksTypes[]>('/api/spotify/top-tracks', {
+    revalidateOnFocus: false,
+  });
 
   const isLoading = !data;
 

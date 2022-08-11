@@ -6,8 +6,17 @@ import PlayingBars from '@/components/NowPlaying/PlayingBars';
 import ExternalLink from '@/components/ExternalLink';
 import { SpotifySolidIcon } from '@/components/Icons';
 
+type NowPlayingType = {
+  isPlaying: boolean;
+  songUrl: string;
+  title: string;
+  artist: string;
+  album: string;
+  albumImageUrl: string;
+};
+
 export default function NowPlaying() {
-  const { data } = useSWR('/api/spotify/now-playing');
+  const { data } = useSWR<NowPlayingType>('/api/spotify/now-playing');
 
   const isPlaying = data?.isPlaying;
 

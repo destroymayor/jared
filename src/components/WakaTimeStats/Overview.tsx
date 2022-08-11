@@ -1,6 +1,17 @@
 import clsx from 'clsx';
 
-export default function Overview(props) {
+type Props = {
+  loading: boolean;
+  data: {
+    human_readable_total: string;
+    human_readable_daily_average: string;
+    best_day: {
+      text: string;
+    };
+  };
+};
+
+export default function Overview(props: Props) {
   const { loading, data } = props;
 
   const dailyTotal = data?.human_readable_total;

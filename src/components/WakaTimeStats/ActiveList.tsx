@@ -3,11 +3,19 @@ import Progress from '@/components/WakaTimeStats/Progress';
 import { ClockIcon } from '@/components/Icons';
 import clsx from 'clsx';
 
-const sumTotalFromArray = (data = [], key) => {
+const sumTotalFromArray = (data = [], key: string) => {
   return data.reduce((previousValue, currentValue) => previousValue + currentValue[key], 0) ?? 0;
 };
 
-export default function ActiveList(props) {
+type Props = {
+  loading: boolean;
+  data: {
+    languages: [];
+    editors: [];
+  };
+};
+
+export default function ActiveList(props: Props) {
   const { loading, data } = props;
 
   const getLanguagesTotalHours = sumTotalFromArray(data?.languages, 'hours');
@@ -70,7 +78,7 @@ export default function ActiveList(props) {
             </div>
 
             <ul className="flex flex-col px-2">
-              {item?.data?.map((subItem) => (
+              {item?.data?.map((subItem: any) => (
                 <li key={subItem.name}>
                   <Progress data={subItem} className={item.styles.bg} />
                 </li>
