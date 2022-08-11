@@ -1,24 +1,36 @@
-import { useState, useRef, createContext } from 'react';
+import React from 'react';
 
 import { motion } from 'framer-motion';
 import clsx from 'clsx';
 
 import { directionType } from './constants';
 
-export const TabsContext = createContext();
+interface ITabs {
+  direction?: string;
+  shouldResetHighlight?: boolean;
+  className?: string;
+  children: React.ReactNode;
+}
 
-export default function Tabs(props) {
+interface ITabsContext {
+  repositionHighlight: () => void;
+  resetHighlight: () => void;
+}
+
+export const TabsContext = React.createContext<ITabsContext | any>(null);
+
+export default function Tabs(props: ITabs) {
   const { direction = 'horizontal', shouldResetHighlight, className, children } = props;
 
-  const highlightRef = useRef(null);
-  const wrapperRef = useRef(null);
+  const highlightRef = React.useRef<HTMLLIElement | null>(null);
+  const wrapperRef = React.useRef<DOMRect | HTMLUListElement | any>(null);
 
-  const [tabBoundingBox, setTabBoundingBox] = useState(null);
-  const [wrapperBoundingBox, setWrapperBoundingBox] = useState(null);
-  const [highlightedTab, setHighlightedTab] = useState(null);
-  const [isHoveredFromNull, setIsHoveredFromNull] = useState(true);
+  const [tabBoundingBox, setTabBoundingBox] = React.useState<DOMRect | null>(null);
+  const [wrapperBoundingBox, setWrapperBoundingBox] = React.useState<DOMRect | null>(null);
+  const [highlightedTab, setHighlightedTab] = React.useState<DOMRect | null>(null);
+  const [isHoveredFromNull, setIsHoveredFromNull] = React.useState<Boolean>(true);
 
-  const repositionHighlight = (rect, tab) => {
+  const repositionHighlight = (rect: DOMRect, tab: DOMRect) => {
     setTabBoundingBox(rect);
     setWrapperBoundingBox(wrapperRef.current.getBoundingClientRect());
     setIsHoveredFromNull(!highlightedTab);
@@ -31,18 +43,18 @@ export default function Tabs(props) {
     }
   };
 
-  const highlightAnimate = tabBoundingBox &&
+  const highlightAnimate: any = tabBoundingBox &&
     wrapperBoundingBox && {
       height: tabBoundingBox?.height,
-      width: directionType?.[direction]?.width(tabBoundingBox),
-      transform: directionType?.[direction]?.transform(tabBoundingBox, wrapperBoundingBox),
+      width: directionType[direction]?.width(tabBoundingBox),
+      transform: directionType[direction]?.transform(tabBoundingBox, wrapperBoundingBox),
     };
 
   return (
     <TabsContext.Provider value={{ repositionHighlight, resetHighlight }}>
       <ul
         ref={wrapperRef}
-        className={clsx('relative', directionType?.[direction]?.container, className)}
+        className={clsx('relative', directionType[direction]?.container, className)}
         onMouseLeave={resetHighlight}
       >
         <motion.li

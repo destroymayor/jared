@@ -1,18 +1,28 @@
-import { useEffect, useContext, useRef } from 'react';
+import { useEffect, useContext, useRef, ReactNode, MouseEventHandler } from 'react';
 
 import { TabsContext } from './Tabs';
 
-export default function Tab(props) {
+interface ITab {
+  id?: string;
+  name?: string;
+  selected?: number;
+  index?: number;
+  onClick?: Function;
+  onMouseEnter?: Function;
+  children: ReactNode;
+}
+
+export default function Tab(props: ITab) {
   const { name, selected = 0, index, children, onClick, onMouseEnter } = props;
 
   const { repositionHighlight } = useContext(TabsContext);
-  const tabRef = useRef(null);
+  const tabRef = useRef<DOMRect | any>(null);
 
-  const handleClick = (e) => {
-    onClick?.(e);
+  const handleClick = () => {
+    onClick?.();
   };
 
-  const handleMouseEnter = (e) => {
+  const handleMouseEnter = (e: any) => {
     repositionHighlight(e.target.getBoundingClientRect(), name);
     onMouseEnter?.(e);
   };
@@ -22,6 +32,7 @@ export default function Tab(props) {
     if (selected === index && tabNode) {
       repositionHighlight(tabNode.getBoundingClientRect(), name);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selected, index, name]);
 
   return (
