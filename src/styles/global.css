@@ -16,15 +16,3 @@
 html {
   scroll-behavior: smooth;
 }
-
-::-webkit-scrollbar {
-  @apply md:h-[6px] md:w-[6px] md:bg-zinc-100 md:dark:bg-black;
-}
-
-::-webkit-scrollbar-track {
-  @apply md:rounded-[3px] md:bg-transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  @apply md:rounded-[3px] md:border-2 md:border-zinc-300 md:bg-zinc-400 md:dark:bg-zinc-700;
-}

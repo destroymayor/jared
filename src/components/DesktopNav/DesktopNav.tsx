@@ -11,7 +11,7 @@ export default function DesktopNav() {
   const routes = [dashboard, projects, snippets, guestbook];
 
   return (
-    <div className="hidden h-10 items-center md:flex">
+    <nav className="hidden h-10 items-center md:flex">
       <Tabs shouldResetHighlight>
         {routes.map((tab) => (
           <Tabs.Tab key={tab.pathname} name={tab.title}>
@@ -30,6 +30,6 @@ export default function DesktopNav() {
           </Tabs.Tab>
         ))}
       </Tabs>
-    </div>
+    </nav>
   );
 }

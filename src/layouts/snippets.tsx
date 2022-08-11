@@ -24,7 +24,7 @@ export default function SnippetLayout(props: Props) {
 
   return (
     <Container title={title} description={description}>
-      <div className="flex flex-col items-start gap-4">
+      <header className="flex flex-col items-start gap-4">
         <Link href="/snippets">
           <span className="flex cursor-pointer items-center gap-2 font-semibold text-zinc-600 transition duration-200 ease-in-out hover:text-sky-800 dark:text-zinc-400 dark:hover:text-sky-600">
             <ChevronLeftIcon className="h-4 w-4" />
@@ -34,13 +34,13 @@ export default function SnippetLayout(props: Props) {
 
         <h1 className="text-2xl font-semibold sm:text-3xl">{title}</h1>
         <p className="text-zinc-600 dark:text-zinc-400">{description}</p>
-      </div>
+      </header>
 
       <div className="my-6 border-b border-dashed border-zinc-300 dark:border-zinc-700" />
 
       {children}
 
-      <time dateTime={date} className="text-xs text-zinc-600 dark:text-zinc-400">
+      <time dateTime={date} className="text-sm text-zinc-600 dark:text-zinc-400">
         {formatDate}
       </time>
     </Container>
