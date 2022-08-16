@@ -52,7 +52,7 @@ export const getWakaTimeCurrentStats = async () => {
   const human_readable_daily_average = getData?.data?.human_readable_daily_average;
   const human_readable_total = getData?.data?.human_readable_total;
 
-  const languages = getData?.data?.languages?.slice(0, 3);
+  const languages = getData?.data?.languages?.slice(0, 4);
   const editors = getData?.data?.editors;
 
   return {

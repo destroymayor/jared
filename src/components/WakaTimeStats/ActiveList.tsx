@@ -56,7 +56,7 @@ export default function ActiveList(props: Props) {
           <div
             key={item.title}
             className="h-[112px] flex-1 animate-pulse rounded-xl bg-zinc-300 dark:bg-zinc-800"
-          ></div>
+          />
         ))}
       </div>
     );

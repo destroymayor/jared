@@ -20,15 +20,7 @@ export default function WakaTimeStats() {
       </h2>
 
       <div className="flex flex-wrap items-center gap-2">
-        <p className="flex items-center gap-2 dark:text-zinc-400">
-          <span>My coding stats on</span>
-          <Link
-            href="https://wakatime.com/@Jared"
-            className="underline hover:text-zinc-900 dark:hover:text-zinc-100"
-          >
-            WakaTime
-          </Link>
-        </p>
+        <p className="flex items-center gap-2 dark:text-zinc-400">My last 7 days of coding stats</p>
         <Link href="https://wakatime.com/@74937d38-0477-4acf-a1fe-3ad38f267774">
           <Image
             src="https://wakatime.com/badge/user/74937d38-0477-4acf-a1fe-3ad38f267774.svg"
@@ -41,6 +33,16 @@ export default function WakaTimeStats() {
 
       <Overview loading={isLoading} data={data} />
       <ActiveList loading={isLoading} data={data} />
+
+      <span className="self-end pt-2 text-sm text-zinc-600 dark:text-zinc-400">
+        Powered by{' '}
+        <Link
+          href="https://wakatime.com"
+          className="underline hover:text-zinc-900 dark:hover:text-zinc-100"
+        >
+          WakaTime
+        </Link>
+      </span>
     </div>
   );
 }
