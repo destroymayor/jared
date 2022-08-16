@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 
+import pokemonExplore from '@/public/images/projects/pokemon-explore.webp';
 import unsplashGallery from '@/public/images/projects/unsplash-gallery.webp';
 import weatherApp from '@/public/images/projects/weather-app.webp';
 import movieAppImage from '@/public/images/projects/movie-app.webp';
@@ -22,6 +23,18 @@ export interface DataTypes {
 }
 
 const data: DataTypes[] = [
+  {
+    image: pokemonExplore.src,
+    title: 'Pokemon explore',
+    description: 'A Pokemon explore allows the user to search Pokemon from pokeapi.',
+    builtWith: <NextJSIcon />,
+    tags: ['Next.js', 'Tailwind CSS', 'pokeapi'],
+    release_year: 2022,
+    links: {
+      repo: 'https://github.com/destroymayor/pokemon-explore',
+      demo: 'https://pokemon-explore.vercel.app/',
+    },
+  },
   {
     image: unsplashGallery.src,
     title: 'Unsplash Gallery',
