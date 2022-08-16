@@ -1,20 +1,21 @@
 import Link from 'next/link';
 
-import {
-  home,
-  dashboard,
-  projects,
-  bookmarks,
-  uses,
-  snippets,
-  blog,
-  guestbook,
-} from '@/data/routes';
+import { home, bookmarks, uses, snippets, blog } from '@/data/routes';
+import { github, twitter, linkedIn } from '@/data/contact';
 
 import NowPlaying from '@/components/NowPlaying';
 
 export default function Footer() {
-  const routes = [home, dashboard, projects, uses, guestbook, snippets, blog, bookmarks];
+  const routes = [
+    home,
+    { title: github.label, pathname: github.link },
+    uses,
+    snippets,
+    { title: twitter.label, pathname: twitter.link },
+    bookmarks,
+    blog,
+    { title: linkedIn.label, pathname: linkedIn.link },
+  ];
 
   return (
     <footer className="mt-12 flex w-full max-w-2xl flex-col items-start gap-6 border-t border-dashed border-zinc-300 py-6 dark:border-zinc-700">

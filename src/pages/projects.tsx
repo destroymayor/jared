@@ -34,7 +34,7 @@ const Page: NextPageWithLayout = () => {
               />
             </FadeInContainer>
 
-            <div className="flex flex-col gap-2 sm:gap-4 sm:px-2">
+            <div className="flex flex-col gap-3 sm:gap-4 sm:px-2">
               <div className="flex flex-wrap justify-between gap-4">
                 <div className="flex flex-wrap items-center gap-2">
                   {tags.map((tag) => (
