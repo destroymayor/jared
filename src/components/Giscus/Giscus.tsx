@@ -2,7 +2,16 @@ import { useEffect } from 'react';
 
 import { useTheme } from 'next-themes';
 
-export default function Giscus() {
+type GiscusProp = {
+  repo: string;
+  repoId: string;
+  category: string;
+  categoryId: string;
+  mapping: string;
+};
+
+export default function Giscus(props: GiscusProp) {
+  const { repo, repoId, category, categoryId, mapping } = props;
   const { resolvedTheme } = useTheme();
 
   const theme = resolvedTheme === 'dark' ? 'transparent_dark' : 'light';
@@ -13,11 +22,11 @@ export default function Giscus() {
     script.async = true;
     script.crossOrigin = 'anonymous';
 
-    script.setAttribute('data-repo', 'destroymayor/guestbook');
-    script.setAttribute('data-repo-id', 'R_kgDOHwPSeA');
-    script.setAttribute('data-category', 'General');
-    script.setAttribute('data-category-id', 'DIC_kwDOHwPSeM4CQkUo');
-    script.setAttribute('data-mapping', 'title');
+    script.setAttribute('data-repo', repo);
+    script.setAttribute('data-repo-id', repoId);
+    script.setAttribute('data-category', category);
+    script.setAttribute('data-category-id', categoryId);
+    script.setAttribute('data-mapping', mapping);
     script.setAttribute('data-strict', '0');
     script.setAttribute('data-reactions-enabled', '1');
     script.setAttribute('data-emit-metadata', '0');
@@ -32,5 +41,5 @@ export default function Giscus() {
     };
   }, [theme]);
 
-  return <div className="giscus min-h-[600px]"></div>;
+  return <div className="giscus pb-10"></div>;
 }

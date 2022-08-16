@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import Link from 'next/link';
 
 import Container from '@/components/Container';
+import Giscus from '@/components/Giscus';
 import { ChevronLeftIcon } from '@/components/Icons';
 
 type Props = {
@@ -32,7 +33,7 @@ export default function SnippetLayout(props: Props) {
           </span>
         </Link>
 
-        <h1 className="text-2xl font-semibold sm:text-3xl">{title}</h1>
+        <h1 className="text-2xl pt-4 font-semibold sm:text-3xl">{title}</h1>
         <p className="text-zinc-600 dark:text-zinc-400">{description}</p>
       </header>
 
@@ -40,9 +41,20 @@ export default function SnippetLayout(props: Props) {
 
       {children}
 
-      <time dateTime={date} className="text-sm text-zinc-600 dark:text-zinc-400">
-        {formatDate}
-      </time>
+      <span className="flex pb-10 justify-center text-zinc-600 dark:text-zinc-400 italic gap-2">
+        <span>Last Updated:</span>
+        <time dateTime={date} className="font-semibold">
+          {formatDate}
+        </time>
+      </span>
+
+      <Giscus
+        repo="destroymayor/jared"
+        repoId="R_kgDOGHtW6w"
+        category="Announcements"
+        categoryId="DIC_kwDOGHtW684CQkkf"
+        mapping="title"
+      />
     </Container>
   );
 }
