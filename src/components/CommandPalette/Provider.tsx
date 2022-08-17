@@ -14,21 +14,6 @@ import { getCategoryFormatted, SNIPPET_CATEGORIES } from '@/helpers/category.hel
 import CommandPalette from './CommandPalette';
 import { Edit2Icon, SunIcon, MoonIcon, MonitorIcon } from '@/components/Icons';
 
-type CommandPaletteContextProps = {
-  isOpen: boolean;
-  isLoading: boolean;
-  searchTerm: string;
-  selectedIndex: number;
-  filterOptions: any[];
-  breadcrumbs: string[];
-  animationControls: AnimationControls;
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
-  setSelectedIndex: React.Dispatch<React.SetStateAction<number>>;
-  setBreadcrumbs: React.Dispatch<React.SetStateAction<string[]>>;
-  resetCommandPaletteStatus: () => void;
-};
-
 type OptionChildrenProps = {
   title: string;
   icon: React.ReactNode;
@@ -40,7 +25,24 @@ type OptionProps = {
   children: OptionChildrenProps[];
 };
 
-export const CommandPaletteContext = React.createContext<CommandPaletteContextProps | any>(null);
+interface CommandPaletteContextProps {
+  isOpen: boolean;
+  isLoading: boolean;
+  searchTerm: string;
+  selectedIndex: number;
+  filterOptions: OptionProps[];
+  breadcrumbs: string[];
+  animationControls: AnimationControls;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
+  setSelectedIndex: React.Dispatch<React.SetStateAction<number>>;
+  setBreadcrumbs: React.Dispatch<React.SetStateAction<string[]>>;
+  resetCommandPaletteStatus: () => void;
+}
+
+export const CommandPaletteContext = React.createContext<CommandPaletteContextProps>(
+  {} as CommandPaletteContextProps
+);
 
 export default function Provider() {
   const router = useRouter();
@@ -97,7 +99,7 @@ export default function Provider() {
     window.open(link, '_blank');
   };
 
-  const options: OptionProps[] = [
+  const options = [
     {
       title: 'Navigation',
       children: [
@@ -239,7 +241,7 @@ export default function Provider() {
       data: postsOptions,
     },
   };
-  const getOptions: any[] = optionsType[breadcrumbs.at(-1) as string]?.data ?? options;
+  const getOptions = (optionsType[breadcrumbs.at(-1) as string]?.data as OptionProps[]) ?? options;
   const isLoading = isOpen && optionsType[breadcrumbs.at(-1) as string]?.loading;
 
   const filterOptions =

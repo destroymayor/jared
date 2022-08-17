@@ -1,4 +1,4 @@
-import { Fragment, ReactNode } from 'react';
+import { Fragment } from 'react';
 
 import { useCommandPalette } from './Provider';
 
@@ -12,9 +12,7 @@ const LIST_SELECTOR: string = `command-palette-item-select`;
 export default function Menu() {
   const { isLoading, filterOptions, selectedIndex, setSelectedIndex } = useCommandPalette();
 
-  const getFlatOptions = filterOptions
-    .map((item: { children: ReactNode }) => item.children)
-    .flat(1);
+  const getFlatOptions = filterOptions.map((item) => item.children).flat(1);
 
   useKeyPress('ArrowUp', () => {
     if (selectedIndex > 0) {
@@ -37,7 +35,7 @@ export default function Menu() {
   });
 
   useKeyPress('Enter', () => {
-    getFlatOptions.find((item: any, index: number) => selectedIndex === index).click();
+    getFlatOptions.find((item, index) => selectedIndex === index)?.click();
   });
 
   const handleCommandItemScrollIntoView = (index: number) => {
@@ -80,7 +78,7 @@ export default function Menu() {
       style={{ height: getMenuContainerHeight < 340 ? getMenuContainerHeight : 340 }}
     >
       <Tabs direction="vertical">
-        {filterOptions.map((option: { children: any; title: string }) => (
+        {filterOptions.map((option) => (
           <Fragment key={option.title}>
             {option?.children?.length > 0 && option?.title && (
               <span className="relative ml-2 flex h-7 items-center text-xs text-zinc-400">
@@ -88,10 +86,8 @@ export default function Menu() {
               </span>
             )}
 
-            {option?.children?.map((child: { title: string; icon: ReactNode }) => {
-              const getChildIndex = getFlatOptions.findIndex(
-                (item: { title: string }) => item.title === child.title
-              );
+            {option?.children?.map((child) => {
+              const getChildIndex = getFlatOptions.findIndex((item) => item.title === child.title);
               return (
                 <Tabs.Tab
                   id={`${LIST_SELECTOR}-${getChildIndex}`}
