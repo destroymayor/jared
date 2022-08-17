@@ -1,4 +1,4 @@
-import { useEffect, useContext, useRef, ReactNode, MouseEventHandler } from 'react';
+import { useEffect, useContext, useRef, ReactNode } from 'react';
 
 import { TabsContext } from './Tabs';
 

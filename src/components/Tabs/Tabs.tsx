@@ -13,11 +13,11 @@ interface ITabs {
 }
 
 interface ITabsContext {
-  repositionHighlight: () => void;
+  repositionHighlight: (rect: DOMRect, tab: any) => void;
   resetHighlight: () => void;
 }
 
-export const TabsContext = React.createContext<ITabsContext | any>(null);
+export const TabsContext = React.createContext<ITabsContext>({} as ITabsContext);
 
 export default function Tabs(props: ITabs) {
   const { direction = 'horizontal', shouldResetHighlight, className, children } = props;

@@ -16,6 +16,7 @@ import { Edit2Icon, SunIcon, MoonIcon, MonitorIcon } from '@/components/Icons';
 
 type CommandPaletteContextProps = {
   isOpen: boolean;
+  isLoading: boolean;
   searchTerm: string;
   selectedIndex: number;
   filterOptions: any[];
