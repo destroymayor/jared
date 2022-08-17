@@ -18,70 +18,41 @@ type Snippets = {
   description: string;
   slug: string;
   title: string;
+  [key: string]: any;
 };
 
 const Page: NextPageWithLayout = ({ snippets }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const getCategories = SNIPPET_CATEGORIES.map((category) => category.slug);
-  const filterSnippets = getCategories.map((item) => ({
-    category: item,
-    snippets: snippets.filter((el: any) => el.category === item),
-  }));
-
   return (
-    <ul className="flex flex-col gap-10">
-      {filterSnippets.map((item) => {
-        const getCategory = getCategoryFormatted(item.category)?.label;
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+      {snippets.map((snippet: Snippets) => {
+        const { title, description, category, slug, date } = snippet;
+
+        const languageIcon = getCategoryFormatted(category)?.icon;
+        const formatDate = new Intl.DateTimeFormat('en', {
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric',
+        })?.format(new Date(date));
 
         return (
-          <li key={item.category}>
-            <div className="relative flex flex-col gap-2">
-              <h2 className="py-2 text-xl font-extrabold">{getCategory}</h2>
-
-              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                {item.snippets.map(
-                  (snippet: {
-                    title: string;
-                    description: string;
-                    category: string;
-                    slug: string;
-                    date: string;
-                  }) => {
-                    const { title, description, category, slug, date } = snippet;
-
-                    const languageIcon = getCategoryFormatted(category)?.icon;
-                    const formatDate = new Intl.DateTimeFormat('en', {
-                      year: 'numeric',
-                      month: 'short',
-                      day: 'numeric',
-                    })?.format(new Date(date));
-
-                    return (
-                      <Link href={slug} key={title + category}>
-                        <div className="flex h-full cursor-pointer gap-6 rounded-md border border-zinc-100 bg-zinc-100 p-4 shadow-md transition-all duration-150 ease-out dark:border-zinc-900 dark:bg-zinc-900 md:hover:scale-[1.05] md:dark:hover:border-zinc-600">
-                          <div className="flex flex-1 flex-col justify-between gap-6">
-                            <div className="flex flex-col gap-2">
-                              <h3 className="text-lg font-bold">{title}</h3>
-                              <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                                {description}
-                              </p>
-                            </div>
-                            <span className="text-sm italic tracking-tighter text-zinc-600 dark:text-zinc-400">
-                              <span className="pr-2">Last Updated:</span>
-                              {formatDate}
-                            </span>
-                          </div>
-                          <div className="h-8 w-8 pt-2">{languageIcon}</div>
-                        </div>
-                      </Link>
-                    );
-                  }
-                )}
+          <Link href={slug} key={title + category} passHref>
+            <a className="flex min-h-[120px] md:min-h-[150px] cursor-pointer gap-6 rounded-md border border-zinc-100 p-4 shadow-md transition-all duration-150 ease-out dark:border-zinc-800  md:dark:hover:border-zinc-600">
+              <div className="flex flex-1 flex-col justify-between gap-6">
+                <div className="flex flex-col gap-2">
+                  <h3 className="text-lg font-bold">{title}</h3>
+                  <p className="text-sm text-zinc-600 dark:text-zinc-400">{description}</p>
+                </div>
+                <span className="text-sm italic tracking-tighter text-zinc-600 dark:text-zinc-400">
+                  <span className="pr-2">Last Updated:</span>
+                  {formatDate}
+                </span>
               </div>
-            </div>
-          </li>
+              <div className="h-8 w-8 pt-2">{languageIcon}</div>
+            </a>
+          </Link>
         );
       })}
-    </ul>
+    </div>
   );
 };
 

@@ -41,7 +41,7 @@ export default function SnippetLayout(props: Props) {
 
       {children}
 
-      <span className="flex pb-10 justify-center text-zinc-600 dark:text-zinc-400 italic gap-2">
+      <span className="flex pb-10 justify-center sm:text-base text-sm text-zinc-600 dark:text-zinc-400 italic gap-2">
         <span>Last Updated:</span>
         <time dateTime={date} className="font-semibold">
           {formatDate}
