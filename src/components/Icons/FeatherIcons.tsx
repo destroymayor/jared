@@ -17,6 +17,14 @@ const FeatherIcon = (props: { className: string; children: ReactNode }) => {
   );
 };
 
+export const AlertCircleIcon = (props: any) => (
+  <FeatherIcon {...props}>
+    <circle cx="12" cy="12" r="10"></circle>
+    <line x1="12" y1="8" x2="12" y2="12"></line>
+    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+  </FeatherIcon>
+);
+
 export const ArrowRightIcon = (props: any) => (
   <FeatherIcon {...props}>
     <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -51,6 +59,13 @@ export const CodePenIcon = (props: any) => (
     <polyline points="22 8.5 12 15.5 2 8.5"></polyline>
     <polyline points="2 15.5 12 8.5 22 15.5"></polyline>
     <line x1="12" y1="2" x2="12" y2="8.5"></line>
+  </FeatherIcon>
+);
+
+export const CheckCircleIcon = (props: any) => (
+  <FeatherIcon {...props}>
+    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+    <polyline points="22 4 12 14.01 9 11.01"></polyline>
   </FeatherIcon>
 );
 
@@ -139,6 +154,14 @@ export const HomeIcon = (props: any) => (
   <FeatherIcon {...props}>
     <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
     <polyline points="9 22 9 12 15 12 15 22"></polyline>
+  </FeatherIcon>
+);
+
+export const InfoIcon = (props: any) => (
+  <FeatherIcon {...props}>
+    <circle cx="12" cy="12" r="10"></circle>
+    <line x1="12" y1="16" x2="12" y2="12"></line>
+    <line x1="12" y1="8" x2="12.01" y2="8"></line>
   </FeatherIcon>
 );
 
@@ -296,6 +319,14 @@ export const VolumeXIcon = (props: any) => (
     <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
     <line x1="23" y1="9" x2="17" y2="15"></line>
     <line x1="17" y1="9" x2="23" y2="15"></line>
+  </FeatherIcon>
+);
+
+export const XCircleIcon = (props: any) => (
+  <FeatherIcon {...props}>
+    <circle cx="12" cy="12" r="10"></circle>
+    <line x1="15" y1="9" x2="9" y2="15"></line>
+    <line x1="9" y1="9" x2="15" y2="15"></line>
   </FeatherIcon>
 );
 

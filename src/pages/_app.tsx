@@ -1,4 +1,4 @@
-import type { ReactElement, ReactNode } from 'react';
+import { ReactElement, ReactNode } from 'react';
 import type { NextPage } from 'next';
 import type { AppProps } from 'next/app';
 
@@ -8,6 +8,7 @@ import { SWRConfig } from 'swr';
 import fetcher from '@/lib/fetcher';
 
 import { ThemeProvider } from 'next-themes';
+import { ToastProvider } from '@/components/Toast';
 
 export type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -22,7 +23,15 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
 
   return (
     <ThemeProvider attribute="class" defaultTheme="dark">
-      <SWRConfig value={{ fetcher }}>{getLayout(<Component {...pageProps} />)}</SWRConfig>
+      <SWRConfig value={{ fetcher }}>
+        <ToastProvider>
+          {
+            //
+            getLayout(<Component {...pageProps} />)
+            //
+          }
+        </ToastProvider>
+      </SWRConfig>
     </ThemeProvider>
   );
 }
