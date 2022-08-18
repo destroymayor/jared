@@ -34,19 +34,19 @@ const Page: NextPageWithLayout = () => {
               />
             </FadeInContainer>
 
-            <div className="flex flex-col gap-3 sm:gap-4 sm:px-2">
+            <div className="flex flex-col gap-3 sm:px-3">
               <div className="flex flex-wrap justify-between gap-4">
-                <div className="flex flex-wrap items-center gap-2">
-                  {tags.map((tag) => (
-                    <Tag key={tag} label={tag} />
-                  ))}
-                </div>
-
+                <h2 className="text-xl font-semibold">{title}</h2>
                 <span className="text-zinc-600 dark:text-zinc-400">{release_year}</span>
               </div>
 
-              <h2 className="text-xl font-semibold">{title}</h2>
               <p className="text-sm dark:text-zinc-400">{description}</p>
+
+              <div className="flex flex-wrap items-center gap-2">
+                {tags.map((tag) => (
+                  <Tag key={tag} label={tag} />
+                ))}
+              </div>
 
               <div className="flex items-center gap-2 text-sm">
                 <ExternalLink

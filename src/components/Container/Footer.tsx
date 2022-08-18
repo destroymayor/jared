@@ -23,11 +23,12 @@ export default function Footer() {
 
       <ul className="grid w-full grid-cols-2 gap-2 sm:grid-cols-3">
         {routes.map((route) => (
-          <li
-            key={route.pathname}
-            className="text-zinc-500 transition-colors duration-300 ease-in-out hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200"
-          >
-            <Link href={route.pathname}>{route.title}</Link>
+          <li key={route.pathname}>
+            <Link href={route.pathname}>
+              <span className="text-zinc-500 cursor-pointer transition-colors duration-300 ease-in-out hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200">
+                {route.title}
+              </span>
+            </Link>
           </li>
         ))}
       </ul>
