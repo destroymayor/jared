@@ -25,7 +25,7 @@ export default function WakaTimeStats() {
           <Image
             src="https://wakatime.com/badge/user/74937d38-0477-4acf-a1fe-3ad38f267774.svg"
             alt="Total time coded since Jun 17 2017"
-            width={190}
+            width={183}
             height={20}
           />
         </Link>
