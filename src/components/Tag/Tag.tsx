@@ -1,15 +1,8 @@
 import clsx from 'clsx';
 
-type Types = {
-  [key: string]: string;
-  default: string;
-  primary: string;
-  warning: string;
-  success: string;
-  error: string;
-};
+type Types = 'default' | 'primary' | 'warning' | 'success' | 'error';
 
-const types: Types = {
+const types = {
   default: 'border-zinc-400 text-zinc-500 dark:text-zinc-400 dark:bg-zinc-500 ',
   primary: 'border-blue-300 bg-blue-500 text-blue-500',
   warning: 'border-amber-300 bg-amber-500 text-amber-600 dark:text-amber-500',
@@ -19,7 +12,7 @@ const types: Types = {
 
 type Props = {
   className?: string;
-  type?: string;
+  type?: Types;
   label?: any;
 };
 

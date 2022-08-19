@@ -7,11 +7,13 @@ interface ProviderProps {
   children: React.ReactNode;
 }
 
+type SeverityTypes = 'primary' | 'success' | 'warning' | 'error';
+
 interface ToastType {
   id?: string;
   title: string;
   description?: string;
-  severity?: string;
+  severity?: SeverityTypes;
 }
 
 interface IToastContext {

@@ -5,8 +5,10 @@ import clsx from 'clsx';
 
 import { directionType } from './constants';
 
+type Direction = 'horizontal' | 'vertical';
+
 interface ITabs {
-  direction?: string;
+  direction?: Direction;
   shouldResetHighlight?: boolean;
   className?: string;
   children: React.ReactNode;

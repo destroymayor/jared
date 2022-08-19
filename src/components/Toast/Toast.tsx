@@ -14,17 +14,17 @@ interface HeightType {
 type Props = {
   isHovering: boolean;
   toast: {
-    id?: any;
+    id?: string;
     title: string;
     description?: string;
-    severity?: any;
+    severity?: string;
   };
   heights: HeightType[];
   index: number;
   onClose: (id: string) => void;
 };
 
-export default forwardRef(function Toast(props: Props, ref: any) {
+export default forwardRef<HTMLLIElement, Props>(function Toast(props, ref) {
   const { isHovering, toast, heights, index, onClose } = props;
 
   const handleClose = (closeId: string) => onClose?.(closeId);
@@ -44,6 +44,7 @@ export default forwardRef(function Toast(props: Props, ref: any) {
   const zIndex = heights.length - index;
 
   const { id, title, description, severity } = toast;
+  const icon = iconMapping[severity as string];
 
   return (
     <li
@@ -58,9 +59,9 @@ export default forwardRef(function Toast(props: Props, ref: any) {
         initial={{ opacity: 0, y: 50, scale: 0.3 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, scale: 0.5, transition: { duration: 0.2 } }}
-        className="my-2 flex w-80 gap-2 rounded-md border border-zinc-300 bg-zinc-50 p-3 shadow-md"
+        className="my-2 flex max-w-[320px] gap-2 rounded-md border border-zinc-300 bg-zinc-50 p-3 shadow-md"
       >
-        <div>{iconMapping?.[severity]}</div>
+        <span className="h-6 w-6">{icon}</span>
 
         <div className="flex flex-1 gap-1 flex-col">
           <span className="text-zinc-800">{title}</span>
@@ -69,7 +70,7 @@ export default forwardRef(function Toast(props: Props, ref: any) {
 
         <button
           className="h-6 w-6 self-start p-1 text-zinc-500 opacity-0 transition duration-300 ease-in-out hover:text-zinc-800 group-hover:opacity-100"
-          onClick={() => handleClose(id)}
+          onClick={() => handleClose(id as string)}
         >
           <XIcon />
         </button>

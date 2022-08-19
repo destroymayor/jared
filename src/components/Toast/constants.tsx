@@ -10,8 +10,8 @@ export type IconMapping = {
 };
 
 export const iconMapping: IconMapping = {
-  primary: <InfoIcon className="h-6 w-6 text-primary" />,
-  success: <CheckCircleIcon className="h-6 w-6 text-success" />,
-  warning: <AlertCircleIcon className="h-6 w-6 text-warning" />,
-  error: <XCircleIcon className="h-6 w-6 text-error" />,
+  primary: <InfoIcon className="text-blue-500" />,
+  success: <CheckCircleIcon className="text-green-500" />,
+  warning: <AlertCircleIcon className="text-amber-500" />,
+  error: <XCircleIcon className="text-red-500" />,
 };
