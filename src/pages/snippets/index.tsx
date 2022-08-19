@@ -3,7 +3,7 @@ import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import Link from 'next/link';
 import type { NextPageWithLayout } from '../_app';
 
-import { getCategoryFormatted, SNIPPET_CATEGORIES } from '@/helpers/category.helper';
+import { getCategoryFormatted } from '@/helpers/category.helper';
 import { getAllMdxFolder } from '@/helpers/mdx.helpers';
 
 import Container from '@/components/Container';
