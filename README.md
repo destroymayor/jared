@@ -12,8 +12,8 @@
 ```
 $ git clone https://github.com/destroymayor/jared.git
 $ cd jared
-$ yarn
-$ yarn dev
+$ pnpm install
+$ pnpm dev
 ```
 
 Create a `.env` file similar to `.env.example`.
