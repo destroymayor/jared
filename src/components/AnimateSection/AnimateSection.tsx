@@ -9,10 +9,16 @@ type Props = {
   children: ReactNode;
 };
 
+const animateTypes = {
+  'fade-in': 'animate-fade-in',
+  revealing: 'animate-revealing',
+};
+
 export default function AnimateSection(props: Props) {
   const { type = 'revealing', className, children } = props;
 
-  const animateType = `animate-${type}`;
+  const animateType = animateTypes[type];
+
   return (
     <motion.div
       {...props}
