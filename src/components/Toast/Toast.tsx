@@ -63,7 +63,7 @@ export default forwardRef<HTMLLIElement, Props>(function Toast(props, ref) {
       >
         <span className="h-6 w-6">{icon}</span>
 
-        <div className="flex flex-1 gap-1 flex-col">
+        <div className="flex flex-1 flex-col gap-1">
           <span className="text-zinc-800">{title}</span>
           <span className="text-sm text-zinc-500">{description}</span>
         </div>

@@ -9,7 +9,7 @@ const Custom404: NextPageWithLayout = () => {
       <h1 className="bg-gradient-to-r from-sky-600 via-sky-500 to-sky-500 bg-clip-text text-7xl font-extrabold text-transparent dark:from-sky-700 dark:via-sky-600 dark:to-sky-500">
         404
       </h1>
-      <p className="text-lg pt-10">This page cannot be found.</p>
+      <p className="pt-10 text-lg">This page cannot be found.</p>
     </div>
   );
 };

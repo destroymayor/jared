@@ -25,7 +25,7 @@ export default function Footer() {
         {routes.map((route) => (
           <li key={route.pathname}>
             <Link href={route.pathname}>
-              <span className="text-zinc-500 cursor-pointer transition-colors duration-300 ease-in-out hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200">
+              <span className="cursor-pointer text-zinc-500 transition-colors duration-300 ease-in-out hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200">
                 {route.title}
               </span>
             </Link>

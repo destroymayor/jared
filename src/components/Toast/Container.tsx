@@ -42,7 +42,7 @@ export default function Container() {
   return (
     <InPortal>
       <ul
-        className="fixed sm:bottom-8 right-2 left-2 bottom-2 sm:right-8"
+        className="fixed right-2 left-2 bottom-2 sm:bottom-8 sm:right-8"
         onMouseEnter={() => setHovering(true)}
         onMouseLeave={() => setHovering(false)}
       >

@@ -36,7 +36,7 @@ const Page: NextPageWithLayout = ({ snippets }: InferGetStaticPropsType<typeof g
 
         return (
           <Link href={slug} key={title + category} passHref>
-            <a className="flex min-h-[120px] md:min-h-[150px] cursor-pointer gap-6 rounded-md border border-zinc-100 p-4 shadow-md transition-all duration-150 ease-out dark:border-zinc-800  md:dark:hover:border-zinc-600">
+            <a className="flex min-h-[120px] cursor-pointer gap-6 rounded-md border border-zinc-100 p-4 shadow-md transition-all duration-150 ease-out dark:border-zinc-800 md:min-h-[150px]  md:dark:hover:border-zinc-600">
               <div className="flex flex-1 flex-col justify-between gap-6">
                 <div className="flex flex-col gap-2">
                   <h3 className="text-lg font-bold">{title}</h3>
