@@ -99,9 +99,9 @@ export default function Calendar(props: Props) {
                           opacity: 1,
                           translateY: 0,
                           transition: { delay: getRandomDelayAnimate },
+                          backgroundColor,
                         }}
                         className="my-[2px] block h-[10px] w-[10px] rounded-sm bg-zinc-300 dark:bg-zinc-800"
-                        style={{ backgroundColor }}
                         onMouseEnter={() =>
                           handleSelectContribution({
                             count: contribution.contributionCount,

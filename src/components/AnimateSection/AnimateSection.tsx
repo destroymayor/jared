@@ -4,17 +4,19 @@ import { motion } from 'framer-motion';
 import clsx from 'clsx';
 
 type Props = {
+  type?: 'fade-in' | 'revealing';
+  className?: string;
   children: ReactNode;
-  className: string;
 };
 
-export default function FadeInContainer(props: Props) {
-  const { children, className } = props;
+export default function AnimateSection(props: Props) {
+  const { type = 'revealing', className, children } = props;
 
+  const animateType = `animate-${type}`;
   return (
     <motion.div
       {...props}
-      className={clsx('animate-revealing', className)}
+      className={clsx(animateType, className)}
       initial={{ opacity: 0 }}
       transition={{ delay: 0.5 }}
       animate={{ opacity: 1 }}

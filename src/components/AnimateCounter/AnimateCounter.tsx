@@ -26,5 +26,9 @@ export default function AnimateCounter(props: Props) {
     return () => controls.stop();
   }, [total]);
 
-  return <span {...props} ref={countRef} className={className} />;
+  return (
+    <span {...props} ref={countRef} className={className}>
+      {0}
+    </span>
+  );
 }
