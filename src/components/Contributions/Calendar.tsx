@@ -86,7 +86,7 @@ export default function Calendar(props: Props) {
                 <div key={week.firstDay}>
                   {week.contributionDays.map((contribution) => {
                     const backgroundColor: any =
-                      contribution.contributionCount > 0 ? contribution?.color : null;
+                      contribution.contributionCount > 0 ? contribution?.color : '';
 
                     const getRandomDelayAnimate =
                       Math.random() * week.contributionDays.length * 0.15;
@@ -99,8 +99,8 @@ export default function Calendar(props: Props) {
                           opacity: 1,
                           translateY: 0,
                           transition: { delay: getRandomDelayAnimate },
-                          backgroundColor,
                         }}
+                        style={{ backgroundColor }}
                         className="my-[2px] block h-[10px] w-[10px] rounded-sm bg-zinc-300 dark:bg-zinc-800"
                         onMouseEnter={() =>
                           handleSelectContribution({

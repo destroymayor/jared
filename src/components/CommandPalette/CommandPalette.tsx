@@ -43,7 +43,7 @@ export default function CommandPalette() {
         <CommandIcon className="h-6 w-6" />
       </Button>
 
-      <AnimatePresence exitBeforeEnter initial={false}>
+      <AnimatePresence mode="wait" initial={false}>
         {isOpen && (
           <motion.div
             transition={{ duration: 0.2 }}
