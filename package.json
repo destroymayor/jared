@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "clsx": "^1.2.1",
-    "framer-motion": "^7.1.1",
+    "framer-motion": "^7.2.1",
     "gray-matter": "^4.0.3",
     "next": "^12.2.5",
     "next-mdx-remote": "^4.1.0",
@@ -24,7 +24,7 @@
     "swr": "^1.3.0"
   },
   "devDependencies": {
-    "@types/node": "^18.7.5",
+    "@types/node": "^18.7.13",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "autoprefixer": "^10.4.8",
@@ -37,6 +37,6 @@
     "prettier": "^2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.13",
     "tailwindcss": "^3.1.8",
-    "typescript": "^4.7.4"
+    "typescript": "^4.8.2"
   }
 }
