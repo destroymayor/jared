@@ -24,7 +24,7 @@ export default function AnimateSection(props: Props) {
       {...props}
       className={clsx(animateType, className)}
       initial={{ opacity: 0 }}
-      transition={{ delay: 0.5 }}
+      transition={{ delay: 0.6 }}
       animate={{ opacity: 1 }}
     >
       {children}

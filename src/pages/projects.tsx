@@ -34,39 +34,39 @@ const Page: NextPageWithLayout = () => {
                   height={429}
                 />
               </div>
-
-              <div className="flex flex-col gap-2 sm:px-4">
-                <div className="flex flex-wrap items-center gap-2 pb-2">
-                  {tags.map((tag) => (
-                    <Tag key={tag} label={tag} />
-                  ))}
-                </div>
-
-                <div className="flex flex-wrap items-center gap-4">
-                  <h2 className="text-xl font-semibold">{title}</h2>
-                  <span className="text-zinc-600 dark:text-zinc-400">{release_year}</span>
-                  <div className="flex items-center gap-2 text-sm">
-                    <ExternalLink
-                      href={links.demo}
-                      className="flex items-center gap-2 rounded-md px-2 py-1 font-bold hover:bg-sky-600/10 dark:text-zinc-400 dark:hover:text-zinc-100"
-                    >
-                      <GlobeIcon className="h-5 w-5" />
-                      <span>Demo</span>
-                    </ExternalLink>
-
-                    <ExternalLink
-                      href={links.repo}
-                      className="flex items-center gap-2 rounded-md px-2 py-1 font-bold hover:bg-sky-600/10 dark:text-zinc-400 dark:hover:text-zinc-100"
-                    >
-                      <GithubOutlineIcon className="h-5 w-5" />
-                      <span>Repo</span>
-                    </ExternalLink>
-                  </div>
-                </div>
-
-                <p className="text-sm dark:text-zinc-400">{description}</p>
-              </div>
             </AnimateSection>
+
+            <div className="flex flex-col gap-2 sm:px-4">
+              <div className="flex flex-wrap items-center gap-2 pb-2">
+                {tags.map((tag) => (
+                  <Tag key={tag} label={tag} />
+                ))}
+              </div>
+
+              <div className="flex flex-wrap items-center gap-4">
+                <h2 className="text-xl font-semibold">{title}</h2>
+                <span className="text-zinc-600 dark:text-zinc-400">{release_year}</span>
+                <div className="flex items-center gap-2 text-sm">
+                  <ExternalLink
+                    href={links.demo}
+                    className="flex items-center gap-2 rounded-md px-2 py-1 font-bold hover:bg-sky-600/10 dark:text-zinc-400 dark:hover:text-zinc-100"
+                  >
+                    <GlobeIcon className="h-5 w-5" />
+                    <span>Demo</span>
+                  </ExternalLink>
+
+                  <ExternalLink
+                    href={links.repo}
+                    className="flex items-center gap-2 rounded-md px-2 py-1 font-bold hover:bg-sky-600/10 dark:text-zinc-400 dark:hover:text-zinc-100"
+                  >
+                    <GithubOutlineIcon className="h-5 w-5" />
+                    <span>Repo</span>
+                  </ExternalLink>
+                </div>
+              </div>
+
+              <p className="text-sm dark:text-zinc-400">{description}</p>
+            </div>
           </li>
         );
       })}

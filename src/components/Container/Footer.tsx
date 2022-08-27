@@ -18,7 +18,9 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="mt-12 flex w-full max-w-2xl flex-col items-start gap-6 border-t border-dashed border-zinc-300 py-6 dark:border-zinc-700">
+    <footer className="flex w-full max-w-2xl flex-col items-start gap-6 py-10 px-4">
+      <hr className="h-1 w-full border-t border-zinc-300 dark:border-zinc-700" />
+
       <NowPlaying />
 
       <ul className="grid w-full grid-cols-2 gap-2 sm:grid-cols-3">
