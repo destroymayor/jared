@@ -3,7 +3,6 @@ import { ReactNode } from 'react';
 import {
   NextJSIcon,
   ReactWhiteIcon,
-  JavaScriptWhiteIcon,
   StyledComponentsIcon,
   TailwindCSSIcon,
   GitIcon,
@@ -16,7 +15,6 @@ interface ISkill {
 }
 
 const data: ISkill[] = [
-  { label: 'JavaScript', icon: <JavaScriptWhiteIcon /> },
   { label: 'TypeScript', icon: <TypeScriptIcon /> },
   { label: 'React', icon: <ReactWhiteIcon /> },
   { label: 'Next.js', icon: <NextJSIcon /> },

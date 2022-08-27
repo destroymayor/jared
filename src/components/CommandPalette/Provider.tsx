@@ -182,11 +182,11 @@ export default function Provider() {
     ...filterProjectReleaseYear.map((releaseYear) => ({
       title: releaseYear,
       children: projectsData
-        ?.filter((item) => item.release_year === releaseYear)
-        ?.map((el) => ({
-          title: el.title,
-          icon: el.builtWith,
-          click: () => handleOpenExternal(el.links.repo),
+        ?.filter((filterItem) => filterItem.release_year === releaseYear)
+        ?.map((project) => ({
+          title: project.title,
+          icon: project.built_with,
+          click: () => handleOpenExternal(project.links.repo),
         })),
     })),
   ];

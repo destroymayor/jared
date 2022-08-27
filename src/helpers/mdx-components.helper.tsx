@@ -11,7 +11,6 @@ export const COMPONENTS = {
   a: (props: any) => <a {...props} className="text-sky-700 hover:underline dark:text-sky-500" />,
   ContentHeading,
   blockquote: Blockquote,
-  Blockquote,
   PostImage,
   code: CodeBlock,
 };

@@ -1,11 +1,11 @@
 import { ReactNode } from 'react';
 
-import pokemonExplore from '@/public/images/projects/pokemon-explore.webp';
-import unsplashGallery from '@/public/images/projects/unsplash-gallery.webp';
-import weatherApp from '@/public/images/projects/weather-app.webp';
-import movieAppImage from '@/public/images/projects/movie-app.webp';
-import memoryCardGameImage from '@/public/images/projects/memory-card-game.webp';
-import imageConverterImage from '@/public/images/projects/image-converter.webp';
+import pokemon_explore from '@/public/images/projects/pokemon-explore.webp';
+import unsplash_gallery from '@/public/images/projects/unsplash-gallery.webp';
+import weather_app from '@/public/images/projects/weather-app.webp';
+import movie_app from '@/public/images/projects/movie-app.webp';
+import memory_card_game from '@/public/images/projects/memory-card-game.webp';
+import image_converter from '@/public/images/projects/image-converter.webp';
 
 import { NextJSIcon } from '@/components/Icons';
 
@@ -13,7 +13,7 @@ export interface DataTypes {
   image: string;
   title: string;
   description: string;
-  builtWith: ReactNode;
+  built_with: ReactNode;
   tags: string[];
   release_year: number;
   links: {
@@ -24,10 +24,10 @@ export interface DataTypes {
 
 const data: DataTypes[] = [
   {
-    image: pokemonExplore.src,
+    image: pokemon_explore.src,
     title: 'Pokemon explore',
     description: 'A Pokemon explore allows the user to search Pokemon from pokeapi.',
-    builtWith: <NextJSIcon />,
+    built_with: <NextJSIcon />,
     tags: ['next.js', 'zustand', 'Tailwind CSS', 'framer-motion', 'swr', 'pokeapi'],
     release_year: 2022,
     links: {
@@ -36,10 +36,10 @@ const data: DataTypes[] = [
     },
   },
   {
-    image: unsplashGallery.src,
+    image: unsplash_gallery.src,
     title: 'Unsplash Gallery',
     description: 'A photos gallery app allows the user to search photos from Unsplash.com',
-    builtWith: <NextJSIcon />,
+    built_with: <NextJSIcon />,
     tags: ['next.js', 'Tailwind CSS', 'framer-motion', 'Unsplash API'],
     release_year: 2022,
     links: {
@@ -48,10 +48,10 @@ const data: DataTypes[] = [
     },
   },
   {
-    image: weatherApp.src,
+    image: weather_app.src,
     title: 'Weather App',
     description: 'A weather app that shows the current weather in your search.',
-    builtWith: <NextJSIcon />,
+    built_with: <NextJSIcon />,
     tags: ['next.js', 'Tailwind CSS', 'swr', 'OpenWeatherMap API'],
     release_year: 2022,
     links: {
@@ -60,11 +60,11 @@ const data: DataTypes[] = [
     },
   },
   {
-    image: movieAppImage.src,
+    image: movie_app.src,
     title: 'Movie App',
     description:
       'A movie app allows the user to search movies they want to watch from The Movie DB API.',
-    builtWith: <NextJSIcon />,
+    built_with: <NextJSIcon />,
     tags: ['next.js', 'Recoil', 'swr', 'Tailwind CSS', 'The Movie DB API'],
     release_year: 2021,
     links: {
@@ -73,10 +73,10 @@ const data: DataTypes[] = [
     },
   },
   {
-    image: memoryCardGameImage.src,
+    image: memory_card_game.src,
     title: 'Memory Card Game',
     description: 'Test your memory with this memory game.',
-    builtWith: <NextJSIcon />,
+    built_with: <NextJSIcon />,
     tags: ['next.js', 'Tailwind CSS'],
     release_year: 2021,
     links: {
@@ -85,10 +85,10 @@ const data: DataTypes[] = [
     },
   },
   {
-    image: imageConverterImage.src,
+    image: image_converter.src,
     title: 'Image Converter',
     description: 'A simple image convert tool',
-    builtWith: <NextJSIcon />,
+    built_with: <NextJSIcon />,
     tags: ['next.js', 'Tailwind CSS'],
     release_year: 2021,
     links: {
