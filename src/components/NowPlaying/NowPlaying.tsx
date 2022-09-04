@@ -53,8 +53,8 @@ export default function NowPlaying() {
 
         <div className="flex flex-col items-start justify-center">
           <PlayingBars />
-          <p className="w-64 truncate text-sm sm:w-52">{songTitle}</p>
-          <p className="w-64 truncate text-sm text-zinc-500 dark:text-zinc-400 sm:w-3/4">
+          <p className="w-64 truncate text-sm sm:w-full">{songTitle}</p>
+          <p className="w-64 truncate text-sm text-zinc-500 dark:text-zinc-400 sm:w-full">
             {artist}
           </p>
         </div>

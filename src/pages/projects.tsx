@@ -8,12 +8,11 @@ import Container from '@/components/Container';
 import AnimateSection from '@/components/AnimateSection';
 import Hero from '@/components/Hero';
 import ExternalLink from '@/components/ExternalLink';
-import Tag from '@/components/Tag';
 
 import { GlobeIcon, GithubOutlineIcon } from '@/components/Icons';
 
 const title = `Projects`;
-const description = `Internet thingies built with React, Next.js.`;
+const description = `Internet thingies built with React, Next.js and TypeScript.`;
 
 const Page: NextPageWithLayout = () => {
   return (
@@ -37,12 +36,6 @@ const Page: NextPageWithLayout = () => {
             </AnimateSection>
 
             <div className="flex flex-col gap-2 sm:px-4">
-              <div className="flex flex-wrap items-center gap-2 pb-2">
-                {tags.map((tag) => (
-                  <Tag key={tag} label={tag} />
-                ))}
-              </div>
-
               <div className="flex flex-wrap items-center gap-4">
                 <h2 className="text-xl font-semibold">{title}</h2>
                 <span className="text-zinc-600 dark:text-zinc-400">{release_year}</span>

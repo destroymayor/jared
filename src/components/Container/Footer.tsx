@@ -1,50 +1,34 @@
+import Image from 'next/future/image';
 import Link from 'next/link';
 
-import { home, bookmarks, uses, snippets, blog } from '@/data/routes';
-import { github, twitter, linkedIn } from '@/data/contact';
+import avatar from '@/public/images/avatar.webp';
 
 import NowPlaying from '@/components/NowPlaying';
 
 export default function Footer() {
-  const routes = [
-    home,
-    { title: github.label, pathname: github.link },
-    uses,
-    snippets,
-    { title: twitter.label, pathname: twitter.link },
-    bookmarks,
-    blog,
-    { title: linkedIn.label, pathname: linkedIn.link },
-  ];
-
   return (
-    <footer className="flex w-full max-w-2xl flex-col items-start gap-6 py-10 px-4">
+    <footer className="mt-10 flex w-full max-w-2xl flex-col items-start gap-6 px-4 py-10">
       <hr className="h-1 w-full border-t border-zinc-300 dark:border-zinc-700" />
-
       <NowPlaying />
 
-      <ul className="grid w-full grid-cols-2 gap-2 sm:grid-cols-3">
-        {routes.map((route) => (
-          <li key={route.pathname}>
-            <Link href={route.pathname}>
-              <span className="cursor-pointer text-zinc-500 transition-colors duration-300 ease-in-out hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200">
-                {route.title}
-              </span>
-            </Link>
-          </li>
-        ))}
-      </ul>
-
-      <div className="flex items-end gap-2 text-sm dark:text-zinc-400">
-        <span className="text-xl">©</span>
-        <span>{new Date().getFullYear()}</span>
-        <span className="text-zinc-400 dark:text-zinc-600">-</span>
-        <span>
-          <span>he</span>
-          <span className="text-zinc-400 dark:text-zinc-600">/</span>
-          <span>him</span>
-        </span>
-      </div>
+      <Link href="https://github.com/destroymayor" passHref>
+        <a className="flex items-center gap-2 text-sm transition duration-300 ease-in-out dark:text-zinc-400 dark:hover:text-zinc-100">
+          <Image
+            className="cursor-pointer"
+            priority
+            src={avatar}
+            alt="Jared"
+            width={25}
+            height={25}
+          />
+          <span>
+            Jared Chen
+            <span className="text-zinc-400 dark:text-zinc-500">,</span>
+          </span>
+          <span className="text-xl">©</span>
+          <span>{new Date().getFullYear()}</span>
+        </a>
+      </Link>
     </footer>
   );
 }

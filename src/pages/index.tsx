@@ -8,7 +8,6 @@ import avatar from '@/public/images/me.webp';
 import skills from '@/data/skills';
 
 import Container from '@/components/Container';
-import ExternalLink from '@/components/ExternalLink';
 import Tag from '@/components/Tag';
 
 const Page: NextPageWithLayout = () => {
@@ -39,8 +38,8 @@ const Page: NextPageWithLayout = () => {
         <hr className="w-28 border border-zinc-300 dark:border-zinc-700" />
 
         <p className="pt-3 text-sm leading-7 text-zinc-700 dark:text-zinc-400">
-          I&#39;m <b>Jared</b>, a Front-end Developer working with <b>React</b> and <b>Next.js</b>{' '}
-          who enjoys building great quality and great user experience products.
+          I&#39;m <b>Jared Chen</b>, a Front-end Developer working with <b>React</b> and{' '}
+          <b>Next.js</b> who enjoys building great quality and great user experience products.
         </p>
 
         <div className="flex flex-col gap-2 text-sm text-zinc-700 dark:text-zinc-400 ">
