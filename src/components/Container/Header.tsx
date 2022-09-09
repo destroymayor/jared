@@ -8,7 +8,7 @@ import CommandPalette from '@/components/CommandPalette';
 
 export default function Header() {
   return (
-    <header className="flex w-full max-w-2xl items-center justify-between py-8 px-8 md:px-4">
+    <header className="flex w-full max-w-2xl items-center justify-between py-8 px-8 sm:px-4">
       <div className="flex items-center gap-4">
         <Link href={'/'} passHref>
           <span>
