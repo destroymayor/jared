@@ -12,11 +12,4 @@ module.exports = {
       'wakatime.com',
     ],
   },
-  experimental: {
-    legacyBrowsers: false,
-    browsersListForSwc: true,
-    images: {
-      allowFutureImage: true,
-    },
-  },
 };
