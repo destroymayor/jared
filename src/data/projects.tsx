@@ -9,7 +9,7 @@ import image_converter from '@/public/images/projects/image-converter.webp';
 
 import { NextJSIcon } from '@/components/Icons';
 
-export interface DataTypes {
+export interface IData {
   image: string;
   title: string;
   description: string;
@@ -22,7 +22,7 @@ export interface DataTypes {
   };
 }
 
-const data: DataTypes[] = [
+const data: IData[] = [
   {
     image: pokemon_explore.src,
     title: 'Pokemon explore',

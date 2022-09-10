@@ -66,7 +66,7 @@ export default function Calendar(props: Props) {
     <>
       <div className="relative flex flex-col gap-[2px]">
         {loading ? (
-          <div className="h-[104px] w-full animate-pulse rounded-xl bg-zinc-300 dark:bg-zinc-800"></div>
+          <div className="h-[104px] animate-pulse rounded-xl bg-zinc-300 dark:bg-zinc-900"></div>
         ) : (
           <>
             <ul className="flex justify-end gap-[3px] overflow-hidden text-xs dark:text-zinc-400 md:justify-start">
@@ -74,7 +74,7 @@ export default function Calendar(props: Props) {
                 <li
                   key={month.firstDay}
                   className={clsx(month.totalWeeks < 2 ? 'invisible' : '')}
-                  style={{ minWidth: 12.3 * month.totalWeeks }}
+                  style={{ minWidth: 12.35 * month.totalWeeks }}
                 >
                   {month.name}
                 </li>

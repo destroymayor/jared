@@ -17,7 +17,7 @@ export default function Container(props: Props) {
   const router = useRouter();
 
   return (
-    <div className="flex h-screen flex-col items-center">
+    <div className="mx-auto flex min-h-screen max-w-[720px] flex-col">
       <SEO title={title} description={description} />
 
       <Header />
@@ -26,7 +26,7 @@ export default function Container(props: Props) {
         key={router.route}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, transition: { delay: 0.2 } }}
-        className="relative w-full max-w-2xl flex-grow px-4"
+        className="relative flex-grow px-4"
       >
         {children}
       </motion.main>

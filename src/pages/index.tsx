@@ -6,7 +6,7 @@ import ExternalLink from '@/components/ExternalLink';
 
 const Page: NextPageWithLayout = () => {
   return (
-    <div className="flex flex-col gap-3 sm:pt-12">
+    <div className="flex flex-col gap-3 sm:pt-10">
       <h1 className="text-4xl font-extrabold">Jared</h1>
       <h2 className="text-zinc-700 dark:text-zinc-400">Front-End Developer</h2>
 

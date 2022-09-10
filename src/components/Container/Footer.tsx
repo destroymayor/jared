@@ -7,8 +7,8 @@ import NowPlaying from '@/components/NowPlaying';
 
 export default function Footer() {
   return (
-    <footer className="w-full max-w-2xl py-10 px-4">
-      <hr className="h-1 w-full border-t border-zinc-300 py-4 dark:border-zinc-700" />
+    <footer className="py-10 px-4">
+      <hr className="h-1 border-t border-dashed border-zinc-300 py-4 dark:border-zinc-700" />
 
       <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
         <NowPlaying />

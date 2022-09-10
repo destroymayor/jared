@@ -1,12 +1,6 @@
 import { ReactNode } from 'react';
 
-import {
-  MailIcon,
-  InstagramIcon,
-  LinkedinIcon,
-  GithubOutlineIcon,
-  TwitterIcon,
-} from '@/components/Icons';
+import { MailIcon, LinkedinIcon, GithubOutlineIcon, TwitterIcon } from '@/components/Icons';
 
 interface IContact {
   link: string;
@@ -43,13 +37,6 @@ export const twitter: IContact = {
   icon: <TwitterIcon />,
 };
 
-export const instagram: IContact = {
-  link: 'https://www.instagram.com/jared.nov',
-  title: '@jared.nov',
-  label: 'Instagram',
-  icon: <InstagramIcon />,
-};
-
-const data: IContact[] = [mail, github, linkedIn, twitter, instagram];
+const data: IContact[] = [mail, github, linkedIn, twitter];
 
 export default data;

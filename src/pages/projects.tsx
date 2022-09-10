@@ -16,14 +16,14 @@ const description = `Internet thingies built with React, Next.js and TypeScript.
 
 const Page: NextPageWithLayout = () => {
   return (
-    <ul className="flex flex-col gap-10">
+    <ul className="flex flex-col gap-12">
       {projects.map((project) => {
         const { tags, title, description, release_year, image, links } = project;
 
         return (
           <li key={title}>
             <AnimateSection type="revealing">
-              <div className="-mx-4 -my-2">
+              <div className="-m-4 grid place-items-center">
                 <Image
                   priority
                   className="rounded-md object-contain"
@@ -35,7 +35,7 @@ const Page: NextPageWithLayout = () => {
               </div>
             </AnimateSection>
 
-            <div className="flex flex-col gap-2 sm:px-4">
+            <div className="flex flex-col gap-2 sm:px-2">
               <div className="flex flex-wrap items-center gap-4">
                 <h2 className="text-xl font-semibold">{title}</h2>
                 <span className="text-zinc-600 dark:text-zinc-400">{release_year}</span>

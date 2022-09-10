@@ -1,5 +1,3 @@
-const plugin = require('tailwindcss/plugin');
-
 module.exports = {
   darkMode: 'class',
   content: [
@@ -44,11 +42,4 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    plugin(function ({ addBase }) {
-      addBase({
-        p: { maxWidth: '60ch' },
-      });
-    }),
-  ],
 };
