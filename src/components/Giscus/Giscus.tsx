@@ -8,10 +8,11 @@ type GiscusProp = {
   category: string;
   categoryId: string;
   mapping: string;
+  loading?: 'eager' | 'lazy';
 };
 
 export default function Giscus(props: GiscusProp) {
-  const { repo, repoId, category, categoryId, mapping } = props;
+  const { repo, repoId, category, categoryId, mapping, loading = 'lazy' } = props;
   const { resolvedTheme } = useTheme();
 
   const theme = resolvedTheme === 'dark' ? 'transparent_dark' : 'light';
@@ -32,6 +33,7 @@ export default function Giscus(props: GiscusProp) {
     script.setAttribute('data-emit-metadata', '0');
     script.setAttribute('data-input-position', 'top');
     script.setAttribute('data-theme', theme);
+    script.setAttribute('data-loading', loading);
     script.setAttribute('data-lang', 'en');
 
     document.body.appendChild(script);
@@ -39,7 +41,7 @@ export default function Giscus(props: GiscusProp) {
     return () => {
       document.body.removeChild(script);
     };
-  }, [theme]);
+  }, [category, categoryId, loading, mapping, repo, repoId, theme]);
 
   return <div className="giscus pb-10"></div>;
 }

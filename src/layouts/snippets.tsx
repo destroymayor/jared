@@ -45,6 +45,7 @@ export default function SnippetLayout(props: Props) {
         category="Announcements"
         categoryId="DIC_kwDOGHtW684CQkkf"
         mapping="title"
+        loading="lazy"
       />
     </Container>
   );
