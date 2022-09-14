@@ -121,7 +121,7 @@ export default function Calendar(props: Props) {
 
       <div className="flex flex-wrap items-center justify-between gap-2">
         {loading ? (
-          <div className="h-4 w-1/3 animate-pulse rounded-md bg-zinc-300 px-2 dark:bg-zinc-800" />
+          <div className="h-4 w-1/3 animate-pulse rounded-md bg-zinc-300 px-2 dark:bg-zinc-900" />
         ) : (
           <div className="flex items-center gap-2 text-sm">
             <span className="dark:text-zinc-400">Less</span>
