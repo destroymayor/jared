@@ -25,13 +25,6 @@ const Page: NextPageWithLayout = () => {
         >
           Pinkoi
         </ExternalLink>
-        . Previously at{' '}
-        <ExternalLink
-          href="https://www.tagtoo.com"
-          className="border-b border-zinc-300 pb-[2px] font-bold text-zinc-800 transition duration-300 ease-in-out hover:border-zinc-500 dark:border-zinc-500 dark:text-zinc-50 dark:hover:border-zinc-300"
-        >
-          Tagtoo
-        </ExternalLink>
         .
       </p>
     </div>
