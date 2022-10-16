@@ -15,14 +15,6 @@ export default function Footer() {
 
         <Link href="https://github.com/destroymayor" passHref>
           <a className="flex items-center gap-2 text-sm transition duration-300 ease-in-out dark:text-zinc-400 dark:hover:text-zinc-100">
-            <Image
-              className="cursor-pointer"
-              priority
-              src={avatar}
-              alt="Jared"
-              width={25}
-              height={25}
-            />
             <span>
               Jared Chen
               <span className="text-zinc-400 dark:text-zinc-500">,</span>
