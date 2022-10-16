@@ -5,14 +5,14 @@ import useSWR from 'swr';
 import { useTheme } from 'next-themes';
 import { useAnimationControls, AnimationControls } from 'framer-motion';
 
-import { dashboard, projects, bookmarks, snippets, blog, uses, guestbook } from '@/data/routes';
+import { dashboard, projects, bookmarks, snippets, uses, guestbook } from '@/data/routes';
 import projectsData from '@/data/projects';
 import contactData from '@/data/contact';
 
 import { getCategoryFormatted, SNIPPET_CATEGORIES } from '@/helpers/category.helper';
 
 import CommandPalette from './CommandPalette';
-import { Edit2Icon, SunIcon, MoonIcon, MonitorIcon } from '@/components/Icons';
+import { SunIcon, MoonIcon, MonitorIcon } from '@/components/Icons';
 
 type OptionChildrenProps = {
   title: string;
@@ -58,13 +58,6 @@ export default function Provider() {
   const getCurrentBreadcrumbPath = breadcrumbs.at(-1);
   const { data: snippetsData } = useSWR(
     getCurrentBreadcrumbPath === snippets.title ? '/api/snippets' : null,
-    {
-      revalidateOnFocus: false,
-    }
-  );
-
-  const { data: postsData } = useSWR(
-    getCurrentBreadcrumbPath === blog.title ? '/api/posts' : null,
     {
       revalidateOnFocus: false,
     }
@@ -117,11 +110,6 @@ export default function Provider() {
           icon: snippets.icon,
           title: snippets.title,
           click: () => handleBreadcrumbs(snippets.title),
-        },
-        {
-          icon: blog.icon,
-          title: blog.title,
-          click: () => handleBreadcrumbs(blog.title),
         },
         {
           icon: uses.icon,
@@ -216,17 +204,6 @@ export default function Provider() {
     })),
   ];
 
-  const postsOptions = [
-    {
-      title: 'General',
-      children: postsData?.map((post: { title: string; slug: string }) => ({
-        title: post.title,
-        icon: <Edit2Icon />,
-        click: () => handleNavigation(post.slug),
-      })),
-    },
-  ];
-
   const optionsType = {
     [projects.title]: {
       loading: !projectsData && getCurrentBreadcrumbPath === projects.title,
@@ -235,10 +212,6 @@ export default function Provider() {
     [snippets.title]: {
       loading: !snippetsData && getCurrentBreadcrumbPath === snippets.title,
       data: snippetsOptions,
-    },
-    [blog.title]: {
-      loading: !postsData && getCurrentBreadcrumbPath === blog.title,
-      data: postsOptions,
     },
   };
   const getOptions = (optionsType[breadcrumbs.at(-1) as string]?.data as OptionProps[]) ?? options;
