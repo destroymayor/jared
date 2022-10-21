@@ -1,8 +1,6 @@
 import Image from 'next/future/image';
 import Link from 'next/link';
 
-import avatar from '@/public/images/avatar.webp';
-
 import NowPlaying from '@/components/NowPlaying';
 
 export default function Footer() {
