@@ -5,6 +5,7 @@ type Props = {
   className?: string;
   delegated?: any;
   children?: ReactNode;
+  download?: boolean;
 };
 
 export default function ExternalLink(props: Props) {

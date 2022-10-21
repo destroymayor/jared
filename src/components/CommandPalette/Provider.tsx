@@ -5,7 +5,7 @@ import useSWR from 'swr';
 import { useTheme } from 'next-themes';
 import { useAnimationControls, AnimationControls } from 'framer-motion';
 
-import { dashboard, projects, bookmarks, snippets, uses, guestbook } from '@/data/routes';
+import { dashboard, projects, photos, bookmarks, snippets, uses, guestbook } from '@/data/routes';
 import projectsData from '@/data/projects';
 import contactData from '@/data/contact';
 
@@ -110,6 +110,11 @@ export default function Provider() {
           icon: snippets.icon,
           title: snippets.title,
           click: () => handleBreadcrumbs(snippets.title),
+        },
+        {
+          icon: photos.icon,
+          title: photos.title,
+          click: () => handleNavigation(photos.pathname),
         },
         {
           icon: uses.icon,
