@@ -1,26 +1,10 @@
-import { useState, useEffect, useRef } from 'react';
+import { useRef } from 'react';
+import { useInView as useFramerMotionInView } from 'framer-motion';
 
-export default function useInView(options: any) {
-  const ref = useRef();
-  const [isVisible, setIntersectionState] = useState(null);
+export default function useInView(options?: any) {
+  const ref = useRef<HTMLElement>(null);
 
-  const intersectionCallback = (entries: any) => {
-    const [entry] = entries;
-    setIntersectionState(entry.isIntersecting);
-  };
+  const isInView = useFramerMotionInView(ref, options);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(intersectionCallback, {
-      ...options,
-      rootMargin: '0px 0px -100px 0px',
-    });
-
-    if (ref.current) observer.observe(ref?.current);
-
-    return () => {
-      observer.disconnect();
-    };
-  }, [ref, options]);
-
-  return { isVisible, ref };
+  return { isInView, ref };
 }

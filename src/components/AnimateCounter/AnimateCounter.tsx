@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 
 import { animate } from 'framer-motion';
+import useInView from '@/hooks/use-in-view.hook';
 
 type Props = {
   className: string;
@@ -10,6 +11,7 @@ type Props = {
 export default function AnimateCounter(props: Props) {
   const { className, total } = props;
   const countRef = useRef<HTMLElement>(null);
+  const { ref: inViewRef, isInView } = useInView({ once: true });
 
   const initialCount = 0;
 
@@ -19,16 +21,18 @@ export default function AnimateCounter(props: Props) {
     const controls = animate(initialCount, total, {
       duration: 1,
       onUpdate(value) {
-        count!.textContent = Math.floor(value);
+        if (isInView) count!.textContent = Math.floor(value);
       },
     });
 
     return () => controls.stop();
-  }, [total]);
+  }, [total, isInView]);
 
   return (
-    <span {...props} ref={countRef} className={className}>
-      {0}
+    <span ref={inViewRef}>
+      <span {...props} ref={countRef} className={className}>
+        {0}
+      </span>
     </span>
   );
 }
