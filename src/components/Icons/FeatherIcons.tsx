@@ -45,6 +45,13 @@ export const BookmarksIcon = (props: any) => (
   </FeatherIcon>
 );
 
+export const CameraIcon = (props: any) => (
+  <FeatherIcon {...props}>
+    <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+    <circle cx="12" cy="13" r="4"></circle>
+  </FeatherIcon>
+);
+
 export const ClockIcon = (props: any) => (
   <FeatherIcon {...props}>
     <circle cx="12" cy="12" r="10"></circle>
@@ -105,6 +112,14 @@ export const CPUIcon = (props: any) => (
     <line x1="20" y1="14" x2="23" y2="14"></line>
     <line x1="1" y1="9" x2="4" y2="9"></line>
     <line x1="1" y1="14" x2="4" y2="14"></line>
+  </FeatherIcon>
+);
+
+export const DownloadIcon = (props: any) => (
+  <FeatherIcon {...props}>
+    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+    <polyline points="7 10 12 15 17 10"></polyline>
+    <line x1="12" y1="15" x2="12" y2="3"></line>
   </FeatherIcon>
 );
 

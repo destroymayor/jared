@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { dashboard, projects, snippets, guestbook } from '@/data/routes';
+import { dashboard, projects, photos, snippets } from '@/data/routes';
 
 import clsx from 'clsx';
 import Tabs from '@/components/Tabs';
@@ -8,7 +8,7 @@ import Tabs from '@/components/Tabs';
 export default function DesktopNav() {
   const router = useRouter();
 
-  const routes = [dashboard, projects, snippets, guestbook];
+  const routes = [dashboard, projects, photos, snippets];
 
   return (
     <nav className="hidden items-center sm:flex">

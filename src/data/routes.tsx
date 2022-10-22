@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 
 import {
   BookmarksIcon,
+  CameraIcon,
   CodePenIcon,
   CPUIcon,
   Edit3Icon,
@@ -41,6 +42,12 @@ export const guestbook: IRoutes = {
   icon: <MessageSquareIcon />,
 };
 
+export const photos: IRoutes = {
+  title: 'Photos',
+  pathname: '/photos',
+  icon: <CameraIcon />,
+};
+
 export const projects: IRoutes = {
   title: 'Projects',
   pathname: '/projects',
@@ -65,6 +72,6 @@ export const uses: IRoutes = {
   icon: <CPUIcon />,
 };
 
-const data: IRoutes[] = [dashboard, projects, snippets, blog, guestbook, uses, bookmarks];
+const data: IRoutes[] = [dashboard, projects, photos, snippets, blog, guestbook, uses, bookmarks];
 
 export default data;
