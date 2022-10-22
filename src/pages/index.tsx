@@ -6,18 +6,18 @@ import ExternalLink from '@/components/ExternalLink';
 
 const Page: NextPageWithLayout = () => {
   return (
-    <div className="flex flex-col gap-3 pt-12 sm:pt-24">
+    <div className="flex min-h-[800px] flex-col gap-3 pt-10">
       <h1 className="text-4xl font-extrabold">Jared</h1>
       <h2 className="text-zinc-700 dark:text-zinc-400">Front-End Developer</h2>
 
       <hr className="w-28 border border-zinc-300 dark:border-zinc-700" />
 
-      <p className="pt-3 text-sm leading-7 text-zinc-600 dark:text-zinc-400">
+      <p className="pt-2 text-sm leading-7 text-zinc-600 dark:text-zinc-400">
         I&#39;m <b>Jared Chen</b>, a Front-end Developer working with <b>React</b> and{' '}
         <b>Next.js</b> who enjoys building great quality and great user experience products.
       </p>
 
-      <p className="flex items-end text-sm leading-7 text-zinc-600 dark:text-zinc-400">
+      <p className="flex items-end pt-4 text-sm leading-7 text-zinc-600 dark:text-zinc-400">
         Currently working at{' '}
         <ExternalLink href="https://www.pinkoi.com" className="flex items-end gap-2 pl-2">
           <svg height={28} width={28} viewBox="0 0 36 36">
