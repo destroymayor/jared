@@ -1,8 +1,7 @@
-import Image from 'next/future/image';
-
+import Image from 'next/image';
+import Link from 'next/link';
 import useSWR from 'swr';
 
-import ExternalLink from '@/components/ExternalLink';
 import { SpotifySolidIcon } from '@/components/Icons';
 
 type TopTracksTypes = {
@@ -38,7 +37,12 @@ export default function TopTracks() {
         <ul>
           {data?.map((item, index) => (
             <li key={`${item.title} - ${item.artist}`}>
-              <ExternalLink href={item?.songUrl} className="flex items-center gap-2 py-2">
+              <Link
+                href={item?.songUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 py-2"
+              >
                 <span className="w-5 text-center dark:text-zinc-400">{index + 1}</span>
 
                 <Image
@@ -54,7 +58,7 @@ export default function TopTracks() {
                     {item?.artist ?? 'Spotify'}
                   </p>
                 </div>
-              </ExternalLink>
+              </Link>
             </li>
           ))}
         </ul>

@@ -1,13 +1,13 @@
 import type { ReactElement } from 'react';
 import type { NextPageWithLayout } from './_app';
+import Image from 'next/image';
+import Link from 'next/link';
 
-import Image from 'next/future/image';
 import projects from '@/data/projects';
 
 import Container from '@/components/Container';
 import AnimateSection from '@/components/AnimateSection';
 import Hero from '@/components/Hero';
-import ExternalLink from '@/components/ExternalLink';
 
 import { ArrowRightIcon } from '@/components/Icons';
 
@@ -29,21 +29,25 @@ const Page: NextPageWithLayout = () => {
                 <h2 className="text-xl font-semibold">{title}</h2>
                 <p className="max-w-[60ch] text-sm dark:text-zinc-400">{description}</p>
                 <div className="flex flex-col items-start gap-4 text-sm dark:text-zinc-400">
-                  <ExternalLink
+                  <Link
                     href={links.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center gap-2 rounded-md font-bold transition duration-300 ease-in-out hover:translate-x-2"
                   >
                     <ArrowRightIcon className="h-5 w-5" />
                     <span>{title} website</span>
-                  </ExternalLink>
+                  </Link>
 
-                  <ExternalLink
+                  <Link
                     href={links.repo}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center gap-2 rounded-md font-bold transition duration-300 ease-in-out hover:translate-x-2"
                   >
                     <ArrowRightIcon className="h-5 w-5" />
                     <span>{title} Repo</span>
-                  </ExternalLink>
+                  </Link>
                 </div>
               </div>
             </div>
