@@ -1,8 +1,8 @@
 import type { ReactElement } from 'react';
 import type { NextPageWithLayout } from './_app';
+import Link from 'next/link';
 
 import Container from '@/components/Container';
-import ExternalLink from '@/components/ExternalLink';
 
 const Page: NextPageWithLayout = () => {
   return (
@@ -19,7 +19,12 @@ const Page: NextPageWithLayout = () => {
 
       <p className="flex items-end pt-4 text-sm leading-7 text-zinc-600 dark:text-zinc-400">
         Currently working at{' '}
-        <ExternalLink href="https://www.pinkoi.com" className="flex items-end gap-2 pl-2">
+        <Link
+          href="https://www.pinkoi.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-end gap-2 pl-2"
+        >
           <svg height={28} width={28} viewBox="0 0 36 36">
             <path
               d="M27.6 36H8.4A8.4 8.4 0 0 1 0 27.6V8.4A8.4 8.4 0 0 1 8.4 0h19.2A8.4 8.4 0 0 1 36 8.4v19.2a8.4 8.4 0 0 1-8.4 8.4"
@@ -31,7 +36,7 @@ const Page: NextPageWithLayout = () => {
             />
           </svg>
           <span className="font-bold text-zinc-800 dark:text-zinc-50">Pinkoi</span>
-        </ExternalLink>
+        </Link>
         .
       </p>
     </div>

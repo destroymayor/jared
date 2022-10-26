@@ -1,12 +1,12 @@
 import type { ReactElement } from 'react';
 import type { NextPageWithLayout } from './_app';
-import Image from 'next/future/image';
+import Image from 'next/image';
+import Link from 'next/link';
 
 import useSWR from 'swr';
 
 import { DownloadIcon, LinkIcon } from '@/components/Icons';
 import Container from '@/components/Container';
-import ExternalLink from '@/components/ExternalLink';
 import Hero from '@/components/Hero';
 
 interface IUrls {
@@ -47,37 +47,45 @@ const Page: NextPageWithLayout = () => {
             <div className="absolute left-0 right-0 bottom-0 flex items-center justify-between rounded-b-md bg-zinc-100 p-2 text-sm text-zinc-600 opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-90 dark:bg-zinc-900 dark:text-zinc-400">
               <div>
                 <span>Photo by </span>
-                <ExternalLink
+                <Link
                   href="https://unsplash.com/@destroymayor"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="underline hover:text-zinc-900 dark:hover:text-zinc-50"
                 >
                   Jared Chen
-                </ExternalLink>
+                </Link>
                 <span> / </span>
-                <ExternalLink
+                <Link
                   href="https://unsplash.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="underline hover:text-zinc-900 dark:hover:text-zinc-50"
                 >
                   Unsplash
-                </ExternalLink>
+                </Link>
               </div>
               <div className="flex items-center gap-2">
-                <ExternalLink
+                <Link
                   href={photo.links.html}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-1 hover:text-zinc-900 dark:hover:text-zinc-50"
                 >
                   <LinkIcon className="h-4 w-4" />
                   Link
-                </ExternalLink>
+                </Link>
                 <span>·</span>
-                <ExternalLink
+                <Link
                   href={photo.links.download}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   download
                   className="flex items-center gap-1 hover:text-zinc-900 dark:hover:text-zinc-50"
                 >
                   <DownloadIcon className="h-4 w-4" />
                   Download
-                </ExternalLink>
+                </Link>
               </div>
             </div>
           </li>

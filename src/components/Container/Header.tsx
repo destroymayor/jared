@@ -1,4 +1,4 @@
-import Image from 'next/future/image';
+import Image from 'next/image';
 import Link from 'next/link';
 
 import avatar from '@/public/images/avatar.webp';
@@ -11,17 +11,15 @@ export default function Header() {
   return (
     <header className="flex items-center justify-between py-8 px-8 sm:px-4">
       <div className="flex items-center gap-4">
-        <Link href={'/'} passHref>
-          <span>
-            <Image
-              className="cursor-pointer"
-              priority
-              src={avatar}
-              alt="Jared"
-              width={40}
-              height={40}
-            />
-          </span>
+        <Link href={'/'}>
+          <Image
+            className="cursor-pointer"
+            priority
+            src={avatar}
+            alt="Jared"
+            width={40}
+            height={40}
+          />
         </Link>
         <DesktopNav />
       </div>
