@@ -32,15 +32,16 @@ const Page: NextPageWithLayout = () => {
   });
 
   return (
-    <ul className="relative left-1/2 right-1/2 -mx-[50vw] grid w-screen gap-2 px-2 [grid-template-columns:repeat(auto-fill,minmax(100%,1fr))] sm:[grid-template-columns:repeat(auto-fill,minmax(440px,1fr))]">
+    <ul className="relative left-1/2 right-1/2 -mx-[50vw] grid min-h-screen w-screen gap-2 px-2 [grid-template-columns:repeat(auto-fill,minmax(100%,1fr))] sm:[grid-template-columns:repeat(auto-fill,minmax(440px,1fr))]">
       {photos?.map((photo) => {
         return (
           <li key={photo.id} className="group relative h-[700px] min-w-full sm:min-w-[440px]">
             <Image
               id={photo.id}
               alt={photo.id}
-              className="h-full w-full rounded-md object-cover object-center"
               src={photo.urls.regular}
+              unoptimized
+              className="h-full w-full rounded-md object-cover object-center"
               width={1080}
               height={400}
             />
