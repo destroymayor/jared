@@ -12,6 +12,7 @@
     "prettier": "prettier --ignore-path .gitignore --write '**/*.{js,jsx,ts,tsx}'"
   },
   "dependencies": {
+    "blurhash": "^2.0.3",
     "clsx": "^1.2.1",
     "framer-motion": "^7.6.1",
     "gray-matter": "^4.0.3",

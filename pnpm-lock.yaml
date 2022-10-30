@@ -5,6 +5,7 @@ specifiers:
   '@types/react': ^18.0.21
   '@types/react-dom': ^18.0.6
   autoprefixer: ^10.4.12
+  blurhash: ^2.0.3
   clsx: ^1.2.1
   eslint: ^8.24.0
   eslint-config-next: ^13.0.0
@@ -27,6 +28,7 @@ specifiers:
   typescript: ^4.8.4
 
 dependencies:
+  blurhash: 2.0.3
   clsx: 1.2.1
   framer-motion: 7.6.1_biqbaboplfbrettd7655fr4n2y
   gray-matter: 4.0.3
@@ -706,6 +708,10 @@ packages:
     resolution: {integrity: sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==}
     engines: {node: '>=8'}
     dev: true
+
+  /blurhash/2.0.3:
+    resolution: {integrity: sha512-nTnJTOheiaV3b189f7rH5AbbrnQB2r3CcOZBg47GUDaE9DrxyBPD2w0HYp4ME2UBlTP7LMIa6nMWqg/58oyIzA==}
+    dev: false
 
   /brace-expansion/1.1.11:
     resolution: {integrity: sha512-iCuPHDFgrHX7H2vEI/5xpz07zSHB00TpugqhmYtVmMO6518mCuRMoOYFldEBl0g187ufozdaHgWKcYFb61qGiA==}

@@ -9,6 +9,7 @@ interface IUrls {
 
 interface IPhoto {
   id: string;
+  blur_hash: string;
   urls: IUrls[];
   links: {
     html: string;
@@ -29,7 +30,12 @@ export const getUnsplashPhotos = async () => {
 
   const data = await request.json();
 
-  const photos = data?.map((item: IPhoto) => ({ id: item.id, urls: item.urls, links: item.links }));
+  const photos = data?.map((item: IPhoto) => ({
+    id: item.id,
+    blur_hash: item.blur_hash,
+    urls: item.urls,
+    links: item.links,
+  }));
 
   return { status, data: photos };
 };

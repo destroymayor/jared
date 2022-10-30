@@ -5,6 +5,8 @@ import Link from 'next/link';
 
 import useSWR from 'swr';
 
+import useBlurhashToBase64 from '@/hooks/use-blur-hash-to-base64.hook';
+
 import { DownloadIcon, LinkIcon } from '@/components/Icons';
 import Container from '@/components/Container';
 import Hero from '@/components/Hero';
@@ -16,6 +18,8 @@ interface IUrls {
 
 interface IPhoto {
   id: string;
+  blur_hash: string;
+  color: string;
   urls: IUrls;
   links: {
     html: string;
@@ -31,21 +35,27 @@ const Page: NextPageWithLayout = () => {
     revalidateOnFocus: false,
   });
 
+  const getBlurData = useBlurhashToBase64();
+
   return (
     <ul className="relative left-1/2 right-1/2 -mx-[50vw] grid min-h-screen w-screen gap-2 px-2 [grid-template-columns:repeat(auto-fill,minmax(100%,1fr))] sm:[grid-template-columns:repeat(auto-fill,minmax(440px,1fr))]">
       {photos?.map((photo) => {
+        const blurDataURL = getBlurData({ blur_hash: photo.blur_hash, width: 440, height: 700 });
+
         return (
           <li key={photo.id} className="group relative h-[700px] min-w-full sm:min-w-[440px]">
             <Image
               id={photo.id}
               alt={photo.id}
               src={photo.urls.regular}
+              placeholder="blur"
+              blurDataURL={blurDataURL}
               unoptimized
               className="h-full w-full rounded-md object-cover object-center"
               width={1080}
               height={400}
             />
-            <div className="absolute left-0 right-0 bottom-0 flex items-center justify-between rounded-b-md bg-zinc-100 p-2 text-sm text-zinc-600 opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-90 dark:bg-zinc-900 dark:text-zinc-400">
+            <div className="absolute left-0 right-0 bottom-0 hidden items-center justify-between rounded-b-md bg-zinc-100 p-2 text-sm text-zinc-600 opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-90 dark:bg-zinc-900 dark:text-zinc-400 sm:flex">
               <div>
                 <span>Photo by </span>
                 <Link

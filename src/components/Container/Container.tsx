@@ -25,7 +25,7 @@ export default function Container(props: Props) {
       <motion.main
         key={router.route}
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1, transition: { delay: 0.2 } }}
+        animate={{ opacity: 1, transition: { delay: 0.15 } }}
         className="relative flex-grow px-4"
       >
         {children}
