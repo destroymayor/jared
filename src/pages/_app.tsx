@@ -2,6 +2,7 @@ import { ReactElement, ReactNode } from 'react';
 import type { NextPage } from 'next';
 import type { AppProps } from 'next/app';
 import { Source_Code_Pro } from '@next/font/google';
+import { Analytics } from '@vercel/analytics/react';
 
 import '@/styles/global.css';
 
@@ -34,6 +35,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
               getLayout(<Component {...pageProps} />)
               //
             }
+            <Analytics />
           </ToastProvider>
         </SWRConfig>
       </div>
