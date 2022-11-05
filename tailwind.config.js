@@ -1,3 +1,5 @@
+const { fontFamily } = require('tailwindcss/defaultTheme');
+
 module.exports = {
   darkMode: 'class',
   content: [
@@ -12,7 +14,7 @@ module.exports = {
         black: '#111111',
       },
       fontFamily: {
-        sans: ['Source Code Pro'],
+        sans: ['Source Code Pro', ...fontFamily.sans],
       },
       fontSize: {
         xl: ['1.25rem', { lineHeight: 1.1 }],

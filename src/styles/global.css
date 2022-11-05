@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-display: swap;
-  font-family: 'Source Code Pro';
-  src: url(/fonts/source-code-pro.ttf) format('truetype');
-}
-
 * {
   -webkit-font-smoothing: antialiased;
   --webkit-overflow-scrolling: touch;
