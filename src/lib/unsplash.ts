@@ -18,7 +18,12 @@ interface IPhoto {
 }
 
 export const getUnsplashPhotos = async () => {
-  const request = await fetch(`${UNSPLASH_ENDPOINT}/photos?client_id=${unsplash_access_key}`, {
+  const params = new URLSearchParams();
+  params.set('client_id', unsplash_access_key ?? '');
+  params.set('order_by', 'popular');
+  params.set('per_page', '30');
+
+  const request = await fetch(`${UNSPLASH_ENDPOINT}/photos?${params}`, {
     method: 'GET',
   });
 
