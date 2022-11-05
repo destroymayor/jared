@@ -1,6 +1,7 @@
 import { ReactElement, ReactNode } from 'react';
 import type { NextPage } from 'next';
 import type { AppProps } from 'next/app';
+import { Source_Code_Pro } from '@next/font/google';
 
 import '@/styles/global.css';
 
@@ -18,20 +19,24 @@ type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
 
+const sourceCodeProFont = Source_Code_Pro();
+
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? ((page) => page);
 
   return (
     <ThemeProvider attribute="class" defaultTheme="dark">
-      <SWRConfig value={{ fetcher }}>
-        <ToastProvider>
-          {
-            //
-            getLayout(<Component {...pageProps} />)
-            //
-          }
-        </ToastProvider>
-      </SWRConfig>
+      <div className={sourceCodeProFont.className}>
+        <SWRConfig value={{ fetcher }}>
+          <ToastProvider>
+            {
+              //
+              getLayout(<Component {...pageProps} />)
+              //
+            }
+          </ToastProvider>
+        </SWRConfig>
+      </div>
     </ThemeProvider>
   );
 }

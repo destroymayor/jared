@@ -4,14 +4,6 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <link
-          rel="preload"
-          href="/fonts/source-code-pro.ttf"
-          as="font"
-          type="font/ttf"
-          crossOrigin="anonymous"
-        />
-
         {/* Favicons */}
         <link rel="manifest" href="/favicons/manifest.json" />
         <link rel="shortcut icon" href="/favicons/favicon.ico" />
