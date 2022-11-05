@@ -1,4 +1,5 @@
 const { fontFamily } = require('tailwindcss/defaultTheme');
+const plugin = require('tailwindcss/plugin');
 
 module.exports = {
   darkMode: 'class',
@@ -44,4 +45,11 @@ module.exports = {
       },
     },
   },
+  plugins: [
+    plugin(function ({ addBase }) {
+      addBase({
+        p: { maxWidth: '60ch' },
+      });
+    }),
+  ],
 };
