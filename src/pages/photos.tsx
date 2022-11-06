@@ -5,6 +5,7 @@ import Link from 'next/link';
 
 import useSWR from 'swr';
 
+import { motion } from 'framer-motion';
 import useBlurhashToBase64 from '@/hooks/use-blur-hash-to-base64.hook';
 
 import { DownloadIcon, LinkIcon } from '@/components/Icons';
@@ -37,13 +38,30 @@ const Page: NextPageWithLayout = () => {
 
   const getBlurData = useBlurhashToBase64();
 
+  const photoVariants = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: { delay: 0.3 },
+    },
+  };
+
   return (
     <ul className="relative left-1/2 right-1/2 -mx-[50vw] grid min-h-screen w-screen gap-2 px-2 [grid-template-columns:repeat(auto-fill,minmax(100%,1fr))] sm:[grid-template-columns:repeat(auto-fill,minmax(440px,1fr))]">
       {photos?.map((photo) => {
         const blurDataURL = getBlurData({ blur_hash: photo.blur_hash, width: 440, height: 700 });
 
         return (
-          <li key={photo.id} className="group relative h-[700px] min-w-full sm:min-w-[440px]">
+          <motion.li
+            key={photo.id}
+            className="group relative h-[700px] min-w-full sm:min-w-[440px]"
+            initial="hidden"
+            viewport={{ once: true }}
+            whileInView="visible"
+            variants={photoVariants}
+          >
             <Image
               id={photo.id}
               alt={photo.id}
@@ -99,7 +117,7 @@ const Page: NextPageWithLayout = () => {
                 </Link>
               </div>
             </div>
-          </li>
+          </motion.li>
         );
       })}
     </ul>
