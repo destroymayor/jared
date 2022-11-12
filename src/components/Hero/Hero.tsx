@@ -16,7 +16,7 @@ export default function Hero(props: Props) {
       <div
         className={clsx(
           'my-6',
-          dashedDisplay && ' border-b border-dashed border-zinc-300 dark:border-zinc-700'
+          dashedDisplay && 'border-b border-dashed border-zinc-300 dark:border-zinc-700'
         )}
       />
     </div>
