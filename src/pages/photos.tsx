@@ -25,6 +25,16 @@ interface IPhoto {
   };
 }
 
+const photoVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: { delay: 0.3 },
+  },
+};
+
 const title = `Photos`;
 const description = `I like to feel nature and take that moment.`;
 
@@ -35,18 +45,8 @@ const Page: NextPageWithLayout = () => {
 
   const getBlurData = useBlurhashToBase64();
 
-  const photoVariants = {
-    hidden: {
-      opacity: 0,
-    },
-    visible: {
-      opacity: 1,
-      transition: { delay: 0.3 },
-    },
-  };
-
   return (
-    <ul className="relative left-1/2 right-1/2 -mx-[50vw] grid min-h-screen w-[99.5vw] gap-2 pr-2 pl-4 [grid-template-columns:repeat(auto-fill,minmax(100%,1fr))] sm:[grid-template-columns:repeat(auto-fill,minmax(440px,1fr))]">
+    <ul className="relative left-1/2 right-1/2 -mr-[50vw] -ml-[49vw] grid min-h-screen w-[97vw] gap-2 [grid-template-columns:repeat(auto-fill,minmax(100%,1fr))] sm:px-2 sm:[grid-template-columns:repeat(auto-fill,minmax(440px,1fr))] md:w-[98vw]">
       {photos?.map((photo) => {
         const blurDataURL = getBlurData({ blur_hash: photo.blur_hash, width: 440, height: 700 });
 
