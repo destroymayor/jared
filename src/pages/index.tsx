@@ -6,7 +6,7 @@ import Container from '@/components/Container';
 
 const Page: NextPageWithLayout = () => {
   return (
-    <div className="flex min-h-[800px] flex-col gap-3 pt-10">
+    <div className="flex min-h-[400px] flex-col gap-3 pt-10">
       <h1 className="text-4xl font-extrabold">Jared</h1>
       <h2 className="text-zinc-700 dark:text-zinc-400">Front-End Developer</h2>
 
