@@ -6,7 +6,7 @@ import Link from 'next/link';
 import projects from '@/data/projects';
 
 import Container from '@/components/Container';
-import AnimateSection from '@/components/AnimateSection';
+import FadeUpSection from '@/components/FadeUpSection';
 import Hero from '@/components/Hero';
 
 import { ArrowRightIcon } from '@/components/Icons';
@@ -23,12 +23,18 @@ const Page: NextPageWithLayout = () => {
         return (
           <li key={title} className="flex flex-col gap-8">
             <div className="flex gap-6">
-              <span className="min-h-[24px] min-w-[24px]">{built_with}</span>
+              <FadeUpSection className="min-h-[24px] min-w-[24px]">{built_with}</FadeUpSection>
 
               <div className="flex flex-col gap-5">
-                <h2 className="text-xl font-semibold">{title}</h2>
-                <p className="max-w-[60ch] text-sm dark:text-zinc-400">{description}</p>
-                <div className="flex flex-col items-start gap-4 text-sm dark:text-zinc-400">
+                <FadeUpSection>
+                  <h2 className="text-xl font-semibold">{title}</h2>
+                </FadeUpSection>
+
+                <FadeUpSection>
+                  <p className="max-w-[60ch] text-sm dark:text-zinc-400">{description}</p>
+                </FadeUpSection>
+
+                <FadeUpSection className="flex flex-col items-start gap-4 text-sm dark:text-zinc-400">
                   <Link
                     href={links.demo}
                     target="_blank"
@@ -48,22 +54,20 @@ const Page: NextPageWithLayout = () => {
                     <ArrowRightIcon className="h-5 w-5" />
                     <span>{title} Repo</span>
                   </Link>
-                </div>
+                </FadeUpSection>
               </div>
             </div>
 
-            <AnimateSection type="revealing">
-              <div className="-m-4 grid place-items-center">
-                <Image
-                  priority
-                  className="rounded-md object-contain"
-                  alt={title}
-                  src={image}
-                  width={714}
-                  height={429}
-                />
-              </div>
-            </AnimateSection>
+            <FadeUpSection className="-m-4 grid place-items-center">
+              <Image
+                priority
+                className="rounded-md object-contain"
+                alt={title}
+                src={image}
+                width={714}
+                height={429}
+              />
+            </FadeUpSection>
           </li>
         );
       })}
