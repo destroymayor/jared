@@ -26,12 +26,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? ((page) => page);
 
   return (
-    <>
-      <style jsx global>{`
-        html {
-          font-family: ${sourceCodeProFont.style.fontFamily};
-        }
-      `}</style>
+    <main className={sourceCodeProFont.className}>
       <ThemeProvider attribute="class" defaultTheme="dark">
         <SWRConfig value={{ fetcher }}>
           <ToastProvider>
@@ -44,6 +39,6 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
           </ToastProvider>
         </SWRConfig>
       </ThemeProvider>
-    </>
+    </main>
   );
 }
