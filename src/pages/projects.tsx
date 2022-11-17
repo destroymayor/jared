@@ -42,7 +42,7 @@ const Page: NextPageWithLayout = () => {
                     className="flex items-center gap-2 rounded-md font-bold transition duration-300 ease-in-out hover:translate-x-2"
                   >
                     <ArrowRightIcon className="h-5 w-5" />
-                    <span>{title} website</span>
+                    <span>{title} Website</span>
                   </Link>
 
                   <Link

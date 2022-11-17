@@ -7,7 +7,6 @@ import { motion } from 'framer-motion';
 import useBlurhashToBase64 from '@/hooks/use-blur-hash-to-base64.hook';
 
 import Container from '@/components/Container';
-import Hero from '@/components/Hero';
 
 interface IUrls {
   raw: string;
@@ -36,7 +35,6 @@ const photoVariants = {
 };
 
 const title = `Photos`;
-const description = `I like to feel nature and take that moment.`;
 
 const Page: NextPageWithLayout = () => {
   const { data: photos } = useSWR<IPhoto[]>('/api/unsplash/photos', {
@@ -46,7 +44,7 @@ const Page: NextPageWithLayout = () => {
   const getBlurData = useBlurhashToBase64();
 
   return (
-    <ul className="relative left-1/2 right-1/2 -mr-[50vw] -ml-[49vw] grid min-h-screen w-[97vw] gap-2 [grid-template-columns:repeat(auto-fill,minmax(100%,1fr))] sm:px-2 sm:[grid-template-columns:repeat(auto-fill,minmax(440px,1fr))] md:w-[98vw]">
+    <ul className="relative left-1/2 right-1/2 -mr-[50vw] -ml-[49vw] grid min-h-screen w-[97vw] gap-2 pt-4 [grid-template-columns:repeat(auto-fill,minmax(100%,1fr))] sm:px-2 sm:[grid-template-columns:repeat(auto-fill,minmax(440px,1fr))] md:w-[98vw]">
       {photos?.map((photo) => {
         const blurDataURL = getBlurData({ blur_hash: photo.blur_hash, width: 440, height: 700 });
 
@@ -78,12 +76,7 @@ const Page: NextPageWithLayout = () => {
 };
 
 Page.getLayout = function getLayout(page: ReactElement) {
-  return (
-    <Container title={title} description={description}>
-      <Hero title={title} description={description} dashedDisplay={false} />
-      {page}
-    </Container>
-  );
+  return <Container title={title}>{page}</Container>;
 };
 
 export default Page;
