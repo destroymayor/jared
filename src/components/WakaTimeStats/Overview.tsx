@@ -31,7 +31,7 @@ export default function Overview(props: Props) {
           key={item.title}
           className={clsx(
             'flex h-[64px] flex-col justify-center rounded-xl bg-zinc-100 py-2 px-4 dark:bg-zinc-900',
-            loading ? 'animate-pulse bg-zinc-300 text-transparent dark:bg-zinc-800' : ''
+            loading ? 'animate-pulse bg-zinc-200 text-transparent dark:bg-zinc-800' : ''
           )}
         >
           <span className={clsx('text-sm', loading ? '' : 'dark:text-zinc-400')}>{item.title}</span>
