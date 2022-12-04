@@ -26,11 +26,13 @@ export const getAccessToken = async () => {
     body: new URLSearchParams(body),
   });
 
-  return response.json();
+  const result = new URLSearchParams(await response.text());
+
+  return result.get('access_token');
 };
 
 export const getWakaTimeCurrentStats = async () => {
-  const { access_token } = await getAccessToken();
+  const access_token = await getAccessToken();
 
   const request = await fetch(`${STATS_ENDPOINT}/last_7_days`, {
     method: 'GET',

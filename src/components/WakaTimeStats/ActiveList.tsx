@@ -37,7 +37,7 @@ export default function ActiveList(props: Props) {
         {actives.map((item) => (
           <div
             key={item.title}
-            className="h-[112px] flex-1 animate-pulse rounded-xl bg-zinc-300 dark:bg-zinc-900"
+            className="h-[112px] flex-1 animate-pulse rounded-xl bg-zinc-200 dark:bg-zinc-900"
           />
         ))}
       </div>
