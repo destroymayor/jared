@@ -5,12 +5,11 @@ import Overview from '@/components/Contributions/Overview';
 import Calendar from '@/components/Contributions/Calendar';
 
 export default function Contributions() {
-  const { data: contributionData } = useSWR('/api/github/contribution', {
+  const { data: contributionData, isLoading } = useSWR('/api/github/contribution', {
     revalidateOnFocus: false,
   });
 
   const contributionCalendar = contributionData?.contributionsCollection?.contributionCalendar;
-  const isLoading = !contributionData?.contributionsCollection;
 
   return (
     <div className="flex flex-col gap-y-2">

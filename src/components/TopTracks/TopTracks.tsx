@@ -17,11 +17,9 @@ type TopTracksTypes = {
 };
 
 export default function TopTracks() {
-  const { data } = useSWR<TopTracksTypes[]>('/api/spotify/top-tracks', {
+  const { data, isLoading } = useSWR<TopTracksTypes[]>('/api/spotify/top-tracks', {
     revalidateOnFocus: false,
   });
-
-  const isLoading = !data;
 
   return (
     <div className="flex flex-col gap-y-2">
@@ -32,7 +30,10 @@ export default function TopTracks() {
       <p className="pb-2 dark:text-zinc-400">{`Here's my top tracks on Spotify updated daily.`}</p>
 
       {isLoading ? (
-        <div className="h-[76px] w-full animate-pulse rounded-2xl bg-zinc-300 dark:bg-zinc-800" />
+        <div className="flex flex-col gap-3">
+          <div className="h-[76px] w-full animate-pulse rounded-2xl bg-zinc-300 dark:bg-zinc-800" />
+          <div className="h-[76px] w-full animate-pulse rounded-2xl bg-zinc-300 dark:bg-zinc-800" />
+        </div>
       ) : (
         <ul>
           {data?.map((item, index) => (

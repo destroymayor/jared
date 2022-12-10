@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { useRouter } from 'next/router';
 
 import useSWR from 'swr';
@@ -56,7 +56,7 @@ export default function Provider() {
   const [breadcrumbs, setBreadcrumbs] = React.useState<string[]>([]);
 
   const getCurrentBreadcrumbPath = breadcrumbs.at(-1);
-  const { data: snippetsData } = useSWR(
+  const { data: snippetsData, isLoading: snippetsLoading } = useSWR(
     getCurrentBreadcrumbPath === snippets.title ? '/api/snippets' : null,
     {
       revalidateOnFocus: false,
@@ -215,7 +215,7 @@ export default function Provider() {
       data: projectsOptions,
     },
     [snippets.title]: {
-      loading: !snippetsData && getCurrentBreadcrumbPath === snippets.title,
+      loading: snippetsLoading && getCurrentBreadcrumbPath === snippets.title,
       data: snippetsOptions,
     },
   };
@@ -232,7 +232,7 @@ export default function Provider() {
           ),
         }));
 
-  const value = useMemo(
+  const value = React.useMemo(
     () => ({ isOpen, isLoading, searchTerm, selectedIndex }),
     [isOpen, isLoading, searchTerm, selectedIndex]
   );
