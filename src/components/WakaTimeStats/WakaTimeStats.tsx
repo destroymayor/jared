@@ -7,9 +7,7 @@ import Overview from '@/components/WakaTimeStats/Overview';
 import ActiveList from '@/components/WakaTimeStats/ActiveList';
 
 export default function WakaTimeStats() {
-  const { data } = useSWR('/api/wakatime/current-stats', { revalidateOnFocus: false });
-
-  const isLoading = !data;
+  const { data, isLoading } = useSWR('/api/wakatime/current-stats', { revalidateOnFocus: false });
 
   return (
     <div className="flex flex-col gap-y-2">
