@@ -1,35 +1,24 @@
 import { useState } from 'react';
 
 import { motion } from 'framer-motion';
-
 import clsx from 'clsx';
+import { weeksProps, monthsProps } from './types';
 
-type contributionDaysProp = {
-  date: string;
-  contributionCount: number;
-  color: string | null;
-};
-
-type weeksProps = {
-  contributionDays: contributionDaysProp[];
-  firstDay: string;
-};
-
-type Props = {
+interface CalendarProps {
   loading: boolean;
   data: {
-    colors: any[];
+    colors: string[];
     weeks: weeksProps[];
-    months: any[];
+    months: monthsProps[];
   };
-};
+}
 
-type selectContributionProps = {
-  count: string | null;
+interface selectContributionProps {
+  count: number | null;
   date: string | null;
-};
+}
 
-export default function Calendar(props: Props) {
+export default function Calendar(props: CalendarProps) {
   const { loading, data } = props;
 
   const [selectContribution, setSelectContribution] = useState<selectContributionProps>({
@@ -37,7 +26,7 @@ export default function Calendar(props: Props) {
     date: null,
   });
 
-  const weeks = data?.weeks ?? [];
+  const weeks = data?.weeks;
   const months =
     data?.months?.map((month) => {
       const filterContributionDay = weeks
@@ -55,9 +44,9 @@ export default function Calendar(props: Props) {
       };
     }) ?? [];
 
-  const contributionColors = data?.colors ?? [];
+  const contributionColors = data?.colors;
 
-  const handleSelectContribution = (data: any) => {
+  const handleSelectContribution = (data: selectContributionProps) => {
     const { count, date } = data;
     setSelectContribution({ count, date });
   };
@@ -85,8 +74,8 @@ export default function Calendar(props: Props) {
               {weeks?.map((week) => (
                 <div key={week.firstDay}>
                   {week.contributionDays.map((contribution) => {
-                    const backgroundColor: any =
-                      contribution.contributionCount > 0 ? contribution?.color : '';
+                    const backgroundColor =
+                      contribution.contributionCount > 0 ? (contribution?.color as string) : '';
 
                     const getRandomDelayAnimate =
                       Math.random() * week.contributionDays.length * 0.15;

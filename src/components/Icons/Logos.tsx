@@ -1,4 +1,8 @@
-export const CSSIcon = (props: any) => (
+type IconProps = {
+  className?: string;
+};
+
+export const CSSIcon = (props: IconProps) => (
   <svg {...props} viewBox="0 0 124 141.53">
     <path d="M10.383 126.892L0 0l124 .255-10.979 126.637-50.553 14.638z" fill="#1b73ba" />
     <path d="M62.468 129.275V12.085l51.064.17-9.106 104.85z" fill="#1c88c7" />
@@ -9,19 +13,19 @@ export const CSSIcon = (props: any) => (
   </svg>
 );
 
-export const CommandIcon = (props: any) => (
+export const CommandIcon = (props: IconProps) => (
   <svg {...props} viewBox="0 0 20 20" fill="currentColor">
     <path d="M6.023 7.296v5.419H3.648C1.644 12.715 0 14.316 0 16.342 0 18.355 1.644 20 3.648 20a3.657 3.657 0 003.648-3.659v-2.375h5.397v2.376A3.657 3.657 0 0016.343 20c2.004 0 3.647-1.644 3.647-3.659 0-2.025-1.643-3.626-3.648-3.626h-2.375v-5.42h2.376c2.004 0 3.647-1.611 3.647-3.626C19.99 1.644 18.346 0 16.341 0c-2.014 0-3.648 1.644-3.648 3.67v2.364H7.296V3.669C7.296 1.644 5.663 0 3.648 0 1.644 0 0 1.644 0 3.67c0 2.014 1.644 3.626 3.648 3.626h2.375zm-2.375-1.24c-1.294 0-2.375-1.083-2.375-2.387 0-1.315 1.081-2.396 2.375-2.396 1.304 0 2.375 1.081 2.375 2.396v2.386H3.648zm12.694 0h-2.376V3.668c0-1.315 1.071-2.396 2.376-2.396 1.293 0 2.375 1.081 2.375 2.396 0 1.304-1.082 2.386-2.375 2.386zm-9.046 6.67V7.274h5.397v5.45H7.296zm-3.648 1.219h2.375v2.386a2.387 2.387 0 01-2.375 2.386 2.394 2.394 0 01-2.375-2.386 2.394 2.394 0 012.375-2.386zm12.694 0a2.394 2.394 0 012.375 2.386 2.394 2.394 0 01-2.375 2.386 2.387 2.387 0 01-2.376-2.386v-2.386h2.376z"></path>
   </svg>
 );
 
-export const GithubIcon = (props: any) => (
+export const GithubIcon = (props: IconProps) => (
   <svg {...props} stroke="currentColor" fill="currentColor" viewBox="0 0 496 512">
     <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path>
   </svg>
 );
 
-export const GitIcon = (props: any) => (
+export const GitIcon = (props: IconProps) => (
   <svg {...props} viewBox="0 0 16 16">
     <path
       fill="currentColor"
@@ -30,7 +34,7 @@ export const GitIcon = (props: any) => (
   </svg>
 );
 
-export const JavaScriptIcon = (props: any) => (
+export const JavaScriptIcon = (props: IconProps) => (
   <svg {...props} viewBox="0 0 1052 1052">
     <path fill="#f0db4f" d="M0 0h1052v1052H0z" />
     <path
@@ -40,7 +44,7 @@ export const JavaScriptIcon = (props: any) => (
   </svg>
 );
 
-export const JavaScriptWhiteIcon = (props: any) => (
+export const JavaScriptWhiteIcon = (props: IconProps) => (
   <svg {...props} viewBox="0 0 24 24">
     <path
       fill="currentColor"
@@ -51,7 +55,7 @@ export const JavaScriptWhiteIcon = (props: any) => (
   </svg>
 );
 
-export const ReactIcon = (props: any) => (
+export const ReactIcon = (props: IconProps) => (
   <svg {...props} viewBox="175.7 78 490.6 436.9">
     <g fill="#61dafb">
       <path d="m666.3 296.5c0-32.5-40.7-63.3-103.1-82.4 14.4-63.6 8-114.2-20.2-130.4-6.5-3.8-14.1-5.6-22.4-5.6v22.3c4.6 0 8.3.9 11.4 2.6 13.6 7.8 19.5 37.5 14.9 75.7-1.1 9.4-2.9 19.3-5.1 29.4-19.6-4.8-41-8.5-63.5-10.9-13.5-18.5-27.5-35.3-41.6-50 32.6-30.3 63.2-46.9 84-46.9v-22.3c-27.5 0-63.5 19.6-99.9 53.6-36.4-33.8-72.4-53.2-99.9-53.2v22.3c20.7 0 51.4 16.5 84 46.6-14 14.7-28 31.4-41.3 49.9-22.6 2.4-44 6.1-63.6 11-2.3-10-4-19.7-5.2-29-4.7-38.2 1.1-67.9 14.6-75.8 3-1.8 6.9-2.6 11.5-2.6v-22.3c-8.4 0-16 1.8-22.6 5.6-28.1 16.2-34.4 66.7-19.9 130.1-62.2 19.2-102.7 49.9-102.7 82.3 0 32.5 40.7 63.3 103.1 82.4-14.4 63.6-8 114.2 20.2 130.4 6.5 3.8 14.1 5.6 22.5 5.6 27.5 0 63.5-19.6 99.9-53.6 36.4 33.8 72.4 53.2 99.9 53.2 8.4 0 16-1.8 22.6-5.6 28.1-16.2 34.4-66.7 19.9-130.1 62-19.1 102.5-49.9 102.5-82.3zm-130.2-66.7c-3.7 12.9-8.3 26.2-13.5 39.5-4.1-8-8.4-16-13.1-24-4.6-8-9.5-15.8-14.4-23.4 14.2 2.1 27.9 4.7 41 7.9zm-45.8 106.5c-7.8 13.5-15.8 26.3-24.1 38.2-14.9 1.3-30 2-45.2 2-15.1 0-30.2-.7-45-1.9-8.3-11.9-16.4-24.6-24.2-38-7.6-13.1-14.5-26.4-20.8-39.8 6.2-13.4 13.2-26.8 20.7-39.9 7.8-13.5 15.8-26.3 24.1-38.2 14.9-1.3 30-2 45.2-2 15.1 0 30.2.7 45 1.9 8.3 11.9 16.4 24.6 24.2 38 7.6 13.1 14.5 26.4 20.8 39.8-6.3 13.4-13.2 26.8-20.7 39.9zm32.3-13c5.4 13.4 10 26.8 13.8 39.8-13.1 3.2-26.9 5.9-41.2 8 4.9-7.7 9.8-15.6 14.4-23.7 4.6-8 8.9-16.1 13-24.1zm-101.4 106.7c-9.3-9.6-18.6-20.3-27.8-32 9 .4 18.2.7 27.5.7 9.4 0 18.7-.2 27.8-.7-9 11.7-18.3 22.4-27.5 32zm-74.4-58.9c-14.2-2.1-27.9-4.7-41-7.9 3.7-12.9 8.3-26.2 13.5-39.5 4.1 8 8.4 16 13.1 24s9.5 15.8 14.4 23.4zm73.9-208.1c9.3 9.6 18.6 20.3 27.8 32-9-.4-18.2-.7-27.5-.7-9.4 0-18.7.2-27.8.7 9-11.7 18.3-22.4 27.5-32zm-74 58.9c-4.9 7.7-9.8 15.6-14.4 23.7-4.6 8-8.9 16-13 24-5.4-13.4-10-26.8-13.8-39.8 13.1-3.1 26.9-5.8 41.2-7.9zm-90.5 125.2c-35.4-15.1-58.3-34.9-58.3-50.6s22.9-35.6 58.3-50.6c8.6-3.7 18-7 27.7-10.1 5.7 19.6 13.2 40 22.5 60.9-9.2 20.8-16.6 41.1-22.2 60.6-9.9-3.1-19.3-6.5-28-10.2zm53.8 142.9c-13.6-7.8-19.5-37.5-14.9-75.7 1.1-9.4 2.9-19.3 5.1-29.4 19.6 4.8 41 8.5 63.5 10.9 13.5 18.5 27.5 35.3 41.6 50-32.6 30.3-63.2 46.9-84 46.9-4.5-.1-8.3-1-11.3-2.7zm237.2-76.2c4.7 38.2-1.1 67.9-14.6 75.8-3 1.8-6.9 2.6-11.5 2.6-20.7 0-51.4-16.5-84-46.6 14-14.7 28-31.4 41.3-49.9 22.6-2.4 44-6.1 63.6-11 2.3 10.1 4.1 19.8 5.2 29.1zm38.5-66.7c-8.6 3.7-18 7-27.7 10.1-5.7-19.6-13.2-40-22.5-60.9 9.2-20.8 16.6-41.1 22.2-60.6 9.9 3.1 19.3 6.5 28.1 10.2 35.4 15.1 58.3 34.9 58.3 50.6-.1 15.7-23 35.6-58.4 50.6z" />
@@ -60,7 +64,7 @@ export const ReactIcon = (props: any) => (
   </svg>
 );
 
-export const ReactWhiteIcon = (props: any) => (
+export const ReactWhiteIcon = (props: IconProps) => (
   <svg {...props} role="img" viewBox="0 0 512 512">
     <path
       fill="currentColor"
@@ -73,7 +77,7 @@ export const ReactWhiteIcon = (props: any) => (
   </svg>
 );
 
-export const NextJSIcon = (props: any) => (
+export const NextJSIcon = (props: IconProps) => (
   <svg {...props} role="img" viewBox="0 0 32 32">
     <path
       fill="currentColor"
@@ -82,7 +86,7 @@ export const NextJSIcon = (props: any) => (
   </svg>
 );
 
-export const SpotifyIcon = (props: any) => (
+export const SpotifyIcon = (props: IconProps) => (
   <svg {...props} viewBox="0 0 168 168">
     <path
       fill="#1ED760"
@@ -91,13 +95,13 @@ export const SpotifyIcon = (props: any) => (
   </svg>
 );
 
-export const SpotifySolidIcon = (props: any) => (
+export const SpotifySolidIcon = (props: IconProps) => (
   <svg {...props} viewBox="0 0 168 168" fill="currentColor">
     <path d="M83.996.277C37.747.277.253 37.77.253 84.019c0 46.251 37.494 83.741 83.743 83.741 46.254 0 83.744-37.49 83.744-83.741 0-46.246-37.49-83.738-83.745-83.738l.001-.004zm38.404 120.78a5.217 5.217 0 01-7.18 1.73c-19.662-12.01-44.414-14.73-73.564-8.07a5.222 5.222 0 01-6.249-3.93 5.213 5.213 0 013.926-6.25c31.9-7.291 59.263-4.15 81.337 9.34 2.46 1.51 3.24 4.72 1.73 7.18zm10.25-22.805c-1.89 3.075-5.91 4.045-8.98 2.155-22.51-13.839-56.823-17.846-83.448-9.764-3.453 1.043-7.1-.903-8.148-4.35a6.538 6.538 0 014.354-8.143c30.413-9.228 68.222-4.758 94.072 11.127 3.07 1.89 4.04 5.91 2.15 8.976v-.001zm.88-23.744c-26.99-16.031-71.52-17.505-97.289-9.684-4.138 1.255-8.514-1.081-9.768-5.219a7.835 7.835 0 015.221-9.771c29.581-8.98 78.756-7.245 109.83 11.202a7.823 7.823 0 012.74 10.733c-2.2 3.722-7.02 4.949-10.73 2.739z"></path>
   </svg>
 );
 
-export const StyledComponentsIcon = (props: any) => (
+export const StyledComponentsIcon = (props: IconProps) => (
   <svg {...props} viewBox="0 0 512 512">
     <path
       fill="currentColor"
@@ -106,7 +110,7 @@ export const StyledComponentsIcon = (props: any) => (
   </svg>
 );
 
-export const VSCodeIcon = (props: any) => (
+export const VSCodeIcon = (props: IconProps) => (
   <svg {...props} viewBox="-11.9 -2 1003.9 995.6">
     <path
       d="m12.1 353.9s-24-17.3 4.8-40.4l67.1-60s19.2-20.2 39.5-2.6l619.2 468.8v224.8s-.3 35.3-45.6 31.4z"
@@ -124,7 +128,7 @@ export const VSCodeIcon = (props: any) => (
   </svg>
 );
 
-export const ITermIcon = (props: any) => (
+export const ITermIcon = (props: IconProps) => (
   <svg {...props} viewBox="0 0 1024 1024" fill="none">
     <g filter="url(#filter0_d)">
       <rect x="100" y="100" width="824" height="824" rx="179" fill="url(#paint0_linear)" />
@@ -181,7 +185,7 @@ export const ITermIcon = (props: any) => (
   </svg>
 );
 
-export const FigIcon = (props: any) => (
+export const FigIcon = (props: IconProps) => (
   <svg
     {...props}
     className={`${props.className} rounded-md bg-white`}
@@ -206,7 +210,7 @@ export const FigIcon = (props: any) => (
   </svg>
 );
 
-export const WakaTimeIcon = (props: any) => (
+export const WakaTimeIcon = (props: IconProps) => (
   <svg
     {...props}
     className={`${props.className} stroke-zinc-700 dark:stroke-zinc-300`}
@@ -227,7 +231,7 @@ export const WakaTimeIcon = (props: any) => (
   </svg>
 );
 
-export const UnsplashIcon = (props: any) => (
+export const UnsplashIcon = (props: IconProps) => (
   <svg {...props} viewBox="0 0 24 24">
     <path
       d="M7.5 6.75V0h9v6.75h-9zm9 3.75H24V24H0V10.5h7.5v6.75h9V10.5z"
@@ -236,7 +240,7 @@ export const UnsplashIcon = (props: any) => (
   </svg>
 );
 
-export const TailwindCSSIcon = (props: any) => (
+export const TailwindCSSIcon = (props: IconProps) => (
   <svg {...props} viewBox="0 0 24 24">
     <path
       fill="currentColor"
@@ -245,7 +249,7 @@ export const TailwindCSSIcon = (props: any) => (
   </svg>
 );
 
-export const TypeScriptIcon = (props: any) => (
+export const TypeScriptIcon = (props: IconProps) => (
   <svg {...props} viewBox="0 0 32 32">
     <path
       fill="currentColor"

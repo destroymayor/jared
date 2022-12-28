@@ -3,12 +3,12 @@ import { useEffect, useRef } from 'react';
 import { animate } from 'framer-motion';
 import useInView from '@/hooks/use-in-view.hook';
 
-type Props = {
+interface AnimateCounterProps {
   className: string;
   total: number;
-};
+}
 
-export default function AnimateCounter(props: Props) {
+export default function AnimateCounter(props: AnimateCounterProps) {
   const { className, total } = props;
   const countRef = useRef<HTMLElement>(null);
   const { ref: inViewRef, isInView } = useInView({ once: true });

@@ -3,29 +3,30 @@ import { Fragment } from 'react';
 import clsx from 'clsx';
 import AnimateCounter from '@/components/AnimateCounter';
 
-type weeksProps = {
-  contributionDays: any[];
-  contributionCount: number;
-};
+import { contributionDaysProp } from './types';
 
-type Props = {
+interface OverviewProps {
   loading: boolean;
   data: {
-    weeks: weeksProps[];
+    weeks: {
+      contributionDays: contributionDaysProp[];
+      contributionCount: number;
+    }[];
     totalContributions: number;
   };
-};
+}
 
-export default function Overview(props: Props) {
+export default function Overview(props: OverviewProps) {
   const { loading, data } = props;
 
   const totalContributions = data?.totalContributions;
   const weeks = data?.weeks ?? [];
 
   const totalThisWeekContribution =
-    weeks[weeks.length - 1]?.contributionDays
+    weeks?.[weeks?.length - 1]?.contributionDays
       ?.map((item) => item.contributionCount)
       ?.reduce((previousValue, currentValue) => previousValue + currentValue, 0) ?? 0;
+
   const totalContributionList = weeks
     .map((week) =>
       week.contributionDays.map((contributionDay) => contributionDay.contributionCount)

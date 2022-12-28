@@ -9,7 +9,7 @@ import oceanicNextTheme from 'prism-react-renderer/themes/vsDark';
 
 type Props = {
   className: string;
-  children: any;
+  children: string;
 };
 
 export default function CodeBlock(props: Props) {
@@ -19,7 +19,7 @@ export default function CodeBlock(props: Props) {
   const hasMounted = useHasMounted();
 
   const language: any = className?.replace(/language-/, '');
-  const codeBlockTheme: any = resolvedTheme === 'light' ? githubTheme : oceanicNextTheme;
+  const codeBlockTheme = resolvedTheme === 'light' ? githubTheme : oceanicNextTheme;
 
   if (!hasMounted) return null;
 

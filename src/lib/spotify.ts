@@ -73,9 +73,13 @@ export const getNowPlaying = async () => {
 type TopTracksType = {
   album: {
     name: string;
-    images: any[];
+    images: {
+      width: number;
+    }[];
   };
-  artists: any[];
+  artists: {
+    name: string;
+  }[];
   external_urls: {
     spotify: string;
   };
@@ -103,9 +107,9 @@ export const getTopTracks = async () => {
   const tracks = getData?.items?.map((track: TopTracksType) => ({
     album: {
       name: track?.album?.name,
-      image: track?.album?.images.find((image: { width: number }) => image.width === 64),
+      image: track?.album?.images.find((image) => image.width === 64),
     },
-    artist: track?.artists?.map((_artist: { name: string }) => _artist.name).join(', '),
+    artist: track?.artists?.map((_artist) => _artist.name).join(', '),
     songUrl: track?.external_urls?.spotify,
     title: track?.name,
   }));
