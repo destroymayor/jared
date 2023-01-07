@@ -16,12 +16,12 @@ export default function AnimateCounter(props: AnimateCounterProps) {
   const initialCount = 0;
 
   useEffect(() => {
-    const count: any = countRef.current;
+    const count = countRef.current;
 
     const controls = animate(initialCount, total, {
       duration: 1,
-      onUpdate(value) {
-        if (isInView) count!.textContent = Math.floor(value);
+      onUpdate(value: number) {
+        if (isInView) count!.textContent = Math.floor(value).toString();
       },
     });
 

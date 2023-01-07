@@ -1,22 +1,22 @@
 import { Fragment } from 'react';
 
-import { useCommandPalette } from './Provider';
-
 import useKeyPress from '@/hooks/use-key-press.hook';
-
 import Spinner from '@/components/Spinner';
 import Tabs from '@/components/Tabs';
+
+import { OptionChildrenProps, OptionProps } from './types';
+import { useCommandPalette } from './Provider';
 
 const LIST_SELECTOR: string = `command-palette-item-select`;
 
 export default function Menu() {
   const { isLoading, filterOptions, selectedIndex, setSelectedIndex } = useCommandPalette();
 
-  const getFlatOptions = filterOptions.map((item) => item.children).flat(1);
+  const getFlatOptions = filterOptions.map((item: OptionProps) => item.children).flat(1);
 
   useKeyPress('ArrowUp', () => {
     if (selectedIndex > 0) {
-      setSelectedIndex((prevState: any) => {
+      setSelectedIndex((prevState: number) => {
         handleCommandItemScrollIntoView(prevState - 1);
 
         return prevState - 1;
@@ -26,7 +26,7 @@ export default function Menu() {
 
   useKeyPress('ArrowDown', () => {
     if (getFlatOptions.length - 1 > selectedIndex) {
-      setSelectedIndex((prevState: any) => {
+      setSelectedIndex((prevState: number) => {
         handleCommandItemScrollIntoView(prevState + 1);
 
         return prevState + 1;
@@ -35,19 +35,19 @@ export default function Menu() {
   });
 
   useKeyPress('Enter', () => {
-    getFlatOptions.find((item, index) => selectedIndex === index)?.click();
+    getFlatOptions.find((item: OptionChildrenProps, index) => selectedIndex === index)?.click();
   });
 
   const handleCommandItemScrollIntoView = (index: number) => {
-    const getCommandPaletteItemElement: any = document.getElementById(`${LIST_SELECTOR}-${index}`);
+    const getCommandPaletteItemElement = document.getElementById(`${LIST_SELECTOR}-${index}`);
 
-    return getCommandPaletteItemElement.scrollIntoView({
+    return getCommandPaletteItemElement?.scrollIntoView({
       behavior: 'smooth',
       block: 'end',
     });
   };
 
-  const handleTabSelect = (option: any) => option.click();
+  const handleTabSelect = (option: OptionChildrenProps) => option.click();
 
   const handleMouseEnter = (e: { target: HTMLElement }) => {
     setSelectedIndex(
@@ -56,7 +56,7 @@ export default function Menu() {
   };
 
   const getCommandItemHeight =
-    filterOptions?.filter((item: { children: any }) => item?.children?.length > 0)?.length * 36;
+    filterOptions?.filter((item: OptionProps) => item?.children?.length > 0)?.length * 36;
   const getMenuHeight = getFlatOptions?.length * 40;
   const getMenuContainerHeight = getCommandItemHeight + getMenuHeight;
 
@@ -78,7 +78,7 @@ export default function Menu() {
       style={{ height: getMenuContainerHeight < 340 ? getMenuContainerHeight : 340 }}
     >
       <Tabs direction="vertical">
-        {filterOptions.map((option) => (
+        {filterOptions.map((option: OptionProps) => (
           <Fragment key={option.title}>
             {option?.children?.length > 0 && option?.title && (
               <span className="relative ml-2 flex h-7 items-center text-xs text-zinc-400">
@@ -86,8 +86,10 @@ export default function Menu() {
               </span>
             )}
 
-            {option?.children?.map((child) => {
-              const getChildIndex = getFlatOptions.findIndex((item) => item.title === child.title);
+            {option?.children?.map((child: OptionChildrenProps) => {
+              const getChildIndex = getFlatOptions.findIndex(
+                (item: OptionChildrenProps) => item.title === child.title
+              );
               return (
                 <Tabs.Tab
                   id={`${LIST_SELECTOR}-${getChildIndex}`}

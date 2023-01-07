@@ -12,19 +12,19 @@ import Hero from '@/components/Hero';
 const title = `Snippets`;
 const description = `Collection of useful code snippets.`;
 
-type Snippets = {
+type SnippetsType = {
   category: string;
   date: string;
   description: string;
   slug: string;
   title: string;
-  [key: string]: any;
+  [key: string]: unknown;
 };
 
 const Page: NextPageWithLayout = ({ snippets }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-      {snippets.map((snippet: Snippets) => {
+      {snippets.map((snippet: SnippetsType) => {
         const { title, description, category, slug, date } = snippet;
 
         const languageIcon = getCategoryFormatted(category)?.icon;
@@ -68,7 +68,7 @@ Page.getLayout = function getLayout(page: ReactElement) {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const snippets: Snippets[] = await getAllMdxFolder('content/snippets');
+  const snippets: SnippetsType[] = await getAllMdxFolder('content/snippets');
 
   return { props: { snippets } };
 };

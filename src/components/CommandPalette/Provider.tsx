@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 
 import useSWR from 'swr';
 import { useTheme } from 'next-themes';
-import { useAnimationControls, AnimationControls } from 'framer-motion';
+import { useAnimationControls } from 'framer-motion';
 
 import { dashboard, projects, photos, bookmarks, snippets, uses, guestbook } from '@/data/routes';
 import projectsData from '@/data/projects';
@@ -11,34 +11,9 @@ import contactData from '@/data/contact';
 
 import { getCategoryFormatted, SNIPPET_CATEGORIES } from '@/helpers/category.helper';
 
+import { OptionProps, CommandPaletteContextProps } from './types';
 import CommandPalette from './CommandPalette';
 import { SunIcon, MoonIcon, MonitorIcon } from '@/components/Icons';
-
-type OptionChildrenProps = {
-  title: string;
-  icon: React.ReactNode;
-  click: () => void;
-};
-
-type OptionProps = {
-  title?: string;
-  children: OptionChildrenProps[];
-};
-
-interface CommandPaletteContextProps {
-  isOpen: boolean;
-  isLoading: boolean;
-  searchTerm: string;
-  selectedIndex: number;
-  filterOptions: OptionProps[];
-  breadcrumbs: string[];
-  animationControls: AnimationControls;
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
-  setSelectedIndex: React.Dispatch<React.SetStateAction<number>>;
-  setBreadcrumbs: React.Dispatch<React.SetStateAction<string[]>>;
-  resetCommandPaletteStatus: () => void;
-}
 
 export const CommandPaletteContext = React.createContext<CommandPaletteContextProps>(
   {} as CommandPaletteContextProps

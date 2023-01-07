@@ -8,48 +8,48 @@ import {
   UnsplashIcon,
 } from '@/components/Icons';
 
-interface IContact {
+interface ContactProps {
   link: string;
   title: string;
   label: string;
   icon: ReactNode;
 }
 
-export const mail: IContact = {
+export const mail: ContactProps = {
   link: 'mailto:kuil5230@gmail.com',
   title: 'kuil5230@gmail.com',
   label: 'Gmail',
   icon: <MailIcon />,
 };
 
-export const github: IContact = {
+export const github: ContactProps = {
   link: 'https://github.com/destroymayor',
   title: '/destroymayor',
   label: 'Github',
   icon: <GithubOutlineIcon />,
 };
 
-export const linkedIn: IContact = {
+export const linkedIn: ContactProps = {
   link: 'https://www.linkedin.com/in/jared-chen/',
   title: '/in/jared-chen',
   label: 'Linkedin',
   icon: <LinkedinIcon />,
 };
 
-export const twitter: IContact = {
+export const twitter: ContactProps = {
   link: 'https://twitter.com/destroymayor',
   title: '@destroymayor',
   label: 'Twitter',
   icon: <TwitterIcon />,
 };
 
-export const unsplash: IContact = {
+export const unsplash: ContactProps = {
   link: 'https://unsplash.com/@destroymayor',
   title: '@destroymayor',
   label: 'Unsplash',
   icon: <UnsplashIcon />,
 };
 
-const data: IContact[] = [mail, github, linkedIn, twitter, unsplash];
+const data: ContactProps[] = [mail, github, linkedIn, twitter, unsplash];
 
 export default data;

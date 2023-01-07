@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 
-type Types = 'default' | 'primary' | 'warning' | 'success' | 'error';
+type TagTypes = 'default' | 'primary' | 'warning' | 'success' | 'error';
 
-const types = {
+const types: Record<TagTypes, string> = {
   default: 'border-zinc-400 text-zinc-500 dark:text-zinc-400 dark:bg-zinc-500 ',
   primary: 'border-blue-300 bg-blue-500 text-blue-500',
   warning: 'border-amber-300 bg-amber-500 text-amber-600 dark:text-amber-500',
@@ -10,13 +10,13 @@ const types = {
   error: 'border-red-300 bg-red-500 text-red-600 dark:text-red-500',
 };
 
-type Props = {
+type TagProps = {
   className?: string;
-  type?: Types;
-  label?: any;
+  type?: TagTypes;
+  label?: string;
 };
 
-export default function Tag(props: Props) {
+export default function Tag(props: TagProps) {
   const { className = '', type = 'primary', label = '' } = props;
 
   const color = types[type];
