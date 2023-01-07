@@ -1,3 +1,1 @@
-import TopTracks from './TopTracks';
-
-export default TopTracks;
+export { default } from './TopTracks';

@@ -1,3 +1,1 @@
-import AnimateSection from './AnimateSection';
-
-export default AnimateSection;
+export { default } from './AnimateSection';

@@ -1,3 +1,1 @@
-import AnimateCounter from './AnimateCounter';
-
-export default AnimateCounter;
+export { default } from './AnimateCounter';

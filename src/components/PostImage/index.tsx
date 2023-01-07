@@ -1,3 +1,1 @@
-import PostImage from './PostImage';
-
-export default PostImage;
+export { default } from './PostImage';

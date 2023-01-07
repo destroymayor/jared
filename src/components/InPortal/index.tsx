@@ -1,3 +1,1 @@
-import InPortal from './InPortal';
-
-export default InPortal;
+export { default } from './InPortal';

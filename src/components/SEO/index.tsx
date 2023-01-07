@@ -1,3 +1,1 @@
-import SEO from './SEO';
-
-export default SEO;
+export { default } from './SEO';

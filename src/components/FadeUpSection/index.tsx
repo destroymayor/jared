@@ -1,3 +1,1 @@
-import FadeUpSection from './FadeUpSection';
-
-export default FadeUpSection;
+export { default } from './FadeUpSection';

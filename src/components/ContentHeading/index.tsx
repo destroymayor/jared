@@ -1,3 +1,1 @@
-import ContentHeading from './ContentHeading';
-
-export default ContentHeading;
+export { default } from './ContentHeading';

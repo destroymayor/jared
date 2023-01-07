@@ -1,3 +1,1 @@
-import Provider from './Provider';
-
-export default Provider;
+export { default } from './Provider';
