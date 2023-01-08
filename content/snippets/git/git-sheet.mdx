@@ -15,6 +15,7 @@ date: '2022-06-08T00:00:00.000Z'
 - `git branch -m new_name` Rename current branch.
 - `git branch -d branch_name` Delete a local branch.
 - `git push origin :branch_name` Delete a remote branch.
+- `git branch --merged | grep -E -v  "(^\*|master)"| xargs -n1 echo git branch -d` Print all branches that have been merged into master.
 
 <br />
 <ContentHeading>Logs</ContentHeading>
