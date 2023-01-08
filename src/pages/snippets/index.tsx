@@ -23,7 +23,7 @@ type SnippetsType = {
 
 const Page: NextPageWithLayout = ({ snippets }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+    <div>
       {snippets.map((snippet: SnippetsType) => {
         const { title, description, category, slug, date } = snippet;
 
@@ -38,19 +38,16 @@ const Page: NextPageWithLayout = ({ snippets }: InferGetStaticPropsType<typeof g
           <Link
             href={slug}
             key={title + category}
-            className="flex min-h-[120px] cursor-pointer gap-6 rounded-md border border-zinc-100 p-4 shadow-md transition-all duration-150 ease-out dark:border-zinc-800 md:min-h-[150px]  md:dark:hover:border-zinc-600"
+            className="group mt-4 flex cursor-pointer gap-6 rounded-md p-4 transition-all duration-150 ease-out"
           >
-            <div className="flex flex-1 flex-col justify-between gap-6">
-              <div className="flex flex-col gap-2">
-                <h3 className="text-lg font-bold">{title}</h3>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400">{description}</p>
-              </div>
+            <div className="h-8 w-8 pt-2">{languageIcon}</div>
+            <div>
+              <h3 className="text-lg font-bold group-hover:text-sky-600">{title}</h3>
+              <p className="pb-2 text-sm text-zinc-600 dark:text-zinc-400">{description}</p>
               <span className="text-sm italic tracking-tighter text-zinc-600 dark:text-zinc-400">
-                <span className="pr-2">Last Updated:</span>
                 {formatDate}
               </span>
             </div>
-            <div className="h-8 w-8 pt-2">{languageIcon}</div>
           </Link>
         );
       })}

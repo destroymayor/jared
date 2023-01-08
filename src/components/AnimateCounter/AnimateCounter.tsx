@@ -4,7 +4,7 @@ import { animate } from 'framer-motion';
 import useInView from '@/hooks/use-in-view.hook';
 
 interface AnimateCounterProps {
-  className: string;
+  className?: string;
   total: number;
 }
 
