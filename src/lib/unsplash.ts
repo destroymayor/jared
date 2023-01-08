@@ -2,15 +2,15 @@ const unsplash_access_key = process.env.UNSPLASH_ACCESS_KEY;
 
 const UNSPLASH_ENDPOINT = 'https://api.unsplash.com/users/destroymayor';
 
-interface IUrls {
+interface UnsplashPhotoUrlsProps {
   raw: string;
   regular: string;
 }
 
-interface IPhoto {
+interface UnsplashPhotoProps {
   id: string;
   blur_hash: string;
-  urls: IUrls[];
+  urls: UnsplashPhotoUrlsProps[];
   links: {
     html: string;
     download: string;
@@ -35,7 +35,7 @@ export const getUnsplashPhotos = async () => {
 
   const data = await request.json();
 
-  const photos = data?.map((item: IPhoto) => ({
+  const photos = data?.map((item: UnsplashPhotoProps) => ({
     id: item.id,
     blur_hash: item.blur_hash,
     urls: item.urls,
@@ -44,6 +44,21 @@ export const getUnsplashPhotos = async () => {
 
   return { status, data: photos };
 };
+
+interface UnsplashStatisticsProps {
+  downloads: {
+    total: number;
+    historical: {
+      change: number;
+    };
+  };
+  views: {
+    total: number;
+    historical: {
+      change: number;
+    };
+  };
+}
 
 export const getUnsplashStatistics = async () => {
   const request = await fetch(`${UNSPLASH_ENDPOINT}/statistics?client_id=${unsplash_access_key}`, {
@@ -56,5 +71,7 @@ export const getUnsplashStatistics = async () => {
     return { status, data: undefined };
   }
 
-  return { status, data: await request.json() };
+  const data: UnsplashStatisticsProps = await request.json();
+
+  return { status, data };
 };
