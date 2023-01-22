@@ -18,9 +18,9 @@ interface UnsplashStatisticsProps {
 }
 
 export default function UnsplashStatistics() {
-  const { data } = useSWR<UnsplashStatisticsProps>('/api/unsplash/statistics');
+  const { data, isLoading } = useSWR<UnsplashStatisticsProps>('/api/unsplash/statistics');
 
-  if (!data) {
+  if (isLoading || !data) {
     return null;
   }
 

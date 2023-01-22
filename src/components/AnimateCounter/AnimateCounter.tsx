@@ -9,7 +9,7 @@ interface AnimateCounterProps {
 }
 
 export default function AnimateCounter(props: AnimateCounterProps) {
-  const { className, total } = props;
+  const { className, total = 0 } = props;
   const countRef = useRef<HTMLElement>(null);
   const { ref: inViewRef, isInView } = useInView({ once: true });
 
