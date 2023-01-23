@@ -1,4 +1,4 @@
-import { useCommandPalette } from './Provider';
+import { useCommandPalette } from './context';
 
 export default function Breadcrumbs() {
   const { breadcrumbs, animationControls, setBreadcrumbs, setSearchTerm, setSelectedIndex } =

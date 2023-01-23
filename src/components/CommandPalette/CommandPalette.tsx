@@ -4,7 +4,7 @@ import useKeyPress from '@/hooks/use-key-press.hook';
 import useOnClickOutside from '@/hooks/use-on-click-outside.hook';
 import useScrollDisabler from '@/hooks/use-scroll-disabler.hook';
 
-import { useCommandPalette } from './Provider';
+import { useCommandPalette } from './context';
 
 import { AnimatePresence, motion } from 'framer-motion';
 import { CommandIcon } from '@/components/Icons';

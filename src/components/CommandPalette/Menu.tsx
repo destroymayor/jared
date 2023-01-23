@@ -4,15 +4,15 @@ import useKeyPress from '@/hooks/use-key-press.hook';
 import Spinner from '@/components/Spinner';
 import Tabs from '@/components/Tabs';
 
-import { OptionChildrenProps, OptionProps } from './types';
-import { useCommandPalette } from './Provider';
+import { OptionChildrenProps } from './types';
+import { useCommandPalette } from './context';
 
 const LIST_SELECTOR: string = `command-palette-item-select`;
 
 export default function Menu() {
   const { isLoading, filterOptions, selectedIndex, setSelectedIndex } = useCommandPalette();
 
-  const getFlatOptions = filterOptions.map((item: OptionProps) => item.children).flat(1);
+  const getFlatOptions = filterOptions.map((item) => item.children).flat(1);
 
   useKeyPress('ArrowUp', () => {
     if (selectedIndex > 0) {
@@ -35,7 +35,7 @@ export default function Menu() {
   });
 
   useKeyPress('Enter', () => {
-    getFlatOptions.find((item: OptionChildrenProps, index) => selectedIndex === index)?.click();
+    getFlatOptions.find((item, index) => selectedIndex === index)?.click();
   });
 
   const handleCommandItemScrollIntoView = (index: number) => {
@@ -56,8 +56,8 @@ export default function Menu() {
   };
 
   const getCommandItemHeight =
-    filterOptions?.filter((item: OptionProps) => item?.children?.length > 0)?.length * 36;
-  const getMenuHeight = getFlatOptions?.length * 40;
+    filterOptions?.filter((item) => item.children.length > 0).length * 36;
+  const getMenuHeight = getFlatOptions.length * 40;
   const getMenuContainerHeight = getCommandItemHeight + getMenuHeight;
 
   if (isLoading) {
@@ -78,18 +78,16 @@ export default function Menu() {
       style={{ height: getMenuContainerHeight < 340 ? getMenuContainerHeight : 340 }}
     >
       <Tabs direction="vertical">
-        {filterOptions.map((option: OptionProps) => (
+        {filterOptions.map((option) => (
           <Fragment key={option.title}>
-            {option?.children?.length > 0 && option?.title && (
+            {option.children.length > 0 && option.title && (
               <span className="relative ml-2 flex h-7 items-center text-xs text-zinc-400">
                 {option.title}
               </span>
             )}
 
-            {option?.children?.map((child: OptionChildrenProps) => {
-              const getChildIndex = getFlatOptions.findIndex(
-                (item: OptionChildrenProps) => item.title === child.title
-              );
+            {option.children.map((child) => {
+              const getChildIndex = getFlatOptions.findIndex((item) => item.title === child.title);
               return (
                 <Tabs.Tab
                   id={`${LIST_SELECTOR}-${getChildIndex}`}

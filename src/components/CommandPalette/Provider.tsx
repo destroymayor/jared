@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState, useMemo } from 'react';
 import { useRouter } from 'next/router';
 
 import useSWR from 'swr';
@@ -10,14 +10,11 @@ import projectsData from '@/data/projects';
 import contactData from '@/data/contact';
 
 import { getCategoryFormatted, SNIPPET_CATEGORIES } from '@/helpers/category.helper';
-
-import { OptionProps, CommandPaletteContextProps } from './types';
-import CommandPalette from './CommandPalette';
 import { SunIcon, MoonIcon, MonitorIcon } from '@/components/Icons';
 
-export const CommandPaletteContext = React.createContext<CommandPaletteContextProps>(
-  {} as CommandPaletteContextProps
-);
+import { OptionProps } from './types';
+import { CommandPaletteContext } from './context';
+import CommandPalette from './CommandPalette';
 
 export default function Provider() {
   const router = useRouter();
@@ -25,10 +22,10 @@ export default function Provider() {
 
   const animationControls = useAnimationControls();
 
-  const [isOpen, setIsOpen] = React.useState<boolean>(false);
-  const [searchTerm, setSearchTerm] = React.useState<string>('');
-  const [selectedIndex, setSelectedIndex] = React.useState<number>(0);
-  const [breadcrumbs, setBreadcrumbs] = React.useState<string[]>([]);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [searchTerm, setSearchTerm] = useState<string>('');
+  const [selectedIndex, setSelectedIndex] = useState<number>(0);
+  const [breadcrumbs, setBreadcrumbs] = useState<string[]>([]);
 
   const getCurrentBreadcrumbPath = breadcrumbs.at(-1);
   const { data: snippetsData, isLoading: snippetsLoading } = useSWR(
@@ -207,7 +204,7 @@ export default function Provider() {
           ),
         }));
 
-  const value = React.useMemo(
+  const value = useMemo(
     () => ({ isOpen, isLoading, searchTerm, selectedIndex }),
     [isOpen, isLoading, searchTerm, selectedIndex]
   );
@@ -230,5 +227,3 @@ export default function Provider() {
     </CommandPaletteContext.Provider>
   );
 }
-
-export const useCommandPalette = () => React.useContext(CommandPaletteContext);

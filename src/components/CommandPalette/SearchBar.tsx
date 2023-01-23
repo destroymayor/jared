@@ -1,8 +1,7 @@
 import { useRef } from 'react';
 
-import { useCommandPalette } from './Provider';
-
 import useKeyPress from '@/hooks/use-key-press.hook';
+import { useCommandPalette } from './context';
 
 export default function SearchBar() {
   const searchBarRef = useRef<HTMLInputElement>(null);
