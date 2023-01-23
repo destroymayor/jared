@@ -17,14 +17,6 @@ type NowPlayingType = {
 export default function NowPlaying() {
   const { data, isLoading } = useSWR<NowPlayingType>('/api/spotify/now-playing');
 
-  const isPlaying = data?.isPlaying;
-
-  const songUrl = data?.songUrl ?? '#';
-  const songTitle = data?.title;
-  const artist = data?.artist;
-  const album = data?.album;
-  const albumImageUrl = data?.albumImageUrl;
-
   if (isLoading) {
     return (
       <div className="flex h-[60px] items-center gap-4">
@@ -37,7 +29,7 @@ export default function NowPlaying() {
     );
   }
 
-  if (!isPlaying) {
+  if (!data?.isPlaying) {
     return (
       <div className="flex h-[60px] items-center gap-4">
         <SpotifySolidIcon className="h-7 w-7" />
@@ -50,13 +42,13 @@ export default function NowPlaying() {
   }
 
   return (
-    <Link href={songUrl} target="_blank" rel="noopener noreferrer">
+    <Link href={data.songUrl ?? '#'} target="_blank" rel="noopener noreferrer">
       <div className="flex  items-center gap-3">
-        {albumImageUrl && (
+        {data.albumImageUrl && (
           <Image
             className="h-[60px] w-[60px] rounded-md"
-            alt={`${album}`}
-            src={albumImageUrl}
+            alt={`${data.album}`}
+            src={data.albumImageUrl}
             width={60}
             height={60}
           />
@@ -64,8 +56,10 @@ export default function NowPlaying() {
 
         <div className="flex flex-col items-start justify-center">
           <PlayingBars />
-          <p className="w-64 truncate text-sm sm:w-80">{songTitle}</p>
-          <p className="w-64 truncate text-sm text-zinc-500 dark:text-zinc-400 sm:w-80">{artist}</p>
+          <p className="w-64 truncate text-sm sm:w-80">{data.title}</p>
+          <p className="w-64 truncate text-sm text-zinc-500 dark:text-zinc-400 sm:w-80">
+            {data.artist}
+          </p>
         </div>
       </div>
     </Link>
