@@ -42,7 +42,7 @@ const Page: NextPageWithLayout = ({ snippets }: InferGetStaticPropsType<typeof g
           >
             <div className="h-8 w-8 pt-2">{languageIcon}</div>
             <div>
-              <h3 className="text-lg font-bold group-hover:text-sky-600">{title}</h3>
+              <h2 className="text-lg font-bold group-hover:text-sky-600">{title}</h2>
               <p className="pb-2 text-sm text-zinc-600 dark:text-zinc-400">{description}</p>
               <span className="text-sm italic tracking-tighter text-zinc-600 dark:text-zinc-400">
                 {formatDate}
