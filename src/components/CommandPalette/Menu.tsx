@@ -56,7 +56,7 @@ export default function Menu() {
   };
 
   const getCommandItemHeight =
-    filterOptions?.filter((item) => item.children.length > 0).length * 36;
+    filterOptions?.filter((item) => item?.children?.length > 0)?.length * 36;
   const getMenuHeight = getFlatOptions.length * 40;
   const getMenuContainerHeight = getCommandItemHeight + getMenuHeight;
 
