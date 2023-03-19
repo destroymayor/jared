@@ -48,7 +48,7 @@ export default function Overview(props: OverviewProps) {
       {overviews.map((item) => (
         <Fragment key={item.title}>
           {loading ? (
-            <div className="h-[62px] animate-pulse rounded-xl bg-zinc-300 text-transparent dark:bg-zinc-900" />
+            <div className="h-[64px] animate-pulse rounded-xl bg-zinc-300 text-transparent dark:bg-zinc-900" />
           ) : (
             <div className="flex flex-col rounded-xl bg-zinc-100 py-2 px-4 shadow-md dark:bg-zinc-900">
               <span className={clsx('text-sm', loading ? '' : 'dark:text-zinc-400')}>

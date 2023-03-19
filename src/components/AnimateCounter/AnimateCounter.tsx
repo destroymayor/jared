@@ -5,7 +5,7 @@ import useInView from '@/hooks/use-in-view.hook';
 
 interface AnimateCounterProps {
   className?: string;
-  total: number;
+  total: number | undefined;
 }
 
 export default function AnimateCounter(props: AnimateCounterProps) {
