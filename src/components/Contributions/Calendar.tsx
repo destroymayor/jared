@@ -44,7 +44,7 @@ export default function Calendar(props: CalendarProps) {
       };
     }) ?? [];
 
-  const contributionColors = data?.colors;
+  const contributionColors = data?.colors ?? [];
 
   const handleSelectContribution = (data: selectContributionProps) => {
     const { count, date } = data;

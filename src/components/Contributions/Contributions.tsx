@@ -11,6 +11,8 @@ export default function Contributions() {
 
   const contributionCalendar = contributionData?.contributionsCollection?.contributionCalendar;
 
+  if (!isLoading && !contributionCalendar) return null;
+
   return (
     <div className="flex flex-col gap-y-2">
       <h2 className="flex items-center gap-2 text-2xl">

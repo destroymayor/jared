@@ -40,7 +40,7 @@ export const getGithubUserContribution = async () => {
   const status = response.status;
 
   if (status > 400) {
-    return { status, data: {} };
+    return { status, data: null };
   }
 
   const responseJson = await response.json();
