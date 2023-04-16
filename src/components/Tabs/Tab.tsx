@@ -1,4 +1,4 @@
-import { useEffect, useContext, useRef, ReactNode } from 'react';
+import React, { useEffect, useContext, useRef, ReactNode, MouseEvent } from 'react';
 
 import { TabsContext } from './Tabs';
 
@@ -7,8 +7,8 @@ interface ITab {
   name?: string;
   selected?: number;
   index?: number;
-  onClick?: Function;
-  onMouseEnter?: Function;
+  onClick?: () => void;
+  onMouseEnter?: (event: MouseEvent) => void;
   children: ReactNode;
 }
 
@@ -22,9 +22,10 @@ export default function Tab(props: ITab) {
     onClick?.();
   };
 
-  const handleMouseEnter = (e: any) => {
-    repositionHighlight(e.target.getBoundingClientRect(), name);
-    onMouseEnter?.(e);
+  const handleMouseEnter = (event: MouseEvent) => {
+    const node = event.target as HTMLElement;
+    repositionHighlight(node.getBoundingClientRect(), name);
+    onMouseEnter?.(event);
   };
 
   useEffect(() => {

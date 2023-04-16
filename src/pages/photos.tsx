@@ -44,7 +44,7 @@ const Page: NextPageWithLayout = () => {
   const getBlurData = useBlurhashToBase64();
 
   return (
-    <ul className="relative left-1/2 right-1/2 -mr-[50vw] -ml-[49vw] grid min-h-screen w-[97vw] gap-2 pt-4 [grid-template-columns:repeat(auto-fill,minmax(100%,1fr))] sm:px-2 sm:[grid-template-columns:repeat(auto-fill,minmax(440px,1fr))] md:w-[98vw]">
+    <ul className="relative left-1/2 right-1/2 -ml-[49vw] -mr-[50vw] grid min-h-screen w-[97vw] gap-2 pt-4 [grid-template-columns:repeat(auto-fill,minmax(100%,1fr))] sm:px-2 sm:[grid-template-columns:repeat(auto-fill,minmax(440px,1fr))] md:w-[98vw]">
       {photos?.map((photo) => {
         const blurDataURL = getBlurData({ blur_hash: photo.blur_hash, width: 440, height: 700 });
 

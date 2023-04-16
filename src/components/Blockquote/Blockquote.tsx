@@ -9,7 +9,7 @@ export default function Blockquote(props: Props) {
   return (
     <blockquote
       {...props}
-      className="border-l-4 border-zinc-400 py-3 px-4 italic dark:border-zinc-600"
+      className="border-l-4 border-zinc-400 px-4 py-3 italic dark:border-zinc-600"
     >
       {children}
     </blockquote>

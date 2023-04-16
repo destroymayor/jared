@@ -49,9 +49,10 @@ export default function Menu() {
 
   const handleTabSelect = (option: OptionChildrenProps) => option.click();
 
-  const handleMouseEnter = (e: { target: HTMLElement }) => {
+  const handleMouseEnter = (e: any) => {
+    const target = e.target as HTMLElement;
     setSelectedIndex(
-      getFlatOptions.findIndex((item: { title: string }) => item.title === e.target.innerText)
+      getFlatOptions.findIndex((item: { title: string }) => item.title === target.innerText)
     );
   };
 

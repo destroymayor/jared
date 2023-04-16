@@ -43,7 +43,7 @@ export default function UnsplashStatistics() {
             {isLoading ? (
               <div className="h-[64px] animate-pulse rounded-xl bg-zinc-300 text-transparent dark:bg-zinc-900" />
             ) : (
-              <div className="flex flex-col rounded-xl bg-zinc-100 py-2 px-4 shadow-md dark:bg-zinc-900">
+              <div className="flex flex-col rounded-xl bg-zinc-100 px-4 py-2 shadow-md dark:bg-zinc-900">
                 <div className="text-sm dark:text-zinc-400">{item.title}</div>
                 <AnimateCounter className="text-2xl font-bold" total={item.value} />
               </div>

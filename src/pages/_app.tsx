@@ -1,7 +1,7 @@
 import { ReactElement, ReactNode } from 'react';
 import type { NextPage } from 'next';
 import type { AppProps } from 'next/app';
-import { Source_Code_Pro } from '@next/font/google';
+import localFont from 'next/font/local';
 import { Analytics } from '@vercel/analytics/react';
 
 import '@/styles/global.css';
@@ -12,6 +12,8 @@ import fetcher from '@/lib/fetcher';
 import { ThemeProvider } from 'next-themes';
 import { ToastProvider } from '@/components/Toast';
 
+const sourceCodeProFont = localFont({ src: '../../public/fonts/source-code-pro.ttf' });
+
 export type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode;
 };
@@ -19,8 +21,6 @@ export type NextPageWithLayout = NextPage & {
 type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
-
-const sourceCodeProFont = Source_Code_Pro();
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? ((page) => page);
