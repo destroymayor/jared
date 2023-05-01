@@ -13,6 +13,7 @@ export default function TopTracks() {
   const { data } = useSWR<TrackType[]>('/api/spotify/top-tracks', fetcher, {
     revalidateOnFocus: false,
     suspense: true,
+    fallbackData: [],
   });
 
   return (

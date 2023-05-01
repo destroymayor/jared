@@ -14,6 +14,20 @@ export default function UnsplashStatistics() {
   const { data } = useSWR<UnsplashStatisticsType>('/api/unsplash/statistics', fetcher, {
     revalidateOnFocus: false,
     suspense: true,
+    fallbackData: {
+      downloads: {
+        total: 0,
+        historical: {
+          change: 0,
+        },
+      },
+      views: {
+        total: 0,
+        historical: {
+          change: 0,
+        },
+      },
+    },
   });
 
   const statistics = [

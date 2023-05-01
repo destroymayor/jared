@@ -24,6 +24,7 @@ export default function Photos() {
   const { data: photos } = useSWR<PhotoType[]>('/api/unsplash/photos', fetcher, {
     revalidateOnFocus: false,
     suspense: true,
+    fallbackData: [],
   });
 
   const getBlurData = useBlurhashToBase64();

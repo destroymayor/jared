@@ -15,6 +15,16 @@ export default function Contributions() {
   const { data } = useSWR<ContributionsCollectionType>('/api/github/contribution', fetcher, {
     revalidateOnFocus: false,
     suspense: true,
+    fallbackData: {
+      contributionsCollection: {
+        contributionCalendar: {
+          totalContributions: 0,
+          weeks: [],
+          months: [],
+          colors: [],
+        },
+      },
+    },
   });
 
   const contributionCalendar = data?.contributionsCollection.contributionCalendar;
