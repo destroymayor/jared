@@ -1,6 +1,5 @@
 'use client';
 
-import { Suspense } from 'react';
 import useSWR from 'swr';
 import fetcher from '@/lib/fetcher';
 
@@ -10,10 +9,8 @@ import { SpotifySolidIcon } from '@/components/Icons';
 import { TrackType } from './types';
 
 export default function TopTracks() {
-  const { data } = useSWR<TrackType[]>('/api/spotify/top-tracks', fetcher, {
+  const { data, isLoading } = useSWR<TrackType[]>('/api/spotify/top-tracks', fetcher, {
     revalidateOnFocus: false,
-    suspense: true,
-    fallbackData: [],
   });
 
   return (
@@ -24,13 +21,15 @@ export default function TopTracks() {
       </h2>
       <p className="pb-2 dark:text-zinc-400">{`Here's my top tracks on Spotify updated daily.`}</p>
 
-      <Suspense fallback={<Skeleton />}>
+      {isLoading ? (
+        <Skeleton />
+      ) : (
         <ul>
           {data?.map((item, index) => (
             <Track key={`${item.title} - ${item.artist}`} data={item} index={index} />
           ))}
         </ul>
-      </Suspense>
+      )}
     </div>
   );
 }

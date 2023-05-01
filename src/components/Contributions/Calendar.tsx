@@ -4,9 +4,12 @@ import { useState } from 'react';
 
 import { motion } from 'framer-motion';
 import clsx from 'clsx';
+
+import { CalendarSkeleton } from './Skeleton';
 import { WeeksType, MonthsProps } from './types';
 
 interface CalendarProps {
+  loading: boolean;
   colors: string[] | undefined;
   weeks: WeeksType[] | undefined;
   months: MonthsProps[] | undefined;
@@ -18,7 +21,7 @@ interface selectContributionProps {
 }
 
 export default function Calendar(props: CalendarProps) {
-  const { colors = [], weeks = [], months = [] } = props;
+  const { loading, colors = [], weeks = [], months = [] } = props;
 
   const [selectContribution, setSelectContribution] = useState<selectContributionProps>({
     count: null,
@@ -46,6 +49,10 @@ export default function Calendar(props: CalendarProps) {
     const { count, date } = data;
     setSelectContribution({ count, date });
   };
+
+  if (loading) {
+    return <CalendarSkeleton />;
+  }
 
   return (
     <>

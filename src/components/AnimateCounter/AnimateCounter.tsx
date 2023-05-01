@@ -11,7 +11,6 @@ export default function AnimateCounter(props: { className?: string; total: numbe
   const { ref: inViewRef, isInView } = useInView({ once: true });
 
   const initialCount = 0;
-  const finalCount = Number.isInteger(total) ? total : 0;
 
   useEffect(() => {
     const count = countRef.current;
@@ -20,7 +19,7 @@ export default function AnimateCounter(props: { className?: string; total: numbe
       return;
     }
 
-    const controls = animate(initialCount, finalCount, {
+    const controls = animate(initialCount, total, {
       duration: 1,
       onUpdate(value: number) {
         if (isInView) count!.textContent = Math.floor(value).toString();
@@ -28,7 +27,7 @@ export default function AnimateCounter(props: { className?: string; total: numbe
     });
 
     return () => controls.stop();
-  }, [total, isInView, finalCount]);
+  }, [total, isInView]);
 
   return (
     <span ref={inViewRef}>

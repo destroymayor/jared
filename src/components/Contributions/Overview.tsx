@@ -1,14 +1,20 @@
 import AnimateCounter from '@/components/AnimateCounter';
 
+import { OverviewSkeleton } from './Skeleton';
 import { WeeksType } from './types';
 
 interface OverviewProps {
+  loading: boolean;
   weeks: WeeksType[] | undefined;
   totalContributions: number | undefined;
 }
 
 export default function Overview(props: OverviewProps) {
-  const { weeks = [], totalContributions } = props;
+  const { loading, weeks = [], totalContributions } = props;
+
+  if (loading) {
+    return <OverviewSkeleton />;
+  }
 
   const totalThisWeekContribution =
     weeks?.[weeks?.length - 1]?.contributionDays
@@ -25,10 +31,16 @@ export default function Overview(props: OverviewProps) {
   const averageContribution = (totalContributions || 0) / totalContributionList.length;
 
   const overviews = [
-    { title: 'Total', value: totalContributions },
-    { title: 'This Week', value: totalThisWeekContribution },
-    { title: 'Best Day', value: bestContribution },
-    { title: 'Daily Average', value: averageContribution },
+    { title: 'Total', value: Number.isInteger(totalContributions) ? totalContributions : 0 },
+    {
+      title: 'This Week',
+      value: Number.isInteger(totalThisWeekContribution) ? totalThisWeekContribution : 0,
+    },
+    { title: 'Best Day', value: Number.isInteger(bestContribution) ? bestContribution : 0 },
+    {
+      title: 'Daily Average',
+      value: Number.isInteger(averageContribution) ? averageContribution : 0,
+    },
   ];
 
   return (
