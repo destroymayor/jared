@@ -1,11 +1,9 @@
 import { MouseEventHandler, ReactNode } from 'react';
 
-type Props = {
+export default function Button(props: {
   children: ReactNode;
   onClick: MouseEventHandler<HTMLButtonElement>;
-};
-
-export default function Button(props: Props) {
+}) {
   const { children } = props;
 
   return (

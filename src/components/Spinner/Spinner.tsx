@@ -1,10 +1,6 @@
 import clsx from 'clsx';
 
-type Props = {
-  className?: string;
-};
-
-export default function Spinner(props: Props) {
+export default function Spinner(props: { className?: string }) {
   const { className } = props;
   return (
     <svg {...props} className={clsx('animate-spin', className)} fill="none" viewBox="0 0 24 24">

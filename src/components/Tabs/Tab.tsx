@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect, useContext, useRef, ReactNode, MouseEvent } from 'react';
 
 import { TabsContext } from './Tabs';

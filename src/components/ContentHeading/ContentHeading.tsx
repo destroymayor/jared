@@ -4,12 +4,7 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import { LinkIcon } from '@/components/Icons';
 
-type Props = {
-  children: ReactNode | any;
-  className: string;
-};
-
-export default function ContentHeading(props: Props) {
+export default function ContentHeading(props: { children: ReactNode | any; className: string }) {
   const { children, className } = props;
 
   const getHeadingId = children?.toLowerCase().replace(new RegExp(' ', 'g'), '-');

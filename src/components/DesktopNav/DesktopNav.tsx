@@ -1,12 +1,12 @@
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { dashboard, projects, photos, snippets } from '@/data/routes';
+import { dashboard, projects, photos, snippets } from '@/constants/routes';
 
 import clsx from 'clsx';
 import Tabs from '@/components/Tabs';
 
 export default function DesktopNav() {
-  const router = useRouter();
+  const pathname = usePathname();
 
   const routes = [dashboard, projects, photos, snippets];
 
@@ -19,7 +19,7 @@ export default function DesktopNav() {
               <div
                 className={clsx(
                   'flex items-center p-2',
-                  tab.pathname === router.pathname
+                  tab.pathname === pathname
                     ? 'bg-gradient-to-r from-sky-500 to-sky-700 bg-clip-text text-transparent'
                     : 'text-zinc-700 hover:text-zinc-700 dark:text-zinc-300 dark:hover:text-zinc-300'
                 )}

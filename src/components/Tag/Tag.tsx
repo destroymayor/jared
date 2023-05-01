@@ -10,13 +10,7 @@ const types: Record<TagTypes, string> = {
   error: 'border-red-300 bg-red-500 text-red-600 dark:text-red-500',
 };
 
-type TagProps = {
-  className?: string;
-  type?: TagTypes;
-  label?: string;
-};
-
-export default function Tag(props: TagProps) {
+export default function Tag(props: { className?: string; type?: TagTypes; label?: string }) {
   const { className = '', type = 'primary', label = '' } = props;
 
   const color = types[type];

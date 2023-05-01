@@ -1,3 +1,5 @@
+'use client';
+
 import { useRef } from 'react';
 
 import useKeyPress from '@/hooks/use-key-press.hook';

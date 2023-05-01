@@ -25,6 +25,7 @@ export const getUnsplashPhotos = async () => {
 
   const request = await fetch(`${UNSPLASH_ENDPOINT}/photos?${params}`, {
     method: 'GET',
+    next: { revalidate: 1200 }, // Revalidate every 1200 seconds
   });
 
   const status = request.status;
@@ -63,6 +64,7 @@ interface UnsplashStatisticsProps {
 export const getUnsplashStatistics = async () => {
   const request = await fetch(`${UNSPLASH_ENDPOINT}/statistics?client_id=${unsplash_access_key}`, {
     method: 'GET',
+    next: { revalidate: 1200 }, // Revalidate every 1200 seconds
   });
 
   const status = request.status;

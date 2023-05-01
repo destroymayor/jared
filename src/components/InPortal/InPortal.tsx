@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, useEffect, ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 
@@ -13,10 +15,10 @@ export default function InPortal(props: Props) {
     const elm = document.createElement('div');
     setHostElement(elm);
 
-    document.body.appendChild(elm);
+    document?.body?.appendChild(elm);
 
     return () => {
-      document.body.removeChild(elm);
+      document?.body?.removeChild(elm);
     };
   }, []);
 

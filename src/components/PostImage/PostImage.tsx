@@ -1,11 +1,6 @@
 import Image from 'next/image';
 
-type Props = {
-  src: string;
-  alt: string;
-};
-
-export default function PostImage(props: Props) {
+export default function PostImage(props: { src: string; alt: string }) {
   const { src, alt } = props;
 
   return (

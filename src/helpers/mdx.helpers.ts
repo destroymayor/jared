@@ -3,12 +3,12 @@ import path from 'path';
 import matter from 'gray-matter';
 import { serialize } from 'next-mdx-remote/serialize';
 
-export const getAllMdxFolder = (directory: string) => {
+export const getAllMDXFolder = (directory: string) => {
   return fs.readdirSync(directory).flatMap((item: string): any => {
     const subpath = `${directory}/${item}`;
 
     if (fs.statSync(subpath).isDirectory()) {
-      return getAllMdxFolder(subpath);
+      return getAllMDXFolder(subpath);
     }
 
     const source = fs.readFileSync(subpath);
@@ -21,7 +21,7 @@ export const getAllMdxFolder = (directory: string) => {
   });
 };
 
-export const getMdxFilePaths = (directory: string) => {
+export const getMDXSourcePaths = (directory: string) => {
   const getPaths = (folder: string): any => {
     return fs.readdirSync(folder).flatMap((slug: string) => {
       const subpath = `${folder}/${slug}`;
@@ -40,13 +40,8 @@ export const getMdxFilePaths = (directory: string) => {
   return getPaths(directory);
 };
 
-export const getMdxFile = async ({
-  dirPath = '',
-  slug = '',
-}: {
-  dirPath: string;
-  slug: string;
-}) => {
+export const getMDXSource = async (params: { dirPath: string; slug: string }) => {
+  const { dirPath = '', slug = '' } = params;
   const mdxDirectoryPath = path.join(process.cwd(), dirPath);
   const mdxFilePath = path.join(mdxDirectoryPath, `${slug}.mdx`);
 
