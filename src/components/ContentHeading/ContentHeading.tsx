@@ -1,15 +1,12 @@
-import { ReactNode } from 'react';
 import clsx from 'clsx';
 
 import Link from 'next/link';
 import { LinkIcon } from '@/components/Icons';
 
-type Props = {
-  children: ReactNode | any;
+export default function ContentHeading(props: {
+  children: React.ReactNode | any;
   className: string;
-};
-
-export default function ContentHeading(props: Props) {
+}) {
   const { children, className } = props;
 
   const getHeadingId = children?.toLowerCase().replace(new RegExp(' ', 'g'), '-');

@@ -33,6 +33,7 @@ export const getNowPlaying = async () => {
     headers: {
       Authorization: `Bearer ${access_token}`,
     },
+    next: { revalidate: 60 }, // Revalidate every 60 seconds
   });
 
   const status = request.status;
@@ -94,6 +95,7 @@ export const getTopTracks = async () => {
     headers: {
       Authorization: `Bearer ${access_token}`,
     },
+    next: { revalidate: 1200 }, // Revalidate every 1200 seconds
   });
 
   const status = request.status;

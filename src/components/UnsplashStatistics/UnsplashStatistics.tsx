@@ -1,26 +1,34 @@
-import { Fragment } from 'react';
+'use client';
+
+import { Fragment, Suspense } from 'react';
 
 import useSWR from 'swr';
+import fetcher from '@/lib/fetcher';
 import AnimateCounter from '@/components/AnimateCounter';
 import { UnsplashIcon } from '@/components/Icons';
 
-interface UnsplashStatisticsProps {
-  downloads: {
-    total: number;
-    historical: {
-      change: number;
-    };
-  };
-  views: {
-    total: number;
-    historical: {
-      change: number;
-    };
-  };
-}
+import Skeleton from './Skeleton';
+import { UnsplashStatisticsType } from './types';
 
 export default function UnsplashStatistics() {
-  const { data, isLoading } = useSWR<UnsplashStatisticsProps>('/api/unsplash/statistics');
+  const { data } = useSWR<UnsplashStatisticsType>('/api/unsplash/statistics', fetcher, {
+    revalidateOnFocus: false,
+    suspense: true,
+    fallbackData: {
+      downloads: {
+        total: 0,
+        historical: {
+          change: 0,
+        },
+      },
+      views: {
+        total: 0,
+        historical: {
+          change: 0,
+        },
+      },
+    },
+  });
 
   const statistics = [
     { title: 'Total views', value: data?.views?.total },
@@ -37,20 +45,18 @@ export default function UnsplashStatistics() {
       </h2>
       <p className="dark:text-zinc-400">{`My statistics in Unsplash.`}</p>
 
-      <div className="grid grid-cols-1 gap-2 py-2 sm:grid-cols-2">
-        {statistics.map((item) => (
-          <Fragment key={item.title}>
-            {isLoading ? (
-              <div className="h-[64px] animate-pulse rounded-xl bg-zinc-300 text-transparent dark:bg-zinc-900" />
-            ) : (
+      <Suspense fallback={<Skeleton />}>
+        <div className="grid grid-cols-1 gap-2 py-2 sm:grid-cols-2">
+          {statistics.map((item) => (
+            <Fragment key={item.title}>
               <div className="flex flex-col rounded-xl bg-zinc-100 px-4 py-2 shadow-md dark:bg-zinc-900">
                 <div className="text-sm dark:text-zinc-400">{item.title}</div>
                 <AnimateCounter className="text-2xl font-bold" total={item.value} />
               </div>
-            )}
-          </Fragment>
-        ))}
-      </div>
+            </Fragment>
+          ))}
+        </div>
+      </Suspense>
     </div>
   );
 }

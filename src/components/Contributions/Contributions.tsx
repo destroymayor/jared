@@ -1,17 +1,33 @@
+'use client';
+
+import { Suspense } from 'react';
 import useSWR from 'swr';
+import fetcher from '@/lib/fetcher';
 
 import { GithubOutlineIcon } from '@/components/Icons';
-import Overview from '@/components/Contributions/Overview';
-import Calendar from '@/components/Contributions/Calendar';
+
+import Overview from './Overview';
+import Calendar from './Calendar';
+import { OverviewSkeleton, CalendarSkeleton } from './Skeleton';
+import { ContributionsCollectionType } from './types';
 
 export default function Contributions() {
-  const { data: contributionData, isLoading } = useSWR('/api/github/contribution', {
+  const { data } = useSWR<ContributionsCollectionType>('/api/github/contribution', fetcher, {
     revalidateOnFocus: false,
+    suspense: true,
+    fallbackData: {
+      contributionsCollection: {
+        contributionCalendar: {
+          totalContributions: 0,
+          weeks: [],
+          months: [],
+          colors: [],
+        },
+      },
+    },
   });
 
-  const contributionCalendar = contributionData?.contributionsCollection?.contributionCalendar;
-
-  if (!isLoading && !contributionCalendar) return null;
+  const contributionCalendar = data?.contributionsCollection.contributionCalendar;
 
   return (
     <div className="flex flex-col gap-y-2">
@@ -21,8 +37,20 @@ export default function Contributions() {
       </h2>
       <p className="dark:text-zinc-400">{`My last year's contributions in Github.`}</p>
 
-      <Overview loading={isLoading} data={contributionCalendar} />
-      <Calendar loading={isLoading} data={contributionCalendar} />
+      <Suspense fallback={<OverviewSkeleton />}>
+        <Overview
+          weeks={contributionCalendar?.weeks}
+          totalContributions={contributionCalendar?.totalContributions}
+        />
+      </Suspense>
+
+      <Suspense fallback={<CalendarSkeleton />}>
+        <Calendar
+          colors={contributionCalendar?.colors}
+          weeks={contributionCalendar?.weeks}
+          months={contributionCalendar?.months}
+        />
+      </Suspense>
     </div>
   );
 }

@@ -1,20 +1,19 @@
-import { ReactNode } from 'react';
+'use client';
+
 import { motion } from 'framer-motion';
 
 import clsx from 'clsx';
-
-type Props = {
-  type?: 'fade-in' | 'revealing';
-  className?: string;
-  children: ReactNode;
-};
 
 const animateTypes = {
   'fade-in': 'animate-fade-in',
   revealing: 'animate-revealing',
 };
 
-export default function AnimateSection(props: Props) {
+export default function AnimateSection(props: {
+  type?: 'fade-in' | 'revealing';
+  className?: string;
+  children: React.ReactNode;
+}) {
   const { type = 'revealing', className, children } = props;
 
   const animateType = animateTypes[type];

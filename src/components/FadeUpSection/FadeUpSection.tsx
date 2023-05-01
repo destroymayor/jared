@@ -1,11 +1,8 @@
+'use client';
+
 import { ReactNode } from 'react';
 
 import { motion } from 'framer-motion';
-
-type Props = {
-  className?: string;
-  children: ReactNode;
-};
 
 const variants = {
   hidden: {
@@ -19,7 +16,7 @@ const variants = {
   },
 };
 
-export default function FadeUpSection(props: Props) {
+export default function FadeUpSection(props: { className?: string; children: ReactNode }) {
   const { className, children } = props;
 
   return (

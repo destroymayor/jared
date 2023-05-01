@@ -1,10 +1,4 @@
-import { ReactNode } from 'react';
-
-type Props = {
-  children: ReactNode;
-};
-
-export default function Blockquote(props: Props) {
+export default function Blockquote(props: { children: React.ReactNode }) {
   const { children } = props;
   return (
     <blockquote

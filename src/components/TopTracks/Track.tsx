@@ -1,33 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { TrackTypes } from './types';
+import { TrackType } from './types';
 
-type TrackProps = {
-  data: TrackTypes;
-  index: number;
-};
-
-export const TrackPlaceholder = () => {
-  const placeholderItems = [...Array(4).keys()];
-
-  return (
-    <div className="flex flex-col">
-      {placeholderItems.map((item) => (
-        <div key={item} className="flex h-[76px] w-full items-center gap-4">
-          <div className="h-10 w-5 animate-pulse rounded-md bg-zinc-300 dark:bg-zinc-800"></div>
-          <div className="min-h-[60px] min-w-[60px] animate-pulse rounded-md bg-zinc-300 dark:bg-zinc-800" />
-          <div className="flex w-3/5 flex-grow flex-col gap-2 md:w-full">
-            <div className="h-5 w-3/4 animate-pulse rounded-md bg-zinc-300 dark:bg-zinc-800" />
-            <div className="h-5 w-2/4 animate-pulse rounded-md bg-zinc-300 dark:bg-zinc-800" />
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-};
-
-export default function Track(props: TrackProps) {
+export default function Track(props: { data: TrackType; index: number }) {
   const { data, index } = props;
   const { title, artist, songUrl, album } = data;
   const { name, image } = album;

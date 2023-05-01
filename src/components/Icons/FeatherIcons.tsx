@@ -1,8 +1,6 @@
-import { ReactNode } from 'react';
-
 type IconProps = {
   className?: string;
-  children?: ReactNode;
+  children?: React.ReactNode;
 };
 
 const FeatherIcon = (props: IconProps) => {

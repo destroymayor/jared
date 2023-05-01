@@ -1,13 +1,24 @@
+'use client';
+
 import { useState, useMemo } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 import useSWR from 'swr';
+import fetcher from '@/lib/fetcher';
 import { useTheme } from 'next-themes';
 import { useAnimationControls } from 'framer-motion';
 
-import { dashboard, projects, photos, bookmarks, snippets, uses, guestbook } from '@/data/routes';
-import projectsData from '@/data/projects';
-import contactData from '@/data/contact';
+import {
+  dashboard,
+  projects,
+  photos,
+  bookmarks,
+  snippets,
+  uses,
+  guestbook,
+} from '@/constants/routes';
+import projectsData from '@/constants/projects';
+import contactData from '@/constants/contact';
 
 import { getCategoryFormatted, SNIPPET_CATEGORIES } from '@/helpers/category.helper';
 import { SunIcon, MoonIcon, MonitorIcon } from '@/components/Icons';
@@ -28,8 +39,9 @@ export default function Provider() {
   const [breadcrumbs, setBreadcrumbs] = useState<string[]>([]);
 
   const getCurrentBreadcrumbPath = breadcrumbs.at(-1);
-  const { data: snippetsData, isLoading: snippetsLoading } = useSWR(
+  const { data: snippetsData, isLoading: snippetsLoading } = useSWR<any>(
     getCurrentBreadcrumbPath === snippets.title ? '/api/snippets' : null,
+    fetcher,
     {
       revalidateOnFocus: false,
     }

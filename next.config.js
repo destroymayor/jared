@@ -10,4 +10,7 @@ module.exports = {
       'images.unsplash.com', // unsplash
     ],
   },
+  experimental: {
+    appDir: true,
+  },
 };

@@ -1,4 +1,4 @@
-export type TrackTypes = {
+export type TrackType = {
   title: string;
   artist: string;
   songUrl: string;

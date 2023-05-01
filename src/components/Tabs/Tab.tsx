@@ -1,18 +1,11 @@
-import React, { useEffect, useContext, useRef, ReactNode, MouseEvent } from 'react';
+'use client';
+
+import { useEffect, useContext, useRef, MouseEvent } from 'react';
 
 import { TabsContext } from './Tabs';
+import { TabType } from './types';
 
-interface ITab {
-  id?: string;
-  name?: string;
-  selected?: number;
-  index?: number;
-  onClick?: () => void;
-  onMouseEnter?: (event: MouseEvent) => void;
-  children: ReactNode;
-}
-
-export default function Tab(props: ITab) {
+export default function Tab(props: TabType) {
   const { name, selected = 0, index, children, onClick, onMouseEnter } = props;
 
   const { repositionHighlight } = useContext(TabsContext);

@@ -1,3 +1,5 @@
+'use client';
+
 import { useTheme } from 'next-themes';
 import { SunIcon, MoonIcon } from '@/components/Icons';
 import useHasMounted from '@/hooks/use-has-mounted.hook';
