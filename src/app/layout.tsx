@@ -5,14 +5,17 @@ import '@/styles/global.css';
 
 import ThemeProvider from '@/lib/ThemeProvider';
 import { ToastProvider } from '@/components/Toast';
-import Container from '@/components/Container';
+import Layout from '@/components/Layout';
 
 const sourceCodeProFont = localFont({ src: '../../public/fonts/source-code-pro.ttf' });
 
 export const metadata = {
-  generator: 'Next.js',
-  title: 'Jared Chen',
+  title: {
+    default: 'Jared Chen',
+    template: '%s | Jared Chen',
+  },
   description: 'Jared Chen, a Front-end Developer.',
+  generator: 'Next.js',
   authors: [{ name: 'Jared Chen' }],
   keywords: ['Next.js', 'React', 'JavaScript'],
   openGraph: {
@@ -57,10 +60,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main className={sourceCodeProFont.className}>
           <ThemeProvider>
             <ToastProvider>
-              <Container>
+              <Layout>
                 {children}
                 <Analytics />
-              </Container>
+              </Layout>
             </ToastProvider>
           </ThemeProvider>
         </main>

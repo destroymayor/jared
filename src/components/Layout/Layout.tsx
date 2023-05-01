@@ -3,10 +3,10 @@
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 
-import Header from '@/components/Container/Header';
-import Footer from '@/components/Container/Footer';
+import Header from '@/components/Layout/Header';
+import Footer from '@/components/Layout/Footer';
 
-export default function Container(props: { children: React.ReactNode }) {
+export default function Layout(props: { children: React.ReactNode }) {
   const { children } = props;
   const pathname = usePathname();
 
