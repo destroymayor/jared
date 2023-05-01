@@ -19,7 +19,7 @@
     "paths": {
       "@/content/*": ["content/*"],
       "@/components/*": ["src/components/*"],
-      "@/data/*": ["src/data/*"],
+      "@/constants/*": ["src/constants/*"],
       "@/hooks/*": ["src/hooks/*"],
       "@/helpers/*": ["src/helpers/*"],
       "@/layouts/*": ["src/layouts/*"],
@@ -27,8 +27,13 @@
       "@/styles/*": ["src/styles/*"],
       "@/utils/*": ["src/utils/*"],
       "@/public/*": ["public/*"]
-    }
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
 }
