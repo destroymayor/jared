@@ -15,6 +15,14 @@ import { NowPlayingType } from './types';
 export default function NowPlaying() {
   const { data } = useSWR<NowPlayingType>('/api/spotify/now-playing', fetcher, {
     suspense: true,
+    fallbackData: {
+      isPlaying: false,
+      songUrl: '',
+      title: '',
+      artist: '',
+      album: '',
+      albumImageUrl: '',
+    },
   });
 
   return (

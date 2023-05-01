@@ -7,7 +7,7 @@ import Tabs from '@/components/Tabs';
 import { OptionChildrenProps } from './types';
 import { useCommandPalette } from './context';
 
-const LIST_SELECTOR: string = `command-palette-item-select`;
+const LIST_SELECTOR = `command-palette-item-select`;
 
 export default function Menu() {
   const { isLoading, filterOptions, selectedIndex, setSelectedIndex } = useCommandPalette();

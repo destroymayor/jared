@@ -1,13 +1,9 @@
 'use client';
 
-import { useState, useEffect, ReactNode } from 'react';
+import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 
-type Props = {
-  children: ReactNode;
-};
-
-export default function InPortal(props: Props) {
+export default function InPortal(props: { children: React.ReactNode }) {
   const { children } = props;
   const [hostElement, setHostElement] = useState<HTMLElement | null>(null);
 
@@ -15,10 +11,10 @@ export default function InPortal(props: Props) {
     const elm = document.createElement('div');
     setHostElement(elm);
 
-    document?.body?.appendChild(elm);
+    document.body.appendChild(elm);
 
     return () => {
-      document?.body?.removeChild(elm);
+      document.body.removeChild(elm);
     };
   }, []);
 

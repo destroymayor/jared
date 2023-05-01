@@ -6,15 +6,7 @@ import { motion } from 'framer-motion';
 import clsx from 'clsx';
 
 import { directionType } from './constants';
-
-type Direction = 'horizontal' | 'vertical';
-
-interface ITabs {
-  direction?: Direction;
-  shouldResetHighlight?: boolean;
-  className?: string;
-  children: React.ReactNode;
-}
+import { TabsType } from './types';
 
 interface ITabsContext {
   repositionHighlight: (rect: DOMRect, tab: any) => void;
@@ -23,7 +15,7 @@ interface ITabsContext {
 
 export const TabsContext = React.createContext<ITabsContext>({} as ITabsContext);
 
-export default function Tabs(props: ITabs) {
+export default function Tabs(props: TabsType) {
   const { direction = 'horizontal', shouldResetHighlight, className, children } = props;
 
   const highlightRef = React.useRef<HTMLLIElement | null>(null);

@@ -1,6 +1,5 @@
 'use client';
 
-import { ReactNode } from 'react';
 import { motion } from 'framer-motion';
 
 import clsx from 'clsx';
@@ -13,7 +12,7 @@ const animateTypes = {
 export default function AnimateSection(props: {
   type?: 'fade-in' | 'revealing';
   className?: string;
-  children: ReactNode;
+  children: React.ReactNode;
 }) {
   const { type = 'revealing', className, children } = props;
 

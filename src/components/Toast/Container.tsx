@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 import { AnimatePresence } from 'framer-motion';
 import InPortal from '@/components/InPortal';
@@ -16,10 +16,10 @@ interface HeightType {
 export default function Container() {
   const { toasts, closeToast } = useToast();
 
-  const [isHovering, setHovering] = React.useState<boolean>(false);
-  const [heights, setHeights] = React.useState<HeightType[]>([]);
+  const [isHovering, setHovering] = useState<boolean>(false);
+  const [heights, setHeights] = useState<HeightType[]>([]);
 
-  const toastRef = React.useRef<HTMLLIElement>(null);
+  const toastRef = useRef<HTMLLIElement>(null);
 
   useEffect(() => {
     const node = toastRef.current;
