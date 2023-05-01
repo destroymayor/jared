@@ -4,7 +4,7 @@ export default function Page() {
   return (
     <div className="flex min-h-[400px] flex-col gap-3 pt-10">
       <h1 className="text-4xl font-extrabold">Jared</h1>
-      <h2 className="text-zinc-700 dark:text-zinc-400">Front-End Developer</h2>
+      <h2 className="text-zinc-700 dark:text-zinc-300">Front-End Developer</h2>
 
       <hr className="w-28 border border-zinc-300 dark:border-zinc-700" />
 
