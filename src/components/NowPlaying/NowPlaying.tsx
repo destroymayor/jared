@@ -36,9 +36,9 @@ export default function NowPlaying() {
 
         <div className="flex flex-col items-start justify-center">
           {data?.isPlaying && <PlayingBars />}
-          <p className="w-64 truncate text-sm sm:w-80">{data?.title}</p>
+          <p className="w-64 truncate text-sm sm:w-80">{data?.title ?? 'Not Playing'}</p>
           <p className="w-64 truncate text-sm text-zinc-500 dark:text-zinc-400 sm:w-80">
-            {data?.artist}
+            {data?.artist ?? 'Spotify'}
           </p>
         </div>
       </div>
