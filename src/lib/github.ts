@@ -36,7 +36,6 @@ export const getGithubUserContribution = async () => {
     body: JSON.stringify({
       query: GITHUB_USER_QUERY,
     }),
-    next: { revalidate: 1200 }, // Revalidate every 1200 seconds
   });
   const status = response.status;
 

@@ -4,7 +4,6 @@ import { Analytics } from '@vercel/analytics/react';
 import '@/styles/global.css';
 
 import ThemeProvider from '@/lib/ThemeProvider';
-import { ToastProvider } from '@/components/Toast';
 import Layout from '@/components/Layout';
 
 const sourceCodeProFont = localFont({ src: '../../public/fonts/source-code-pro.ttf' });
@@ -59,12 +58,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body suppressHydrationWarning>
         <main className={sourceCodeProFont.className}>
           <ThemeProvider>
-            <ToastProvider>
-              <Layout>
-                {children}
-                <Analytics />
-              </Layout>
-            </ToastProvider>
+            <Layout>
+              {children}
+              <Analytics />
+            </Layout>
           </ThemeProvider>
         </main>
       </body>
