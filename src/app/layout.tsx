@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import localFont from 'next/font/local';
 import { Analytics } from '@vercel/analytics/react';
 
@@ -8,7 +9,7 @@ import Layout from '@/components/Layout';
 
 const sourceCodeProFont = localFont({ src: '../../public/fonts/source-code-pro.ttf' });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: {
     default: 'Jared Chen',
     template: '%s | Jared Chen',
