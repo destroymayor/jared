@@ -1,27 +1,43 @@
+import { Suspense } from 'react';
 import MDXRemote, { COMPONENTS } from '@/helpers/mdx-components.helper';
 import { getMDXSourcePaths, getMDXSource } from '@/helpers/mdx.helpers';
-import Giscus from '@/components/Giscus';
 
-export async function generateStaticParams() {
-  const paths = await getMDXSourcePaths('content/snippets');
+import Loading from './loading';
 
-  return paths;
-}
-
-export default async function Page({
-  params,
-}: {
+type ParamsType = {
   params: {
     lang: string;
     slug: string;
   };
-}) {
+};
+
+export async function generateMetadata({ params }: ParamsType) {
+  const { lang, slug } = params;
+
+  const { data } = await getMDXSource({
+    dirPath: `content/snippet/${lang}`,
+    slug,
+  });
+
+  const { title, description } = data;
+
+  return { title, description };
+}
+
+export async function generateStaticParams() {
+  const paths = await getMDXSourcePaths('content/snippet');
+
+  return paths;
+}
+
+export default async function Page({ params }: ParamsType) {
   const { lang, slug } = params;
 
   const { mdxSource, data } = await getMDXSource({
-    dirPath: `content/snippets/${lang}`,
+    dirPath: `content/snippet/${lang}`,
     slug,
   });
+
   const { title, description, date } = data;
 
   const formatDate = date
@@ -34,7 +50,7 @@ export default async function Page({
     : 'unknown';
 
   return (
-    <>
+    <Suspense fallback={<Loading />}>
       <header className="pt-2 md:pt-8">
         <h1 className="py-2 text-4xl font-extrabold">{title}</h1>
         <p className="pt-2 text-zinc-600 dark:text-zinc-400">{description}</p>
@@ -47,14 +63,6 @@ export default async function Page({
           {formatDate}
         </time>
       </span>
-      <Giscus
-        repo="destroymayor/jared"
-        repoId="R_kgDOGHtW6w"
-        category="Announcements"
-        categoryId="DIC_kwDOGHtW684CQkkf"
-        mapping="title"
-        loading="lazy"
-      />
-    </>
+    </Suspense>
   );
 }

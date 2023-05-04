@@ -183,14 +183,6 @@ export const InfoIcon = (props: IconProps) => (
   </FeatherIcon>
 );
 
-export const LinkedinIcon = (props: IconProps) => (
-  <FeatherIcon {...props}>
-    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-    <rect x="2" y="9" width="4" height="12"></rect>
-    <circle cx="4" cy="4" r="2"></circle>
-  </FeatherIcon>
-);
-
 export const LinkIcon = (props: IconProps) => (
   <FeatherIcon {...props}>
     <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>

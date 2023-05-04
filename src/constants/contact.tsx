@@ -1,10 +1,4 @@
-import {
-  MailIcon,
-  LinkedinIcon,
-  GithubOutlineIcon,
-  TwitterIcon,
-  UnsplashIcon,
-} from '@/components/Icons';
+import { MailIcon, GithubOutlineIcon, TwitterIcon } from '@/components/Icons';
 
 export const mail = {
   link: 'mailto:kuil5230@gmail.com',
@@ -20,13 +14,6 @@ export const github = {
   icon: <GithubOutlineIcon />,
 };
 
-export const linkedIn = {
-  link: 'https://www.linkedin.com/in/jared-chen/',
-  title: '/in/jared-chen',
-  label: 'Linkedin',
-  icon: <LinkedinIcon />,
-};
-
 export const twitter = {
   link: 'https://twitter.com/destroymayor',
   title: '@destroymayor',
@@ -34,13 +21,6 @@ export const twitter = {
   icon: <TwitterIcon />,
 };
 
-export const unsplash = {
-  link: 'https://unsplash.com/@destroymayor',
-  title: '@destroymayor',
-  label: 'Unsplash',
-  icon: <UnsplashIcon />,
-};
-
-const data = [mail, github, linkedIn, twitter, unsplash];
+const data = [mail, github, twitter];
 
 export default data;
