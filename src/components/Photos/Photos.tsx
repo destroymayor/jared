@@ -4,11 +4,11 @@ import Image from 'next/image';
 
 import useSWR from 'swr';
 import fetcher from '@/lib/fetcher';
+import { UnsplashPhotoType } from '@/lib/unsplash';
 import { motion } from 'framer-motion';
 import useBlurhashToBase64 from '@/hooks/use-blur-hash-to-base64.hook';
 
 import Skeleton from './Skeleton';
-import { PhotoType } from './types';
 
 const photoVariants = {
   hidden: {
@@ -21,7 +21,7 @@ const photoVariants = {
 };
 
 export default function Photos() {
-  const { data, isLoading } = useSWR<PhotoType[]>('/api/unsplash/photos', fetcher, {
+  const { data, isLoading } = useSWR<UnsplashPhotoType[]>('/api/unsplash/photos', fetcher, {
     revalidateOnFocus: false,
   });
 

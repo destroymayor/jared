@@ -2,11 +2,11 @@
 
 import useSWR from 'swr';
 import fetcher from '@/lib/fetcher';
+import { TrackType } from '@/lib/spotify';
+import { SpotifySolidIcon } from '@/components/Icons';
 
 import Skeleton from './Skeleton';
 import Track from './Track';
-import { SpotifySolidIcon } from '@/components/Icons';
-import { TrackType } from './types';
 
 export default function TopTracks() {
   const { data, isLoading } = useSWR<TrackType[]>('/api/spotify/top-tracks', fetcher, {

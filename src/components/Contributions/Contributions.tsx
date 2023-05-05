@@ -3,11 +3,11 @@
 import useSWR from 'swr';
 import fetcher from '@/lib/fetcher';
 
+import { ContributionsCollectionType } from '@/lib/github';
 import { GithubOutlineIcon } from '@/components/Icons';
 
 import Overview from './Overview';
 import Calendar from './Calendar';
-import { ContributionsCollectionType } from './types';
 
 export default function Contributions() {
   const { data, isLoading } = useSWR<ContributionsCollectionType>(

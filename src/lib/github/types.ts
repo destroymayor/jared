@@ -8,7 +8,7 @@ export type WeeksType = {
   firstDay: string;
 };
 
-export type MonthsProps = {
+export type MonthsType = {
   firstDay: string;
   name: string;
   totalWeeks: number;
@@ -17,7 +17,7 @@ export type MonthsProps = {
 export type ContributionCalendarType = {
   colors: string[];
   totalContributions: number;
-  months: MonthsProps[];
+  months: MonthsType[];
   weeks: WeeksType[];
 };
 

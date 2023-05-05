@@ -2,50 +2,33 @@
 
 import { useState } from 'react';
 
-import { motion } from 'framer-motion';
 import clsx from 'clsx';
+import { WeeksType, MonthsType } from '@/lib/github';
+import { motion } from 'framer-motion';
 
 import { CalendarSkeleton } from './Skeleton';
-import { WeeksType, MonthsProps } from './types';
 
-interface CalendarProps {
+type CalendarTypes = {
   loading: boolean;
   colors: string[] | undefined;
   weeks: WeeksType[] | undefined;
-  months: MonthsProps[] | undefined;
-}
+  months: MonthsType[] | undefined;
+};
 
-interface selectContributionProps {
+type selectContributionType = {
   count: number | null;
   date: string | null;
-}
+};
 
-export default function Calendar(props: CalendarProps) {
-  const { loading, colors = [], weeks = [], months = [] } = props;
+export default function Calendar(props: CalendarTypes) {
+  const { loading, weeks = [], months = [], colors = [] } = props;
 
-  const [selectContribution, setSelectContribution] = useState<selectContributionProps>({
+  const [selectContribution, setSelectContribution] = useState<selectContributionType>({
     count: null,
     date: null,
   });
 
-  const monthsData =
-    months?.map((month) => {
-      const filterContributionDay = weeks
-        .filter((week) => week.firstDay.slice(0, 7) === month.firstDay.slice(0, 7))
-        .map((item) => item.contributionDays)
-        .flat(1);
-      const getContributionsByMonth = filterContributionDay.reduce(
-        (previousValue, currentValue) => previousValue + currentValue.contributionCount,
-        0
-      );
-
-      return {
-        ...month,
-        contributionsCount: getContributionsByMonth,
-      };
-    }) ?? [];
-
-  const handleSelectContribution = (data: selectContributionProps) => {
+  const handleSelectContribution = (data: selectContributionType) => {
     const { count, date } = data;
     setSelectContribution({ count, date });
   };
@@ -53,6 +36,22 @@ export default function Calendar(props: CalendarProps) {
   if (loading) {
     return <CalendarSkeleton />;
   }
+
+  const monthsData = months?.map((month) => {
+    const filterContributionDay = weeks
+      .filter((week) => week.firstDay.slice(0, 7) === month.firstDay.slice(0, 7))
+      .map((item) => item.contributionDays)
+      .flat(1);
+    const getContributionsByMonth = filterContributionDay.reduce(
+      (previousValue, currentValue) => previousValue + currentValue.contributionCount,
+      0
+    );
+
+    return {
+      ...month,
+      contributionsCount: getContributionsByMonth,
+    };
+  });
 
   return (
     <>

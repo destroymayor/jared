@@ -1,3 +1,5 @@
+import { TopTrackResponseType } from './types';
+
 const client_id = process.env.SPOTIFY_CLIENT_ID;
 const client_secret = process.env.SPOTIFY_CLIENT_SECRET;
 const refresh_token = process.env.SPOTIFY_REFRESH_TOKEN;
@@ -70,22 +72,6 @@ export const getNowPlaying = async () => {
   };
 };
 
-type TopTracksType = {
-  album: {
-    name: string;
-    images: {
-      width: number;
-    }[];
-  };
-  artists: {
-    name: string;
-  }[];
-  external_urls: {
-    spotify: string;
-  };
-  name: string;
-};
-
 export const getTopTracks = async () => {
   const { access_token } = await getAccessToken();
 
@@ -104,14 +90,14 @@ export const getTopTracks = async () => {
 
   const getData = await request?.json();
 
-  const tracks = getData?.items?.map((track: TopTracksType) => ({
+  const tracks = getData.items.map((track: TopTrackResponseType) => ({
     album: {
-      name: track?.album?.name,
-      image: track?.album?.images.find((image) => image.width === 64),
+      name: track.album.name,
+      image: track.album.images.find((image) => image.width === 64),
     },
-    artist: track?.artists?.map((_artist) => _artist.name).join(', '),
-    songUrl: track?.external_urls?.spotify,
-    title: track?.name,
+    artist: track.artists.map((_artist) => _artist.name).join(', '),
+    songUrl: track.external_urls.spotify,
+    title: track.name,
   }));
 
   return { status, data: tracks };

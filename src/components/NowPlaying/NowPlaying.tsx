@@ -5,12 +5,11 @@ import Link from 'next/link';
 
 import useSWR from 'swr';
 import fetcher from '@/lib/fetcher';
+import { NowPlayingType } from '@/lib/spotify';
 import PlayingBars from '@/components/NowPlaying/PlayingBars';
 import { SpotifySolidIcon } from '@/components/Icons';
 import clsx from 'clsx';
-
 import Skeleton from './Skeleton';
-import { NowPlayingType } from './types';
 
 export default function NowPlaying() {
   const { data, isLoading } = useSWR<NowPlayingType>('/api/spotify/now-playing', fetcher);

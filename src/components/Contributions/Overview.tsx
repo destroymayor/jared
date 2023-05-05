@@ -1,7 +1,7 @@
 import AnimateCounter from '@/components/AnimateCounter';
 
+import { WeeksType } from '@/lib/github';
 import { OverviewSkeleton } from './Skeleton';
-import { WeeksType } from './types';
 
 interface OverviewProps {
   loading: boolean;

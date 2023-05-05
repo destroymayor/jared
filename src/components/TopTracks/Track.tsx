@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-
-import { TrackType } from './types';
+import { TrackType } from '@/lib/spotify';
 
 export default function Track(props: { data: TrackType; index: number }) {
   const { data, index } = props;

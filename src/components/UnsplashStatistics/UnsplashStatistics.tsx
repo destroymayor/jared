@@ -2,11 +2,11 @@
 
 import useSWR from 'swr';
 import fetcher from '@/lib/fetcher';
+import { UnsplashStatisticsType } from '@/lib/unsplash';
 import AnimateCounter from '@/components/AnimateCounter';
 import { UnsplashIcon } from '@/components/Icons';
 
 import Skeleton from './Skeleton';
-import { UnsplashStatisticsType } from './types';
 
 export default function UnsplashStatistics() {
   const { data, isLoading } = useSWR<UnsplashStatisticsType>('/api/unsplash/statistics', fetcher, {
