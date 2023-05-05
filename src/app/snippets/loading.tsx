@@ -1,5 +1,5 @@
 export default function Loading() {
-  const items = [...Array(6).keys()];
+  const items = [...Array(4).keys()];
 
   return (
     <>
