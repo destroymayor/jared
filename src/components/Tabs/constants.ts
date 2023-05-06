@@ -4,6 +4,7 @@ type directionParams = {
   width: (tab: DOMRect) => void;
   transform: (tabBoundingBox: DOMRect, wrapperBoundingBox: DOMRect) => void;
 };
+
 interface IDirectionType {
   horizontal: directionParams;
   vertical: directionParams;

@@ -3,9 +3,9 @@ import Link from 'next/link';
 
 import avatar from '@/public/images/avatar.webp';
 
-import DesktopNav from '@/components/DesktopNav';
-import CommandPalette from '@/components/CommandPalette';
-import ThemeToggle from '@/components/ThemeToggle';
+import CommandPalette from './CommandPalette';
+import DesktopNav from './DesktopNav';
+import ThemeToggle from './ThemeToggle';
 
 export default function Header() {
   return (

@@ -16,8 +16,8 @@ export function OverviewSkeleton() {
 export function CalendarSkeleton() {
   return (
     <>
-      <div className="h-[104px] animate-pulse rounded-xl bg-zinc-300 dark:bg-zinc-900"></div>
-      <div className="h-4 w-1/3 animate-pulse rounded-md bg-zinc-300 px-2 dark:bg-zinc-900" />
+      <div className="h-[104px] animate-pulse rounded-md bg-zinc-300 dark:bg-zinc-900"></div>
+      <div className="h-5 w-1/3 animate-pulse rounded-md bg-zinc-300 px-2 dark:bg-zinc-900" />
     </>
   );
 }

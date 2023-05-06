@@ -1,13 +1,16 @@
+import './global.css';
+
 import { Metadata } from 'next';
 import localFont from 'next/font/local';
 import { Analytics } from '@vercel/analytics/react';
 
-import '@/styles/global.css';
-
 import ThemeProvider from '@/lib/ThemeProvider';
 import Layout from '@/components/Layout';
 
-const sourceCodeProFont = localFont({ src: '../../public/fonts/source-code-pro.ttf' });
+const sourceCodeProFont = localFont({
+  src: '../../public/fonts/source-code-pro.ttf',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: {
@@ -50,6 +53,10 @@ export const metadata: Metadata = {
   viewport: {
     width: 'device-width',
     initialScale: 1,
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 

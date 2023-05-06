@@ -1,4 +1,4 @@
-import Photos from '@/components/Photos';
+import Photos from './Photos';
 
 export const metadata = {
   title: 'Photos',

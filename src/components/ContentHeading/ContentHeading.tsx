@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 
+import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { LinkIcon } from '@/components/Icons';
 
@@ -8,11 +9,12 @@ export default function ContentHeading(props: {
   className: string;
 }) {
   const { children, className } = props;
+  const pathname = usePathname();
 
   const getHeadingId = children?.toLowerCase().replace(new RegExp(' ', 'g'), '-');
 
   return (
-    <Link href={`#${getHeadingId}`}>
+    <Link href={`${pathname}#${getHeadingId}`} scroll={false}>
       <h2
         aria-hidden
         id={getHeadingId}
