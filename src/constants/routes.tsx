@@ -10,60 +10,52 @@ import {
   PieChartIcon,
 } from '@/components/Icons';
 
-export const home = {
-  title: 'Home',
-  pathname: '/',
-  icon: <HomeIcon />,
+const ROUTES = {
+  HOME: {
+    title: 'Home',
+    pathname: '/',
+    icon: <HomeIcon />,
+  },
+  BLOG: {
+    title: 'Blog',
+    pathname: '/blog',
+    icon: <Edit3Icon />,
+  },
+  DASHBOARD: {
+    title: 'Dashboard',
+    pathname: '/dashboard',
+    icon: <PieChartIcon />,
+  },
+  GUESTBOOK: {
+    title: 'Guestbook',
+    pathname: '/guestbook',
+    icon: <MessageSquareIcon />,
+  },
+  PHOTOS: {
+    title: 'Photos',
+    pathname: '/photos',
+    icon: <CameraIcon />,
+  },
+  PROJECTS: {
+    title: 'Projects',
+    pathname: '/projects',
+    icon: <PackageIcon />,
+  },
+  BOOKMARKS: {
+    title: 'Bookmarks',
+    pathname: '/bookmarks',
+    icon: <BookmarksIcon />,
+  },
+  SNIPPETS: {
+    title: 'Snippets',
+    pathname: '/snippets',
+    icon: <CodePenIcon />,
+  },
+  USES: {
+    title: 'Uses',
+    pathname: '/uses',
+    icon: <CPUIcon />,
+  },
 };
 
-export const blog = {
-  title: 'Blog',
-  pathname: '/blog',
-  icon: <Edit3Icon />,
-};
-
-export const dashboard = {
-  title: 'Dashboard',
-  pathname: '/dashboard',
-  icon: <PieChartIcon />,
-};
-
-export const guestbook = {
-  title: 'Guestbook',
-  pathname: '/guestbook',
-  icon: <MessageSquareIcon />,
-};
-
-export const photos = {
-  title: 'Photos',
-  pathname: '/photos',
-  icon: <CameraIcon />,
-};
-
-export const projects = {
-  title: 'Projects',
-  pathname: '/projects',
-  icon: <PackageIcon />,
-};
-
-export const bookmarks = {
-  title: 'Bookmarks',
-  pathname: '/bookmarks',
-  icon: <BookmarksIcon />,
-};
-
-export const snippets = {
-  title: 'Snippets',
-  pathname: '/snippets',
-  icon: <CodePenIcon />,
-};
-
-export const uses = {
-  title: 'Uses',
-  pathname: '/uses',
-  icon: <CPUIcon />,
-};
-
-const data = [dashboard, projects, photos, snippets, blog, guestbook, uses, bookmarks];
-
-export default data;
+export default ROUTES;

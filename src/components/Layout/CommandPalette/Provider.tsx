@@ -8,16 +8,8 @@ import fetcher from '@/lib/fetcher';
 import { useTheme } from 'next-themes';
 import { useAnimationControls } from 'framer-motion';
 
-import {
-  dashboard,
-  projects,
-  photos,
-  bookmarks,
-  snippets,
-  uses,
-  guestbook,
-} from '@/constants/routes';
 import projectsData from '@/constants/projects';
+import ROUTES from '@/constants/routes';
 import contactData from '@/constants/contact';
 
 import { getCategoryFormatted, SNIPPET_CATEGORIES } from '@/helpers/category.helper';
@@ -40,7 +32,7 @@ export default function Provider() {
 
   const getCurrentBreadcrumbPath = breadcrumbs.at(-1);
   const { data: snippetsData, isLoading: snippetsLoading } = useSWR<any>(
-    getCurrentBreadcrumbPath === snippets.title ? '/api/snippets' : null,
+    getCurrentBreadcrumbPath === ROUTES.SNIPPETS.title ? '/api/snippets' : null,
     fetcher,
     {
       revalidateOnFocus: false,
@@ -81,39 +73,39 @@ export default function Provider() {
       title: 'Navigation',
       children: [
         {
-          icon: dashboard.icon,
-          title: dashboard.title,
-          click: () => handleNavigation(dashboard.pathname),
+          icon: ROUTES.DASHBOARD.icon,
+          title: ROUTES.DASHBOARD.title,
+          click: () => handleNavigation(ROUTES.DASHBOARD.pathname),
         },
         {
-          icon: projects.icon,
-          title: projects.title,
-          click: () => handleBreadcrumbs(projects.title),
+          icon: ROUTES.PROJECTS.icon,
+          title: ROUTES.PROJECTS.title,
+          click: () => handleBreadcrumbs(ROUTES.PROJECTS.title),
         },
         {
-          icon: snippets.icon,
-          title: snippets.title,
-          click: () => handleBreadcrumbs(snippets.title),
+          icon: ROUTES.SNIPPETS.icon,
+          title: ROUTES.SNIPPETS.title,
+          click: () => handleBreadcrumbs(ROUTES.SNIPPETS.title),
         },
         {
-          icon: photos.icon,
-          title: photos.title,
-          click: () => handleNavigation(photos.pathname),
+          icon: ROUTES.PHOTOS.icon,
+          title: ROUTES.PHOTOS.title,
+          click: () => handleNavigation(ROUTES.PHOTOS.pathname),
         },
         {
-          icon: uses.icon,
-          title: uses.title,
-          click: () => handleNavigation(uses.pathname),
+          icon: ROUTES.USES.icon,
+          title: ROUTES.USES.title,
+          click: () => handleNavigation(ROUTES.USES.pathname),
         },
         {
-          icon: guestbook.icon,
-          title: guestbook.title,
-          click: () => handleNavigation(guestbook.pathname),
+          icon: ROUTES.GUESTBOOK.icon,
+          title: ROUTES.GUESTBOOK.title,
+          click: () => handleNavigation(ROUTES.GUESTBOOK.pathname),
         },
         {
-          icon: bookmarks.icon,
-          title: bookmarks.title,
-          click: () => handleNavigation(bookmarks.pathname),
+          icon: ROUTES.BOOKMARKS.icon,
+          title: ROUTES.BOOKMARKS.title,
+          click: () => handleNavigation(ROUTES.BOOKMARKS.pathname),
         },
       ],
     },
@@ -150,9 +142,9 @@ export default function Provider() {
       title: 'General',
       children: [
         {
-          title: `${projects.title} Overview`,
-          icon: projects.icon,
-          click: () => handleNavigation(projects.pathname),
+          title: `${ROUTES.PROJECTS.title} Overview`,
+          icon: ROUTES.PROJECTS.icon,
+          click: () => handleNavigation(ROUTES.PROJECTS.pathname),
         },
       ],
     },
@@ -174,9 +166,9 @@ export default function Provider() {
       title: 'General',
       children: [
         {
-          title: `${snippets.title} Overview`,
-          icon: snippets.icon,
-          click: () => handleNavigation(snippets.pathname),
+          title: `${ROUTES.SNIPPETS.title} Overview`,
+          icon: ROUTES.SNIPPETS.icon,
+          click: () => handleNavigation(ROUTES.SNIPPETS.pathname),
         },
       ],
     },
@@ -194,12 +186,12 @@ export default function Provider() {
   ];
 
   const optionsType = {
-    [projects.title]: {
-      loading: !projectsData && getCurrentBreadcrumbPath === projects.title,
+    [ROUTES.PROJECTS.title]: {
+      loading: !projectsData && getCurrentBreadcrumbPath === ROUTES.PROJECTS.title,
       data: projectsOptions,
     },
-    [snippets.title]: {
-      loading: snippetsLoading && getCurrentBreadcrumbPath === snippets.title,
+    [ROUTES.SNIPPETS.title]: {
+      loading: snippetsLoading && getCurrentBreadcrumbPath === ROUTES.SNIPPETS.title,
       data: snippetsOptions,
     },
   };

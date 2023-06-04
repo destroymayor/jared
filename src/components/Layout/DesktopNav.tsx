@@ -1,6 +1,6 @@
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { dashboard, projects, photos, snippets } from '@/constants/routes';
+import ROUTES from '@/constants/routes';
 
 import clsx from 'clsx';
 import Tabs from '@/components/Tabs';
@@ -8,7 +8,7 @@ import Tabs from '@/components/Tabs';
 export default function DesktopNav() {
   const pathname = usePathname();
 
-  const routes = [dashboard, projects, photos, snippets];
+  const routes = [ROUTES.DASHBOARD, ROUTES.PROJECTS, ROUTES.PHOTOS, ROUTES.SNIPPETS];
 
   return (
     <nav className="hidden items-center sm:flex">
