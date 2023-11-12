@@ -21,13 +21,15 @@ export default async function Page() {
     <Suspense fallback={<Loading />}>
       {snippets.map((snippet: SnippetsType) => {
         const { title, description, category, slug, date } = snippet;
+        
+        if (!date) return null;
 
         const languageIcon = getCategoryFormatted(category)?.icon;
         const formatDate = new Intl.DateTimeFormat('en', {
           year: 'numeric',
           month: 'short',
           day: 'numeric',
-        })?.format(new Date(date));
+        }).format(new Date(date));
 
         return (
           <Link
