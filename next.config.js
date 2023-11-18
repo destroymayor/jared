@@ -5,9 +5,19 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: [
-      'i.scdn.co', // Spotify Album Art
-      'images.unsplash.com', // unsplash
+    remotePatterns: [
+       // Spotify Album Art
+       {
+        protocol: 'https',
+        hostname: 'i.scdn.co',
+      },
+      // unsplash
+       {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+        port: '',
+        pathname: '/account123/**',
+      },
     ],
   },
 };

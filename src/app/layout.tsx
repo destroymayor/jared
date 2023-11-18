@@ -13,6 +13,7 @@ const sourceCodeProFont = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://jared-chen.me'),
   title: {
     default: 'Jared Chen',
     template: '%s | Jared Chen',
@@ -49,14 +50,6 @@ export const metadata: Metadata = {
       { url: '/favicons/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
       { url: '/favicons/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
     ],
-  },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-  },
-  robots: {
-    index: true,
-    follow: true,
   },
 };
 
