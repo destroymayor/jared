@@ -1,4 +1,4 @@
-import { MailIcon, GithubOutlineIcon, TwitterIcon } from '@/components/Icons';
+import { MailIcon, GithubOutlineIcon, XIcon } from '@/components/Icons';
 
 const CONTACT = {
   MAIL: {
@@ -13,11 +13,11 @@ const CONTACT = {
     label: 'Github',
     icon: <GithubOutlineIcon />,
   },
-  TWITTER: {
-    link: 'https://twitter.com/destroymayor',
+  X: {
+    link: 'https://x.com/destroymayor',
     title: '@destroymayor',
-    label: 'Twitter',
-    icon: <TwitterIcon />,
+    label: 'X',
+    icon: <XIcon />,
   },
 };
 

@@ -13,12 +13,12 @@ export default function Header() {
       <div className="flex items-center gap-4">
         <Link href={'/'}>
           <Image
-            className="cursor-pointer"
+            className="cursor-pointer rounded-full"
             priority
             src={avatar}
             alt="Jared"
-            width={40}
-            height={40}
+            width={60}
+            height={60}
           />
         </Link>
         <DesktopNav />

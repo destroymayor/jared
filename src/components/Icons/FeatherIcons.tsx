@@ -292,7 +292,7 @@ export const StartIcon = (props: IconProps) => (
 
 export const TagIcon = (props: IconProps) => (
   <FeatherIcon {...props}>
-    <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+    <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12VCONTACT2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
     <line x1="7" y1="7" x2="7.01" y2="7"></line>
   </FeatherIcon>
 );
@@ -329,12 +329,5 @@ export const XCircleIcon = (props: IconProps) => (
     <circle cx="12" cy="12" r="10"></circle>
     <line x1="15" y1="9" x2="9" y2="15"></line>
     <line x1="9" y1="9" x2="15" y2="15"></line>
-  </FeatherIcon>
-);
-
-export const XIcon = (props: IconProps) => (
-  <FeatherIcon {...props}>
-    <line x1="18" y1="6" x2="6" y2="18"></line>
-    <line x1="6" y1="6" x2="18" y2="18"></line>
   </FeatherIcon>
 );

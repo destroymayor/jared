@@ -1,18 +1,18 @@
 export type TopTrackResponseType = {
   album: {
     name: string;
-    images: {
+    images: Array<{
       width: number;
-    }[];
-  };
-  artists: {
+    }>
+  }
+  artists: Array<{
     name: string;
-  }[];
+  }>;
   external_urls: {
     spotify: string;
   };
   name: string;
-};
+}
 
 export type TrackType = {
   title: string;
