@@ -1,8 +1,6 @@
 import {
-  BookmarksIcon,
   CameraIcon,
   CodePenIcon,
-  CPUIcon,
   Edit3Icon,
   HomeIcon,
   MessageSquareIcon,
@@ -41,20 +39,10 @@ const ROUTES = {
     pathname: '/projects',
     icon: <PackageIcon />,
   },
-  BOOKMARKS: {
-    title: 'Bookmarks',
-    pathname: '/bookmarks',
-    icon: <BookmarksIcon />,
-  },
   SNIPPETS: {
     title: 'Snippets',
     pathname: '/snippets',
     icon: <CodePenIcon />,
-  },
-  USES: {
-    title: 'Uses',
-    pathname: '/uses',
-    icon: <CPUIcon />,
   },
 };
 

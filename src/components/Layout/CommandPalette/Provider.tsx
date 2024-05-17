@@ -93,19 +93,9 @@ export default function Provider() {
           click: () => handleNavigation(ROUTES.PHOTOS.pathname),
         },
         {
-          icon: ROUTES.USES.icon,
-          title: ROUTES.USES.title,
-          click: () => handleNavigation(ROUTES.USES.pathname),
-        },
-        {
           icon: ROUTES.GUESTBOOK.icon,
           title: ROUTES.GUESTBOOK.title,
           click: () => handleNavigation(ROUTES.GUESTBOOK.pathname),
-        },
-        {
-          icon: ROUTES.BOOKMARKS.icon,
-          title: ROUTES.BOOKMARKS.title,
-          click: () => handleNavigation(ROUTES.BOOKMARKS.pathname),
         },
       ],
     },
