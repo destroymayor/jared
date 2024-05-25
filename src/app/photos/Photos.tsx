@@ -1,24 +1,24 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
+import Image from "next/image";
+import useBlurhashToBase64 from "@/hooks/use-blur-hash-to-base64.hook";
+import AnimateSection from "@/components/AnimateSection";
 
-import useSWR from 'swr';
-import fetcher from '@/lib/fetcher';
-import { UnsplashPhotoType } from '@/lib/unsplash';
-import useBlurhashToBase64 from '@/hooks/use-blur-hash-to-base64.hook';
-import AnimateSection from '@/components/AnimateSection';
+import useUnsplashPhotos from "./useUnsplashPhotos";
 
 export default function Photos() {
-  const { data } = useSWR<UnsplashPhotoType[]>('/api/unsplash/photos', fetcher, {
-    revalidateOnFocus: false,
-  });
+  const { data } = useUnsplashPhotos();
 
   const getBlurData = useBlurhashToBase64();
 
   return (
     <div className="relative left-1/2 right-1/2 -ml-[49vw] -mr-[50vw] grid min-h-screen w-[97vw] gap-2 pt-4 [grid-template-columns:repeat(auto-fill,minmax(100%,1fr))] sm:px-2 sm:[grid-template-columns:repeat(auto-fill,minmax(440px,1fr))] md:w-[98vw]">
       {data?.map((photo) => {
-        const blurDataURL = getBlurData({ blur_hash: photo.blur_hash, width: 440, height: 700 });
+        const blurDataURL = getBlurData({
+          blur_hash: photo.blur_hash,
+          width: 440,
+          height: 700,
+        });
 
         return (
           <AnimateSection

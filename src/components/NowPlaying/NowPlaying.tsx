@@ -1,26 +1,29 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from "next/image";
+import Link from "next/link";
 
-import useSWR from 'swr';
-import fetcher from '@/lib/fetcher';
-import { NowPlayingType } from '@/lib/spotify';
-import PlayingBars from '@/components/NowPlaying/PlayingBars';
-import { SpotifySolidIcon } from '@/components/Icons';
-import clsx from 'clsx';
-import Skeleton from './Skeleton';
+import PlayingBars from "@/components/NowPlaying/PlayingBars";
+import { SpotifySolidIcon } from "@/components/Icons";
+import clsx from "clsx";
+
+import Skeleton from "./Skeleton";
+import useNowPlaying from "./useNowPlaying";
 
 export default function NowPlaying() {
-  const { data, isLoading } = useSWR<NowPlayingType>('/api/spotify/now-playing', fetcher);
+  const { data, isLoading } = useNowPlaying();
 
   if (isLoading) {
     return <Skeleton />;
   }
 
   return (
-    <Link href={data?.songUrl ?? '#'} target="_blank" rel="noopener noreferrer">
-      <div className={clsx('flex items-center gap-3', { 'h-[60px]': !data?.isPlaying })}>
+    <Link href={data?.songUrl ?? "#"} target="_blank" rel="noopener noreferrer">
+      <div
+        className={clsx("flex items-center gap-3", {
+          "h-[60px]": !data?.isPlaying,
+        })}
+      >
         {data?.albumImageUrl ? (
           <Image
             className="h-[60px] w-[60px] rounded-md"
@@ -35,9 +38,11 @@ export default function NowPlaying() {
 
         <div className="flex flex-col items-start justify-center">
           {data?.isPlaying && <PlayingBars />}
-          <p className="w-64 truncate text-sm sm:w-80">{data?.title ?? 'Not Playing'}</p>
+          <p className="w-64 truncate text-sm sm:w-80">
+            {data?.title ?? "Not Playing"}
+          </p>
           <p className="w-64 truncate text-sm text-zinc-500 dark:text-zinc-400 sm:w-80">
-            {data?.artist ?? 'Spotify'}
+            {data?.artist ?? "Spotify"}
           </p>
         </div>
       </div>

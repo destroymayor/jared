@@ -3,8 +3,6 @@
 import { useState, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 
-import useSWR from 'swr';
-import fetcher from '@/lib/fetcher';
 import { useTheme } from 'next-themes';
 import { useAnimationControls } from 'framer-motion';
 
@@ -14,6 +12,8 @@ import contactData from '@/constants/contact';
 
 import { getCategoryFormatted, SNIPPET_CATEGORIES } from '@/helpers/category.helper';
 import { SunIcon, MoonIcon, MonitorIcon } from '@/components/Icons';
+
+import useSnippets from './useSnippets';
 
 import { OptionProps } from './types';
 import { CommandPaletteContext } from './context';
@@ -31,13 +31,7 @@ export default function Provider() {
   const [breadcrumbs, setBreadcrumbs] = useState<string[]>([]);
 
   const getCurrentBreadcrumbPath = breadcrumbs.at(-1);
-  const { data: snippetsData, isLoading: snippetsLoading } = useSWR<any>(
-    getCurrentBreadcrumbPath === ROUTES.SNIPPETS.title ? '/api/snippets' : null,
-    fetcher,
-    {
-      revalidateOnFocus: false,
-    }
-  );
+  const { data: snippetsData, isLoading: snippetsLoading } = useSnippets({ enabled: getCurrentBreadcrumbPath === ROUTES.SNIPPETS.title })
 
   const resetCommandPaletteStatus = () => {
     setIsOpen(false);

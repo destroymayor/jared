@@ -1,6 +1,6 @@
-import Contributions from './Contributions';
-import UnsplashStatistics from './UnsplashStatistics';
-import TopTracks from './TopTracks';
+import Contributions from "./Contributions";
+import UnsplashStatistics from "./UnsplashStatistics";
+import TopTracks from "./TopTracks";
 
 export default function Page() {
   return (

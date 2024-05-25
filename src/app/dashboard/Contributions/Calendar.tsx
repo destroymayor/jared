@@ -1,50 +1,51 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
+import { useState } from "react";
+import clsx from "clsx";
+import { motion } from "framer-motion";
 
-import clsx from 'clsx';
-import { WeeksType, MonthsType } from '@/lib/github';
-import { motion } from 'framer-motion';
-
-import { CalendarSkeleton } from './Skeleton';
-
-type CalendarTypes = {
-  loading: boolean;
-  colors: string[] | undefined;
-  weeks: WeeksType[] | undefined;
-  months: MonthsType[] | undefined;
-};
+import useContributions from "./useContributions";
+import { CalendarSkeleton } from "./Skeleton";
 
 type selectContributionType = {
   count: number | null;
   date: string | null;
 };
 
-export default function Calendar(props: CalendarTypes) {
-  const { loading, weeks = [], months = [], colors = [] } = props;
+export default function Calendar() {
+  const { data, isLoading } = useContributions();
+  const contributionCalendar =
+    data?.contributionsCollection.contributionCalendar;
+  const colors = contributionCalendar?.colors;
+  const weeks = contributionCalendar?.weeks;
+  const months = contributionCalendar?.months;
 
-  const [selectContribution, setSelectContribution] = useState<selectContributionType>({
-    count: null,
-    date: null,
-  });
+  const [selectContribution, setSelectContribution] =
+    useState<selectContributionType>({
+      count: null,
+      date: null,
+    });
 
   const handleSelectContribution = (data: selectContributionType) => {
     const { count, date } = data;
     setSelectContribution({ count, date });
   };
 
-  if (loading) {
+  if (isLoading) {
     return <CalendarSkeleton />;
   }
 
   const monthsData = months?.map((month) => {
     const filterContributionDay = weeks
-      .filter((week) => week.firstDay.slice(0, 7) === month.firstDay.slice(0, 7))
+      ?.filter(
+        (week) => week.firstDay.slice(0, 7) === month.firstDay.slice(0, 7),
+      )
       .map((item) => item.contributionDays)
       .flat(1);
-    const getContributionsByMonth = filterContributionDay.reduce(
-      (previousValue, currentValue) => previousValue + currentValue.contributionCount,
-      0
+    const getContributionsByMonth = filterContributionDay?.reduce(
+      (previousValue, currentValue) =>
+        previousValue + currentValue.contributionCount,
+      0,
     );
 
     return {
@@ -57,10 +58,10 @@ export default function Calendar(props: CalendarTypes) {
     <>
       <div className="relative flex flex-col gap-[2px]">
         <ul className="flex justify-end gap-[3px] overflow-hidden text-xs dark:text-zinc-400 md:justify-start">
-          {monthsData.map((month) => (
+          {monthsData?.map((month) => (
             <li
               key={month.firstDay}
-              className={clsx(month.totalWeeks < 2 ? 'invisible' : '')}
+              className={clsx(month.totalWeeks < 2 ? "invisible" : "")}
               style={{ minWidth: 12.35 * month.totalWeeks }}
             >
               {month.name}
@@ -73,9 +74,12 @@ export default function Calendar(props: CalendarTypes) {
             <div key={week.firstDay}>
               {week.contributionDays.map((contribution) => {
                 const backgroundColor =
-                  contribution.contributionCount > 0 ? (contribution?.color as string) : '';
+                  contribution.contributionCount > 0
+                    ? (contribution?.color as string)
+                    : "";
 
-                const getRandomDelayAnimate = Math.random() * week.contributionDays.length * 0.15;
+                const getRandomDelayAnimate =
+                  Math.random() * week.contributionDays.length * 0.15;
 
                 return (
                   <motion.span
@@ -94,7 +98,9 @@ export default function Calendar(props: CalendarTypes) {
                         date: contribution.date,
                       })
                     }
-                    onMouseLeave={() => handleSelectContribution({ count: null, date: null })}
+                    onMouseLeave={() =>
+                      handleSelectContribution({ count: null, date: null })
+                    }
                   />
                 );
               })}
@@ -108,7 +114,7 @@ export default function Calendar(props: CalendarTypes) {
           <span className="dark:text-zinc-400">Less</span>
           <ul className="flex gap-1">
             <motion.li className="h-[10px] w-[10px] rounded-sm bg-zinc-300 dark:bg-zinc-800" />
-            {colors.map((color, colorIndex) => (
+            {colors?.map((color, colorIndex) => (
               <motion.li
                 key={color}
                 initial={{ opacity: 0 }}
@@ -126,8 +132,8 @@ export default function Calendar(props: CalendarTypes) {
 
         <div
           className={clsx(
-            selectContribution.date ? 'opacity-100' : 'opacity-0',
-            'rounded bg-zinc-200 px-2 text-sm dark:bg-zinc-800'
+            selectContribution.date ? "opacity-100" : "opacity-0",
+            "rounded bg-zinc-200 px-2 text-sm dark:bg-zinc-800",
           )}
         >
           {selectContribution.count} contributions on {selectContribution.date}

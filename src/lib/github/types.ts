@@ -1,10 +1,10 @@
 export type WeeksType = {
-  contributionDays: {
+  contributionDays: Array<{
     color: string;
     contributionCount: number;
     date: string;
     weekday: number;
-  }[];
+  }>;
   firstDay: string;
 };
 
@@ -15,10 +15,10 @@ export type MonthsType = {
 };
 
 export type ContributionCalendarType = {
-  colors: string[];
+  colors: Array<string>;
   totalContributions: number;
-  months: MonthsType[];
-  weeks: WeeksType[];
+  months: Array<MonthsType>;
+  weeks: Array<WeeksType>;
 };
 
 export type ContributionsCollectionType = {

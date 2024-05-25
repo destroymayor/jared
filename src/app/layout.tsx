@@ -5,6 +5,7 @@ import localFont from 'next/font/local';
 import { Analytics } from '@vercel/analytics/react';
 
 import ThemeProvider from '@/lib/ThemeProvider';
+import TanstackProvider from '@/lib/TanstackProvider'
 import Layout from '@/components/Layout';
 
 const sourceCodeProFont = localFont({
@@ -58,14 +59,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning>
       <body suppressHydrationWarning>
         <main className={sourceCodeProFont.className}>
-          <ThemeProvider>
-            <Layout>
-              {children}
-              <Analytics />
-            </Layout>
-          </ThemeProvider>
+          <TanstackProvider>
+            <ThemeProvider>
+              <Layout>
+                {children}
+                <Analytics />
+              </Layout>
+            </ThemeProvider>
+          </TanstackProvider>
         </main>
       </body>
     </html>
-  );
+  )
 }
