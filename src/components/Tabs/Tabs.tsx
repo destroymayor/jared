@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import { createContext, useState, useRef } from 'react';
 
 import { motion } from 'framer-motion';
 import clsx from 'clsx';
@@ -13,18 +13,18 @@ interface ITabsContext {
   resetHighlight: () => void;
 }
 
-export const TabsContext = React.createContext<ITabsContext>({} as ITabsContext);
+export const TabsContext = createContext<ITabsContext>({} as ITabsContext);
 
 export default function Tabs(props: TabsType) {
   const { direction = 'horizontal', shouldResetHighlight, className, children } = props;
 
-  const highlightRef = React.useRef<HTMLLIElement | null>(null);
-  const wrapperRef = React.useRef<DOMRect | HTMLUListElement | any>(null);
+  const highlightRef = useRef<HTMLLIElement | null>(null);
+  const wrapperRef = useRef<DOMRect | HTMLUListElement | any>(null);
 
-  const [tabBoundingBox, setTabBoundingBox] = React.useState<DOMRect | null>(null);
-  const [wrapperBoundingBox, setWrapperBoundingBox] = React.useState<DOMRect | null>(null);
-  const [highlightedTab, setHighlightedTab] = React.useState<DOMRect | null>(null);
-  const [isHoveredFromNull, setIsHoveredFromNull] = React.useState<Boolean>(true);
+  const [tabBoundingBox, setTabBoundingBox] = useState<DOMRect | null>(null);
+  const [wrapperBoundingBox, setWrapperBoundingBox] = useState<DOMRect | null>(null);
+  const [highlightedTab, setHighlightedTab] = useState<DOMRect | null>(null);
+  const [isHoveredFromNull, setIsHoveredFromNull] = useState<Boolean>(true);
 
   const repositionHighlight = (rect: DOMRect, tab: DOMRect) => {
     setTabBoundingBox(rect);

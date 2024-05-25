@@ -1,8 +1,8 @@
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import ROUTES from '@/constants/routes';
 
 import clsx from 'clsx';
+import ROUTES from '@/constants/routes';
 import Tabs from '@/components/Tabs';
 
 export default function DesktopNav() {

@@ -3,7 +3,8 @@ import Link from 'next/link';
 
 import avatar from '@/public/images/avatar.webp';
 
-import CommandPalette from './CommandPalette';
+import CommandPalette from '@/components/CommandPalette';
+
 import DesktopNav from './DesktopNav';
 import ThemeToggle from './ThemeToggle';
 
