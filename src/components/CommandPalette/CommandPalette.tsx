@@ -18,62 +18,66 @@ import SearchBar from './SearchBar';
 import Menu from './Menu';
 
 export default function CommandPalette() {
-  const containerRef = useRef(null);
+    const containerRef = useRef(null);
 
-  const { animationControls, isOpen, setIsOpen, resetCommandPaletteStatus } = useCommandPalette();
+    const { animationControls, isOpen, setIsOpen, resetCommandPaletteStatus } =
+        useCommandPalette();
 
-  useScrollDisabler(isOpen);
-  useOnClickOutside(containerRef, () => resetCommandPaletteStatus());
+    useScrollDisabler(isOpen);
+    useOnClickOutside(containerRef, () => resetCommandPaletteStatus());
 
-  useKeyPress('Escape', () => resetCommandPaletteStatus());
-  useKeyPress('KeyK', (event) => {
-    if (event.metaKey || event?.ctrlKey) {
-      if (isOpen) {
-        resetCommandPaletteStatus();
-        return;
-      }
+    useKeyPress('Escape', () => resetCommandPaletteStatus());
+    useKeyPress('KeyK', (event) => {
+        if (event.metaKey || event?.ctrlKey) {
+            if (isOpen) {
+                resetCommandPaletteStatus();
+                return;
+            }
 
-      handleToggle();
-    }
-  });
+            handleToggle();
+        }
+    });
 
-  const handleToggle = () => setIsOpen((prevState: boolean) => !prevState);
+    const handleToggle = () => setIsOpen((prevState: boolean) => !prevState);
 
-  return (
-    <>
-      <Button onClick={handleToggle}>
-        <CommandIcon className="h-6 w-6" />
-      </Button>
+    return (
+        <>
+            <Button onClick={handleToggle}>
+                <CommandIcon className="h-6 w-6" />
+            </Button>
 
-      <AnimatePresence mode="wait" initial={false}>
-        {isOpen && (
-          <motion.div
-            transition={{ duration: 0.2 }}
-            exit={{ opacity: 0, transition: { duration: 0.2 } }}
-            className="bg-zinc-20 fixed inset-0 z-[999] overflow-y-auto pt-[10vh] md:px-4"
-          >
-            <Backdrop />
+            <AnimatePresence mode="wait" initial={false}>
+                {isOpen && (
+                    <motion.div
+                        transition={{ duration: 0.2 }}
+                        exit={{ opacity: 0, transition: { duration: 0.2 } }}
+                        className="bg-zinc-20 fixed inset-0 z-[999] overflow-y-auto pt-[10vh] md:px-4"
+                    >
+                        <Backdrop />
 
-            <motion.div transition={{ duration: 0.2 }} animate={animationControls}>
-              <motion.div
-                ref={containerRef}
-                initial={{ opacity: 0, scale: 0.98 }}
-                animate={{ opacity: 1, scale: [1, 0.98, 1] }}
-                transition={{ duration: 0.2 }}
-                exit={{ opacity: 0, scale: 0.98 }}
-                className="relative mx-auto max-w-xl overflow-hidden rounded-lg border border-zinc-300 bg-white p-2 shadow-2xl ring-1 ring-black/5 dark:divide-zinc-600 dark:border-black/90 dark:bg-black/90"
-              >
-                <div className="flex flex-col gap-3 p-2">
-                  <Breadcrumbs />
-                  <SearchBar />
-                </div>
-                <div className="relative -left-2 block h-[1px] w-[calc(100%+16px)] bg-zinc-200 dark:bg-zinc-800" />
-                <Menu />
-              </motion.div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
-  );
+                        <motion.div
+                            transition={{ duration: 0.2 }}
+                            animate={animationControls}
+                        >
+                            <motion.div
+                                ref={containerRef}
+                                initial={{ opacity: 0, scale: 0.98 }}
+                                animate={{ opacity: 1, scale: [1, 0.98, 1] }}
+                                transition={{ duration: 0.2 }}
+                                exit={{ opacity: 0, scale: 0.98 }}
+                                className="relative mx-auto max-w-xl overflow-hidden rounded-lg border border-zinc-300 bg-white p-2 shadow-2xl ring-1 ring-black/5 dark:divide-zinc-600 dark:border-black/90 dark:bg-black/90"
+                            >
+                                <div className="flex flex-col gap-3 p-2">
+                                    <Breadcrumbs />
+                                    <SearchBar />
+                                </div>
+                                <div className="relative -left-2 block h-[1px] w-[calc(100%+16px)] bg-zinc-200 dark:bg-zinc-800" />
+                                <Menu />
+                            </motion.div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </>
+    );
 }

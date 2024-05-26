@@ -1,9 +1,9 @@
 import Photos from './Photos';
 
 export const metadata = {
-  title: 'Photos',
+    title: 'Photos',
 };
 
 export default function Page() {
-  return <Photos />;
+    return <Photos />;
 }

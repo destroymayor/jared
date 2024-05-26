@@ -1,21 +1,21 @@
-import fetcher from "@/lib/fetcher";
-import { useQuery } from "@tanstack/react-query";
-import { TrackType } from "@/lib/spotify";
+import fetcher from '@/lib/fetcher';
+import { useSuspenseQuery } from '@tanstack/react-query';
+import { TrackType } from '@/lib/spotify';
 
-const API_PATH = "/api/spotify/top-tracks";
+const API_PATH = '/api/spotify/top-tracks';
 
 const useTopTracks = () => {
-  const query = useQuery({
-    queryKey: [API_PATH],
-    queryFn: async () => {
-      const response = await fetcher<Array<TrackType>>(API_PATH);
+    const query = useSuspenseQuery({
+        queryKey: [API_PATH],
+        queryFn: async () => {
+            const response = await fetcher<Array<TrackType>>(API_PATH);
 
-      return response;
-    },
-    refetchOnWindowFocus: false,
-  });
+            return response;
+        },
+        refetchOnWindowFocus: false,
+    });
 
-  return query;
+    return query;
 };
 
 export default useTopTracks;

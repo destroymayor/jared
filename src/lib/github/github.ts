@@ -28,22 +28,22 @@ const GITHUB_USER_QUERY = `query {
 }`;
 
 export const getGithubUserContribution = async () => {
-  const response = await fetch(GITHUB_USER_ENDPOINT, {
-    method: 'POST',
-    headers: {
-      Authorization: `bearer ${read_user_token}`,
-    },
-    body: JSON.stringify({
-      query: GITHUB_USER_QUERY,
-    }),
-  });
-  const status = response.status;
+    const response = await fetch(GITHUB_USER_ENDPOINT, {
+        method: 'POST',
+        headers: {
+            Authorization: `bearer ${read_user_token}`,
+        },
+        body: JSON.stringify({
+            query: GITHUB_USER_QUERY,
+        }),
+    });
+    const status = response.status;
 
-  if (status > 400) {
-    return { status, data: null };
-  }
+    if (status > 400) {
+        return { status, data: null };
+    }
 
-  const responseJson = await response.json();
+    const responseJson = await response.json();
 
-  return { status, data: responseJson.data.user };
+    return { status, data: responseJson.data.user };
 };

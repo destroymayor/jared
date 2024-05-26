@@ -2,7 +2,7 @@ import Tabs from './Tabs';
 import Tab from './Tab';
 
 const pkg = Object.assign(Tabs, {
-  Tab,
+    Tab,
 });
 
 export default pkg;

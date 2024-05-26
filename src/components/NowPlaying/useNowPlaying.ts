@@ -1,21 +1,21 @@
-import fetcher from '@/lib/fetcher'
-import { useSuspenseQuery } from '@tanstack/react-query'
-import { NowPlayingType } from '@/lib/spotify'
+import fetcher from '@/lib/fetcher';
+import { useSuspenseQuery } from '@tanstack/react-query';
+import { NowPlayingType } from '@/lib/spotify';
 
 const API_PATH = '/api/spotify/now-playing';
 
 const useNowPlaying = () => {
-  const query = useSuspenseQuery({
-      queryKey: [API_PATH],
-      queryFn: async () => {
-          const response = await fetcher<NowPlayingType>(API_PATH);
+    const query = useSuspenseQuery({
+        queryKey: [API_PATH],
+        queryFn: async () => {
+            const response = await fetcher<NowPlayingType>(API_PATH);
 
-          return response;
-      },
-      refetchOnWindowFocus: false,
-  });
+            return response;
+        },
+        refetchOnWindowFocus: false,
+    });
 
-  return query
-}
+    return query;
+};
 
-export default useNowPlaying
+export default useNowPlaying;
