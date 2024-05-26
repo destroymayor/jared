@@ -1,7 +1,7 @@
 const env = process.env.NODE_ENV;
 
 const isDev = env === 'development';
-const host = isDev ? 'http://localhost:3000' : '';
+const host = isDev ? 'http://localhost:3000' : 'https://jared-chen.me';
 
 export default async function fetcher<JSON = unknown>(
     input: RequestInfo,
