@@ -2,7 +2,7 @@ import fetcher from '@/lib/fetcher'
 import { useSuspenseQuery } from '@tanstack/react-query'
 import { NowPlayingType } from '@/lib/spotify'
 
-const API_PATH = 'http://localhost:3000/api/spotify/now-playing';
+const API_PATH = '/api/spotify/now-playing';
 
 const useNowPlaying = () => {
   const query = useSuspenseQuery({
