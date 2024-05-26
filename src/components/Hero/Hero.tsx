@@ -1,10 +1,10 @@
-export default function Hero({
-    title,
-    description,
-}: {
+type HeroProps = {
     title: string;
     description: string;
-}) {
+};
+
+export default function Hero(props: HeroProps) {
+    const { title, description } = props;
     return (
         <div className="pt-2 md:pt-8">
             <h1 className="py-2 text-4xl font-extrabold">{title}</h1>

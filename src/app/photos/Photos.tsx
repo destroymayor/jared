@@ -2,7 +2,7 @@
 
 import { Suspense } from 'react';
 import Image from 'next/image';
-import AnimateSection from '@/components/AnimateSection';
+import { AnimateSection } from '@/components/Animate';
 
 import useUnsplashPhotos from './useUnsplashPhotos';
 import Skeleton from './Skeleton';

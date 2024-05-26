@@ -1,6 +1,6 @@
 'use client';
 
-import AnimateCounter from '@/components/AnimateCounter';
+import { AnimateCounter } from '@/components/Animate';
 
 import useUnsplashStatistics from './useUnsplashStatistics';
 

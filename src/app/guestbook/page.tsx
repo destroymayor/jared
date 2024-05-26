@@ -1,4 +1,4 @@
-import Giscus from '@/components/Giscus';
+import Giscus from './Giscus';
 
 export default function Page() {
     return (

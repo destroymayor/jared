@@ -3,8 +3,7 @@ import Link from 'next/link';
 
 import projects from '@/constants/projects';
 
-import FadeUpSection from '@/components/FadeUpSection';
-
+import { FadeUpSection } from '@/components/Animate';
 import { ArrowRightIcon } from '@/components/Icons';
 
 export default function Page() {

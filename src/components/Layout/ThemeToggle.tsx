@@ -13,7 +13,11 @@ export default function ThemeToggle() {
 
     const toggleTheme = () => setTheme(resolvedTheme === 'light' ? 'dark' : 'light');
 
-    if (!hasMounted) return null;
+    if (!hasMounted) {
+        return (
+            <div className="h-10 w-10 animate-pulse rounded-xl bg-zinc-300 text-transparent dark:bg-zinc-800" />
+        );
+    }
 
     return (
         <button
@@ -22,11 +26,7 @@ export default function ThemeToggle() {
             aria-label={`Activate ${isDarkTheme ? 'light' : 'dark'} mode`}
             onClick={toggleTheme}
         >
-            {hasMounted && (
-                <span className="h-6 w-6">
-                    {isDarkTheme ? <SunIcon /> : <MoonIcon />}
-                </span>
-            )}
+            <span className="h-6 w-6">{isDarkTheme ? <SunIcon /> : <MoonIcon />}</span>
         </button>
     );
 }
