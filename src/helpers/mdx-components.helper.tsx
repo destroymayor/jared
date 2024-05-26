@@ -2,10 +2,7 @@
 
 import { MDXRemote } from 'next-mdx-remote';
 
-import Blockquote from '@/components/Blockquote';
-import ContentHeading from '@/components/ContentHeading';
-import CodeBlock from '@/components/CodeBlock';
-import PostImage from '@/components/PostImage';
+import { Blockquote, ContentHeading, CodeBlock, PostImage } from '@/components/MDXs';
 
 type ComponentsTypes = {
     [key: string]: any;

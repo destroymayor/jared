@@ -1,9 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-
-import { animate } from 'framer-motion';
-import useInView from '@/hooks/use-in-view.hook';
+import { animate, useInView } from 'framer-motion';
 
 export default function AnimateCounter(props: {
     className?: string;
@@ -11,7 +9,8 @@ export default function AnimateCounter(props: {
 }) {
     const { className, total = 0 } = props;
     const countRef = useRef<HTMLElement>(null);
-    const { ref: inViewRef, isInView } = useInView({ once: true });
+    const inViewRef = useRef(null)
+    const isInView = useInView(inViewRef, { once: true });
 
     const initialCount = 0;
 

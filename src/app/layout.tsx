@@ -4,8 +4,7 @@ import { Metadata } from 'next';
 import localFont from 'next/font/local';
 import { Analytics } from '@vercel/analytics/react';
 
-import ThemeProvider from '@/lib/ThemeProvider';
-import TanstackProvider from '@/lib/TanstackProvider';
+import { TanstackProvider, ThemeProvider } from '@/lib/providers';
 import Layout from '@/components/Layout';
 
 const sourceCodeProFont = localFont({
