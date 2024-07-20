@@ -1,5 +1,7 @@
 import { useCommandPalette } from './context';
 
+import ROUTES from '@/constants/routes';
+
 export default function Breadcrumbs() {
     const {
         breadcrumbs,
@@ -17,7 +19,7 @@ export default function Breadcrumbs() {
         animationControls.start({ scale: [1, 0.97, 1] });
     };
 
-    const data = ['Home', ...breadcrumbs];
+    const data = [ROUTES.HOME.title, ...breadcrumbs];
 
     return (
         <div className="flex items-center gap-2">
