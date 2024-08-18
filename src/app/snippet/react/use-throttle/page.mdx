@@ -1,0 +1,38 @@
+---
+title: useThrottle
+description: This hook allows you to give function runs only once at a specified period of time.
+category: react-hook
+date: '2022-07-09T00:00:00.000Z'
+---
+
+# useThrottle
+This hook allows you to give function runs only once at a specified period of time.
+
+<Divider />
+
+## Code
+
+```jsx
+import { useState, useEffect, useRef } from 'react';
+
+function useThrottle(value, interval) {
+  const [throttledValue, setThrottledValue] = useState(value);
+  const lastExecuted = useRef(Date.now());
+
+  useEffect(() => {
+    if (Date.now() >= lastExecuted.current + interval) {
+      lastExecuted.current = Date.now();
+      setThrottledValue(value);
+    } else {
+      const timeId = setTimeout(() => {
+        lastExecuted.current = Date.now();
+        setThrottledValue(value);
+      }, [interval]);
+
+      return () => clearTimeout(timerId);
+    }
+  }, [value, interval]);
+}
+```
+
+<UpdatedAt dateTime="2022-07-09T00:00:00.000Z" />

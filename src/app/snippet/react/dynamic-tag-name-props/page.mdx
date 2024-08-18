@@ -1,0 +1,39 @@
+---
+title: Dynamic Tag Name Props
+description: Allow users to pass in a tag name prop to a component as a string.
+category: react-component
+date: '2022-05-28T00:00:00.000Z'
+---
+
+# Dynamic Tag Name Props
+Allow users to pass in a tag name prop to a component as a string.
+
+<Divider />
+
+## Code
+
+```jsx
+function Component(props) {
+  const { as = 'div', children } = props;
+
+  const Tag = as;
+
+  return <Tag>{children}</Tag>;
+}
+```
+
+## Usage
+
+```jsx
+export default function App() {
+  return (
+    <Component as="section">
+      {
+        //    ...rest components
+      }
+    </Component>
+  );
+}
+```
+
+<UpdatedAt dateTime="2022-05-28T00:00:00.000Z" />

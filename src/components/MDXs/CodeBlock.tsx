@@ -4,7 +4,7 @@ import { useTheme } from 'next-themes';
 import useHasMounted from '@/hooks/use-has-mounted.hook';
 import { Highlight, themes } from 'prism-react-renderer';
 
-export default function CodeBlock(props: { className: string; children: string }) {
+export default function CodeBlock(props: { className?: string; children: any }) {
     const { children, className } = props;
     const { resolvedTheme } = useTheme();
     const hasMounted = useHasMounted();

@@ -1,3 +1,5 @@
+'use client';
+
 export default function Blockquote(props: { children: React.ReactNode }) {
     const { children } = props;
     return (

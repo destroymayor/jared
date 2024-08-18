@@ -1,0 +1,35 @@
+---
+title: useDebounce
+description: This hook allows you to debounce any fast changing value.
+category: react-hook
+date: '2022-05-17T00:00:00.000Z'
+---
+
+# useDebounce
+This hook allows you to debounce any fast changing value.
+
+<Divider />
+
+## Code
+
+```jsx
+import { useState, useEffect } from 'react';
+
+function useDebounce(value, delay) {
+  const [debouncedValue, setDebouncedValue] = useState(value);
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedValue(value);
+    }, delay);
+
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [value, delay]);
+
+  return debouncedValue;
+}
+```
+
+<UpdatedAt dateTime="2022-05-17T00:00:00.000Z" />

@@ -1,3 +1,5 @@
+'use client';
+
 import clsx from 'clsx';
 
 import { usePathname } from 'next/navigation';
@@ -5,13 +7,16 @@ import Link from 'next/link';
 import { LinkIcon } from '@/components/Icons';
 
 export default function ContentHeading(props: {
-    children: React.ReactNode | any;
-    className: string;
+    children?: React.ReactNode | string;
+    className?: string;
 }) {
     const { children, className } = props;
     const pathname = usePathname();
 
-    const getHeadingId = children?.toLowerCase().replace(new RegExp(' ', 'g'), '-');
+    const getHeadingId =
+        typeof children === 'string'
+            ? children?.toLowerCase().replace(new RegExp(' ', 'g'), '-')
+            : '';
 
     return (
         <Link href={`${pathname}#${getHeadingId}`} scroll={false}>

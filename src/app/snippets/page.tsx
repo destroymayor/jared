@@ -15,7 +15,7 @@ type SnippetsType = {
 };
 
 export default async function Page() {
-    const snippets = await getAllMDXFolder('content/snippet');
+    const snippets = await getAllMDXFolder('src/app/snippet');
 
     return (
         <Suspense fallback={<Loading />}>

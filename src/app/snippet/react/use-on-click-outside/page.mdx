@@ -1,0 +1,59 @@
+---
+title: useOnClickOutside
+description: 這個 hook 可以檢測指定元素之外的點擊，適用於 Modal 或 Dropdown menus 的元件在點擊元件以外的元素時自動關閉。
+category: react-hook
+date: '2022-05-17T00:00:00.000Z'
+---
+
+# useOnClickOutside
+這個 hook 可以檢測指定元素之外的點擊，適用於 Modal 或 Dropdown menus 的元件在點擊元件以外的元素時自動關閉。
+
+<Divider />
+
+## Code
+
+```jsx
+import { useEffect } from 'react';
+
+export default function useOnClickOutside(ref, handler) {
+  useEffect(() => {
+    const listener = (event) => {
+      if (!ref.current || ref.current.contains(event.target)) {
+        return;
+      }
+      handler(event);
+    };
+    document.addEventListener('mousedown', listener);
+    document.addEventListener('touchstart', listener);
+    return () => {
+      document.removeEventListener('mousedown', listener);
+      document.removeEventListener('touchstart', listener);
+    };
+  }, [ref, handler]);
+}
+```
+
+## Usage
+
+```jsx
+import { useState, useRef } from 'react';
+
+const App = () => {
+  const [isModalOpen, setModalOpen] = useState(false);
+  const ref = useRef();
+
+  useOnClickOutside(ref, () => setModalOpen(false));
+
+  return (
+    <div ref={ref}>
+      {isModalOpen ? (
+        <div ref={ref}>👋 Hey, I'm a modal. Click anywhere outside of me to close.</div>
+      ) : (
+        <button onClick={() => setModalOpen(true)}>Open Modal</button>
+      )}
+    </div>
+  );
+};
+```
+
+<UpdatedAt dateTime="2022-05-17T00:00:00.000Z" />

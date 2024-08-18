@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 
 export default function PostImage(props: { src: string; alt: string }) {
