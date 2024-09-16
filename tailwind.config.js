@@ -51,5 +51,6 @@ module.exports = {
                 p: { maxWidth: '60ch' },
             });
         }),
+        require('tailwindcss-animate'),
     ],
 };

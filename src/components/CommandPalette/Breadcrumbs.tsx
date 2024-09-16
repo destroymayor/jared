@@ -1,6 +1,7 @@
 import { useCommandPalette } from './context';
 
 import ROUTES from '@/constants/routes';
+import { Button } from '@/components/ui/button';
 
 export default function Breadcrumbs() {
     const {
@@ -24,13 +25,14 @@ export default function Breadcrumbs() {
     return (
         <div className="flex items-center gap-2">
             {data.map((item) => (
-                <button
+                <Button
                     key={item}
-                    className="rounded bg-zinc-200 p-1 text-xs text-zinc-600 transition duration-200 ease-in-out hover:bg-zinc-300 hover:text-zinc-800 dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-zinc-700 dark:hover:text-zinc-50"
+                    size="sm"
+                    className="h-6 rounded bg-zinc-200 p-1 text-xs text-zinc-600 transition duration-200 ease-in-out hover:bg-zinc-300 hover:text-zinc-800 dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-zinc-700 dark:hover:text-zinc-50"
                     onClick={handleSelect}
                 >
                     {item}
-                </button>
+                </Button>
             ))}
         </div>
     );

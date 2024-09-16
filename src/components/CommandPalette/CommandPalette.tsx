@@ -10,8 +10,8 @@ import { useCommandPalette } from './context';
 
 import { AnimatePresence, motion } from 'framer-motion';
 import { CommandIcon } from '@/components/Icons';
+import { Button } from '@/components/ui/button';
 
-import Button from './Button';
 import Backdrop from './Backdrop';
 import Breadcrumbs from './Breadcrumbs';
 import SearchBar from './SearchBar';
@@ -42,7 +42,13 @@ export default function CommandPalette() {
 
     return (
         <>
-            <Button onClick={handleToggle}>
+            <Button
+                size="icon"
+                variant="ghost"
+                onClick={handleToggle}
+                className="flex h-10 w-10 items-center justify-center rounded-lg ring-zinc-400 transition duration-200 ease-in-out hover:ring-2 focus:outline-none dark:hover:ring-zinc-600 dark:hover:bg-black"
+                aria-label="Command palette"
+            >
                 <CommandIcon className="h-6 w-6" />
             </Button>
 

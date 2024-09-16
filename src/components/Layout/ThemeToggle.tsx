@@ -2,6 +2,7 @@
 
 import { useTheme } from 'next-themes';
 import { SunIcon, MoonIcon } from '@/components/Icons';
+import { Button } from '@/components/ui/button';
 import useHasMounted from '@/hooks/use-has-mounted.hook';
 
 export default function ThemeToggle() {
@@ -20,13 +21,14 @@ export default function ThemeToggle() {
     }
 
     return (
-        <button
-            className="flex h-10 w-10 items-center justify-center rounded-lg ring-zinc-400 transition duration-200 ease-in-out hover:ring-2 focus:outline-none dark:hover:ring-zinc-600"
-            type="button"
+        <Button
+            variant="ghost"
+            size="icon"
+            className="rounded-lg ring-zinc-400 transition duration-200 ease-in-out hover:ring-2 focus:outline-none dark:hover:bg-black dark:hover:ring-zinc-600"
             aria-label={`Activate ${isDarkTheme ? 'light' : 'dark'} mode`}
             onClick={toggleTheme}
         >
             <span className="h-6 w-6">{isDarkTheme ? <SunIcon /> : <MoonIcon />}</span>
-        </button>
+        </Button>
     );
 }
