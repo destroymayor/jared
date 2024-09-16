@@ -9,7 +9,7 @@ import useScrollDisabler from '@/hooks/use-scroll-disabler.hook';
 import { useCommandPalette } from './context';
 
 import { AnimatePresence, motion } from 'framer-motion';
-import { CommandIcon } from '@/components/Icons';
+import { Command } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 import Backdrop from './Backdrop';
@@ -49,7 +49,7 @@ export default function CommandPalette() {
                 className="flex h-10 w-10 items-center justify-center rounded-lg ring-zinc-400 transition duration-200 ease-in-out hover:ring-2 focus:outline-none dark:hover:ring-zinc-600 dark:hover:bg-black"
                 aria-label="Command palette"
             >
-                <CommandIcon className="h-6 w-6" />
+                <Command />
             </Button>
 
             <AnimatePresence mode="wait" initial={false}>

@@ -11,7 +11,7 @@ import ROUTES from '@/constants/routes';
 import contactData from '@/constants/contact';
 
 import { getCategoryFormatted, SNIPPET_CATEGORIES } from '@/helpers/category.helper';
-import { SunIcon, MoonIcon, MonitorIcon } from '@/components/Icons';
+import { Sun, Moon, Monitor } from 'lucide-react';
 
 import useSnippets from './useSnippets';
 
@@ -107,13 +107,14 @@ export default function Provider() {
             title: 'Theme',
             children: [
                 {
-                    icon: resolvedTheme === 'dark' ? <SunIcon /> : <MoonIcon />,
+                    icon:
+                        resolvedTheme === 'dark' ? <Sun size={20} /> : <Moon size={20} />,
                     title: `Change Theme to ${resolvedTheme === 'dark' ? 'Light' : 'Dark'}`,
                     click: () =>
                         handleThemeToggle(resolvedTheme === 'dark' ? 'light' : 'dark'),
                 },
                 {
-                    icon: <MonitorIcon />,
+                    icon: <Monitor size={20} />,
                     title: `Change Theme to System`,
                     click: () => handleThemeToggle('system'),
                 },

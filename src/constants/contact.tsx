@@ -1,17 +1,18 @@
-import { MailIcon, GithubOutlineIcon, XIcon } from '@/components/Icons';
+import { XIcon } from '@/components/Icons';
+import { Mail, Github } from 'lucide-react';
 
 const CONTACT = {
     MAIL: {
         link: 'mailto:kuil5230@gmail.com',
         title: 'kuil5230@gmail.com',
         label: 'Gmail',
-        icon: <MailIcon />,
+        icon: <Mail size={20} />,
     },
     GITHUB: {
         link: 'https://github.com/destroymayor',
         title: '/destroymayor',
         label: 'Github',
-        icon: <GithubOutlineIcon />,
+        icon: <Github size={20} />,
     },
     X: {
         link: 'https://x.com/destroymayor',

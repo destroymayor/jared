@@ -4,7 +4,7 @@ import Link from 'next/link';
 import projects from '@/constants/projects';
 
 import { FadeUpSection } from '@/components/Animate';
-import { ArrowRightIcon } from '@/components/Icons';
+import { ArrowRight } from 'lucide-react';
 
 export default function Page() {
     return (
@@ -37,7 +37,7 @@ export default function Page() {
                                         rel="noopener noreferrer"
                                         className="flex items-center gap-2 rounded-md font-bold transition duration-300 ease-in-out hover:translate-x-2"
                                     >
-                                        <ArrowRightIcon className="h-5 w-5" />
+                                        <ArrowRight size={20} />
                                         <span>{title} Website</span>
                                     </Link>
 
@@ -47,7 +47,7 @@ export default function Page() {
                                         rel="noopener noreferrer"
                                         className="flex items-center gap-2 rounded-md font-bold transition duration-300 ease-in-out hover:translate-x-2"
                                     >
-                                        <ArrowRightIcon className="h-5 w-5" />
+                                        <ArrowRight size={20} />
                                         <span>{title} Repo</span>
                                     </Link>
                                 </FadeUpSection>

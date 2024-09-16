@@ -4,7 +4,7 @@ import clsx from 'clsx';
 
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { LinkIcon } from '@/components/Icons';
+import { Link as LinkIcon } from 'lucide-react';
 
 export default function ContentHeading(props: {
     children?: React.ReactNode | string;
@@ -30,7 +30,7 @@ export default function ContentHeading(props: {
             >
                 <span className="text-xl font-extrabold">{children}</span>
 
-                <LinkIcon className="invisible h-4 w-4 text-zinc-600 transition duration-150 ease-in-out group-hover:visible dark:text-zinc-500" />
+                <LinkIcon size={16} className="invisible text-zinc-600 transition duration-150 ease-in-out group-hover:visible dark:text-zinc-500" />
             </h2>
         </Link>
     );
