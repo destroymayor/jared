@@ -22,7 +22,6 @@
     /* linting */
     "strict": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     /* Bundler */
     "moduleResolution": "Node",
