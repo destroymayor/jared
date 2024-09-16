@@ -9,6 +9,7 @@ import {
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
     return {
+        ...components,
         h1: ({ children }) => (
             <h1 className="py-2 text-4xl font-extrabold">{children}</h1>
         ),
@@ -32,7 +33,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         ),
         blockquote: (props) => <Blockquote {...props}>{props.children}</Blockquote>,
         code: (props) => <CodeBlock {...props}>{props.children}</CodeBlock>,
-        Divider: (props) => (
+        Divider: () => (
             <div className="my-6 border-b border-dashed border-zinc-300 dark:border-zinc-700" />
         ),
         ContentHeading,
