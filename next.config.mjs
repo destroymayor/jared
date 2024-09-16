@@ -1,10 +1,9 @@
-import type { NextConfig } from 'next';
 
 import createMDX from '@next/mdx';
 import remarkFrontmatter from 'remark-frontmatter';
 
 /** @type {import('next').NextConfig} */
-const nextConfig: NextConfig = {
+const nextConfig = {
     pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
     experimental: {
         reactCompiler: true,
