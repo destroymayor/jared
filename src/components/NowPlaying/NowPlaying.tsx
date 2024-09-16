@@ -9,6 +9,7 @@ import { SpotifySolidIcon } from '@/components/Icons';
 import clsx from 'clsx';
 
 import Skeleton from './Skeleton';
+
 import useNowPlaying from './useNowPlaying';
 
 const NowPlaying = () => {

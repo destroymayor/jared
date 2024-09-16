@@ -1,8 +1,8 @@
 import { Fragment } from 'react';
 
 import useKeyPress from '@/hooks/use-key-press.hook';
-import Spinner from '@/components/Spinner';
 import Tabs from '@/components/Tabs';
+import { Skeleton } from '@/components/ui/skeleton';
 
 import { OptionChildrenProps } from './types';
 import { useCommandPalette } from './context';
@@ -68,9 +68,16 @@ export default function Menu() {
 
     if (isLoading) {
         return (
-            <p className="p-4 text-sm text-zinc-500">
-                <Spinner className="h-6 w-6" />
-            </p>
+            <div className="flex flex-col gap-4 p-4">
+                <div className="flex items-center gap-4">
+                    <Skeleton className="w-[24px] h-[24px] rounded-full bg-zinc-200 dark:bg-zinc-800" />
+                    <Skeleton className="w-1/3 h-6 rounded-sm bg-zinc-200 dark:bg-zinc-800" />
+                </div>
+                <div className="flex items-center gap-4">
+                    <Skeleton className="w-[24px] h-[24px] rounded-full bg-zinc-200 dark:bg-zinc-800" />
+                    <Skeleton className="w-2/3 h-6 rounded-sm bg-zinc-200 dark:bg-zinc-800" />
+                </div>
+            </div>
         );
     }
 

@@ -1,5 +1,7 @@
+import { Suspense } from 'react';
 import { SpotifySolidIcon } from '@/components/Icons';
 
+import Skeleton from './Skeleton';
 import Tracks from './Tracks';
 
 const TopTracks = () => {
@@ -11,7 +13,9 @@ const TopTracks = () => {
             </h2>
             <p className="pb-2 dark:text-zinc-400">{`Here's my top tracks on Spotify updated daily.`}</p>
 
-            <Tracks />
+            <Suspense fallback={<Skeleton />}>
+                <Tracks />
+            </Suspense>
         </div>
     );
 };
