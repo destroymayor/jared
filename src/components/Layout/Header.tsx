@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import avatar from '@/public/images/avatar.webp';
 
-import CommandPalette from '@/components/CommandPalette';
+import Command from '@/components/Command';
 
 import DesktopNav from './DesktopNav';
 import ThemeToggle from './ThemeToggle';
@@ -27,7 +27,7 @@ export default function Header() {
 
             <div className="flex items-center gap-2">
                 <ThemeToggle />
-                <CommandPalette />
+                <Command />
             </div>
         </header>
     );

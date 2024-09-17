@@ -21,7 +21,6 @@ export default function ContentHeading(props: {
     return (
         <Link href={`${pathname}#${getHeadingId}`} scroll={false}>
             <h2
-                aria-hidden
                 id={getHeadingId}
                 className={clsx(
                     'group flex cursor-pointer items-center justify-start gap-x-2 px-2 py-3',
