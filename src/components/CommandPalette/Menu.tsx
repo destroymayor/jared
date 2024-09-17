@@ -2,7 +2,6 @@ import { Fragment } from 'react';
 
 import useKeyPress from '@/hooks/use-key-press.hook';
 import Tabs from '@/components/Tabs';
-import { Skeleton } from '@/components/ui/skeleton';
 
 import { OptionChildrenProps } from './types';
 import { useCommandPalette } from './context';
@@ -10,10 +9,10 @@ import { useCommandPalette } from './context';
 const LIST_SELECTOR = `command-palette-item-select`;
 
 export default function Menu() {
-    const { isLoading, filterOptions, selectedIndex, setSelectedIndex } =
+    const { options, selectedIndex, setSelectedIndex } =
         useCommandPalette();
 
-    const getFlatOptions = filterOptions.map((item) => item.children).flat(1);
+    const getFlatOptions = options.map((item) => item.children).flat(1);
 
     useKeyPress('ArrowUp', () => {
         if (selectedIndex > 0) {
@@ -62,24 +61,10 @@ export default function Menu() {
     };
 
     const getCommandItemHeight =
-        filterOptions?.filter((item) => item?.children?.length > 0)?.length * 36;
+        options?.filter((item) => item?.children?.length > 0)?.length * 36;
     const getMenuHeight = getFlatOptions.length * 40;
     const getMenuContainerHeight = getCommandItemHeight + getMenuHeight;
 
-    if (isLoading) {
-        return (
-            <div className="flex flex-col gap-4 p-4">
-                <div className="flex items-center gap-4">
-                    <Skeleton className="w-[24px] h-[24px] rounded-full bg-zinc-200 dark:bg-zinc-800" />
-                    <Skeleton className="w-1/3 h-6 rounded-sm bg-zinc-200 dark:bg-zinc-800" />
-                </div>
-                <div className="flex items-center gap-4">
-                    <Skeleton className="w-[24px] h-[24px] rounded-full bg-zinc-200 dark:bg-zinc-800" />
-                    <Skeleton className="w-2/3 h-6 rounded-sm bg-zinc-200 dark:bg-zinc-800" />
-                </div>
-            </div>
-        );
-    }
 
     if (getFlatOptions.length === 0) {
         return <p className="p-4 text-sm text-zinc-500">No results found.</p>;
@@ -93,7 +78,7 @@ export default function Menu() {
             }}
         >
             <Tabs direction="vertical">
-                {filterOptions.map((option) => (
+                {options.map((option) => (
                     <Fragment key={option.title}>
                         {option.children.length > 0 && option.title && (
                             <span className="relative ml-2 flex h-7 items-center text-xs text-zinc-400">

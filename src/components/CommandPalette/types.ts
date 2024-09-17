@@ -13,15 +13,12 @@ export type OptionProps = {
 
 export interface CommandPaletteContextProps {
     isOpen: boolean;
-    isLoading: boolean;
     searchTerm: string;
     selectedIndex: number;
-    filterOptions: OptionProps[];
-    breadcrumbs: string[];
+    options: Array<OptionProps>;
     animationControls: AnimationControls;
     setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
     setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
     setSelectedIndex: React.Dispatch<React.SetStateAction<number>>;
-    setBreadcrumbs: React.Dispatch<React.SetStateAction<string[]>>;
     resetCommandPaletteStatus: () => void;
 }

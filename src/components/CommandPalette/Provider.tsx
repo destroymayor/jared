@@ -5,17 +5,11 @@ import { useRouter } from 'next/navigation';
 
 import { useTheme } from 'next-themes';
 import { useAnimationControls } from 'framer-motion';
+import { Sun, Moon, Monitor } from 'lucide-react';
 
-import projectsData from '@/constants/projects';
 import ROUTES from '@/constants/routes';
 import contactData from '@/constants/contact';
 
-import { getCategoryFormatted, SNIPPET_CATEGORIES } from '@/helpers/category.helper';
-import { Sun, Moon, Monitor } from 'lucide-react';
-
-import useSnippets from './useSnippets';
-
-import { OptionProps } from './types';
 import { CommandPaletteContext } from './context';
 import CommandPalette from './CommandPalette';
 
@@ -28,31 +22,16 @@ export default function Provider() {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const [searchTerm, setSearchTerm] = useState<string>('');
     const [selectedIndex, setSelectedIndex] = useState<number>(0);
-    const [breadcrumbs, setBreadcrumbs] = useState<string[]>([]);
-
-    const getCurrentBreadcrumbPath = breadcrumbs.at(-1);
-    const { data: snippetsData, isLoading: snippetsLoading } = useSnippets({
-        enabled: getCurrentBreadcrumbPath === ROUTES.SNIPPETS.title,
-    });
 
     const resetCommandPaletteStatus = () => {
         setIsOpen(false);
         setSearchTerm('');
         setSelectedIndex(0);
-        setBreadcrumbs([]);
     };
 
     const handleNavigation = (pathname: string) => {
         router.push(pathname);
         resetCommandPaletteStatus();
-    };
-
-    const handleBreadcrumbs = (slug: string) => {
-        setBreadcrumbs((prevState) => [...prevState, slug]);
-        setSelectedIndex(0);
-        setSearchTerm('');
-
-        animationControls.start({ scale: [1, 0.97, 1] });
     };
 
     const handleThemeToggle = (theme: string) => {
@@ -76,12 +55,12 @@ export default function Provider() {
                 {
                     icon: ROUTES.PROJECTS.icon,
                     title: ROUTES.PROJECTS.title,
-                    click: () => handleBreadcrumbs(ROUTES.PROJECTS.title),
+                    click: () => handleNavigation(ROUTES.PROJECTS.pathname),
                 },
                 {
                     icon: ROUTES.SNIPPETS.icon,
                     title: ROUTES.SNIPPETS.title,
-                    click: () => handleBreadcrumbs(ROUTES.SNIPPETS.title),
+                    click: () => handleNavigation(ROUTES.SNIPPETS.pathname),
                 },
                 {
                     icon: ROUTES.PHOTOS.icon,
@@ -122,76 +101,10 @@ export default function Provider() {
         },
     ];
 
-    const filterProjectReleaseYear = [
-        ...new Set(projectsData.map((project) => project.release_year)),
-    ];
-    const projectsOptions = [
-        {
-            title: 'General',
-            children: [
-                {
-                    title: `${ROUTES.PROJECTS.title} Overview`,
-                    icon: ROUTES.PROJECTS.icon,
-                    click: () => handleNavigation(ROUTES.PROJECTS.pathname),
-                },
-            ],
-        },
-        ...filterProjectReleaseYear.map((releaseYear) => ({
-            title: releaseYear,
-            children: projectsData
-                ?.filter((filterItem) => filterItem.release_year === releaseYear)
-                ?.map((project) => ({
-                    title: project.title,
-                    icon: project.built_with,
-                    click: () => handleOpenExternal(project.links.repo),
-                })),
-        })),
-    ];
-
-    const filterSnippetsCategories = SNIPPET_CATEGORIES.map((category) => category.slug);
-    const snippetsOptions = [
-        {
-            title: 'General',
-            children: [
-                {
-                    title: `${ROUTES.SNIPPETS.title} Overview`,
-                    icon: ROUTES.SNIPPETS.icon,
-                    click: () => handleNavigation(ROUTES.SNIPPETS.pathname),
-                },
-            ],
-        },
-        ,
-        ...filterSnippetsCategories.map((category) => ({
-            title: getCategoryFormatted(category)?.label,
-            children: snippetsData
-                ?.filter((item: { category: string }) => item.category === category)
-                ?.map((el: { title: string; category: string; slug: string }) => ({
-                    title: el.title,
-                    icon: getCategoryFormatted(el.category)?.icon,
-                    click: () => handleNavigation(el.slug),
-                })),
-        })),
-    ];
-
-    const optionsType = {
-        [ROUTES.PROJECTS.title]: {
-            loading: !projectsData && getCurrentBreadcrumbPath === ROUTES.PROJECTS.title,
-            data: projectsOptions,
-        },
-        [ROUTES.SNIPPETS.title]: {
-            loading:
-                snippetsLoading && getCurrentBreadcrumbPath === ROUTES.SNIPPETS.title,
-            data: snippetsOptions,
-        },
-    };
-    const getOptions =
-        (optionsType[breadcrumbs.at(-1) as string]?.data as OptionProps[]) ?? options;
-    const isLoading = isOpen && optionsType[breadcrumbs.at(-1) as string]?.loading;
-
     const filterOptions =
         searchTerm === ''
-            ? getOptions
-            : getOptions.map((option) => ({
+            ? options
+            : options.map((option) => ({
                   ...option,
                   children: option.children.filter((item: { title: string }) =>
                       item.title
@@ -201,21 +114,19 @@ export default function Provider() {
               }));
 
     const value = useMemo(
-        () => ({ isOpen, isLoading, searchTerm, selectedIndex }),
-        [isOpen, isLoading, searchTerm, selectedIndex]
+        () => ({ isOpen, searchTerm, selectedIndex }),
+        [isOpen, searchTerm, selectedIndex]
     );
 
     return (
         <CommandPaletteContext.Provider
             value={{
                 ...value,
-                filterOptions,
-                breadcrumbs,
+                options: filterOptions,
                 animationControls,
                 setIsOpen,
                 setSearchTerm,
                 setSelectedIndex,
-                setBreadcrumbs,
                 resetCommandPaletteStatus,
             }}
         >

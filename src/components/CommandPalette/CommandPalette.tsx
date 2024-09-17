@@ -13,7 +13,6 @@ import { Command } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 import Backdrop from './Backdrop';
-import Breadcrumbs from './Breadcrumbs';
 import SearchBar from './SearchBar';
 import Menu from './Menu';
 
@@ -74,7 +73,6 @@ export default function CommandPalette() {
                                 className="relative mx-auto max-w-xl overflow-hidden rounded-lg border border-zinc-300 bg-white p-2 shadow-2xl ring-1 ring-black/5 dark:divide-zinc-600 dark:border-black/90 dark:bg-black/90"
                             >
                                 <div className="flex flex-col gap-3 p-2">
-                                    <Breadcrumbs />
                                     <SearchBar />
                                 </div>
                                 <div className="relative -left-2 block h-[1px] w-[calc(100%+16px)] bg-zinc-200 dark:bg-zinc-800" />
