@@ -3,6 +3,7 @@
 import { useTheme } from 'next-themes';
 import { Sun, Moon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Skeleton } from '@/components/ui/skeleton';
 import useHasMounted from '@/hooks/use-has-mounted.hook';
 
 export default function ThemeToggle() {
@@ -16,7 +17,7 @@ export default function ThemeToggle() {
 
     if (!hasMounted) {
         return (
-            <div className="h-10 w-10 animate-pulse rounded-xl bg-zinc-300 text-transparent dark:bg-zinc-800" />
+            <Skeleton className="h-10 w-10 rounded-xl bg-zinc-300 text-transparent dark:bg-zinc-800" />
         );
     }
 
