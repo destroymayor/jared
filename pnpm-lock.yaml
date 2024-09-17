@@ -17,6 +17,9 @@ importers:
       '@next/mdx':
         specifier: ^14.2.11
         version: 14.2.11(@mdx-js/loader@3.0.1(webpack@5.93.0))(@mdx-js/react@3.0.1(@types/react@18.3.5)(react@19.0.0-rc-512b09b2-20240718))
+      '@radix-ui/react-avatar':
+        specifier: ^1.1.0
+        version: 1.1.0(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@19.0.0-rc-512b09b2-20240718(react@19.0.0-rc-512b09b2-20240718))(react@19.0.0-rc-512b09b2-20240718)
       '@radix-ui/react-dialog':
         specifier: ^1.1.1
         version: 1.1.1(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@19.0.0-rc-512b09b2-20240718(react@19.0.0-rc-512b09b2-20240718))(react@19.0.0-rc-512b09b2-20240718)
@@ -449,6 +452,19 @@ packages:
 
   '@radix-ui/primitive@1.1.0':
     resolution: {integrity: sha512-4Z8dn6Upk0qk4P74xBhZ6Hd/w0mPEzOOLxy4xiPXOXqjF7jZS0VAKk7/x/H6FyY2zCkYJqePf1G5KmkmNJ4RBA==}
+
+  '@radix-ui/react-avatar@1.1.0':
+    resolution: {integrity: sha512-Q/PbuSMk/vyAd/UoIShVGZ7StHHeRFYU7wXmi5GV+8cLXflZAEpHL/F697H1klrzxKXNtZ97vWiC0q3RKUH8UA==}
+    peerDependencies:
+      '@types/react': '*'
+      '@types/react-dom': '*'
+      react: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
+      react-dom: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      '@types/react-dom':
+        optional: true
 
   '@radix-ui/react-compose-refs@1.0.1':
     resolution: {integrity: sha512-fDSBgd44FKHa1FRMU59qBMPFcl2PZE+2nmqunj+BWFyYYjnhIDWL2ItDs3rrbJDQOtzt5nIebLCQc4QRfz6LJw==}
@@ -3551,6 +3567,18 @@ snapshots:
       '@babel/runtime': 7.22.15
 
   '@radix-ui/primitive@1.1.0': {}
+
+  '@radix-ui/react-avatar@1.1.0(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@19.0.0-rc-512b09b2-20240718(react@19.0.0-rc-512b09b2-20240718))(react@19.0.0-rc-512b09b2-20240718)':
+    dependencies:
+      '@radix-ui/react-context': 1.1.0(@types/react@18.3.5)(react@19.0.0-rc-512b09b2-20240718)
+      '@radix-ui/react-primitive': 2.0.0(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@19.0.0-rc-512b09b2-20240718(react@19.0.0-rc-512b09b2-20240718))(react@19.0.0-rc-512b09b2-20240718)
+      '@radix-ui/react-use-callback-ref': 1.1.0(@types/react@18.3.5)(react@19.0.0-rc-512b09b2-20240718)
+      '@radix-ui/react-use-layout-effect': 1.1.0(@types/react@18.3.5)(react@19.0.0-rc-512b09b2-20240718)
+      react: 19.0.0-rc-512b09b2-20240718
+      react-dom: 19.0.0-rc-512b09b2-20240718(react@19.0.0-rc-512b09b2-20240718)
+    optionalDependencies:
+      '@types/react': 18.3.5
+      '@types/react-dom': 18.3.0
 
   '@radix-ui/react-compose-refs@1.0.1(@types/react@18.3.5)(react@19.0.0-rc-512b09b2-20240718)':
     dependencies:

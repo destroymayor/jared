@@ -1,26 +1,22 @@
-import Image from 'next/image';
 import Link from 'next/link';
 
-import avatar from '@/public/images/avatar.webp';
-
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import Command from '@/components/Command';
 
 import DesktopNav from './DesktopNav';
 import ThemeToggle from './ThemeToggle';
+
+const avatarSrc = '/images/avatar.webp';
 
 export default function Header() {
     return (
         <header className="flex items-center justify-between px-8 py-8 sm:px-4">
             <div className="flex items-center gap-4">
                 <Link href={'/'}>
-                    <Image
-                        className="cursor-pointer rounded-full"
-                        priority
-                        src={avatar}
-                        alt="Jared"
-                        width={60}
-                        height={60}
-                    />
+                    <Avatar className="w-[60px] h-[60px]">
+                        <AvatarImage src={avatarSrc} alt="@jared-chen" />
+                        <AvatarFallback>Jared</AvatarFallback>
+                    </Avatar>
                 </Link>
                 <DesktopNav />
             </div>
