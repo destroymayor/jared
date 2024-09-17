@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { getUnsplashStatistics } from '@/lib/unsplash';
 
-export const dynamic = 'force-dynamic';
+export const dynamic = 'force-static';
 
 export async function GET() {
     const response = await getUnsplashStatistics();
