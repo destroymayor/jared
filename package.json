@@ -12,9 +12,6 @@
     "prettier": "prettier --ignore-path .gitignore --write '**/*.{js,jsx,ts,tsx}'"
   },
   "dependencies": {
-    "@mdx-js/loader": "^3.0.1",
-    "@mdx-js/react": "^3.0.1",
-    "@next/mdx": "^14.2.13",
     "@radix-ui/react-avatar": "^1.1.0",
     "@radix-ui/react-dialog": "^1.1.1",
     "@radix-ui/react-slot": "^1.1.0",
@@ -28,17 +25,16 @@
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.446.0",
     "next": "15.0.0-rc.0",
+    "next-mdx-remote": "^5.0.0",
     "next-themes": "^0.3.0",
     "prism-react-renderer": "^2.4.0",
     "react": "19.0.0-rc-512b09b2-20240718",
     "react-dom": "19.0.0-rc-512b09b2-20240718",
-    "remark-frontmatter": "^5.0.0",
     "sharp": "^0.33.5",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@types/mdx": "^2.0.13",
     "@types/node": "^22.7.4",
     "@types/react": "^18.3.10",
     "@types/react-dom": "^18.3.0",
