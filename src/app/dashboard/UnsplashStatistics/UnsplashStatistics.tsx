@@ -1,8 +1,7 @@
-import { Suspense } from 'react';
+
 import { UnsplashIcon } from '@/components/Icons';
 
 import Statistics from './Statistics';
-import Skeleton from './Skeleton';
 
 const UnsplashStatistics = () => {
     return (
@@ -13,9 +12,7 @@ const UnsplashStatistics = () => {
             </h2>
             <p className="dark:text-zinc-400">{`My statistics in Unsplash.`}</p>
 
-            <Suspense fallback={<Skeleton />}>
-                <Statistics />
-            </Suspense>
+            <Statistics />
         </div>
     );
 };

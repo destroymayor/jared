@@ -5,8 +5,14 @@ import Link from 'next/link';
 
 import useTopTracks from './useTopTracks';
 
+import Skeleton from './Skeleton';
+
 const Tracks = () => {
-    const { data } = useTopTracks();
+    const { data, isLoading } = useTopTracks();
+
+    if (isLoading) {
+        return <Skeleton />;
+    }
 
     return (
         <ul>

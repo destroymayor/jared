@@ -3,8 +3,14 @@
 import { AnimateCounter } from '@/components/Animate';
 import useContributions from './useContributions';
 
+import { OverviewSkeleton } from './Skeleton';
+
 const Overview = () => {
-    const { data } = useContributions();
+    const { isLoading, data } = useContributions();
+
+    if (isLoading) {
+        return <OverviewSkeleton />
+    }
 
     if (!data) {
         return null;

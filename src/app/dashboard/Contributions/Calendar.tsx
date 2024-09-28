@@ -5,23 +5,29 @@ import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
 import useContributions from './useContributions';
-
+import { CalendarSkeleton } from './Skeleton';
 type selectContributionType = {
     count: number | null;
     date: string | null;
 };
 
 const Calendar = () => {
-    const { data } = useContributions();
-    const contributionCalendar = data?.contributionsCollection.contributionCalendar;
-    const colors = contributionCalendar?.colors;
-    const weeks = contributionCalendar?.weeks;
-    const months = contributionCalendar?.months;
+    const { data, isLoading } = useContributions();
 
     const [selectContribution, setSelectContribution] = useState<selectContributionType>({
         count: null,
         date: null,
     });
+
+
+    if (isLoading) {
+        return <CalendarSkeleton />;
+    }
+
+    const contributionCalendar = data?.contributionsCollection.contributionCalendar;
+    const colors = contributionCalendar?.colors;
+    const weeks = contributionCalendar?.weeks;
+    const months = contributionCalendar?.months;
 
     const handleSelectContribution = (data: selectContributionType) => {
         const { count, date } = data;

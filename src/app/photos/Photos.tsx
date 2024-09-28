@@ -1,6 +1,5 @@
 'use client';
 
-import { Suspense } from 'react';
 import Image from 'next/image';
 import { AnimateSection } from '@/components/Animate';
 
@@ -8,7 +7,11 @@ import useUnsplashPhotos from './useUnsplashPhotos';
 import Skeleton from './Skeleton';
 
 const Photos = () => {
-    const { data } = useUnsplashPhotos();
+    const { data, isLoading } = useUnsplashPhotos();
+
+    if (isLoading) {
+        return <Skeleton />;
+    }
 
     return (
         <div className="relative left-1/2 right-1/2 -ml-[49vw] -mr-[50vw] grid min-h-screen w-[97vw] gap-2 pt-4 [grid-template-columns:repeat(auto-fill,minmax(100%,1fr))] sm:px-2 sm:[grid-template-columns:repeat(auto-fill,minmax(440px,1fr))] md:w-[98vw]">
@@ -34,10 +37,4 @@ const Photos = () => {
     );
 };
 
-const Wrapper = () => (
-    <Suspense fallback={<Skeleton />}>
-        <Photos />
-    </Suspense>
-);
-
-export default Wrapper;
+export default Photos;

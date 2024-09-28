@@ -1,10 +1,6 @@
-import { Suspense } from 'react';
-
 import { Github } from 'lucide-react';
 import Overview from './Overview';
 import Calendar from './Calendar';
-
-import { OverviewSkeleton, CalendarSkeleton } from './Skeleton';
 
 const Contributions = () => {
     return (
@@ -14,12 +10,8 @@ const Contributions = () => {
                 <span>Contributions</span>
             </h2>
             <p className="dark:text-zinc-400">{`My last year's contributions in Github.`}</p>
-            <Suspense fallback={<OverviewSkeleton />}>
-                <Overview />
-            </Suspense>
-            <Suspense fallback={<CalendarSkeleton />}>
-                <Calendar />
-            </Suspense>
+            <Overview />
+            <Calendar />
         </div>
     );
 };

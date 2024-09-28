@@ -3,9 +3,14 @@
 import { AnimateCounter } from '@/components/Animate';
 
 import useUnsplashStatistics from './useUnsplashStatistics';
+import Skeleton from './Skeleton';
 
 const Statistics = () => {
-    const { data } = useUnsplashStatistics();
+    const { data, isLoading } = useUnsplashStatistics();
+
+    if (isLoading) {
+        return <Skeleton />;
+    }
 
     const statistics = [
         { title: 'Total views', value: data?.views?.total },

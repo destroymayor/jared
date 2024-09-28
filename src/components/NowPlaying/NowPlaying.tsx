@@ -1,6 +1,5 @@
 'use client';
 
-import { Suspense } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -13,7 +12,11 @@ import Skeleton from './Skeleton';
 import useNowPlaying from './useNowPlaying';
 
 const NowPlaying = () => {
-    const { data } = useNowPlaying();
+    const { data, isLoading } = useNowPlaying();
+
+    if (isLoading) {
+        return <Skeleton />;
+    }
 
     return (
         <Link href={data?.songUrl ?? '#'} target="_blank" rel="noopener noreferrer">
@@ -48,10 +51,4 @@ const NowPlaying = () => {
     );
 };
 
-const Wrapper = () => (
-    <Suspense fallback={<Skeleton />}>
-        <NowPlaying />
-    </Suspense>
-);
-
-export default Wrapper;
+export default NowPlaying;
