@@ -1,8 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-
-import clsx from 'clsx';
+import { cn } from '@/lib/utils';
 
 const animateTypes = {
     'fade-in': 'animate-fade-in',
@@ -21,7 +20,7 @@ export default function AnimateSection(props: {
     return (
         <motion.div
             {...props}
-            className={clsx(animateType, className)}
+            className={cn(animateType, className)}
             initial={{ opacity: 0 }}
             transition={{ delay: 0.6 }}
             animate={{ opacity: 1 }}

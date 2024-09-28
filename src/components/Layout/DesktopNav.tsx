@@ -1,7 +1,7 @@
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 
-import clsx from 'clsx';
+import { cn } from '@/lib/utils';
 import ROUTES from '@/constants/routes';
 import Tabs from '@/components/Tabs';
 
@@ -17,7 +17,7 @@ export default function DesktopNav() {
                     <Tabs.Tab key={tab.pathname} name={tab.title}>
                         <Link href={tab.pathname}>
                             <div
-                                className={clsx(
+                                className={cn(
                                     'flex items-center p-2',
                                     tab.pathname === pathname
                                         ? 'bg-gradient-to-r from-sky-500 to-sky-700 bg-clip-text text-transparent'

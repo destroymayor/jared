@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import clsx from 'clsx';
+import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
 
 import useContributions from './useContributions';
@@ -58,7 +58,7 @@ const Calendar = () => {
                     {monthsData?.map((month) => (
                         <li
                             key={month.firstDay}
-                            className={clsx(month.totalWeeks < 2 ? 'invisible' : '')}
+                            className={cn(month.totalWeeks < 2 ? 'invisible' : '')}
                             style={{ minWidth: 12.35 * month.totalWeeks }}
                         >
                             {month.name}
@@ -131,7 +131,7 @@ const Calendar = () => {
                 </div>
 
                 <div
-                    className={clsx(
+                    className={cn(
                         selectContribution.date ? 'opacity-100' : 'opacity-0',
                         'rounded bg-zinc-200 px-2 text-sm dark:bg-zinc-800'
                     )}

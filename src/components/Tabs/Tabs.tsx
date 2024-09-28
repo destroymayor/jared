@@ -3,7 +3,7 @@
 import { createContext, useState, useRef } from 'react';
 
 import { motion } from 'framer-motion';
-import clsx from 'clsx';
+import { cn } from '@/lib/utils';
 
 import { directionType } from './constants';
 import { TabsType } from './types';
@@ -53,7 +53,7 @@ export default function Tabs(props: TabsType) {
         <TabsContext.Provider value={{ repositionHighlight, resetHighlight }}>
             <ul
                 ref={wrapperRef}
-                className={clsx(
+                className={cn(
                     'relative',
                     directionType[direction]?.container,
                     className

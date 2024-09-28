@@ -9,7 +9,6 @@ import {
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
     return {
-        ...components,
         h1: ({ children }) => (
             <h1 className="py-2 text-4xl font-extrabold">{children}</h1>
         ),
@@ -39,5 +38,6 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         ContentHeading,
         PostImage,
         UpdatedAt,
+        ...components,
     };
 }

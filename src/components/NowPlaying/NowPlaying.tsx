@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 import PlayingBars from '@/components/NowPlaying/PlayingBars';
 import { SpotifySolidIcon } from '@/components/Icons';
-import clsx from 'clsx';
+import { cn } from '@/lib/utils';
 
 import Skeleton from './Skeleton';
 
@@ -21,7 +21,7 @@ const NowPlaying = () => {
     return (
         <Link href={data?.songUrl ?? '#'} target="_blank" rel="noopener noreferrer">
             <div
-                className={clsx('flex items-center gap-3', {
+                className={cn('flex items-center gap-3', {
                     'h-[60px]': !data?.isPlaying,
                 })}
             >
