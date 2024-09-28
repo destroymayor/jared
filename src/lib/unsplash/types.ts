@@ -16,12 +16,26 @@ export type UnsplashStatisticsType = {
         total: number;
         historical: {
             change: number;
+            average: number;
+            resolution: string;
+            quantity: number;
+            values: Array<{
+                date: string;
+                value: number;
+            }>;
         };
     };
     views: {
         total: number;
         historical: {
             change: number;
+            average: number;
+            resolution: string;
+            quantity: number;
+            values: Array<{
+                date: string;
+                value: number;
+            }>;
         };
     };
 };
