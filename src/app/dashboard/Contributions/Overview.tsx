@@ -9,7 +9,7 @@ const Overview = () => {
     const { isLoading, data } = useContributions();
 
     if (isLoading) {
-        return <OverviewSkeleton />
+        return <OverviewSkeleton />;
     }
 
     if (!data) {
@@ -40,21 +40,19 @@ const Overview = () => {
     const overviews = [
         {
             title: 'Total',
-            value: Number.isInteger(totalContributions) ? totalContributions : 0,
+            value: totalContributions ?? 0,
         },
         {
             title: 'This Week',
-            value: Number.isInteger(totalThisWeekContribution)
-                ? totalThisWeekContribution
-                : 0,
+            value: totalThisWeekContribution ?? 0,
         },
         {
             title: 'Best Day',
-            value: Number.isInteger(bestContribution) ? bestContribution : 0,
+            value: bestContribution ?? 0,
         },
         {
             title: 'Daily Average',
-            value: Number.isInteger(averageContribution) ? averageContribution : 0,
+            value: averageContribution ?? 0,
         },
     ];
 

@@ -3,34 +3,42 @@ import Link from 'next/link';
 
 import projects from '@/constants/projects';
 
-import { FadeUpSection } from '@/components/Animate';
+import BlurFade from '@/components/ui/blur-fade';
 import { ArrowRight } from 'lucide-react';
 
 export default function Page() {
     return (
         <ul className="flex flex-col gap-14 pt-8">
-            {projects.map((project) => {
+            {projects.map((project, projectIndex) => {
                 const { built_with, title, description, image, links } = project;
 
                 return (
                     <li key={title} className="flex flex-col gap-8">
                         <div className="flex gap-6">
-                            <FadeUpSection className="min-h-[24px] min-w-[24px]">
+                            <BlurFade
+                                delay={0.25 + projectIndex * 0.05}
+                                inView
+                                className="min-h-[24px] min-w-[24px]"
+                            >
                                 {built_with}
-                            </FadeUpSection>
+                            </BlurFade>
 
                             <div className="flex flex-col gap-5">
-                                <FadeUpSection>
+                                <BlurFade delay={0.25 + projectIndex * 0.05} inView>
                                     <h2 className="text-xl font-semibold">{title}</h2>
-                                </FadeUpSection>
+                                </BlurFade>
 
-                                <FadeUpSection>
+                                <BlurFade delay={0.25 + projectIndex * 0.05} inView>
                                     <p className="max-w-[60ch] text-sm dark:text-zinc-400">
                                         {description}
                                     </p>
-                                </FadeUpSection>
+                                </BlurFade>
 
-                                <FadeUpSection className="flex flex-col items-start gap-4 text-sm dark:text-zinc-400">
+                                <BlurFade
+                                    delay={0.25 + projectIndex * 0.05}
+                                    inView
+                                    className="flex flex-col items-start gap-4 text-sm dark:text-zinc-400"
+                                >
                                     <Link
                                         href={links.demo}
                                         target="_blank"
@@ -50,11 +58,15 @@ export default function Page() {
                                         <ArrowRight size={20} />
                                         <span>{title} Repo</span>
                                     </Link>
-                                </FadeUpSection>
+                                </BlurFade>
                             </div>
                         </div>
 
-                        <FadeUpSection className="-m-4 grid place-items-center">
+                        <BlurFade
+                            delay={0.25 + projectIndex * 0.05}
+                            inView
+                            className="-m-4 grid place-items-center"
+                        >
                             <Image
                                 priority
                                 className="rounded-md object-contain"
@@ -63,7 +75,7 @@ export default function Page() {
                                 width={714}
                                 height={429}
                             />
-                        </FadeUpSection>
+                        </BlurFade>
                     </li>
                 );
             })}
