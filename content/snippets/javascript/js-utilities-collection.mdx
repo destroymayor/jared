@@ -10,7 +10,7 @@ JavaScript utilities in single line of code
 
 <Divider />
 
-<ContentHeading>Copy to Clipboard</ContentHeading>
+## Copy to Clipboard
 
 ```js
 const copyToClipboard = (text) => navigator.clipboard.writeText(text);
@@ -18,7 +18,7 @@ const copyToClipboard = (text) => navigator.clipboard.writeText(text);
 copyToClipboard('Hello JavaScript');
 ```
 
-<ContentHeading>Check if Date is Valid</ContentHeading>
+## Check if Date is Valid
 
 ```js
 const isDateValid = (...val) => !Number.isNaN(new Date(...val).valueOf());
@@ -27,7 +27,7 @@ isDateValid('December 17, 1995 03:24:00');
 // Result: true
 ```
 
-<ContentHeading>Capitalize a String</ContentHeading>
+## Capitalize a String
 
 ```js
 const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
@@ -36,7 +36,7 @@ capitalize('follow for more');
 // Result: Follow for more
 ```
 
-<ContentHeading>Find the number of days between two days</ContentHeading>
+## Find the number of days between two days
 
 ```js
 const dayDif = (date1, date2) => Math.ceil(Math.abs(date1.getTime() - date2.getTime()) / 86400000);
@@ -45,7 +45,8 @@ dayDif(new Date('2020-10-21'), new Date('2021-10-22'));
 // Result: 366
 ```
 
-<ContentHeading>Generate Random Hex</ContentHeading>
+## Generate Random Hex
+
 
 ```js
 const randomHex = () =>
@@ -57,7 +58,7 @@ console.log(randomHex());
 // Result: #92b008
 ```
 
-<ContentHeading>Check if an array is empty</ContentHeading>
+## Check if an array is empty
 
 ```js
 const isEmpty = (arr) => !Array.isArray(arr) || arr.length === 0;

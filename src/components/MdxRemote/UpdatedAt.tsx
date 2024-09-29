@@ -6,7 +6,7 @@ const UpdatedAt = ({ dateTime }: { dateTime: string }) => {
     }).format(new Date(dateTime));
 
     return (
-        <span className="flex justify-center gap-2 pb-10 text-sm italic text-zinc-600 dark:text-zinc-400 sm:text-base">
+        <span className="flex justify-center gap-2 py-10 text-sm italic text-zinc-600 dark:text-zinc-400 sm:text-base">
             <span>Last Updated:</span>
             <time dateTime={dateTime} className="font-semibold">
                 {formatDate}

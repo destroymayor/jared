@@ -37,5 +37,10 @@ export const COMPONENTS: MDXRemoteProps['components'] = {
 };
 
 export const CustomMDXRemote = (props: MDXRemoteProps) => {
-    return <MDXRemote {...props} components={{...COMPONENTS,  ...(props.components || {})}} />;
+    return (
+        <MDXRemote
+            {...props}
+            components={{ ...COMPONENTS, ...(props.components || {}) }}
+        />
+    );
 };

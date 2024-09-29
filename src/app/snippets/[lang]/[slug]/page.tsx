@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import { CustomMDXRemote } from '@/components/MDX';
+import { CustomMDXRemote } from '@/components/MdxRemote';
 import { getMDXSourcePaths, getMDXSource } from '@/helpers/mdx.helpers';
 
 export async function generateStaticParams() {

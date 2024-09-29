@@ -10,7 +10,7 @@ A simple git cheatsheet.
 
 <Divider />
 
-<ContentHeading>Branches</ContentHeading>
+# Branches
 
 - `git branch` list all local branches.
 - `git branch -a` list remote and local branches.
@@ -23,7 +23,7 @@ A simple git cheatsheet.
 - `git branch --merged | grep -E -v  "(^\*|master)"| xargs -n1 echo git branch -d` Print all branches that have been merged into master.
 
 <br />
-<ContentHeading>Logs</ContentHeading>
+# Logs
 
 - `git log --oneline` Show commit history in single lines.
 - `git log -2` Show commit history for last N commits.
@@ -34,7 +34,7 @@ A simple git cheatsheet.
 - `git remote show origin` Show remote branches and their mapping to local.
 
 <br />
-<ContentHeading>Cleanup</ContentHeading>
+# Cleanup
 
 - `git clean -f` Delete all untracked files.
 - `git clean -df` Delete all untracked files and directories.
@@ -42,7 +42,7 @@ A simple git cheatsheet.
 - `git reset HEAD myfile` Unstage a file.
 
 <br />
-<ContentHeading>Tags</ContentHeading>
+# Tags
 
 - `git pull --tags` Get remote tags.
 - `git checkout tag_name` Switch to an existing tag.
@@ -51,7 +51,7 @@ A simple git cheatsheet.
 - `git push --tags` Push all tags to remote repo.
 
 <br />
-<ContentHeading>Stashes</ContentHeading>
+# Stashes
 
 - `git stash save "stash name" && git stash` Save changes to a stash.
 - `git stash list` List all stashes.
