@@ -1,6 +1,6 @@
 'use client';
 
-import { AnimateCounter } from '@/components/Animate';
+import NumberTicker from '@/components/ui/number-ticker';
 import useContributions from './useContributions';
 
 import { OverviewSkeleton } from './Skeleton';
@@ -66,9 +66,9 @@ const Overview = () => {
                     className="flex flex-col rounded-xl bg-zinc-100 px-4 py-2 shadow-md dark:bg-zinc-900"
                 >
                     <span className="text-sm dark:text-zinc-400">{item.title}</span>
-                    <AnimateCounter
-                        className="text-2xl font-bold text-green-600"
-                        total={item.value}
+                    <NumberTicker
+                        className="text-2xl font-bold text-green-600 dark:text-green-600"
+                        value={item.value}
                     />
                 </div>
             ))}

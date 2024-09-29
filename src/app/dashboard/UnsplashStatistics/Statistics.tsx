@@ -1,6 +1,6 @@
 'use client';
 
-import { AnimateCounter } from '@/components/Animate';
+import NumberTicker from '@/components/ui/number-ticker';
 
 import useUnsplashStatistics from './useUnsplashStatistics';
 import Skeleton from './Skeleton';
@@ -33,7 +33,7 @@ const Statistics = () => {
                     className="flex flex-col rounded-xl bg-zinc-100 px-4 py-2 shadow-md dark:bg-zinc-900"
                 >
                     <div className="text-sm dark:text-zinc-400">{item.title}</div>
-                    <AnimateCounter className="text-2xl font-bold" total={item.value} />
+                    <NumberTicker className="text-2xl font-bold" value={item.value ?? 0} />
                 </div>
             ))}
         </div>
