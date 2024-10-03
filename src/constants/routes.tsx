@@ -31,6 +31,11 @@ const ROUTES = {
         pathname: '/snippets',
         icon: <CodeIcon size={20} />,
     },
+    TWEETS: {
+        title: 'Tweets',
+        pathname: '/tweets',
+        icon: <MessageSquare size={20} />,
+    },
 };
 
 export default ROUTES;
