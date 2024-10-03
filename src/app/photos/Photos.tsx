@@ -1,7 +1,5 @@
 'use client';
 
-import Image from 'next/image';
-
 import BlurFade from '@/components/ui/blur-fade';
 import { cn } from '@/lib/utils';
 
@@ -9,41 +7,41 @@ import useUnsplashPhotos from './useUnsplashPhotos';
 import Skeleton from './Skeleton';
 
 const Photos = () => {
-    const { data, isLoading } = useUnsplashPhotos();
+    const { data: photos, isLoading } = useUnsplashPhotos();
 
     if (isLoading) {
         return <Skeleton />;
     }
 
+    if (!photos) {
+        return <div>No photos found</div>;
+    }
+
     return (
         <div
             className={cn(
+                'columns-1 gap-4 sm:columns-2 lg:columns-3',
                 'relative left-1/2 right-1/2',
                 'w-[97vw] md:w-[98vw]',
-                '-ml-[49vw] -mr-[50vw] pt-4 sm:px-2',
-                'grid min-h-screen gap-2 [grid-template-columns:repeat(auto-fill,minmax(100%,1fr))] sm:[grid-template-columns:repeat(auto-fill,minmax(440px,1fr))]'
+                '-ml-[49vw] -mr-[50vw] pt-4 sm:px-2'
             )}
         >
-            {data?.map((photo, photoIndex) => {
-                return (
-                    <BlurFade
-                        key={photo.id}
-                        delay={0.25 + photoIndex * 0.05}
-                        inView
-                        className="relative h-[700px] min-w-full sm:min-w-[440px]"
+            {photos.map((photo, idx) => (
+                <BlurFade key={photo.id} delay={0.25 + idx * 0.05} inView>
+                    <a
+                        className="cursor-pointer"
+                        href={photo.links.html}
+                        target="_blank"
                     >
-                        <Image
+                        <img
                             id={photo.id}
                             alt={photo.id}
                             src={photo.urls.regular}
-                            unoptimized
-                            className="h-full w-full rounded-md object-cover object-center"
-                            width={1080}
-                            height={400}
+                            className="mb-4 size-full rounded-lg object-contain"
                         />
-                    </BlurFade>
-                );
-            })}
+                    </a>
+                </BlurFade>
+            ))}
         </div>
     );
 };

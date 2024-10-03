@@ -24,8 +24,15 @@ export const getUnsplashPhotos = async () => {
     const photos = data?.map((item: UnsplashPhotoType) => ({
         id: item.id,
         blur_hash: item.blur_hash,
-        urls: item.urls,
-        links: item.links,
+        created_at: item.created_at,
+        urls: {
+            raw: item.urls.raw,
+            regular: item.urls.regular,
+        },
+        links: {
+            html: item.links.html,
+            download: item.links.download,
+        },
     }));
 
     return { status, data: photos };

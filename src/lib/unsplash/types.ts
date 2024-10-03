@@ -1,6 +1,7 @@
 export type UnsplashPhotoType = {
     id: string;
     blur_hash: string;
+    created_at: string;
     urls: {
         raw: string;
         regular: string;
