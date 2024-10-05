@@ -22,6 +22,19 @@ module.exports = {
                 '2xl': ['1.5rem', { lineHeight: 1.1 }],
                 '3xl': ['1.875rem', { lineHeight: 1.1 }],
             },
+            animation: {
+                meteor: 'meteor 5s linear infinite',
+            },
+            keyframes: {
+                meteor: {
+                    '0%': { transform: 'rotate(215deg) translateX(0)', opacity: 1 },
+                    '70%': { opacity: 1 },
+                    '100%': {
+                        transform: 'rotate(215deg) translateX(-500px)',
+                        opacity: 0,
+                    },
+                },
+            },
         },
     },
     plugins: [

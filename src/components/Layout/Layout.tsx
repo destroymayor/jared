@@ -2,6 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
+import Meteors from '@/components/ui/meteors';
 
 import Header from '@/components/Layout/Header';
 import Footer from '@/components/Layout/Footer';
@@ -11,19 +12,22 @@ export default function Layout(props: { children: React.ReactNode }) {
     const pathname = usePathname();
 
     return (
-        <div className="mx-auto flex min-h-screen max-w-[720px] flex-col">
-            <Header />
+        <div className="overflow-hidden relative">
+            <Meteors number={30} />
+            <div className="mx-auto flex min-h-screen max-w-[720px] flex-col">
+                <Header />
 
-            <motion.main
-                key={pathname}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1, transition: { delay: 0.15 } }}
-                className="relative flex-grow px-4"
-            >
-                {children}
-            </motion.main>
+                <motion.main
+                    key={pathname}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1, transition: { delay: 0.15 } }}
+                    className="relative flex-grow px-4"
+                >
+                    {children}
+                </motion.main>
 
-            <Footer />
+                <Footer />
+            </div>
         </div>
     );
 }
