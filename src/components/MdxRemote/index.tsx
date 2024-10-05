@@ -1,5 +1,6 @@
 import { MDXRemote, MDXRemoteProps } from 'next-mdx-remote/rsc';
 
+import { Separator } from '@/components/ui/separator';
 import  Blockquote from './Blockquote';
 import ContentHeading from './ContentHeading';
 import CodeBlock from './CodeBlock';
@@ -28,9 +29,7 @@ export const COMPONENTS: MDXRemoteProps['components'] = {
     ),
     blockquote: (props) => <Blockquote {...props}>{props.children}</Blockquote>,
     code: (props) => <CodeBlock {...props}>{props.children}</CodeBlock>,
-    Divider: () => (
-        <div className="my-6 border-b border-dashed border-zinc-300 dark:border-zinc-700" />
-    ),
+    Divider: () => <Separator />,
     ContentHeading,
     PostImage,
     UpdatedAt,
