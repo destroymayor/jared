@@ -1,9 +1,13 @@
 import Hero from '@/components/Hero';
 
+import ROUTES from '@/constants/routes';
+
+const { DASHBOARD } = ROUTES;
+const { title, description } = DASHBOARD;
+
 export const metadata = {
-    title: 'Dashboard',
-    description:
-        'This is my personal dashboard, built with Next.js API routes deployed as serverless functions.',
+    title,
+    description,
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

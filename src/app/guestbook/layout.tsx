@@ -1,8 +1,13 @@
 import Hero from '@/components/Hero';
 
+import ROUTES from '@/constants/routes';
+
+const { GUESTBOOK } = ROUTES;
+const { title, description } = GUESTBOOK;
+
 export const metadata = {
-    title: 'Guestbook',
-    description: 'Login your GitHub account to leave a message.',
+    title,
+    description,
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

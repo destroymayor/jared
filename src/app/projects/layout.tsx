@@ -1,8 +1,13 @@
 import Hero from '@/components/Hero';
 
+import ROUTES from '@/constants/routes';
+
+const { PROJECTS } = ROUTES;
+const { title, description } = PROJECTS;
+
 export const metadata = {
-    title: 'Projects',
-    description: 'Internet thingies built with React, Next.js and TypeScript.',
+    title,
+    description,
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

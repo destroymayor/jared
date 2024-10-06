@@ -1,8 +1,13 @@
 import Hero from '@/components/Hero';
 
+import ROUTES from '@/constants/routes';
+
+const { TWEETS } = ROUTES;
+const { title, description } = TWEETS;
+
 export const metadata = {
-    title: 'Tweets',
-    description: 'My favorite tweets.',
+    title,
+    description,
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

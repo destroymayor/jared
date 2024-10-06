@@ -6,9 +6,14 @@ import { getAllMDXFolder } from '@/helpers/mdx.helpers';
 import Hero from '@/components/Hero';
 import Loading from './loading';
 
+import ROUTES from '@/constants/routes';
+
+const { SNIPPETS } = ROUTES;
+const { title, description } = SNIPPETS;
+
 export const metadata = {
-    title: 'Snippets',
-    description: 'Collection of useful code snippets.',
+    title,
+    description,
 };
 
 type SnippetsType = {
@@ -46,7 +51,7 @@ export default async function Page() {
                             key={title + category}
                             className="group mt-4 flex cursor-pointer gap-6 rounded-md p-4 transition-all duration-150 ease-out"
                         >
-                            <div className="h-8 w-8 pt-2">{languageIcon}</div>
+                            <div className="min-h-8 min-w-8 pt-2">{languageIcon}</div>
                             <div>
                                 <h2 className="text-lg font-bold group-hover:text-sky-600">
                                     {title}
