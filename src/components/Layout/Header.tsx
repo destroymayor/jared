@@ -10,7 +10,7 @@ const avatarSrc = '/images/avatar.webp';
 
 export default function Header() {
     return (
-        <header className="flex items-center justify-between px-8 py-8 sm:px-4">
+        <header className="flex items-center justify-between">
             <div className="flex items-center gap-4">
                 <Link href={'/'}>
                     <Avatar className="w-[60px] h-[60px]">

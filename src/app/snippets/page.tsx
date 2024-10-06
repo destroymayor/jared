@@ -1,6 +1,7 @@
 import { Suspense } from 'react';
 import Link from 'next/link';
 
+import { cn } from '@/lib/utils';
 import { getCategoryFormatted } from '@/helpers/category.helper';
 import { getAllMDXFolder } from '@/helpers/mdx.helpers';
 import Hero from '@/components/Hero';
@@ -49,7 +50,7 @@ export default async function Page() {
                         <Link
                             href={slug}
                             key={title + category}
-                            className="group mt-4 flex cursor-pointer gap-6 rounded-md p-4 transition-all duration-150 ease-out"
+                            className="group mt-2 flex cursor-pointer gap-6 rounded-md p-4 transition-all duration-150 ease-out"
                         >
                             <div className="min-h-8 min-w-8 pt-2">{languageIcon}</div>
                             <div>
@@ -59,9 +60,19 @@ export default async function Page() {
                                 <p className="pb-2 text-sm text-zinc-600 dark:text-zinc-400">
                                     {description}
                                 </p>
-                                <span className="text-sm italic tracking-tighter text-zinc-600 dark:text-zinc-400">
-                                    {formatDate}
-                                </span>
+                                <div
+                                    className={cn(
+                                        'flex flex-col gap-2',
+                                        'text-sm italic tracking-tighter text-zinc-600 dark:text-zinc-400'
+                                    )}
+                                >
+                                    <span>
+                                        Category: {category}
+                                    </span>
+                                    <span>
+                                        Last Updated: {formatDate}
+                                    </span>
+                                </div>
                             </div>
                         </Link>
                     );
