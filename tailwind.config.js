@@ -40,7 +40,7 @@ module.exports = {
     plugins: [
         plugin(function ({ addBase }) {
             addBase({
-                p: { maxWidth: '60ch' },
+                p: { maxWidth: '80ch' },
             });
         }),
         require('tailwindcss-animate'),
