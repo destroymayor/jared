@@ -1,4 +1,4 @@
-import { House, Camera, ChartNoAxesCombined, Package, MessageSquare, CodeIcon } from 'lucide-react';
+import { House, Camera, ChartNoAxesCombined, Package, MessageSquare, CodeIcon, FileUser } from 'lucide-react';
 
 const ROUTES = {
     HOME: {
@@ -14,17 +14,11 @@ const ROUTES = {
         pathname: '/dashboard',
         icon: <ChartNoAxesCombined size={20} />,
     },
-    GUESTBOOK: {
-        title: 'Guestbook',
-        description: 'Login your GitHub account to leave a message.',
-        pathname: '/guestbook',
-        icon: <MessageSquare size={20} />,
-    },
-    PHOTOS: {
-        title: 'Photos',
-        description: 'A collection of photos I have taken.',
-        pathname: '/photos',
-        icon: <Camera size={20} />,
+    CV: {
+        title: 'CV',
+        description: 'My CV.',
+        pathname: '/cv',
+        icon: <FileUser size={20} />,
     },
     PROJECTS: {
         title: 'Projects',
@@ -32,11 +26,23 @@ const ROUTES = {
         pathname: '/projects',
         icon: <Package size={20} />,
     },
+    PHOTOS: {
+        title: 'Photos',
+        description: 'A collection of photos I have taken.',
+        pathname: '/photos',
+        icon: <Camera size={20} />,
+    },
     SNIPPETS: {
         title: 'Snippets',
         description: 'Collection of useful code snippets.',
         pathname: '/snippets',
         icon: <CodeIcon size={20} />,
+    },
+    GUESTBOOK: {
+        title: 'Guestbook',
+        description: 'Login your GitHub account to leave a message.',
+        pathname: '/guestbook',
+        icon: <MessageSquare size={20} />,
     },
     TWEETS: {
         title: 'Tweets',
