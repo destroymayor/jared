@@ -6,19 +6,19 @@ const CONTACT = {
         link: 'mailto:kuil5230@gmail.com',
         title: 'kuil5230@gmail.com',
         label: 'Gmail',
-        icon: <Mail size={20} />,
+        icon: <Mail className='w-6 h-6' />,
     },
     GITHUB: {
         link: 'https://github.com/destroymayor',
         title: '/destroymayor',
         label: 'Github',
-        icon: <Github size={20} />,
+        icon: <Github className='w-6 h-6' />,
     },
     X: {
         link: 'https://x.com/destroymayor',
         title: '@destroymayor',
         label: 'X',
-        icon: <XIcon />,
+        icon: <XIcon className='w-6 h-6' />,
     },
 };
 
