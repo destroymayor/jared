@@ -13,29 +13,24 @@ export default function Layout(props: { children: React.ReactNode }) {
     const pathname = usePathname();
 
     return (
-        <div className="overflow-hidden relative">
-            <Meteors number={30} />
-            <div className="flex w-full min-h-screen flex-col px-4 sm:px-12">
-                <div className={cn('w-full max-w-[60rem]', 'mx-auto py-8')}>
-                    <Header />
-                </div>
+        <>
+            <div className="overflow-hidden h-60 absolute top-0 left-0 right-0">
+                <Meteors number={30} />
+            </div>
+            <div className="flex w-full relative min-h-screen flex-col px-4 sm:px-12">
+                <Header />
 
                 <motion.main
                     key={pathname}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1, transition: { delay: 0.15 } }}
-                    className={cn(
-                        'relative flex-grow',
-                        'w-full mx-auto max-w-[50rem]'
-                    )}
+                    className={cn('relative flex-grow', 'w-full mx-auto max-w-[50rem]')}
                 >
                     {children}
                 </motion.main>
 
-                <div className={cn('w-full max-w-[60rem]', 'mx-auto')}>
-                    <Footer />
-                </div>
+                <Footer />
             </div>
-        </div>
+        </>
     );
 }

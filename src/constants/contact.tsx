@@ -12,7 +12,7 @@ const CONTACT = {
         link: 'https://github.com/destroymayor',
         title: '/destroymayor',
         label: 'Github',
-        icon: <Icons.gitHub className="w-6 h-6 fill-black dark:fill-zinc-50" />,
+        icon: <Icons.gitHub className="w-6 h-6" />,
     },
     X: {
         link: 'https://x.com/destroymayor',

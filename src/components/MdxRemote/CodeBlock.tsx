@@ -4,7 +4,6 @@ import { cn } from '@/lib/utils';
 
 export default async function CodeBlock(props: { className?: string; children: any }) {
     const { children, className } = props;
-    console.log(props);
 
     const language = className?.replace(/language-/, '') ?? '';
 
