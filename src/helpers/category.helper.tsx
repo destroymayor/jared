@@ -1,19 +1,19 @@
-import { CSSIcon, JavaScriptIcon, ReactWhiteIcon, GitIcon } from '@/components/Icons';
+import { Icons } from '@/components/icons';
 
 export const SNIPPET_CATEGORIES = [
-    { label: 'CSS', slug: 'css', icon: <CSSIcon /> },
-    { label: 'JavaScript', slug: 'javascript', icon: <JavaScriptIcon /> },
+    { label: 'CSS', slug: 'css', icon: <Icons.css /> },
+    { label: 'JavaScript', slug: 'javascript', icon: <Icons.javascript /> },
     {
         label: 'React Hook',
         slug: 'react-hook',
-        icon: <ReactWhiteIcon className="text-sky-500" />,
+        icon: <Icons.react className="text-sky-500" />,
     },
     {
         label: 'React Component',
         slug: 'react-component',
-        icon: <ReactWhiteIcon className="text-sky-500" />,
+        icon: <Icons.react className="text-sky-500" />,
     },
-    { label: 'Git', slug: 'git', icon: <GitIcon className="text-orange-600" /> },
+    { label: 'Git', slug: 'git', icon: <Icons.git className="text-orange-600" /> },
 ];
 
 export const getCategoryFormatted = (categorySlug: string) => {

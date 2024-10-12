@@ -10,7 +10,7 @@ const data = [
         image: pokemon_explore.src,
         title: 'Pokemon explore',
         description: 'A Pokemon explore allows the user to search Pokemon from pokeapi.',
-        tags: ['next.js', 'zustand', 'Tailwind CSS', 'framer-motion', 'swr', 'pokeapi'],
+        tags: ['Next.js', 'Zustand', 'Tailwind CSS', 'framer-motion', 'SWR', 'pokeapi'],
         release_year: 2022,
         link: {
             repo: 'https://github.com/destroymayor/pokemon-explore',
@@ -22,7 +22,7 @@ const data = [
         title: 'Unsplash Gallery',
         description:
             'A photos gallery app allows the user to search photos from Unsplash.com',
-        tags: ['next.js', 'Tailwind CSS', 'framer-motion', 'Unsplash API'],
+        tags: ['Next.js', 'Tailwind CSS', 'framer-motion', 'Unsplash API'],
         release_year: 2022,
         link: {
             repo: 'https://github.com/destroymayor/unsplash-gallery',
@@ -33,7 +33,7 @@ const data = [
         image: weather_app.src,
         title: 'Weather App',
         description: 'A weather app that shows the current weather in your search.',
-        tags: ['next.js', 'Tailwind CSS', 'swr', 'OpenWeatherMap API'],
+        tags: ['Next.js', 'Tailwind CSS', 'SWR', 'OpenWeatherMap API'],
         release_year: 2022,
         link: {
             repo: 'https://github.com/destroymayor/weather-app',
@@ -45,7 +45,7 @@ const data = [
         title: 'Movie App',
         description:
             'A movie app allows the user to search movies they want to watch from The Movie DB API.',
-        tags: ['next.js', 'Recoil', 'swr', 'Tailwind CSS', 'The Movie DB API'],
+        tags: ['Next.js', 'Recoil', 'SWR', 'Tailwind CSS', 'The Movie DB API'],
         release_year: 2021,
         link: {
             repo: 'https://github.com/destroymayor/movie-app',
@@ -56,7 +56,7 @@ const data = [
         image: memory_card_game.src,
         title: 'Memory Card Game',
         description: 'Test your memory with this memory game.',
-        tags: ['next.js', 'Tailwind CSS'],
+        tags: ['Next.js', 'Tailwind CSS'],
         release_year: 2021,
         link: {
             repo: 'https://github.com/destroymayor/memory-card-game',
@@ -67,7 +67,7 @@ const data = [
         image: image_converter.src,
         title: 'Image Converter',
         description: 'A simple image convert tool',
-        tags: ['next.js', 'Tailwind CSS'],
+        tags: ['Next.js', 'Tailwind CSS'],
         release_year: 2021,
         link: {
             repo: 'https://github.com/destroymayor/image-converter',

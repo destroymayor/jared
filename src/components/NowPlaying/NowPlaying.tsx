@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import PlayingBars from '@/components/NowPlaying/PlayingBars';
-import { SpotifySolidIcon } from '@/components/Icons';
+import { Icons } from '@/components/icons';
 import { cn } from '@/lib/utils';
 
 import Skeleton from './Skeleton';
@@ -34,7 +34,7 @@ const NowPlaying = () => {
                         height={60}
                     />
                 ) : (
-                    <SpotifySolidIcon className="h-7 w-7" />
+                    <Icons.spotify className="h-7 w-7 fill-black dark:fill-zinc-50" />
                 )}
 
                 <div className="flex flex-col items-start justify-center">
