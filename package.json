@@ -11,6 +11,11 @@
     "prepare": "husky install",
     "prettier": "prettier --ignore-path .gitignore --write '**/*.{js,jsx,ts,tsx}'"
   },
+  "pnpm": {
+    "overrides": {
+      "react-is": "$react-is"
+    }
+  },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.1",
     "@radix-ui/react-dialog": "^1.1.2",
@@ -28,9 +33,11 @@
     "next": "15.0.0-rc.0",
     "next-mdx-remote": "^5.0.0",
     "next-themes": "^0.3.0",
-    "react": "19.0.0-rc-512b09b2-20240718",
-    "react-dom": "19.0.0-rc-512b09b2-20240718",
+    "react": "19.0.0-rc-4f604941-20240830",
+    "react-dom": "19.0.0-rc-4f604941-20240830",
+    "react-is": "19.0.0-rc-4f604941-20240830",
     "react-tweet": "^3.2.1",
+    "recharts": "^2.13.0-alpha.4",
     "sharp": "^0.33.5",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7"
