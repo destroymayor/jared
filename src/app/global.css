@@ -30,3 +30,7 @@ html {
     --chart-5: 340 75% 55%;
   }
 }
+
+.shiki {
+  @apply p-6 sm:rounded-lg overflow-auto;
+}
