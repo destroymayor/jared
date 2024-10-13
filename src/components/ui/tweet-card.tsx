@@ -111,7 +111,7 @@ export const TweetHeader = ({ tweet }: { tweet: EnrichedTweet }) => (
           rel="noreferrer"
           className="flex items-center whitespace-nowrap font-semibold"
         >
-          {truncate(tweet.user.name, 20)}
+          <span className="truncate max-w-40 sm:max-w-full">{truncate(tweet.user.name, 20)}</span>
           {tweet.user.verified ||
             (tweet.user.is_blue_verified && (
               <Verified className="ml-1 inline size-4 text-blue-500" />
