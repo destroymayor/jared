@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useTheme } from 'next-themes';
 
 import useKeyPress from '@/hooks/use-key-press.hook';
-import { Command as CommandIcon, Sun, Moon, Monitor } from 'lucide-react';
+import { Command as CommandIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
     CommandDialog,
@@ -14,15 +14,14 @@ import {
     CommandEmpty,
     CommandGroup,
     CommandItem,
-    CommandSeparator,
 } from '@/components/ui/command';
 
 import { COMMAND_TYPE } from './enums';
-import { navigationOption, contactOption } from './constants';
+import { navigationOption, contactOption, themeOption } from './constants';
 
 function Command() {
     const router = useRouter();
-    const { resolvedTheme, setTheme } = useTheme();
+    const { setTheme } = useTheme();
     const [open, setOpen] = useState(false);
 
     useKeyPress('KeyK', () => setOpen((open) => !open));
@@ -43,27 +42,7 @@ function Command() {
         }
     };
 
-    const options = [
-        navigationOption,
-        contactOption,
-        {
-            title: 'Theme',
-            type: COMMAND_TYPE.THEME,
-            children: [
-                {
-                    icon:
-                        resolvedTheme === 'dark' ? <Sun size={20} /> : <Moon size={20} />,
-                    title: `Change Theme to ${resolvedTheme === 'dark' ? 'Light' : 'Dark'}`,
-                    value: resolvedTheme === 'dark' ? 'light' : 'dark',
-                },
-                {
-                    icon: <Monitor size={20} />,
-                    title: `Change Theme to System`,
-                    value: 'system',
-                },
-            ],
-        },
-    ];
+    const options = [navigationOption, contactOption, themeOption];
 
     return (
         <>
@@ -93,12 +72,12 @@ function Command() {
                                         })
                                     }
                                 >
-                                    <span>{child.icon}</span>
+                                    <span className="text-zinc-600 dark:text-zinc-400">
+                                        {child.icon}
+                                    </span>
                                     <span>{child.title}</span>
                                 </CommandItem>
                             ))}
-
-                            <CommandSeparator />
                         </CommandGroup>
                     ))}
                 </CommandList>
