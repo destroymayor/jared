@@ -3,6 +3,7 @@ import './global.css';
 import { Metadata } from 'next';
 import localFont from 'next/font/local';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import { TanstackProvider, ThemeProvider } from '@/lib/providers';
 import Layout from '@/components/Layout';
@@ -18,14 +19,14 @@ export const metadata: Metadata = {
         default: 'Jared Chen',
         template: '%s | Jared Chen',
     },
-    description: 'Jared Chen, a Front-end Developer.',
+    description: `I'm Jared Chen, a Front-end Developer working with React and Next.js who enjoys building great quality and great user experience products.`,
     generator: 'Next.js',
     authors: [{ name: 'Jared Chen' }],
     keywords: ['Next.js', 'React', 'JavaScript'],
     openGraph: {
         type: 'website',
         title: 'Jared Chen',
-        description: 'Jared Chen, a Front-end Developer.',
+        description: `I'm Jared Chen, a Front-end Developer working with React and Next.js who enjoys building great quality and great user experience products.`,
         siteName: 'Jared Chen',
         url: 'https://jared-chen.me',
     },
@@ -84,12 +85,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <main className={sourceCodeProFont.className}>
                     <TanstackProvider>
                         <ThemeProvider>
-                            <Layout>
-                                {children}
-                                <Analytics />
-                            </Layout>
+                            <Layout>{children}</Layout>
                         </ThemeProvider>
                     </TanstackProvider>
+                    <SpeedInsights />
+                    <Analytics />
                 </main>
             </body>
         </html>
