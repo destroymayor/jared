@@ -13,6 +13,8 @@ const avatarSrc = '/images/avatar.webp';
 export default function Header() {
     const { scrollY } = useScroll();
     const headerPadding = useTransform(scrollY, [0, 100], ['32px', '12px']);
+    const headerBlur = useTransform(scrollY, [0, 100], ['blur(0px)', 'blur(36x)']);
+    const headerBg = useTransform(scrollY, [0], ['transparent']);
 
     return (
         <motion.header
@@ -20,9 +22,10 @@ export default function Header() {
                 'w-full',
                 'sticky top-0 z-50 left-0 right-0',
                 'px-4 sm:px-12',
-                'bg-white dark:bg-black/90 backdrop-blur'
             )}
             style={{
+                backdropFilter: headerBlur,
+                backgroundColor: headerBg,
                 paddingTop: headerPadding,
                 paddingBottom: headerPadding,
             }}
@@ -34,7 +37,7 @@ export default function Header() {
                     'mx-auto'
                 )}
             >
-                <div className='flex items-center gap-4'>
+                <div className="flex items-center gap-4">
                     <Link href={'/'}>
                         <Avatar className="w-[60px] h-[60px]">
                             <AvatarImage src={avatarSrc} alt="@jared-chen" />
