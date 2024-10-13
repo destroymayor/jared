@@ -7,7 +7,7 @@ import NowPlaying from '@/components/NowPlaying';
 
 export default function Footer() {
     return (
-        <footer className={cn('w-full max-w-[60rem]', 'mx-auto py-10')}>
+        <footer className={cn('w-full max-w-[60rem]', 'mx-auto py-10 px-4 sm:px-12')}>
             <Separator />
 
             <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-center">
