@@ -38,7 +38,6 @@
     "react-dom": "19.0.0-rc-4f604941-20240830",
     "react-is": "19.0.0-rc-4f604941-20240830",
     "react-tweet": "^3.2.1",
-    "recharts": "^2.13.0-alpha.4",
     "sharp": "^0.33.5",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7"
