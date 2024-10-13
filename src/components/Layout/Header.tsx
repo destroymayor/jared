@@ -13,8 +13,8 @@ const avatarSrc = '/images/avatar.webp';
 export default function Header() {
     const { scrollY } = useScroll();
     const headerPadding = useTransform(scrollY, [0, 100], ['32px', '12px']);
-    const headerBlur = useTransform(scrollY, [0, 100], ['blur(0px)', 'blur(36x)']);
-    const headerBg = useTransform(scrollY, [0], ['transparent']);
+    const headerBlur = useTransform(scrollY, [0, 100], ['blur(0px)', 'blur(36px)']);
+    const headerBg = useTransform(scrollY, [0, 100], ['transparent', 'transparent']);
 
     return (
         <motion.header

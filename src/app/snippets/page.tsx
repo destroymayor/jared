@@ -54,7 +54,7 @@ export default async function Page() {
                         >
                             <div className="min-h-8 min-w-8 pt-2">{languageIcon}</div>
                             <div>
-                                <h2 className="text-lg font-bold group-hover:text-sky-600">
+                                <h2 className="text-lg pb-2 font-bold group-hover:text-sky-600">
                                     {title}
                                 </h2>
                                 <p className="pb-2 text-sm text-zinc-600 dark:text-zinc-400">
