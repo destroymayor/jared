@@ -8,15 +8,13 @@ export async function generateStaticParams() {
     return paths;
 }
 
-export default async function Page({
-    params,
-}: {
-    params: {
-        lang: string;
-        slug: string;
-    };
-}) {
-    const { lang, slug } = params;
+type Params = Promise<{
+    lang: string;
+    slug: string;
+}>;
+
+export default async function Page({ params }: { params: Params }) {
+    const { lang, slug } = await params;
 
     const { content } = await getMDXSource({
         dirPath: `content/snippets/${lang}`,
