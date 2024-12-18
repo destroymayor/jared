@@ -10,32 +10,73 @@ module.exports = {
         './components/**/*.{js,ts,jsx,tsx}',
     ],
     theme: {
-        extend: {
-            colors: {
-                black: '#111111',
-            },
-            fontFamily: {
-                sans: ['Source Code Pro', ...fontFamily.sans],
-            },
-            fontSize: {
-                xl: ['1.25rem', { lineHeight: 1.1 }],
-                '2xl': ['1.5rem', { lineHeight: 1.1 }],
-                '3xl': ['1.875rem', { lineHeight: 1.1 }],
-            },
-            animation: {
-                meteor: 'meteor 5s linear infinite',
-            },
-            keyframes: {
-                meteor: {
-                    '0%': { transform: 'rotate(215deg) translateX(0)', opacity: 1 },
-                    '70%': { opacity: 1 },
-                    '100%': {
-                        transform: 'rotate(215deg) translateX(-500px)',
-                        opacity: 0,
-                    },
-                },
-            },
-        },
+    	extend: {
+    		colors: {
+    			black: '#111111'
+    		},
+    		fontFamily: {
+    			sans: [
+    				'Source Code Pro',
+                    ...fontFamily.sans
+                ]
+    		},
+    		fontSize: {
+    			xl: [
+    				'1.25rem',
+    				{
+    					lineHeight: 1.1
+    				}
+    			],
+    			'2xl': [
+    				'1.5rem',
+    				{
+    					lineHeight: 1.1
+    				}
+    			],
+    			'3xl': [
+    				'1.875rem',
+    				{
+    					lineHeight: 1.1
+    				}
+    			]
+    		},
+    		animation: {
+    			meteor: 'meteor 5s linear infinite',
+    			'accordion-down': 'accordion-down 0.2s ease-out',
+    			'accordion-up': 'accordion-up 0.2s ease-out'
+    		},
+    		keyframes: {
+    			meteor: {
+    				'0%': {
+    					transform: 'rotate(215deg) translateX(0)',
+    					opacity: 1
+    				},
+    				'70%': {
+    					opacity: 1
+    				},
+    				'100%': {
+    					transform: 'rotate(215deg) translateX(-500px)',
+    					opacity: 0
+    				}
+    			},
+    			'accordion-down': {
+    				from: {
+    					height: '0'
+    				},
+    				to: {
+    					height: 'var(--radix-accordion-content-height)'
+    				}
+    			},
+    			'accordion-up': {
+    				from: {
+    					height: 'var(--radix-accordion-content-height)'
+    				},
+    				to: {
+    					height: '0'
+    				}
+    			}
+    		}
+    	}
     },
     plugins: [
         plugin(function ({ addBase }) {

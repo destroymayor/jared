@@ -26,7 +26,7 @@ export default function Layout(props: { children: React.ReactNode }) {
                     animate={{ opacity: 1, transition: { delay: 0.15 } }}
                     className={cn(
                         'relative flex-grow',
-                        'w-full mx-auto max-w-[50rem]',
+                        'w-full mx-auto max-w-[70rem]',
                         'px-4 sm:px-12'
                     )}
                 >
