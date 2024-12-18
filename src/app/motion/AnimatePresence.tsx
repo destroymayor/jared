@@ -1,8 +1,10 @@
-'use client';
+import Sandpack from './Sandpack';
+import { sandpackCode } from './constants';
 
+const code = `
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
+import Button from './Button';
 
 const variants = {
     open: {
@@ -15,15 +17,14 @@ const variants = {
     },
 };
 
-import Layout from './Layout';
-export default function AnimatePresenceExample() {
+export default function App() {
     const [isOpen, setIsOpen] = useState(true);
     return (
-        <Layout>
+        <div className="p-4">
             <Button onClick={() => setIsOpen(!isOpen)}>
                 {isOpen ? 'Close' : 'Open'}
             </Button>
-            <div className="flex gap-10">
+            <div className="flex flex-col gap-10 pt-10">
                 <AnimatePresence>
                     {isOpen && (
                         <motion.div
@@ -49,6 +50,23 @@ export default function AnimatePresenceExample() {
                     </motion.div>
                 )}
             </div>
-        </Layout>
+        </div>
+    )
+}
+`;
+
+export default function AnimatePresenceExample() {
+    return (
+        <div className="flex flex-col gap-4 pb-10">
+            <ul className="list-disc pl-6">
+                <li></li>
+            </ul>
+            <Sandpack
+                files={{
+                    '/App.js': code,
+                    '/Button.js': sandpackCode['/Button.js'],
+                }}
+            />
+        </div>
     );
 }

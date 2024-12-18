@@ -1,10 +1,10 @@
-import { motion } from 'framer-motion';
+import Sandpack from './Sandpack';
 
-import Layout from './Layout';
+const code = `import { motion } from 'framer-motion';
+export default function App() {
 
-export default function Keyframers() {
     return (
-        <Layout>
+        <div className="grid place-items-center h-screen">
             <motion.div
                 className="h-10 w-10 bg-red-500"
                 animate={{
@@ -18,7 +18,23 @@ export default function Keyframers() {
                         repeatType: 'loop',
                     },
                 }}
-            ></motion.div>
-        </Layout>
+            />
+        </div>
+    )
+}
+`;
+
+export default function Keyframers() {
+    return (
+        <div className="flex flex-col gap-4 pb-10">
+            <ul className="list-disc pl-6">
+                <li></li>
+            </ul>
+            <Sandpack
+                files={{
+                    '/App.js': code,
+                }}
+            />
+        </div>
     );
 }
