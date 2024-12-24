@@ -2,10 +2,10 @@ import { codeToHtml } from 'shiki';
 
 import { cn } from '@/lib/utils';
 
-export default async function CodeBlock(props: { className?: string; children: any }) {
-    const { children, className } = props;
+export default async function CodeBlock(props: { className?: string; children: any, lang?: string }) {
+    const { children, className, lang } = props;
 
-    const language = className?.replace(/language-/, '') ?? '';
+    const language = lang ?? className?.replace(/language-/, '') ?? '';
 
     const out = await codeToHtml(children, {
         lang: language,
