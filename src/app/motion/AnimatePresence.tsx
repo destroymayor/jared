@@ -58,9 +58,6 @@ export default function App() {
 export default function AnimatePresenceExample() {
     return (
         <div className="flex flex-col gap-4 pb-10">
-            <ul className="list-disc pl-6">
-                <li></li>
-            </ul>
             <Sandpack
                 files={{
                     '/App.js': code,

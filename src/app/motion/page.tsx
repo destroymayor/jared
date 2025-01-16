@@ -10,8 +10,11 @@ import {
 import Component from './Component';
 import Transition from './Transition';
 import Keyframers from './Keyframers';
+import Gestures from './Gestures';
 import AnimatePresence from './AnimatePresence';
 import MotionValue from './MotionValue';
+import Propagation from './Propagation';
+import Scroll from './Scroll';
 
 const list = [
     {
@@ -30,14 +33,14 @@ const list = [
         component: <Keyframers />,
     },
     {
-        title: '(WIP) 手勢',
-        value: 'gesture',
-        component: null,
+        title: 'Gestures',
+        value: 'gestures',
+        component: <Gestures />,
     },
     {
-        title: '(WIP) Scroll',
+        title: 'Scroll',
         value: 'scroll',
-        component: null,
+        component: <Scroll />,
     },
     {
         title: 'AnimatePresence',
@@ -45,9 +48,9 @@ const list = [
         component: <AnimatePresence />,
     },
     {
-        title: '(WIP)Propagation',
+        title: 'Propagation',
         value: 'propagation',
-        component: null,
+        component: <Propagation />,
     },
     {
         title: 'MotionValue',
@@ -70,7 +73,7 @@ export default function Page() {
                 framer-motion，讓你可以直接在 React component props 中操作動畫。
             </p>
 
-            <div className='border rounded-md px-4'>
+            <div className='px-4'>
                 <Accordion type="multiple" defaultValue={['component']}>
                     {list.map((item) => (
                         <AccordionItem
