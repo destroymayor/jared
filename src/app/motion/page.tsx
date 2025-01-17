@@ -12,7 +12,6 @@ import Transition from './Transition';
 import Keyframers from './Keyframers';
 import Gestures from './Gestures';
 import AnimatePresence from './AnimatePresence';
-import MotionValue from './MotionValue';
 import Propagation from './Propagation';
 import Scroll from './Scroll';
 
@@ -51,16 +50,6 @@ const list = [
         title: 'Propagation',
         value: 'propagation',
         component: <Propagation />,
-    },
-    {
-        title: 'MotionValue',
-        value: 'motionValue',
-        component: <MotionValue />,
-    },
-    {
-        title: '(WIP)hooks',
-        value: 'hooks',
-        component: null,
     },
 ];
 
