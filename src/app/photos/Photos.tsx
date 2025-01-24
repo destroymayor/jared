@@ -1,6 +1,5 @@
 'use client';
 
-import BlurFade from '@/components/ui/blur-fade';
 import { cn } from '@/lib/utils';
 
 import useUnsplashPhotos from './useUnsplashPhotos';
@@ -27,20 +26,19 @@ const Photos = () => {
             )}
         >
             {photos.map((photo, idx) => (
-                <BlurFade key={photo.id} delay={0.25 + idx * 0.05} inView>
-                    <a
-                        className="cursor-pointer"
-                        href={photo.links.html}
-                        target="_blank"
-                    >
-                        <img
-                            id={photo.id}
-                            alt={photo.id}
-                            src={photo.urls.regular}
-                            className="mb-4 size-full rounded-lg object-contain"
-                        />
-                    </a>
-                </BlurFade>
+                <a
+                    key={photo.id}
+                    className="cursor-pointer"
+                    href={photo.links.html}
+                    target="_blank"
+                >
+                    <img
+                        id={photo.id}
+                        alt={photo.id}
+                        src={photo.urls.regular}
+                        className="mb-4 size-full rounded-lg object-contain"
+                    />
+                </a>
             ))}
         </div>
     );

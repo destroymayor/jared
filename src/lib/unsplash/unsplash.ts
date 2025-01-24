@@ -6,7 +6,7 @@ const UNSPLASH_ENDPOINT = 'https://api.unsplash.com/users/destroymayor';
 export const getUnsplashPhotos = async () => {
     const params = new URLSearchParams();
     params.set('client_id', unsplash_access_key ?? '');
-    params.set('order_by', 'popular');
+    params.set('order_by', 'views');
     params.set('per_page', '30');
 
     const request = await fetch(`${UNSPLASH_ENDPOINT}/photos?${params}`, {

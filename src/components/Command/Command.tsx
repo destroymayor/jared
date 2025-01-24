@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useTheme } from 'next-themes';
 
-import useKeyPress from '@/hooks/use-key-press.hook';
 import { Command as CommandIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
@@ -23,8 +22,6 @@ function Command() {
     const router = useRouter();
     const { setTheme } = useTheme();
     const [open, setOpen] = useState(false);
-
-    useKeyPress('KeyK', () => setOpen((open) => !open));
 
     const handleItemSelect = (params: { type: COMMAND_TYPE; value: string }) => {
         setOpen(false);
