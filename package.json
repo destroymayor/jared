@@ -11,6 +11,9 @@
     "prepare": "husky install",
     "prettier": "prettier --ignore-path .gitignore --write '**/*.{js,jsx,ts,tsx}'"
   },
+  "engines": {
+    "node": ">=20"
+  },
   "pnpm": {
     "overrides": {
       "react-is": "^19.0.0-rc-69d4b800-20241021"
