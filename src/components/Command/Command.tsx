@@ -47,7 +47,7 @@ function Command() {
                 size="icon"
                 variant="ghost"
                 onClick={() => setOpen(true)}
-                className="flex h-10 w-10 items-center justify-center rounded-lg ring-zinc-400 transition duration-200 ease-in-out hover:ring-2 focus:outline-none dark:hover:ring-zinc-600 dark:hover:bg-black"
+                className="flex h-10 w-10 items-center justify-center rounded-lg ring-zinc-400 transition duration-200 ease-in-out hover:ring-2 focus:outline-hidden dark:hover:ring-zinc-600 dark:hover:bg-black"
                 aria-label="Command palette"
             >
                 <CommandIcon />

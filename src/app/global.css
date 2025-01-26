@@ -1,14 +1,19 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@custom-variant dark (&:where(.dark, .dark *));
 
-* {
-  -webkit-font-smoothing: antialiased;
-  --webkit-overflow-scrolling: touch;
-}
+@layer utilities {
+  * {
+    -webkit-font-smoothing: antialiased;
+    --webkit-overflow-scrolling: touch;
+  }
 
-html {
-  scroll-behavior: smooth;
+  html {
+    scroll-behavior: smooth;
+  }
+
+  p {
+    max-width: 80ch;
+  }
 }
 
 @layer base {
@@ -31,4 +36,8 @@ html {
 
 .shiki {
   @apply p-6 sm:rounded-lg overflow-auto;
+}
+
+@theme {
+  --color-black: #222222;
 }

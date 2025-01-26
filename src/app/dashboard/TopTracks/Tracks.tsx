@@ -39,7 +39,7 @@ const Tracks = () => {
                                 width={60}
                                 height={60}
                             />
-                            <div className="flex w-3/5 flex-grow flex-col md:w-full">
+                            <div className="flex w-3/5 grow flex-col md:w-full">
                                 <div className="truncate font-medium md:overflow-clip">
                                     {title}
                                 </div>

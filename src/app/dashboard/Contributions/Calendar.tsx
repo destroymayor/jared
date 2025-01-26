@@ -88,7 +88,7 @@ const Calendar = () => {
                                             transition: { delay: getRandomDelayAnimate },
                                         }}
                                         style={{ backgroundColor }}
-                                        className="my-[2px] block h-[10px] w-[10px] rounded-sm bg-zinc-300 dark:bg-zinc-800"
+                                        className="my-[2px] block h-[10px] w-[10px] rounded-xs bg-zinc-300 dark:bg-zinc-800"
                                         onMouseEnter={() =>
                                             handleSelectContribution({
                                                 count: contribution.contributionCount,
@@ -113,7 +113,7 @@ const Calendar = () => {
                 <div className="flex items-center gap-2 text-sm">
                     <span className="dark:text-zinc-400">Less</span>
                     <ul className="flex gap-1">
-                        <motion.li className="h-[10px] w-[10px] rounded-sm bg-zinc-300 dark:bg-zinc-800" />
+                        <motion.li className="h-[10px] w-[10px] rounded-xs bg-zinc-300 dark:bg-zinc-800" />
                         {colors?.map((color, colorIndex) => (
                             <motion.li
                                 key={color}
@@ -123,7 +123,7 @@ const Calendar = () => {
                                     transition: { delay: colorIndex * 0.3 },
                                     backgroundColor: color,
                                 }}
-                                className="h-[10px] w-[10px] rounded-sm"
+                                className="h-[10px] w-[10px] rounded-xs"
                             />
                         ))}
                     </ul>
@@ -133,7 +133,7 @@ const Calendar = () => {
                 <div
                     className={cn(
                         selectContribution.date ? 'opacity-100' : 'opacity-0',
-                        'rounded bg-zinc-200 px-2 text-sm dark:bg-zinc-800'
+                        'rounded-sm bg-zinc-200 px-2 text-sm dark:bg-zinc-800'
                     )}
                 >
                     {selectContribution.count} contributions on {selectContribution.date}

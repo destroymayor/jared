@@ -20,7 +20,7 @@ export default function DesktopNav() {
                                 className={cn(
                                     'flex items-center p-2',
                                     tab.pathname === pathname
-                                        ? 'bg-gradient-to-r from-sky-500 to-sky-700 bg-clip-text text-transparent'
+                                        ? 'bg-linear-to-r from-sky-500 to-sky-700 bg-clip-text text-transparent'
                                         : 'text-zinc-700 hover:text-zinc-700 dark:text-white dark:hover:text-white'
                                 )}
                             >
