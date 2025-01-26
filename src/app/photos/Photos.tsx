@@ -3,18 +3,9 @@
 import { cn } from '@/lib/utils';
 
 import useUnsplashPhotos from './useUnsplashPhotos';
-import Skeleton from './Skeleton';
-
+import BlurredImage from './BlurredImage';
 const Photos = () => {
-    const { data: photos, isLoading } = useUnsplashPhotos();
-
-    if (isLoading) {
-        return <Skeleton />;
-    }
-
-    if (!photos) {
-        return <div>No photos found</div>;
-    }
+    const { data: photos = [] } = useUnsplashPhotos();
 
     return (
         <div
@@ -25,18 +16,20 @@ const Photos = () => {
                 '-ml-[49vw] -mr-[50vw] pt-4 sm:px-2'
             )}
         >
-            {photos.map((photo, idx) => (
+            {photos?.map((photo, idx) => (
                 <a
                     key={photo.id}
                     className="cursor-pointer"
                     href={photo.links.html}
                     target="_blank"
                 >
-                    <img
-                        id={photo.id}
-                        alt={photo.id}
+                    <BlurredImage
                         src={photo.urls.regular}
+                        alt={photo.id}
                         className="mb-4 size-full rounded-lg object-contain"
+                        style={{ objectFit: 'contain' }}
+                        width={200}
+                        height={200}
                     />
                 </a>
             ))}
