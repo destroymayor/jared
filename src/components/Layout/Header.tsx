@@ -18,11 +18,7 @@ export default function Header() {
 
     return (
         <motion.header
-            className={cn(
-                'w-full',
-                'sticky top-0 z-50 left-0 right-0',
-                'px-4 sm:px-12',
-            )}
+            className={cn('w-full', 'sticky left-0 right-0 top-0 z-50', 'px-4 sm:px-12')}
             style={{
                 backdropFilter: headerBlur,
                 backgroundColor: headerBg,
@@ -37,17 +33,17 @@ export default function Header() {
                     'mx-auto'
                 )}
             >
-                <div className="flex items-center gap-4">
-                    <Link href={'/'}>
-                        <Avatar className="w-[60px] h-[60px]">
+                <Link href={'/'}>
+                    <div className="rounded-full border border-zinc-300 p-1 dark:border-zinc-700">
+                        <Avatar className="h-[50px] w-[50px]">
                             <AvatarImage src={avatarSrc} alt="@jared-chen" />
                             <AvatarFallback>Jared</AvatarFallback>
                         </Avatar>
-                    </Link>
-                    <DesktopNav />
-                </div>
+                    </div>
+                </Link>
 
                 <div className="flex items-center gap-2">
+                    <DesktopNav />
                     <ThemeToggle />
                     <Command />
                 </div>
