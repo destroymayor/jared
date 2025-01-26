@@ -6,6 +6,7 @@
 - Deployment: [Vercel](https://vercel.com/)
 - Content: [MDX](https://github.com/mdx-js/mdx)
 - Styling: [Tailwind CSS](https://tailwindcss.com/)
+- Components: [shadcn/ui](https://ui.shadcn.com/)
 
 ## Running Locally
 
