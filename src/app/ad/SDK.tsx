@@ -2,36 +2,6 @@
 
 import Script from 'next/script';
 
-const safeFrameConfig = {
-    allowOverlayExpansion: true,
-    allowPushExpansion: true,
-};
-
-const viewId = String(Date.now());
-
-const SLOT_FIXED_LIST = [
-    {
-        unit: '/23212980789/brand_unit',
-        class: 'post-bottom-container',
-        size: [620, 238],
-    },
-    {
-        unit: '/23212980789/brand_unit',
-        class: 'below-search-container',
-        size: [386, 521],
-    },
-    {
-        unit: '/23212980789/brand_unit',
-        class: 'panel-top-container',
-        size: [386, 356],
-    },
-    {
-        unit: '/23212980789/brand_unit',
-        class: 'post-inside-container',
-        size: [726, 150],
-    },
-];
-
 const SDK = () => {
 
     const loadGoogleTagService = () => {
@@ -40,20 +10,20 @@ const SDK = () => {
         const googletag = (window as any).googletag;
 
         googletag.cmd.push(function () {
-            googletag.pubads().setForceSafeFrame(true);
+            googletag
+                .defineSlot('/23212980789/brand_unit', [386, 521], 'listing_square')
+                .setTargeting('keywords', ['關鍵字1', '關鍵字2'])
+                .addService(googletag.pubads());
+            googletag
+                .defineSlot('/23212980789/brand_unit', [386, 356], 'brand_square')
+                .setTargeting('keywords', ['關鍵字1', '關鍵字2'])
+                .addService(googletag.pubads());
 
-            SLOT_FIXED_LIST.forEach((slot) => {
-                const containers = document.getElementsByClassName(slot.class);
-                Array.from(containers).forEach((container, containerIndex) => {
-                    const uniqueId = slot.class + '-' + containerIndex;
-                    container.id = uniqueId;
+            googletag
+                .defineSlot('/23212980789/brand_unit', [726, 150], 'brand_rectangle')
+                .setTargeting('keywords', ['關鍵字1', '關鍵字2'])
+                .addService(googletag.pubads());
 
-                    googletag
-                        .defineSlot(slot.unit, slot.size, uniqueId)
-                        .setForceSafeFrame(true)
-                        .addService(googletag.pubads());
-                });
-            });
 
             googletag.pubads().addEventListener('slotRenderEnded', (event: any) => {
                 const slotId = event.slot.getSlotElementId();
@@ -66,32 +36,10 @@ const SDK = () => {
                     safeframe?.contentWindow?.postMessage(
                         {
                             type: 'pinkoi-gam-config',
-                            selector: 'ins[data-pinkoi-gam-client="data-pinkoi-gam"]',
-                            viewId,
-                            containerId: slotId,
-                            href: window.location.href,
-                            mb: '20250114r9HXY6C5Zh',
                         },
                         '*'
                     );
                 };
-
-                window.addEventListener('message', function (event) {
-                    if (
-                        event.data.type === 'pinkoi-gam-layout-change' &&
-                        event.data.container_id === slotId
-                    ) {
-                        safeframe.style.display = 'block';
-                        safeframe.style.width = '100%';
-                        safeframe.style.height = `${event.data.dimension.height}px`;
-                        safeframe.height = `${event.data.dimension.height}px`;
-
-                        slotContainer.children[0].style.width = '100%';
-                        slotContainer.children[0].style.height = `${event.data.dimension.height}px`;
-                    }
-                });
-
-                event.slot.setSafeFrameConfig(safeFrameConfig);
             });
 
             googletag.pubads().enableSingleRequest();
