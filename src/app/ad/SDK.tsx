@@ -24,24 +24,6 @@ const SDK = () => {
                 .setTargeting('keywords', ['關鍵字1', '關鍵字2'])
                 .addService(googletag.pubads());
 
-
-            googletag.pubads().addEventListener('slotRenderEnded', (event: any) => {
-                const slotId = event.slot.getSlotElementId();
-                const slotContainer = document.getElementById(slotId);
-                const safeframe = slotContainer?.querySelector(
-                    'iframe[id^="google_ads_iframe"]'
-                ) as HTMLIFrameElement;
-
-                safeframe.onload = () => {
-                    safeframe?.contentWindow?.postMessage(
-                        {
-                            type: 'pinkoi-gam-config',
-                        },
-                        '*'
-                    );
-                };
-            });
-
             googletag.pubads().enableSingleRequest();
             googletag.enableServices();
             googletag.pubads().refresh();
@@ -61,11 +43,3 @@ const SDK = () => {
 };
 
 export default SDK;
-
-
-{/* <h4 style="font-size:18px; font-weight: bold; text-align:left; margin-bottom:20px;">探索更多在 Pinkoi 平台上相關的商品</h4>
-<ins
- data-pinkoi-zine-promoted-client="data-pinkoi-zine-promoted"
- data-pinkoi-zine-promoted-type="listing_rectangle"
- data-pinkoi-zine-promoted-section="post_bottom"
-/> */}
