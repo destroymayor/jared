@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 
 import useContributions from './useContributions';
 import { CalendarSkeleton } from './Skeleton';

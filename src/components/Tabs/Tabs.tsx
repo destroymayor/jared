@@ -2,7 +2,7 @@
 
 import { createContext, useState, useRef } from 'react';
 
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { cn } from '@/lib/utils';
 
 import { directionType } from './constants';

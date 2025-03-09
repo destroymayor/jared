@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 import { cn } from '@/lib/utils';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'motion/react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import Command from '@/components/Command';
 

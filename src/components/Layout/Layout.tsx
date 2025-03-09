@@ -2,7 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 
 import Header from '@/components/Layout/Header';
 import Footer from '@/components/Layout/Footer';

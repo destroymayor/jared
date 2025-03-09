@@ -1,20 +1,6 @@
 @import 'tailwindcss';
 @custom-variant dark (&:where(.dark, .dark *));
-
-@layer utilities {
-  * {
-    -webkit-font-smoothing: antialiased;
-    --webkit-overflow-scrolling: touch;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  p {
-    max-width: 80ch;
-  }
-}
+@plugin "tailwindcss-animate";
 
 @layer base {
   :root {
@@ -32,12 +18,25 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
-}
 
-.shiki {
-  @apply p-6 sm:rounded-lg overflow-auto;
+  * {
+    -webkit-font-smoothing: antialiased;
+    --webkit-overflow-scrolling: touch;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  p {
+    max-width: 80ch;
+  }
 }
 
 @theme {
   --color-black: #222222;
+}
+
+.shiki {
+  @apply p-6 sm:rounded-lg overflow-auto;
 }
