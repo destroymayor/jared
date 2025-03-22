@@ -17,7 +17,7 @@ export default function ThemeToggle() {
 
     if (!hasMounted) {
         return (
-            <Skeleton className="h-10 w-10 rounded-xl bg-zinc-300 text-transparent dark:bg-zinc-800" />
+            <Skeleton className="size-6 rounded-xl bg-zinc-300 text-transparent dark:bg-zinc-800" />
         );
     }
 
@@ -25,11 +25,11 @@ export default function ThemeToggle() {
         <Button
             variant="ghost"
             size="icon"
-            className="rounded-lg ring-zinc-400 transition duration-200 ease-in-out hover:ring-2 focus:outline-hidden dark:hover:bg-black dark:hover:ring-zinc-600"
+            className="flex rounded-lg ring-zinc-400 transition duration-200 ease-in-out hover:ring-2 focus:outline-hidden dark:hover:bg-black dark:hover:ring-zinc-600"
             aria-label={`Activate ${isDarkTheme ? 'light' : 'dark'} mode`}
             onClick={toggleTheme}
         >
-            <span className="h-6 w-6">{isDarkTheme ? <Sun /> : <Moon />}</span>
+            {isDarkTheme ? <Sun className="size-6" /> : <Moon className="size-6" />}
         </Button>
     );
 }
