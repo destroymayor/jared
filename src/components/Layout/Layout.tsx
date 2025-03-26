@@ -3,8 +3,6 @@
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { motion } from 'motion/react';
-
-import Header from '@/components/Layout/Header';
 import Footer from '@/components/Layout/Footer';
 
 export default function Layout(props: { children: React.ReactNode }) {
@@ -12,9 +10,7 @@ export default function Layout(props: { children: React.ReactNode }) {
     const pathname = usePathname();
 
     return (
-        <div className="relative flex min-h-screen w-full flex-col">
-            <Header />
-
+        <div className="flex min-h-screen w-full flex-col">
             <motion.main
                 key={pathname}
                 initial={{ opacity: 0 }}

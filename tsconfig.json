@@ -12,9 +12,15 @@
     /* Resolve path */
     "baseUrl": ".",
     "paths": {
-        "@/*": ["./src/*"],
-        "@/public/*": ["public/*"],
-        "@/contents/*": ["contents/*"]
+      "@/*": [
+        "./src/*"
+      ],
+      "@/public/*": [
+        "public/*"
+      ],
+      "@/contents/*": [
+        "contents/*"
+      ]
     },
     /* linting */
     "strict": true,
@@ -37,9 +43,9 @@
     ]
   },
   "include": [
-    "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
+    "next-env.d.ts",
     ".next/types/**/*.ts"
   ],
   "exclude": [
