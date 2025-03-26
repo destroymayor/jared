@@ -1,49 +1,104 @@
 import Link from 'next/link';
 
-import { cn } from '@/lib/utils';
-import contactData from '@/constants/contact';
+const avatarSrc = '/images/avatar.webp';
 import { Separator } from '@/components/ui/separator';
-import NowPlaying from '@/components/NowPlaying';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Dock, DockIcon, DockItem, DockLabel } from '@/components/ui/dock';
+import { Icons } from '@/components/icons';
+import useNowPlaying from '@/components/NowPlaying/useNowPlaying';
+import PlayingBars from '@/components/NowPlaying/PlayingBars';
+import ThemeToggle from './ThemeToggle';
+
+import ROUTES from '@/constants/routes';
+import {CONTACT} from '@/constants/contact';
+
+const NAV_ROUTES = [
+    {
+        title: ROUTES.HOME.title,
+        href: ROUTES.HOME.pathname,
+        icon: <Avatar className='h-full w-full min-w-6 min-h-6'>
+                <AvatarImage src={avatarSrc} alt="@jared-chen" />
+                <AvatarFallback>Jared</AvatarFallback>
+            </Avatar>
+    },
+    {
+        title: ROUTES.DASHBOARD.title,
+        href: ROUTES.DASHBOARD.pathname,
+        icon: ROUTES.DASHBOARD.icon
+    },
+    {
+        title: ROUTES.PROJECTS.title,
+        href: ROUTES.PROJECTS.pathname,
+        icon: ROUTES.PROJECTS.icon
+    },
+    {
+        title: ROUTES.PHOTOS.title,
+        href: ROUTES.PHOTOS.pathname,
+        icon: ROUTES.PHOTOS.icon
+    },
+];
+
+const CONTACT_ROUTES = [
+    {
+        title: CONTACT.GITHUB.label,
+        href: CONTACT.GITHUB.link,
+        icon: CONTACT.GITHUB.icon
+    },
+    {
+        title: CONTACT.X.label,
+        href: CONTACT.X.link,
+        icon: CONTACT.X.icon
+    },
+];
 
 export default function Footer() {
+    const { data: nowPlaying } = useNowPlaying();
+
+
+    const ACTIVITY_ROUTES = [
+        {
+            title: nowPlaying?.isPlaying ? nowPlaying.title : 'Not Playing',
+            href: '#',
+            icon: nowPlaying?.isPlaying ? <PlayingBars /> : <Icons.spotify className="w-full h-full" />
+        },
+        {
+            title: 'Theme',
+            href: '#',
+            icon: <div><ThemeToggle /></div>
+        }
+    ];
+
     return (
-        <footer className={cn('w-full max-w-[60rem]', 'mx-auto py-10 px-4 sm:px-12')}>
-            <Separator className="my-6" />
-
-            <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-center">
-                <NowPlaying />
-
-                <div className="flex flex-col gap-2">
-                    <ul className="flex items-center sm:justify-end gap-4">
-                        {contactData.map((contact) => (
-                            <li key={contact.title}>
-                                <Link
-                                    href={contact.link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    {contact.icon}
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
-                    <Link
-                        href="https://github.com/destroymayor"
-                        className={cn(
-                            'flex items-center gap-2 text-sm',
-                            'transition duration-300 ease-in-out',
-                            'dark:text-zinc-400 dark:hover:text-zinc-100'
-                        )}
-                    >
-                        <span>
-                            Jared Chen
-                            <span className="text-zinc-400 dark:text-zinc-500">,</span>
-                        </span>
-                        <span className="text-xl">©</span>
-                        <span>{new Date().getFullYear()}</span>
+        <footer className='fixed bottom-4 left-1/2 max-w-full -translate-x-1/2'>
+            <Dock className='items-end py-3 gap-2 rounded-full border border-zinc-100 dark:border-zinc-800'>
+                {NAV_ROUTES.map((route) => (
+                    <Link href={route.href} key={route.href}>
+                        <DockItem className='aspect-square rounded-full bg-zinc-200 dark:bg-zinc-800'>
+                            <DockLabel>{route.title}</DockLabel>
+                            <DockIcon>{route.icon}</DockIcon>
+                        </DockItem>
                     </Link>
-                </div>
-            </div>
+                ))}
+                <Separator orientation='vertical' />
+
+                {CONTACT_ROUTES.map((route) => (
+                    <Link href={route.href} key={route.href} target='_blank' rel='noopener noreferrer'>
+                        <DockItem className='aspect-square rounded-full bg-zinc-200 dark:bg-zinc-800'>
+                            <DockLabel>{route.title}</DockLabel>
+                            <DockIcon>{route.icon}</DockIcon>
+                        </DockItem>
+                    </Link>
+                ))}
+
+                <Separator orientation='vertical' />
+
+                {ACTIVITY_ROUTES.map((route) => (
+                    <DockItem key={route.title} className='aspect-square rounded-full cursor-pointer bg-zinc-200 dark:bg-zinc-800'>
+                        <DockLabel>{route.title}</DockLabel>
+                        <DockIcon>{route.icon}</DockIcon>
+                    </DockItem>
+                ))}
+            </Dock>
         </footer>
     );
 }

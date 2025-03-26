@@ -23,9 +23,9 @@ export default function ThemeToggle() {
 
     return (
         <Button
-            variant="ghost"
+            variant='link'
             size="icon"
-            className="flex rounded-lg ring-zinc-400 transition duration-200 ease-in-out hover:ring-2 focus:outline-hidden dark:hover:bg-black dark:hover:ring-zinc-600"
+            className="rounded-lg focus:outline-hidden cursor-pointer"
             aria-label={`Activate ${isDarkTheme ? 'light' : 'dark'} mode`}
             onClick={toggleTheme}
         >
