@@ -1,11 +1,8 @@
 'use client';
 
-import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useTheme } from 'next-themes';
 
-import { Command as CommandIcon } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import {
     CommandDialog,
     CommandInput,
@@ -18,13 +15,13 @@ import {
 import { COMMAND_TYPE } from './enums';
 import { navigationOption, contactOption, themeOption } from './constants';
 
-function Command() {
+function Command(props: { open: boolean, onChange: (open: boolean) => void }) {
+    const { open, onChange } = props;
     const router = useRouter();
     const { setTheme } = useTheme();
-    const [open, setOpen] = useState(false);
 
     const handleItemSelect = (params: { type: COMMAND_TYPE; value: string }) => {
-        setOpen(false);
+        onChange(false);
 
         switch (params.type) {
             case COMMAND_TYPE.NAVIGATION:
@@ -42,44 +39,33 @@ function Command() {
     const options = [navigationOption, contactOption, themeOption];
 
     return (
-        <>
-            <Button
-                size="icon"
-                variant="ghost"
-                onClick={() => setOpen(true)}
-                className="flex items-center justify-center rounded-lg ring-zinc-400 transition duration-200 ease-in-out hover:ring-2 focus:outline-hidden dark:hover:ring-zinc-600 dark:hover:bg-black"
-                aria-label="Command palette"
-            >
-                <CommandIcon className="size-6" />
-            </Button>
-            <CommandDialog open={open} onOpenChange={setOpen}>
-                <CommandInput placeholder="Search or jump to..." />
-                <CommandList>
-                    <CommandEmpty>No results found.</CommandEmpty>
-                    {options.map((option) => (
-                        <CommandGroup key={option.title} heading={option.title}>
-                            {option.children.map((child) => (
-                                <CommandItem
-                                    key={child.title}
-                                    className="flex items-start gap-2 dark:text-zinc-300"
-                                    onSelect={() =>
-                                        handleItemSelect({
-                                            type: option.type,
-                                            value: child.value,
-                                        })
-                                    }
-                                >
-                                    <span className="text-zinc-600 dark:text-zinc-400">
-                                        {child.icon}
-                                    </span>
-                                    <span>{child.title}</span>
-                                </CommandItem>
-                            ))}
-                        </CommandGroup>
-                    ))}
-                </CommandList>
-            </CommandDialog>
-        </>
+        <CommandDialog open={open} onOpenChange={onChange}>
+            <CommandInput placeholder="Search or jump to..." />
+            <CommandList>
+                <CommandEmpty>No results found.</CommandEmpty>
+                {options.map((option) => (
+                    <CommandGroup key={option.title} heading={option.title}>
+                        {option.children.map((child) => (
+                            <CommandItem
+                                key={child.title}
+                                className="flex items-start gap-2 dark:text-zinc-300"
+                                onSelect={() =>
+                                    handleItemSelect({
+                                        type: option.type,
+                                        value: child.value,
+                                    })
+                                }
+                            >
+                                <span className="text-zinc-600 dark:text-zinc-400">
+                                    {child.icon}
+                                </span>
+                                <span>{child.title}</span>
+                            </CommandItem>
+                        ))}
+                    </CommandGroup>
+                ))}
+            </CommandList>
+        </CommandDialog>
     );
 }
 

@@ -58,7 +58,7 @@ export default function PlayingBars() {
                     key={`${index}`}
                     animate={bar.animate}
                     transition={bar.transition}
-                    className="h-2 w-[2px] bg-green-500 dark:bg-green-600"
+                    className="h-3 w-[4px] bg-green-500 dark:bg-green-600"
                 />
             ))}
         </div>

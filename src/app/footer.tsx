@@ -2,13 +2,18 @@
 
 import Link from 'next/link';
 
+import { motion } from 'motion/react';
 import useWindowSize from '@/hooks/use-window-size.hook';
 
 export default function Footer() {
     const { width, height } = useWindowSize();
 
     return (
-        <div className="text-zinc-400 dark:text-zinc-500">
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, transition: { delay: 0.15 } }}
+            className="text-zinc-400 dark:text-zinc-500 invisible md:visible"
+        >
             <div className='fixed bottom-4 left-4 text-sm'>{width}x{height}</div>
             <Link
                 href="https://github.com/destroymayor"
@@ -21,6 +26,6 @@ export default function Footer() {
                 <span className="text-xl">©</span>
                 <span>{new Date().getFullYear()}</span>
             </Link>
-        </div>
+        </motion.div>
     )
 }
