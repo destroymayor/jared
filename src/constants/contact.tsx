@@ -5,7 +5,7 @@ export const CONTACT = {
     MAIL: {
         link: 'mailto:kuil5230@gmail.com',
         title: 'kuil5230@gmail.com',
-        label: 'Gmail',
+        label: 'Mail',
         icon: <Mail className="h-full w-full text-zinc-600 dark:text-zinc-300" />,
     },
     GITHUB: {

@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     metadataBase: new URL('https://jared-chen.me'),
     title: {
         default: 'Jared Chen',
-        template: '%s | Jared Chen',
+        template: '%s',
     },
     description: `I'm Jared Chen, a Front-end Developer working with React and Next.js who enjoys building great quality and great user experience products.`,
     generator: 'Next.js',

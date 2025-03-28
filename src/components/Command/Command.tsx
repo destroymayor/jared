@@ -48,7 +48,7 @@ function Command(props: { open: boolean, onChange: (open: boolean) => void }) {
                         {option.children.map((child) => (
                             <CommandItem
                                 key={child.title}
-                                className="flex items-start gap-2 dark:text-zinc-300"
+                                className="flex items-center gap-2 dark:text-zinc-300"
                                 onSelect={() =>
                                     handleItemSelect({
                                         type: option.type,

@@ -5,7 +5,6 @@ import { usePathname } from 'next/navigation';
 import { motion } from 'motion/react';
 import { cn } from '@/lib/utils';
 const avatarSrc = '/images/avatar.webp';
-import { Separator } from '@/components/ui/separator';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Dock, DockIcon, DockItem, DockLabel } from '@/components/ui/dock';
 import { Icons } from '@/components/icons';
@@ -133,16 +132,20 @@ export default function Footer() {
                                 <DockIcon>{route.icon}</DockIcon>
                             </DockItem>
                             <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{
+                                    opacity: isActive ? 1 : 0,
+                                    transition: { delay: 0.2 },
+                                }}
                                 className={cn(
                                     'absolute bottom-[-8px] left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-zinc-200 dark:bg-zinc-700',
-                                    isActive ? 'visible' : 'invisible'
                                 )}
                             />
                         </MotionLink>
                     );
                 })}
 
-                <Separator orientation="vertical" />
+                <hr className="h-full w-[1px] border-0 bg-zinc-300 opacity-100 [mask-image:linear-gradient(0deg,transparent,rgb(255,255,255)16px,rgb(255,255,255)calc(100%-16px),transparent)] dark:bg-zinc-600"></hr>
 
                 {CONTACT_ROUTES.map((route) => (
                     <MotionLink
@@ -159,7 +162,7 @@ export default function Footer() {
                     </MotionLink>
                 ))}
 
-                <Separator orientation="vertical" />
+                <hr className="h-full w-[1px] border-0 bg-zinc-300 opacity-100 [mask-image:linear-gradient(0deg,transparent,rgb(255,255,255)16px,rgb(255,255,255)calc(100%-16px),transparent)] dark:bg-zinc-600"></hr>
 
                 {ACTIVITY_ROUTES.map((route) => (
                     <MotionLink
