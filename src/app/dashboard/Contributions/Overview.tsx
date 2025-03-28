@@ -3,13 +3,22 @@
 import NumberTicker from '@/components/ui/number-ticker';
 import useContributions from './useContributions';
 
-import { OverviewSkeleton } from './Skeleton';
+import { Skeleton } from '@/components/ui/skeleton';
 
 const Overview = () => {
     const { isLoading, data } = useContributions();
 
     if (isLoading) {
-        return <OverviewSkeleton />;
+        return (
+            <div className="grid grid-cols-2 gap-2 md:grid-cols-4">
+                {[...Array(4).keys()].map((item) => (
+                    <Skeleton
+                        key={item}
+                        className="h-[68px] rounded-xl bg-zinc-300 text-transparent dark:bg-zinc-800"
+                    />
+                ))}
+            </div>
+        );
     }
 
     if (!data) {
@@ -57,7 +66,7 @@ const Overview = () => {
     ];
 
     return (
-        <div className="grid grid-cols-2 gap-2 py-2 md:grid-cols-4">
+        <div className="h-[68px] grid grid-cols-2 gap-2 md:grid-cols-4">
             {overviews.map((item) => (
                 <div
                     key={item.title}

@@ -3,7 +3,8 @@
 import { Eye, ArrowDownToLine } from 'lucide-react'
 import { Icons } from '@/components/icons';
 import useUnsplashStatistics from './useUnsplashStatistics';
-import StatisticsChart from './StatisticsChart';
+import BarChart from './BarChart';
+import LineChart from './LineChart';
 
 const UnsplashStatistics = () => {
     const { data, isLoading } = useUnsplashStatistics();
@@ -27,7 +28,7 @@ const UnsplashStatistics = () => {
             <p className="dark:text-zinc-400">{`My statistics in Unsplash.`}</p>
 
             <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-                <StatisticsChart
+                <BarChart
                     loading={isLoading}
                     title="Total views"
                     icon={<Eye className="h-4 w-4" />}
@@ -35,7 +36,7 @@ const UnsplashStatistics = () => {
                     total={total}
                     change={increaseLastMonthPercentage}
                 />
-                <StatisticsChart
+                <LineChart
                     loading={isLoading}
                     title="Total downloads"
                     icon={<ArrowDownToLine className="h-4 w-4" />}

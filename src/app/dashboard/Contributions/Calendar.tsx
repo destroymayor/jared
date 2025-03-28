@@ -3,10 +3,11 @@
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
 import { motion } from 'motion/react';
+import { Skeleton } from '@/components/ui/skeleton';
 
 import useContributions from './useContributions';
-import { CalendarSkeleton } from './Skeleton';
-type selectContributionType = {
+
+type SelectContributionType = {
     count: number | null;
     date: string | null;
 };
@@ -14,14 +15,18 @@ type selectContributionType = {
 const Calendar = () => {
     const { data, isLoading } = useContributions();
 
-    const [selectContribution, setSelectContribution] = useState<selectContributionType>({
+    const [selectContribution, setSelectContribution] = useState<SelectContributionType>({
         count: null,
         date: null,
-    });
-
+    })
 
     if (isLoading) {
-        return <CalendarSkeleton />;
+        return (
+            <>
+                <Skeleton className="h-[104px] rounded-md bg-zinc-300 dark:bg-zinc-800"></Skeleton>
+                <Skeleton className="h-5 w-1/3 rounded-md bg-zinc-300 p-2 dark:bg-zinc-800" />
+            </>
+        );
     }
 
     const contributionCalendar = data?.contributionsCollection.contributionCalendar;
@@ -29,7 +34,7 @@ const Calendar = () => {
     const weeks = contributionCalendar?.weeks;
     const months = contributionCalendar?.months;
 
-    const handleSelectContribution = (data: selectContributionType) => {
+    const handleSelectContribution = (data: SelectContributionType) => {
         const { count, date } = data;
         setSelectContribution({ count, date });
     };

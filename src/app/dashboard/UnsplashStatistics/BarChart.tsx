@@ -4,12 +4,12 @@ import NumberTicker from '@/components/ui/number-ticker';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ChartConfig, ChartContainer } from '@/components/ui/chart';
 import { Skeleton } from '@/components/ui/skeleton';
-import { Line, LineChart } from 'recharts';
+import { BarChart as BarChartRecharts, Bar } from 'recharts';
 
 const chartConfig = {
     value: {
         label: 'value',
-        color: 'hsl(var(--chart-1))',
+        color: 'hsl(var(--chart-2))',
     },
 } satisfies ChartConfig;
 
@@ -24,15 +24,13 @@ type StatisticsChartProps = {
     change: number;
 };
 
-const StatisticsChart = (props: StatisticsChartProps) => {
+const BarChart = (props: StatisticsChartProps) => {
     const { loading, title, icon, data, total, change } = props;
 
     return (
         <Card className="bg-zine-100 gap-0 border-none dark:bg-zinc-900">
             <CardHeader>
-                <CardTitle className="text-sm font-normal dark:text-zinc-400">
-                    {title}
-                </CardTitle>
+                <CardTitle className="text-sm dark:text-zinc-400">{title}</CardTitle>
             </CardHeader>
             <CardContent>
                 {loading ? (
@@ -45,40 +43,30 @@ const StatisticsChart = (props: StatisticsChartProps) => {
                         <div className="flex items-center gap-2">
                             <span>{icon}</span>
                             <NumberTicker
-                                className="text-2xl font-bold"
+                                className="h-[30px] text-2xl font-bold"
                                 value={total ?? 0}
                             />
                         </div>
-                        <p className="text-muted-foreground pt-1 text-xs dark:text-zinc-400">
+                        <p className="pt-1 text-xs dark:text-zinc-400">
                             +{change.toFixed(1)}% from last month
                         </p>
                     </>
                 )}
 
                 <ChartContainer config={chartConfig} className="h-[100px] w-full">
-                    <LineChart
-                        data={data}
-                        margin={{
-                            top: 10,
-                            right: 10,
-                            left: 10,
-                            bottom: 5,
-                        }}
-                    >
-                        <Line
+                    <BarChartRecharts data={data} margin={{ top: 10, right: 10 }}>
+                        <Bar
                             type="monotone"
                             strokeWidth={2}
                             dataKey="value"
                             stroke="var(--color-value)"
-                            activeDot={{
-                                r: 6,
-                            }}
+                            fill="var(--color-value)"
                         />
-                    </LineChart>
+                    </BarChartRecharts>
                 </ChartContainer>
             </CardContent>
         </Card>
     );
 };
 
-export default StatisticsChart;
+export default BarChart;
