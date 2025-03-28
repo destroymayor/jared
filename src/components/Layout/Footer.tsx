@@ -168,7 +168,10 @@ export default function Footer() {
                     <MotionLink
                         whileTap={linkMotion.whileTap}
                         href={'#'}
-                        onClick={route.onClick}
+                        onClick={(e) => {
+                            e.preventDefault();
+                            route.onClick();
+                        }}
                         key={route.title}
                     >
                         <DockItem className="aspect-square rounded-full bg-zinc-200 bg-radial-[at_25%_25%] dark:from-zinc-800 dark:to-zinc-900">
