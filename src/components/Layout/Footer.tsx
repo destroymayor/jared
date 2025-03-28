@@ -125,7 +125,7 @@ export default function Footer() {
                             whileTap={linkMotion.whileTap}
                             href={route.href}
                             key={route.href}
-                            className="relative flex flex-col justify-center"
+                            className="relative flex"
                         >
                             <DockItem className="aspect-square rounded-full bg-zinc-200 bg-radial-[at_25%_25%] dark:from-zinc-800 dark:to-zinc-900">
                                 <DockLabel>{route.title}</DockLabel>
