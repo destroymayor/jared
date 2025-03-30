@@ -173,7 +173,7 @@ function ChartTooltipContent({
   return (
     <div
       className={cn(
-        "border-zinc-200/50 bg-white grid min-w-[8rem] items-start gap-1.5 rounded-lg border border-zinc-200 px-2.5 py-1.5 text-xs shadow-xl dark:border-zinc-800/50 dark:bg-zinc-950 dark:border-zinc-800",
+        " bg-white grid min-w-[8rem] items-start gap-1.5 rounded-lg border border-zinc-200 px-2.5 py-1.5 text-xs shadow-xl dark:border-zinc-800/50 dark:bg-zinc-950",
         className
       )}
     >
