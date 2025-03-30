@@ -53,28 +53,32 @@ const LineChart = (props: StatisticsChartProps) => {
                     </>
                 )}
 
-                <ChartContainer config={chartConfig} className="h-[100px] w-full">
-                    <LineChartRecharts
-                        data={data}
-                        margin={{
-                            top: 10,
-                            right: 10,
-                            left: 10,
-                            bottom: 5,
-                        }}
-                    >
-                        <Line
-                            type="monotone"
-                            strokeWidth={2}
-                            dataKey="value"
-                            stroke="var(--color-value)"
-                            fill="var(--color-value)"
-                            activeDot={{
-                                r: 6,
+                {loading ? (
+                    <Skeleton className="mt-1 h-[96px] w-full rounded-md bg-zinc-300 dark:bg-zinc-800" />
+                ) : (
+                    <ChartContainer config={chartConfig} className="h-[100px] w-full">
+                        <LineChartRecharts
+                            data={data}
+                            margin={{
+                                top: 10,
+                                right: 10,
+                                left: 10,
+                                bottom: 5,
                             }}
-                        />
-                    </LineChartRecharts>
-                </ChartContainer>
+                        >
+                            <Line
+                                type="monotone"
+                                strokeWidth={2}
+                                dataKey="value"
+                                stroke="var(--color-value)"
+                                fill="var(--color-value)"
+                                activeDot={{
+                                    r: 6,
+                                }}
+                            />
+                        </LineChartRecharts>
+                    </ChartContainer>
+                )}
             </CardContent>
         </Card>
     );

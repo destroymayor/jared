@@ -53,17 +53,21 @@ const BarChart = (props: StatisticsChartProps) => {
                     </>
                 )}
 
-                <ChartContainer config={chartConfig} className="h-[100px] w-full">
-                    <BarChartRecharts data={data} margin={{ top: 10, right: 10 }}>
-                        <Bar
-                            type="monotone"
-                            strokeWidth={2}
-                            dataKey="value"
-                            stroke="var(--color-value)"
-                            fill="var(--color-value)"
-                        />
-                    </BarChartRecharts>
-                </ChartContainer>
+                {loading ? (
+                    <Skeleton className="h-[96px] mt-1 w-full rounded-md bg-zinc-300 dark:bg-zinc-800" />
+                ) : (
+                    <ChartContainer config={chartConfig} className="h-[100px] w-full">
+                        <BarChartRecharts data={data} margin={{ top: 10, right: 10 }}>
+                            <Bar
+                                type="monotone"
+                                strokeWidth={2}
+                                dataKey="value"
+                                stroke="var(--color-value)"
+                                fill="var(--color-value)"
+                            />
+                        </BarChartRecharts>
+                    </ChartContainer>
+                )}
             </CardContent>
         </Card>
     );
