@@ -2,7 +2,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { cn } from '@/lib/utils';
-
 import projects from '@/constants/projects';
 
 import BlurFade from '@/components/ui/blur-fade';
@@ -21,7 +20,7 @@ export default function Page() {
                         <BlurFade
                             delay={0.25 + projectIndex * 0.05}
                             inView
-                            className={cn('grid grid-cols-1 sm:grid-cols-2 gap-4')}
+                            className={cn('grid grid-cols-1 gap-4 sm:grid-cols-2')}
                         >
                             <Image
                                 priority
@@ -31,7 +30,7 @@ export default function Page() {
                                 width={714}
                                 height={429}
                             />
-                            <div className={cn('pl-4 sm:pl-0 sm:pt-4')}>
+                            <div className={cn('pl-4 sm:pt-4 sm:pl-0')}>
                                 <Link
                                     href={link.repo}
                                     target="_blank"
@@ -42,9 +41,9 @@ export default function Page() {
                                         <h2 className="text-xl font-semibold">{title}</h2>
                                         <ArrowRight
                                             className={cn(
-                                                'w-5 h-5',
+                                                'h-5 w-5',
                                                 'text-zinc-500 dark:text-zinc-50',
-                                                'group-hover:text-zinc-50 group-hover:translate-x-1 duration-150 ease-out'
+                                                'duration-150 ease-out group-hover:translate-x-1 group-hover:text-zinc-50'
                                             )}
                                         />
                                     </div>

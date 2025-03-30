@@ -28,7 +28,7 @@ const LineChart = (props: StatisticsChartProps) => {
     const { loading, title, icon, data, total, change } = props;
 
     return (
-        <Card className="bg-zine-100 gap-0 border-none dark:bg-zinc-900">
+        <Card className="bg-zine-100 gap-0 border shadow-none dark:bg-transparent dark:border-zinc-700">
             <CardHeader>
                 <CardTitle className="text-sm dark:text-zinc-400">{title}</CardTitle>
             </CardHeader>

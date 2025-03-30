@@ -70,7 +70,7 @@ const Overview = () => {
             {overviews.map((item) => (
                 <div
                     key={item.title}
-                    className="flex flex-col rounded-xl bg-zinc-100 px-4 py-2 shadow-md dark:bg-zinc-900"
+                    className="flex flex-col rounded-xl border border-zinc-200 px-4 py-2 dark:border-zinc-700"
                 >
                     <span className="text-sm dark:text-zinc-400">{item.title}</span>
                     <NumberTicker
