@@ -18,7 +18,7 @@ export default function Layout(props: { children: React.ReactNode }) {
                 className={cn(
                     'grow',
                     'mx-auto w-full max-w-[50rem]',
-                    'px-4 sm:px-12'
+                    'px-4 sm:px-12 pb-22'
                 )}
             >
                 {children}

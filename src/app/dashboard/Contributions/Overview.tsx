@@ -66,7 +66,7 @@ const Overview = () => {
     ];
 
     return (
-        <div className="h-[68px] grid grid-cols-2 gap-2 md:grid-cols-4">
+        <div className="md:h-auto grid grid-cols-2 gap-2 md:grid-cols-4">
             {overviews.map((item) => (
                 <div
                     key={item.title}
@@ -74,7 +74,7 @@ const Overview = () => {
                 >
                     <span className="text-sm dark:text-zinc-400">{item.title}</span>
                     <NumberTicker
-                        className="text-2xl font-bold text-green-600 dark:text-green-600"
+                        className="h-[32px] text-2xl font-bold text-green-600 dark:text-green-600"
                         value={item.value}
                     />
                 </div>
