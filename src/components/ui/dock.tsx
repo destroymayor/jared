@@ -101,11 +101,15 @@ function Dock({
             <motion.div
                 onMouseMove={({ pageX }) => {
                     isHovered.set(1);
-                    mouseX.set(pageX);
+                    if (window.innerWidth > 768) {
+                        mouseX.set(pageX);
+                    }
                 }}
                 onMouseLeave={() => {
                     isHovered.set(0);
-                    mouseX.set(Infinity);
+                    if (window.innerWidth > 768) {
+                        mouseX.set(Infinity);
+                    }
                 }}
                 className={cn(
                     'mx-auto flex w-fit gap-4 rounded-2xl bg-gray-50 px-4 dark:bg-neutral-900',
