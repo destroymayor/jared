@@ -63,8 +63,9 @@
   --color-foreground: var(--foreground);
   --color-background: var(--background);
 
-  --animation-appear: appear 0.5s ease-out forwards;
-  --animation-appear-zoom: appear-zoom 0.8s ease-out forwards;
+  --animate-appear: appear 0.5s ease-out forwards;
+  --animate-appear-zoom: appear-zoom 0.8s ease-out forwards;
+  --animate-fade-in: fade-in 2s ease-out forwards;
 
   @keyframes appear {
     0% { 
@@ -85,6 +86,21 @@
     100% { 
       opacity: 1; 
       transform: scale(1) 
+    }
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    },
+    20% {
+      opacity: 0;
+    },
+    60% {
+      opacity: 1;
+    },
+    100% {
+      opacity: 1;
     }
   }
 }
