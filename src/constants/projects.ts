@@ -5,9 +5,23 @@ import movie_app from '@/public/images/projects/movie-app.webp';
 import memory_card_game from '@/public/images/projects/memory-card-game.webp';
 import image_converter from '@/public/images/projects/image-converter.webp';
 
-const data = [
+type Project = {
+    thumbnail_type: 'image' | 'video';
+    thumbnail: string;
+    title: string;
+    description: string;
+    tags: string[];
+    release_year: number;
+    link: {
+        repo: string;
+        demo: string;
+    };
+};
+
+const data: Project[] = [
     {
-        image: pokemon_explore.src,
+        thumbnail_type: 'image',
+        thumbnail: pokemon_explore.src,
         title: 'Pokemon explore',
         description: 'A Pokemon explore allows the user to search Pokemon from pokeapi.',
         tags: ['Next.js', 'Zustand', 'Tailwind CSS', 'framer-motion', 'SWR', 'pokeapi'],
@@ -18,7 +32,8 @@ const data = [
         },
     },
     {
-        image: unsplash_gallery.src,
+        thumbnail_type: 'image',
+        thumbnail: unsplash_gallery.src,
         title: 'Unsplash Gallery',
         description:
             'A photos gallery app allows the user to search photos from Unsplash.com',
@@ -30,7 +45,8 @@ const data = [
         },
     },
     {
-        image: weather_app.src,
+        thumbnail_type: 'image',
+        thumbnail: weather_app.src,
         title: 'Weather App',
         description: 'A weather app that shows the current weather in your search.',
         tags: ['Next.js', 'Tailwind CSS', 'SWR', 'OpenWeatherMap API'],
@@ -41,7 +57,8 @@ const data = [
         },
     },
     {
-        image: movie_app.src,
+        thumbnail_type: 'image',
+        thumbnail: movie_app.src,
         title: 'Movie App',
         description:
             'A movie app allows the user to search movies they want to watch from The Movie DB API.',
@@ -53,7 +70,8 @@ const data = [
         },
     },
     {
-        image: memory_card_game.src,
+        thumbnail_type: 'image',
+        thumbnail: memory_card_game.src,
         title: 'Memory Card Game',
         description: 'Test your memory with this memory game.',
         tags: ['Next.js', 'Tailwind CSS'],
@@ -64,7 +82,8 @@ const data = [
         },
     },
     {
-        image: image_converter.src,
+        thumbnail_type: 'image',
+        thumbnail: image_converter.src,
         title: 'Image Converter',
         description: 'A simple image convert tool',
         tags: ['Next.js', 'Tailwind CSS'],

@@ -9,12 +9,7 @@ const Photos = () => {
 
     return (
         <div
-            className={cn(
-                'columns-1 gap-4 sm:columns-2 lg:columns-3 2xl:columns-4',
-                'relative left-1/2 right-1/2',
-                'w-[97vw] md:w-[98vw]',
-                '-ml-[49vw] -mr-[50vw] pt-4 sm:px-2'
-            )}
+            className={cn('columns-1 gap-4 p-4 sm:columns-2 lg:columns-3 2xl:columns-4')}
         >
             {photos?.map((photo, idx) => (
                 <a

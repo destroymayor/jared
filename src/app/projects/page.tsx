@@ -13,7 +13,7 @@ export default function Page() {
     return (
         <ul className="flex flex-col gap-8 pt-4">
             {projects.map((project, projectIndex) => {
-                const { title, description, image, link, tags } = project;
+                const { title, description, thumbnail, link, tags } = project;
 
                 return (
                     <li key={title}>
@@ -26,7 +26,7 @@ export default function Page() {
                                 priority
                                 className="rounded-md object-contain"
                                 alt={title}
-                                src={image}
+                                src={thumbnail}
                                 width={714}
                                 height={429}
                             />

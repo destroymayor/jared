@@ -31,7 +31,7 @@ export default async function Page() {
     const snippets = await getAllMDXFolder('content/snippets');
 
     return (
-        <div className="py-28">
+        <>
             <Hero title={title} description={description} />
             <Suspense fallback={<Loading />}>
                 {snippets.map((snippet: SnippetsType) => {
@@ -78,6 +78,6 @@ export default async function Page() {
                     );
                 })}
             </Suspense>
-        </div>
+        </>
     );
 }
