@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { Eye, ArrowDownToLine } from 'lucide-react'
 import { Icons } from '@/components/icons';
 import useUnsplashStatistics from './useUnsplashStatistics';
@@ -25,7 +26,17 @@ const UnsplashStatistics = () => {
                 <Icons.unsplash className="h-6 w-6 fill-black dark:fill-zinc-50" />
                 <span>Unsplash Statistics</span>
             </h2>
-            <p className="dark:text-zinc-400">{`My statistics in Unsplash.`}</p>
+            <p className="dark:text-zinc-400">
+                My statistics in{' '}
+                <Link
+                    href="https://unsplash.com/@zainab_ali"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-500"
+                >
+                    Unsplash
+                </Link>
+            </p>
 
             <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
                 <BarChart

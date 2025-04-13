@@ -14,7 +14,7 @@ const Overview = () => {
                 {[...Array(4).keys()].map((item) => (
                     <Skeleton
                         key={item}
-                        className="h-[68px] rounded-xl bg-zinc-300 text-transparent dark:bg-zinc-800"
+                        className="h-[70px] rounded-xl bg-zinc-300 text-transparent dark:bg-zinc-800"
                     />
                 ))}
             </div>
@@ -49,19 +49,19 @@ const Overview = () => {
     const overviews = [
         {
             title: 'Total',
-            value: totalContributions ?? 0,
+            value: totalContributions,
         },
         {
             title: 'This Week',
-            value: totalThisWeekContribution ?? 0,
+            value: totalThisWeekContribution,
         },
         {
             title: 'Best Day',
-            value: bestContribution ?? 0,
+            value: bestContribution,
         },
         {
             title: 'Daily Average',
-            value: averageContribution ?? 0,
+            value: averageContribution,
         },
     ];
 
