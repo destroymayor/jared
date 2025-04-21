@@ -41,29 +41,28 @@ const AllAds = () => {
 
     return (
         <div
-            className="g-flex g-flex-col g-pv-spacing-l g-mh-spacing-auto"
-            style={{ gap: 40, maxWidth: 1200 }}
+            className="flex flex-col gap-20 max-w-[1200px]"
         >
-            <div className="g-mh-spacing-auto">
-                <h2 className="g-text-font-size-xl g-pb-spacing-s">970x250</h2>
+            <div className="max-w-[1200px]">
+                <h2 className="text-xl pb-spacing-s">970x250</h2>
                 <AdSlot
                     className={slots.listing_horizontal.class}
                     height={250}
                     width={970}
                 />
             </div>
-            <div className="g-flex g-mh-spacing-auto" style={{ gap: 100 }}>
+            <div className="flex gap-40">
                 <div>
-                    <h2 className="g-text-font-size-xl g-pb-spacing-s">600x300</h2>
+                    <h2 className="text-xl pb-spacing-s">600x300</h2>
                     <AdSlot
                         className={slots.brand_vertical.class}
                         height={600}
                         width={300}
                     />
                 </div>
-                <div className="g-flex g-flex-col" style={{ gap: 20 }}>
+                <div className="flex flex-col" style={{ gap: 20 }}>
                     <div>
-                        <h2 className="g-text-font-size-xl g-pb-spacing-s">250x300</h2>
+                        <h2 className="text-xl pb-spacing-s">250x300</h2>
                         <AdSlot
                             className={slots.listing_square.class}
                             height={250}
@@ -71,7 +70,7 @@ const AllAds = () => {
                         />
                     </div>
                     <div>
-                        <h2 className="g-text-font-size-xl g-pb-spacing-s">320x100</h2>
+                        <h2 className="text-xl pb-spacing-s">320x100</h2>
                         <AdSlot
                             className={slots.listing_horizontal_small.class}
                             height={100}

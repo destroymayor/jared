@@ -8,12 +8,12 @@ export default function OffsiteAdsPage() {
      const { refreshAds } = useGAM();
 
      return (
-         <div className="g-w-full">
-             <div className="g-flex g-flex-col g-items-center g-bg-color-secondary-040 g-p-spacing-l">
-                 <h1 className="g-text-font-size-xl g-text-font-weight-bold g-text-color-neutral-000">
+         <div className="w-full">
+             <div className="flex flex-col items-center bg-secondary-40 p-4">
+                 <h1 className="text-xl font-bold text-neutral-000">
                      Offsite Ads Test
                  </h1>
-                 <div className="g-flex g-items-center g-justify-center g-pt-spacing-l">
+                 <div className="flex items-center justify-center py-4 gap-4">
                      <Button size="sm" onClick={() => refreshAds()}>
                          Refresh Ads
                      </Button>
