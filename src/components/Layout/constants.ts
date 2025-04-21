@@ -1,1 +1,1 @@
-export const FULL_WIDTH_ROUTES = ['/photos'];
+export const FULL_WIDTH_ROUTES = ['/photos', '/offsite-ads'];

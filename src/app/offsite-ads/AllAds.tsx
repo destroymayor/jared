@@ -40,11 +40,9 @@ const AllAds = () => {
     useEffect(() => fetchGAM(), []);
 
     return (
-        <div
-            className="flex flex-col gap-20 max-w-[1200px]"
-        >
+        <div className="flex flex-col items-center gap-20">
             <div className="max-w-[1200px]">
-                <h2 className="text-xl pb-spacing-s">970x250</h2>
+                <h2 className="pb-spacing-s text-xl">970x250</h2>
                 <AdSlot
                     className={slots.listing_horizontal.class}
                     height={250}
@@ -53,7 +51,7 @@ const AllAds = () => {
             </div>
             <div className="flex gap-40">
                 <div>
-                    <h2 className="text-xl pb-spacing-s">600x300</h2>
+                    <h2 className="pb-spacing-s text-xl">600x300</h2>
                     <AdSlot
                         className={slots.brand_vertical.class}
                         height={600}
@@ -62,7 +60,7 @@ const AllAds = () => {
                 </div>
                 <div className="flex flex-col" style={{ gap: 20 }}>
                     <div>
-                        <h2 className="text-xl pb-spacing-s">250x300</h2>
+                        <h2 className="pb-spacing-s text-xl">250x300</h2>
                         <AdSlot
                             className={slots.listing_square.class}
                             height={250}
@@ -70,7 +68,7 @@ const AllAds = () => {
                         />
                     </div>
                     <div>
-                        <h2 className="text-xl pb-spacing-s">320x100</h2>
+                        <h2 className="pb-spacing-s text-xl">320x100</h2>
                         <AdSlot
                             className={slots.listing_horizontal_small.class}
                             height={100}
