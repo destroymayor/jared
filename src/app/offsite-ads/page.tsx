@@ -1,79 +1,29 @@
 'use client';
 
-import { cn } from '@/lib/utils';
-
-import { ListingAdsHorizontalDWeb, ListingAdsHorizontalMWeb, ListingAdsVertical, ListingAdsSquare } from '@/components/offsite-ads/listing-ads';
-import { BrandAdsHorizontal, BrandAdsVertical, BrandAdsSquare } from '@/components/offsite-ads/brand-ads';
+import { Button } from '@/components/ui/button';
+import AllAds from './AllAds';
+import useGAM from './useGAM';
 
 export default function OffsiteAdsPage() {
-    return (
-        <div
-            className={cn(
-                'flex flex-col gap-4 bg-white p-4',
-                'relative right-1/2 left-1/2',
-                'w-[97vw] md:w-[98vw]',
-                '-mr-[50vw] -ml-[49vw] pt-4 sm:px-2'
-            )}
-        >
-            <h2 className="text-2xl font-bold text-black">LA 橫式(Dweb)</h2>
-            <div className="h-[250px] w-[70vw]">
-                <ListingAdsHorizontalDWeb />
-            </div>
+     const { refreshAds } = useGAM();
 
-            <h2 className="pt-4 text-2xl font-bold text-black">LA 橫式(Mweb)</h2>
-            <div className="h-[100px] w-[320px]">
-                <ListingAdsHorizontalMWeb />
-            </div>
+     return (
+         <div className="g-w-full">
+             <div className="g-flex g-flex-col g-items-center g-bg-color-secondary-040 g-p-spacing-l">
+                 <h1 className="g-text-font-size-xl g-text-font-weight-bold g-text-color-neutral-000">
+                     Offsite Ads Test
+                 </h1>
+                 <div className="g-flex g-items-center g-justify-center g-pt-spacing-l">
+                     <Button size="sm" onClick={() => refreshAds()}>
+                         Refresh Ads
+                     </Button>
+                     <Button size="sm" onClick={() => window.googletag.openConsole()}>
+                         GAM Console
+                     </Button>
+                 </div>
+             </div>
 
-            <h2 className="pt-4 text-2xl font-bold text-black">BA 橫式</h2>
-            <div className="h-[250px] w-[70vw]">
-                <BrandAdsHorizontal />
-            </div>
-
-            <div className="flex items-center gap-10">
-                <div>
-                    <h2 className="pt-2 text-2xl font-bold text-black">LA 方形</h2>
-                    <div className="h-[250px] w-[300px]">
-                        <ListingAdsSquare
-                            badge={{ text: '免運', type: 'free-shipping' }}
-                            images={[
-                                'https://picsum.photos/400',
-                                'https://picsum.photos/401',
-                                'https://picsum.photos/402',
-                            ]}
-                        />
-                    </div>
-                </div>
-
-                <div>
-                    <h2 className="pt-2 text-2xl font-bold text-black">BA 方形</h2>
-                    <div className="h-[250px] w-[300px]">
-                        <BrandAdsSquare
-                            images={[
-                                'https://picsum.photos/400',
-                                'https://picsum.photos/401',
-                                'https://picsum.photos/402',
-                            ]}
-                        />
-                    </div>
-                </div>
-            </div>
-
-            <div className="flex items-center gap-10">
-                <div>
-                    <h2 className="pt-2 text-2xl font-bold text-black">LA 直式</h2>
-                    <div className="h-[600px] w-[300px]">
-                        <ListingAdsVertical />
-                    </div>
-                </div>
-
-                <div>
-                    <h2 className="pt-2 text-2xl font-bold text-black">BA 直式</h2>
-                    <div className="h-[600px] w-[300px]">
-                        <BrandAdsVertical />
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
+             <AllAds />
+         </div>
+     );
 }
