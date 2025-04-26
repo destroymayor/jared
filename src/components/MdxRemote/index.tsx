@@ -9,11 +9,11 @@ import UpdatedAt from './UpdatedAt';
 
 export const COMPONENTS: MDXRemoteProps['components'] = {
     h1: ({ children }) => <h1 className="py-2 text-4xl font-extrabold">{children}</h1>,
-    h2: ({ children }) => <ContentHeading>{children}</ContentHeading>,
-    h3: ({ children }) => <ContentHeading>{children}</ContentHeading>,
+    h2: ({ children }) => <ContentHeading className="text-2xl">{children}</ContentHeading>,
+    h3: ({ children }) => <ContentHeading className="text-xl">{children}</ContentHeading>,
     p: (props) => <p {...props} className="pt-2 text-zinc-600 dark:text-zinc-400" />,
     ul: (props) => (
-        <ul {...props} className="flex list-disc flex-col gap-3 pb-4 pl-7">
+        <ul {...props} className="flex list-disc flex-col gap-3 pb-4 pl-4">
             {props.children}
         </ul>
     ),

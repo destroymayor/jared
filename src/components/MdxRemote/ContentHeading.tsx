@@ -24,11 +24,11 @@ export default function ContentHeading(props: {
                 aria-hidden
                 id={getHeadingId}
                 className={cn(
-                    'group flex cursor-pointer items-center justify-start gap-x-2 px-2 py-3',
+                    'group flex cursor-pointer items-center justify-start gap-x-2 px-2 py-3 text-xl',
                     className
                 )}
             >
-                <span className="text-xl font-extrabold">{children}</span>
+                <span className="font-extrabold">{children}</span>
 
                 <LinkIcon
                     size={16}
