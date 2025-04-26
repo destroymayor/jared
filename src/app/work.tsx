@@ -14,7 +14,7 @@ const workHistory = [
         ),
         company: 'Pinkoi',
         position: 'Frontend Engineer',
-        duration: '08 / 2022 - Present',
+        duration: '08/2022 - Present',
     },
     {
         logo: (
@@ -25,13 +25,13 @@ const workHistory = [
         ),
         company: 'Tagtoo',
         position: 'Frontend Engineer',
-        duration: '09 / 2019 - 08 / 2022',
+        duration: '09/2019 - 08/2022',
     },
 ];
 
 const Work = () => {
     return (
-        <div className="flex flex-col gap-4 rounded-2xl border border-zinc-200 p-6 dark:border-zinc-700">
+        <div className="flex flex-col gap-4 rounded-2xl border border-zinc-200 p-4 sm:p-6 dark:border-zinc-700">
             <h2 className="flex items-center gap-2">
                 <BriefcaseBusiness
                     width={20}
@@ -48,7 +48,7 @@ const Work = () => {
                         </div>
                         <div className="flex-1">
                             <h3>{work.company}</h3>
-                            <div className="flex items-center justify-between">
+                            <div className="flex sm:items-center sm:justify-between flex-col sm:flex-row">
                                 <p className="text-sm text-zinc-500 dark:text-zinc-300">
                                     {work.position}
                                 </p>

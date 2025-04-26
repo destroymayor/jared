@@ -10,7 +10,7 @@ export default function Page() {
             <div className='absolute inset-0 overflow-hidden pointer-events-none'>
                 <Glow />
             </div>
-            <div className="flex pb-12 sm:pb-44 flex-col gap-3 pt-32 sm:pt-12">
+            <div className="flex pb-12 sm:pb-24 flex-col gap-3 pt-20 sm:pt-12">
                 <h1 className="text-4xl font-extrabold">Jared</h1>
                 <h2 className="text-zinc-800 dark:text-zinc-300">Front-End Developer</h2>
                 <hr className="w-28 border border-zinc-300 dark:border-zinc-700" />
