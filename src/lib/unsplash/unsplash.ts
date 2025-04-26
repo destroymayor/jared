@@ -25,6 +25,7 @@ export const getUnsplashPhotos = async () => {
         id: item.id,
         blur_hash: item.blur_hash,
         created_at: item.created_at,
+        alt_description: item.alt_description,
         urls: {
             raw: item.urls.raw,
             regular: item.urls.regular,
