@@ -23,7 +23,18 @@ export default async function Page({ params }: { params: Params }) {
     });
 
     return (
-        <Suspense fallback={<div><Skeleton /></div>}>
+        <Suspense
+            fallback={
+                <div className="flex flex-col gap-4">
+                    <Skeleton className="h-[56px] w-2/4" />
+                    <Skeleton className="h-[56px] w-3/4" />
+
+                    <Skeleton className="h-10 w-4/5" />
+                    <Skeleton className="h-10 w-full" />
+                    <Skeleton className="h-10 w-full" />
+                </div>
+            }
+        >
             <CustomMDXRemote source={content} />
         </Suspense>
     );
