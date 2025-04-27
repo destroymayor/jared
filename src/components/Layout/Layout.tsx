@@ -1,9 +1,11 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
+import dynamic from 'next/dynamic';
 import { cn } from '@/lib/utils';
 import { motion } from 'motion/react';
-import Footer from '@/components/Layout/Footer';
+
+const Footer = dynamic(() => import('@/components/Layout/Footer'), { ssr: false });
 
 import { FULL_WIDTH_ROUTES } from '@/components/Layout/constants';
 

@@ -1,6 +1,7 @@
 import { Suspense } from 'react';
 import { CustomMDXRemote } from '@/components/MdxRemote';
 import { getMDXSourcePaths, getMDXSource } from '@/helpers/mdx.helpers';
+import { Skeleton } from '@/components/ui/skeleton';
 
 export async function generateStaticParams() {
     const paths = await getMDXSourcePaths('content/snippets');
@@ -22,7 +23,7 @@ export default async function Page({ params }: { params: Params }) {
     });
 
     return (
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div><Skeleton /></div>}>
             <CustomMDXRemote source={content} />
         </Suspense>
     );
