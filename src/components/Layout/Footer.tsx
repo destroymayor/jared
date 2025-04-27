@@ -44,6 +44,11 @@ const NAV_ROUTES = [
         href: ROUTES.PHOTOS.pathname,
         icon: ROUTES.PHOTOS.icon,
     },
+    {
+        title: ROUTES.SNIPPETS.title,
+        href: ROUTES.SNIPPETS.pathname,
+        icon: ROUTES.SNIPPETS.icon,
+    },
 ];
 
 const CONTACT_ROUTES = [
