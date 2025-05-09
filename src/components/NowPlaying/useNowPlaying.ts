@@ -1,6 +1,6 @@
 import fetcher from '@/lib/fetcher';
+import { PlaybackState } from '@/lib/spotify';
 import { useQuery } from '@tanstack/react-query';
-import { NowPlayingType } from '@/lib/spotify';
 
 const API_PATH = '/api/spotify/now-playing';
 
@@ -8,7 +8,7 @@ const useNowPlaying = () => {
     const query = useQuery({
         queryKey: [API_PATH],
         queryFn: async () => {
-            const response = await fetcher<NowPlayingType>(API_PATH);
+            const response = await fetcher<PlaybackState>(API_PATH);
 
             return response;
         },

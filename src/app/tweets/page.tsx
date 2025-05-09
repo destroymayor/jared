@@ -1,5 +1,5 @@
-import BlurFade from '@/components/ui/blur-fade';
-import ClientTweetCard from '@/components/ui/client-tweet-card';
+import BlurFade from '@/components/magicui/blur-fade';
+import ClientTweetCard from '@/components/magicui/client-tweet-card';
 
 const tweets = ['1550414849976451072', '1766049472918979069'];
 

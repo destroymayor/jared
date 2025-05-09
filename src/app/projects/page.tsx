@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { cn } from '@/lib/utils';
 import projects from '@/constants/projects';
+import { cn } from '@/lib/utils';
 
-import BlurFade from '@/components/ui/blur-fade';
+import BlurFade from '@/components/magicui/blur-fade';
 import { Badge } from '@/components/ui/badge';
 
 import { ArrowRight } from 'lucide-react';

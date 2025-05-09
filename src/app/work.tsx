@@ -1,9 +1,9 @@
 import pinkoi from '@/public/images/work/pinkoi.webp';
 import tagtoo from '@/public/images/work/tagtoo.webp';
 
-import { ArrowDownToLine, BriefcaseBusiness } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
+import { ArrowDownToLine, BriefcaseBusiness } from 'lucide-react';
 
 const experiences = [
     {
@@ -15,7 +15,7 @@ const experiences = [
         ),
         company: 'Pinkoi',
         position: 'Frontend Engineer',
-        duration: 'Aug 2022 - Present',
+        duration: 'Aug 2022 - May 2025',
     },
     {
         logo: (
@@ -41,7 +41,7 @@ const Work = () => {
                 />
                 <span>Work</span>
             </h2>
-            <ol className="flex flex-col gap-4">
+            <ol className="flex flex-col gap-4 flex-1">
                 {experiences.map((work) => (
                     <li key={work.company} className="flex items-center gap-4">
                         <div className="rounded-full border border-zinc-200 p-2 dark:border-zinc-700 dark:bg-zinc-900">
@@ -49,7 +49,7 @@ const Work = () => {
                         </div>
                         <div className="flex-1">
                             <h3>{work.company}</h3>
-                            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                            <div className="flex flex-col">
                                 <p className="text-sm text-zinc-500 dark:text-zinc-300">
                                     {work.position}
                                 </p>
@@ -64,7 +64,7 @@ const Work = () => {
 
             <Button
                 variant="outline"
-                className="w-full cursor-pointer"
+                className="w-full cursor-pointer self-end"
                 onClick={() => {
                     window.open(
                         'https://drive.google.com/file/d/1Mo8GLUr9Doz836eKDv2Eaut56G5NYzAU/view?usp=sharing',
