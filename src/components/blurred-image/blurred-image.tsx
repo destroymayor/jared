@@ -1,8 +1,8 @@
 'use client';
 
+import { cn } from '@/lib/utils';
 import type { ImageProps as NextImageProps } from 'next/image';
 import NextImage from 'next/image';
-import { cn } from '@/lib/utils';
 
 import useImageLoadedState from './useImageLoadedState';
 

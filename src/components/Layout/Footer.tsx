@@ -1,22 +1,22 @@
-import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useState } from 'react';
 
-import { motion } from 'motion/react';
-import { cn } from '@/lib/utils';
-const avatarSrc = '/images/avatar.webp';
+import { Icons } from '@/components/icons';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Dock, DockIcon, DockItem, DockLabel } from '@/components/ui/dock';
-import { Icons } from '@/components/icons';
-import { Sun, Moon, CommandIcon } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import { CommandIcon, Moon, Sun } from 'lucide-react';
+import { motion } from 'motion/react';
+const avatarSrc = '/images/avatar.webp';
 
-import { useTheme } from 'next-themes';
-import useNowPlaying from '@/components/NowPlaying/useNowPlaying';
-import PlayingBars from '@/components/NowPlaying/PlayingBars';
 import Command from '@/components/Command';
+import PlayingBars from '@/components/NowPlaying/PlayingBars';
+import useNowPlaying from '@/components/NowPlaying/useNowPlaying';
+import { useTheme } from 'next-themes';
 
-import ROUTES from '@/constants/routes';
 import { CONTACT } from '@/constants/contact';
+import ROUTES from '@/constants/routes';
 
 const NAV_ROUTES = [
     {
@@ -77,8 +77,10 @@ const linkMotion = {
 
 export default function Footer() {
     const pathname = usePathname();
-    const { data: nowPlaying } = useNowPlaying();
-    const isPlaying = nowPlaying?.isPlaying;
+    const { data: nowPlaying } = useNowPlaying({
+        queryKey: ['now-playing'],
+    });
+    const isPlaying = nowPlaying?.is_playing;
 
     const { resolvedTheme, setTheme } = useTheme();
     const isDarkTheme = resolvedTheme === 'dark' || resolvedTheme === 'system';
@@ -86,10 +88,10 @@ export default function Footer() {
 
     const ACTIVITY_ROUTES = [
         {
-            title: isPlaying ? nowPlaying?.title : 'Not Playing',
+            title: isPlaying ? nowPlaying?.item?.name : 'Not Playing',
             onClick: () => {
                 if (isPlaying) {
-                    window.open(nowPlaying.songUrl, '_blank');
+                    window.open(nowPlaying?.item?.external_urls.spotify, '_blank');
                 }
             },
             icon: isPlaying ? (

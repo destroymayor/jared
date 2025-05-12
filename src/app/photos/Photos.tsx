@@ -2,9 +2,9 @@
 
 import { cn } from '@/lib/utils';
 
+import BlurredImage from '@/components/blurred-image';
 import { Skeleton } from '@/components/ui/skeleton';
 import useUnsplashPhotos from './useUnsplashPhotos';
-import BlurredImage from './BlurredImage';
 
 const Photos = () => {
     const { isLoading, data: photos = [] } = useUnsplashPhotos();

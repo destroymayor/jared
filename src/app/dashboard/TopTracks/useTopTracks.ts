@@ -1,6 +1,6 @@
 import fetcher from '@/lib/fetcher';
-import { useQuery } from '@tanstack/react-query';
 import { TrackType } from '@/lib/spotify';
+import { useQuery } from '@tanstack/react-query';
 
 const API_PATH = '/api/spotify/top-tracks';
 

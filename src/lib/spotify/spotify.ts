@@ -1,4 +1,4 @@
-import { TopTrackResponseType } from './types';
+import { Page, PlaybackState, Track } from './types';
 
 const client_id = process.env.SPOTIFY_CLIENT_ID;
 const client_secret = process.env.SPOTIFY_CLIENT_SECRET;
@@ -40,36 +40,43 @@ export const getNowPlaying = async () => {
     const status = request.status;
 
     if (status === 204 || status > 400) {
-        return { status, data: { isPlaying: false } };
+        return {
+            status,
+            data: {
+                is_playing: false,
+                item: {
+                    name: null,
+                    external_urls: {
+                        spotify: '#',
+                    },
+                    artists: [],
+                    album: {
+                        name: '',
+                        images: [],
+                    },
+                },
+            },
+        };
     }
 
-    const song = await request?.json();
-
-    if (!song.item) {
-        return { status, data: { isPlaying: false } };
-    }
-
-    const isPlaying = song?.is_playing;
-    const title = song?.item?.name ?? '';
-    const artist =
-        song?.item?.artists.map((_artist: { name: string }) => _artist.name).join(', ') ??
-        '';
-    const album = song?.item?.album?.name ?? '';
-    const albumImageUrl =
-        song?.item?.album?.images?.filter(
-            (image: { width: number }) => image.width === 64
-        )?.[0]?.url ?? '';
-    const songUrl = song?.item?.external_urls?.spotify ?? '';
+    const data = await request?.json() as PlaybackState;
 
     return {
         status,
         data: {
-            album,
-            albumImageUrl,
-            artist,
-            isPlaying,
-            songUrl,
-            title,
+            item: {
+                name: data.item?.name,
+                external_urls: {
+                    spotify: data.item?.external_urls?.spotify,
+                },
+                artists: data.item?.artists,
+                album: {
+                    name: data.item?.album?.name,
+                    images: data.item?.album?.images,
+                },
+            },
+            // only show is_playing if the currently_playing_type is track
+            is_playing: data.currently_playing_type === 'track' ? data.is_playing : false,
         },
     };
 };
@@ -90,9 +97,9 @@ export const getTopTracks = async () => {
         return { status, tracks: [] };
     }
 
-    const getData = await request?.json();
+    const getData = await request?.json() as Page<Track>;
 
-    const tracks = getData.items.map((track: TopTrackResponseType) => ({
+    const tracks = getData.items.map((track) => ({
         album: {
             name: track.album.name,
             image: track.album.images.find((image) => image.width === 64),
