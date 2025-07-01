@@ -15,7 +15,7 @@ const experiences = [
         ),
         company: 'Pinkoi',
         position: 'Frontend Engineer',
-        duration: 'Aug 2022 - Present',
+        duration: 'Aug 2022 - May 2025',
     },
     {
         logo: (
