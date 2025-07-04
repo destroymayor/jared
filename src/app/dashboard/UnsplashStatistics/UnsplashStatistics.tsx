@@ -29,7 +29,7 @@ const UnsplashStatistics = () => {
             <p className="dark:text-zinc-400">
                 My statistics in{' '}
                 <Link
-                    href="https://unsplash.com/@zainab_ali"
+                    href="https://unsplash.com/@destroymayor"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-500"
