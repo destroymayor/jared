@@ -1,11 +1,23 @@
 import pinkoi from '@/public/images/work/pinkoi.webp';
 import tagtoo from '@/public/images/work/tagtoo.webp';
+import wit from '@/public/images/work/wit.webp';
 
 import { ArrowDownToLine, BriefcaseBusiness } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 
 const experiences = [
+    {
+        logo: (
+            <Avatar className="h-10 w-10">
+                <AvatarImage src={wit.src} alt="WIT" />
+                <AvatarFallback>W</AvatarFallback>
+            </Avatar>
+        ),
+        company: 'Wit Software',
+        position: 'Senior Frontend Engineer',
+        duration: 'May 2025 - Present',
+    },
     {
         logo: (
             <Avatar className="h-10 w-10">
