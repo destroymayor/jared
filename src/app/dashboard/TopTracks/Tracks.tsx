@@ -7,7 +7,7 @@ import useTopTracks from './useTopTracks';
 
 import Skeleton from './Skeleton';
 
-const Tracks = () => {
+export default function Tracks() {
     const { data, isLoading } = useTopTracks();
 
     if (isLoading) {
@@ -43,7 +43,7 @@ const Tracks = () => {
                                 <div className="truncate font-medium md:overflow-clip">
                                     {title}
                                 </div>
-                                <p className="truncate text-sm text-zinc-500 dark:text-zinc-400 md:overflow-clip">
+                                <p className="truncate text-sm text-zinc-500 md:overflow-clip dark:text-zinc-400">
                                     {artist ?? 'Spotify'}
                                 </p>
                             </div>
@@ -53,6 +53,4 @@ const Tracks = () => {
             })}
         </ul>
     );
-};
-
-export default Tracks;
+}

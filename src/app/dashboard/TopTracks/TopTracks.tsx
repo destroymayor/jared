@@ -2,7 +2,7 @@ import { Icons } from '@/components/icons';
 
 import Tracks from './Tracks';
 
-const TopTracks = () => {
+export default function TopTracks() {
     return (
         <div className="flex flex-col gap-y-2">
             <h2 className="flex items-center gap-2 text-2xl">
@@ -14,6 +14,4 @@ const TopTracks = () => {
             <Tracks />
         </div>
     );
-};
-
-export default TopTracks;
+}

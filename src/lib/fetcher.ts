@@ -1,7 +1,7 @@
-export default async function fetcher<JSON = unknown>(
+export default async function fetcher<T = unknown>(
     url: RequestInfo,
     init?: RequestInit
-): Promise<JSON> {
+): Promise<T> {
     const res = await fetch(url, init);
     return res.json();
 }

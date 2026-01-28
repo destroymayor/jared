@@ -3,16 +3,14 @@ const unsplash_access_key = process.env.UNSPLASH_ACCESS_KEY;
 
 const UNSPLASH_ENDPOINT = 'https://api.unsplash.com/users/destroymayor';
 
-export const getUnsplashPhotos = async () => {
-    const params = new URLSearchParams();
-    params.set('client_id', unsplash_access_key ?? '');
-    params.set('order_by', 'views');
-    params.set('per_page', '30');
-
-    const request = await fetch(`${UNSPLASH_ENDPOINT}/photos?${params}`, {
-        method: 'GET',
+export async function getUnsplashPhotos() {
+    const params = new URLSearchParams({
+        client_id: unsplash_access_key ?? '',
+        order_by: 'views',
+        per_page: '30',
     });
 
+    const request = await fetch(`${UNSPLASH_ENDPOINT}/photos?${params}`);
     const status = request.status;
 
     if (status === 204 || status > 400) {
@@ -37,16 +35,12 @@ export const getUnsplashPhotos = async () => {
     }));
 
     return { status, data: photos };
-};
+}
 
-export const getUnsplashStatistics = async () => {
+export async function getUnsplashStatistics() {
     const request = await fetch(
-        `${UNSPLASH_ENDPOINT}/statistics?client_id=${unsplash_access_key}`,
-        {
-            method: 'GET',
-        }
+        `${UNSPLASH_ENDPOINT}/statistics?client_id=${unsplash_access_key}`
     );
-
     const status = request.status;
 
     if (status === 204 || status > 400) {
@@ -56,4 +50,4 @@ export const getUnsplashStatistics = async () => {
     const data: UnsplashStatisticsType = await request.json();
 
     return { status, data };
-};
+}

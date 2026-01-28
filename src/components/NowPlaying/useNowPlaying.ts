@@ -4,17 +4,9 @@ import { NowPlayingType } from '@/lib/spotify';
 
 const API_PATH = '/api/spotify/now-playing';
 
-const useNowPlaying = () => {
-    const query = useQuery({
+export default function useNowPlaying() {
+    return useQuery({
         queryKey: [API_PATH],
-        queryFn: async () => {
-            const response = await fetcher<NowPlayingType>(API_PATH);
-
-            return response;
-        },
+        queryFn: () => fetcher<NowPlayingType>(API_PATH),
     });
-
-    return query;
-};
-
-export default useNowPlaying;
+}

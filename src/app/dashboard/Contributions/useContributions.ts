@@ -5,18 +5,10 @@ import { ContributionsCollectionType } from '@/lib/github';
 
 const API_PATH = '/api/github/contribution';
 
-const useContributions = () => {
-    const query = useQuery({
+export default function useContributions() {
+    return useQuery({
         queryKey: [API_PATH],
-        queryFn: async () => {
-            const response = await fetcher<ContributionsCollectionType>(API_PATH);
-
-            return response;
-        },
+        queryFn: () => fetcher<ContributionsCollectionType>(API_PATH),
         refetchOnWindowFocus: false,
     });
-
-    return query;
-};
-
-export default useContributions;
+}
