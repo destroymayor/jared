@@ -2,6 +2,8 @@ import pinkoi from '@/public/images/work/pinkoi.webp';
 import tagtoo from '@/public/images/work/tagtoo.webp';
 import wit from '@/public/images/work/wit.webp';
 
+import Link from 'next/link';
+
 import { ArrowDownToLine, BriefcaseBusiness } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
@@ -42,7 +44,7 @@ const experiences = [
     },
 ];
 
-const Work = () => {
+export default function Work() {
     return (
         <div className="flex flex-col gap-6 rounded-2xl border border-zinc-200 p-4 sm:p-6 dark:border-zinc-700">
             <h2 className="flex items-center gap-2">
@@ -74,21 +76,16 @@ const Work = () => {
                 ))}
             </ol>
 
-            <Button
-                variant="outline"
-                className="w-full cursor-pointer"
-                onClick={() => {
-                    window.open(
-                        'https://drive.google.com/file/d/1Mo8GLUr9Doz836eKDv2Eaut56G5NYzAU/view?usp=sharing',
-                        '_blank'
-                    );
-                }}
-            >
-                <span>Download CV</span>
-                <ArrowDownToLine className="h-4 w-4" />
+            <Button variant="outline" className="w-full cursor-pointer" asChild>
+                <Link
+                    href="https://drive.google.com/file/d/1Mo8GLUr9Doz836eKDv2Eaut56G5NYzAU/view?usp=sharing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <span>Download CV</span>
+                    <ArrowDownToLine className="h-4 w-4" />
+                </Link>
             </Button>
         </div>
     );
-};
-
-export default Work;
+}

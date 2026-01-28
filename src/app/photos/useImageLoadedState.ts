@@ -1,23 +1,20 @@
 import { useState } from 'react';
-
 import { usePathname } from 'next/navigation';
 
-let loadedImages: Array<string> = [];
+const loadedImages = new Set<string>();
 
-const useImageLoadedState = (src: string) => {
+export default function useImageLoadedState(src: string) {
     const pathname = usePathname();
     const uniqueImagePath = `${pathname}__${src}`;
-    const [loaded, setLoaded] = useState(() => loadedImages.includes(uniqueImagePath));
+    const [loaded, setLoaded] = useState(() => loadedImages.has(uniqueImagePath));
 
     return [
         loaded,
         () => {
             if (loaded) return;
 
-            loadedImages.push(uniqueImagePath);
+            loadedImages.add(uniqueImagePath);
             setLoaded(true);
         },
     ] as const;
-};
-
-export default useImageLoadedState;
+}

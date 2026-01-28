@@ -4,18 +4,10 @@ import { UnsplashStatisticsType } from '@/lib/unsplash';
 
 const API_PATH = '/api/unsplash/statistics';
 
-const useUnsplashStatistics = () => {
-    const query = useQuery({
+export default function useUnsplashStatistics() {
+    return useQuery({
         queryKey: [API_PATH],
-        queryFn: async () => {
-            const response = await fetcher<UnsplashStatisticsType>(API_PATH);
-
-            return response;
-        },
+        queryFn: () => fetcher<UnsplashStatisticsType>(API_PATH),
         refetchOnWindowFocus: false,
     });
-
-    return query;
-};
-
-export default useUnsplashStatistics;
+}

@@ -5,18 +5,10 @@ import { UnsplashPhotoType } from '@/lib/unsplash';
 
 const API_PATH = '/api/unsplash/photos';
 
-const useUnsplashPhotos = () => {
-    const query = useQuery({
+export default function useUnsplashPhotos() {
+    return useQuery({
         queryKey: [API_PATH],
-        queryFn: async () => {
-            const response = await fetcher<Array<UnsplashPhotoType>>(API_PATH);
-
-            return response;
-        },
+        queryFn: () => fetcher<UnsplashPhotoType[]>(API_PATH),
         refetchOnWindowFocus: false,
     });
-
-    return query;
-};
-
-export default useUnsplashPhotos;
+}

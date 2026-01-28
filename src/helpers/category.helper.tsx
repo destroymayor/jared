@@ -16,9 +16,6 @@ export const SNIPPET_CATEGORIES = [
     { label: 'Git', slug: 'git', icon: <Icons.git className="text-orange-600" /> },
 ];
 
-export const getCategoryFormatted = (categorySlug: string) => {
-    const ALL_CATS = [...SNIPPET_CATEGORIES];
-    const category = ALL_CATS.find((category) => category.slug === categorySlug);
-
-    return category;
-};
+export function getCategoryFormatted(categorySlug: string) {
+    return SNIPPET_CATEGORIES.find((category) => category.slug === categorySlug);
+}

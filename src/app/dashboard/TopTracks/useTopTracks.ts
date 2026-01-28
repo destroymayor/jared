@@ -4,18 +4,10 @@ import { TrackType } from '@/lib/spotify';
 
 const API_PATH = '/api/spotify/top-tracks';
 
-const useTopTracks = () => {
-    const query = useQuery({
+export default function useTopTracks() {
+    return useQuery({
         queryKey: [API_PATH],
-        queryFn: async () => {
-            const response = await fetcher<Array<TrackType>>(API_PATH);
-
-            return response;
-        },
+        queryFn: () => fetcher<TrackType[]>(API_PATH),
         refetchOnWindowFocus: false,
     });
-
-    return query;
-};
-
-export default useTopTracks;
+}

@@ -11,7 +11,7 @@ import Skeleton from './Skeleton';
 
 import useNowPlaying from './useNowPlaying';
 
-const NowPlaying = () => {
+export default function NowPlaying() {
     const { data, isLoading } = useNowPlaying();
 
     if (isLoading) {
@@ -42,13 +42,11 @@ const NowPlaying = () => {
                     <p className="w-64 truncate text-sm sm:w-80">
                         {data?.title ?? 'Not Playing'}
                     </p>
-                    <p className="w-64 truncate text-sm text-zinc-500 dark:text-zinc-400 sm:w-80">
+                    <p className="w-64 truncate text-sm text-zinc-500 sm:w-80 dark:text-zinc-400">
                         {data?.artist ?? 'Spotify'}
                     </p>
                 </div>
             </div>
         </Link>
     );
-};
-
-export default NowPlaying;
+}
