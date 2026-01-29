@@ -78,7 +78,7 @@ export default function Work() {
 
             <Button variant="outline" className="w-full cursor-pointer" asChild>
                 <Link
-                    href="https://drive.google.com/file/d/1Mo8GLUr9Doz836eKDv2Eaut56G5NYzAU/view?usp=sharing"
+                    href="https://drive.google.com/file/d/1TQdJiF9cxb9tBdKyFdgsAfRz2XLROt-Z/view?usp=sharing"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
