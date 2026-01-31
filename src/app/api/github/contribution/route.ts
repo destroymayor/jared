@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { getGithubUserContribution } from '@/lib/github';
+import { getGithubUserContribution } from '@/domain';
 
 export const dynamic = 'force-dynamic';
 

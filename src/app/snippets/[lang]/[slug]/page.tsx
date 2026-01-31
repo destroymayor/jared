@@ -1,12 +1,11 @@
-import { Suspense } from 'react';
-import { CustomMDXRemote } from '@/components/MdxRemote';
-import { getMDXSourcePaths, getMDXSource } from '@/helpers/mdx.helpers';
-import { Skeleton } from '@/components/ui/skeleton';
+import {
+    getSnippetDetailViewModel,
+    generateSnippetStaticParams,
+} from './snippet-detail.view-model';
+import { SnippetDetailViewController } from './snippet-detail.view-controller';
 
 export async function generateStaticParams() {
-    const paths = await getMDXSourcePaths('content/snippets');
-
-    return paths;
+    return generateSnippetStaticParams();
 }
 
 type Params = Promise<{
@@ -16,26 +15,7 @@ type Params = Promise<{
 
 export default async function Page({ params }: { params: Params }) {
     const { lang, slug } = await params;
+    const { content } = await getSnippetDetailViewModel({ lang, slug });
 
-    const { content } = await getMDXSource({
-        dirPath: `content/snippets/${lang}`,
-        slug,
-    });
-
-    return (
-        <Suspense
-            fallback={
-                <div className="flex flex-col gap-4">
-                    <Skeleton className="h-[56px] w-2/4" />
-                    <Skeleton className="h-[56px] w-3/4" />
-
-                    <Skeleton className="h-10 w-4/5" />
-                    <Skeleton className="h-10 w-full" />
-                    <Skeleton className="h-10 w-full" />
-                </div>
-            }
-        >
-            <CustomMDXRemote source={content} />
-        </Suspense>
-    );
+    return <SnippetDetailViewController content={content} />;
 }
