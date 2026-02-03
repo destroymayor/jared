@@ -11,7 +11,7 @@ import { Icons } from '@/components/icons';
 import { Sun, Moon, CommandIcon } from 'lucide-react';
 
 import { useTheme } from 'next-themes';
-import useNowPlaying from '@/components/NowPlaying/useNowPlaying';
+import { useNowPlaying } from '@/hooks/queries/use-spotify-queries';
 import PlayingBars from '@/components/NowPlaying/PlayingBars';
 import Command from '@/components/Command';
 

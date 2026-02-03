@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import useTopTracks from './useTopTracks';
+import { useTopTracks } from '@/hooks/queries/use-spotify-queries';
 
 import Skeleton from './Skeleton';
 
