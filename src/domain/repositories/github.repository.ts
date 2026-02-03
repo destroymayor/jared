@@ -27,7 +27,7 @@ const GITHUB_USER_QUERY = `query {
       }
 }`;
 
-export async function getGithubUserContribution() {
+export async function fetchGithubUserContribution() {
     const response = await fetch(GITHUB_USER_ENDPOINT, {
         method: 'POST',
         headers: { Authorization: `bearer ${read_user_token}` },

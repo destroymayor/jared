@@ -1,6 +1,6 @@
 import Hero from '@/components/Hero';
 
-import ROUTES from '@/constants/routes';
+import ROUTES from '@/domain/constants/routes';
 
 const { GUESTBOOK } = ROUTES;
 const { title, description } = GUESTBOOK;

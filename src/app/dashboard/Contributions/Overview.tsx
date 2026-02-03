@@ -1,7 +1,7 @@
 'use client';
 
 import NumberTicker from '@/components/ui/number-ticker';
-import useContributions from './useContributions';
+import { useContributions } from '@/hooks/queries/use-github-queries';
 
 import { Skeleton } from '@/components/ui/skeleton';
 
@@ -66,7 +66,7 @@ const Overview = () => {
     ];
 
     return (
-        <div className="md:h-auto grid grid-cols-2 gap-2 md:grid-cols-4">
+        <div className="grid grid-cols-2 gap-2 md:h-auto md:grid-cols-4">
             {overviews.map((item) => (
                 <div
                     key={item.title}

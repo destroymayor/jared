@@ -1,9 +1,9 @@
 'use client';
 
 import Link from 'next/link';
-import { Eye, ArrowDownToLine } from 'lucide-react'
+import { Eye, ArrowDownToLine } from 'lucide-react';
 import { Icons } from '@/components/icons';
-import useUnsplashStatistics from './useUnsplashStatistics';
+import { useUnsplashStatistics } from '@/hooks/queries/use-unsplash-queries';
 import BarChart from './BarChart';
 import LineChart from './LineChart';
 
@@ -18,7 +18,8 @@ const UnsplashStatistics = () => {
     const downloads = data?.downloads?.historical?.values;
     const totalDownloads = data?.downloads?.total || 0;
     const increaseLastMonthDownloads = data?.downloads?.historical?.change || 0;
-    const increaseLastMonthDownloadsPercentage = (increaseLastMonthDownloads / totalDownloads) * 100;
+    const increaseLastMonthDownloadsPercentage =
+        (increaseLastMonthDownloads / totalDownloads) * 100;
 
     return (
         <div className="flex flex-col gap-y-2">

@@ -1,4 +1,4 @@
-import { TopTrackResponseType } from './types';
+import { TopTrackResponseType } from '@/lib/spotify/types';
 
 const client_id = process.env.SPOTIFY_CLIENT_ID;
 const client_secret = process.env.SPOTIFY_CLIENT_SECRET;
@@ -25,7 +25,7 @@ async function getAccessToken() {
     return response.json();
 }
 
-export async function getNowPlaying() {
+export async function fetchNowPlaying() {
     const { access_token } = await getAccessToken();
 
     const request = await fetch(NOW_PLAYING_ENDPOINT, {
@@ -63,7 +63,7 @@ export async function getNowPlaying() {
     };
 }
 
-export async function getTopTracks() {
+export async function fetchTopTracks() {
     const { access_token } = await getAccessToken();
 
     const request = await fetch(`${TOP_TRACKS_ENDPOINT}?limit=10`, {

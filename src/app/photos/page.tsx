@@ -1,6 +1,5 @@
-import Photos from './Photos';
-
-import ROUTES from '@/constants/routes';
+import ROUTES from '@/domain/constants/routes';
+import { PhotosBound } from './photos.view-controller';
 
 const { PHOTOS } = ROUTES;
 const { title, description } = PHOTOS;
@@ -11,5 +10,5 @@ export const metadata = {
 };
 
 export default function Page() {
-    return <Photos />;
+    return <PhotosBound />;
 }

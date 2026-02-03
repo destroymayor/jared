@@ -1,9 +1,10 @@
-import { UnsplashPhotoType, UnsplashStatisticsType } from './types';
+import { UnsplashPhotoType, UnsplashStatisticsType } from '@/lib/unsplash/types';
+
 const unsplash_access_key = process.env.UNSPLASH_ACCESS_KEY;
 
 const UNSPLASH_ENDPOINT = 'https://api.unsplash.com/users/destroymayor';
 
-export async function getUnsplashPhotos() {
+export async function fetchUnsplashPhotos() {
     const params = new URLSearchParams({
         client_id: unsplash_access_key ?? '',
         order_by: 'views',
@@ -37,7 +38,7 @@ export async function getUnsplashPhotos() {
     return { status, data: photos };
 }
 
-export async function getUnsplashStatistics() {
+export async function fetchUnsplashStatistics() {
     const request = await fetch(
         `${UNSPLASH_ENDPOINT}/statistics?client_id=${unsplash_access_key}`
     );

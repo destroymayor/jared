@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils';
 import { motion } from 'motion/react';
 import { Skeleton } from '@/components/ui/skeleton';
 
-import useContributions from './useContributions';
+import { useContributions } from '@/hooks/queries/use-github-queries';
 
 type SelectContributionType = {
     count: number | null;
@@ -18,7 +18,7 @@ const Calendar = () => {
     const [selectContribution, setSelectContribution] = useState<SelectContributionType>({
         count: null,
         date: null,
-    })
+    });
 
     if (isLoading) {
         return (
@@ -59,7 +59,7 @@ const Calendar = () => {
     return (
         <>
             <div className="relative flex flex-col gap-[2px]">
-                <ul className="flex justify-end gap-[3px] overflow-hidden text-xs dark:text-zinc-400 md:justify-start">
+                <ul className="flex justify-end gap-[3px] overflow-hidden text-xs md:justify-start dark:text-zinc-400">
                     {monthsData?.map((month) => (
                         <li
                             key={month.firstDay}

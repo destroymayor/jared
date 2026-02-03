@@ -9,7 +9,7 @@ import { cn } from '@/lib/utils';
 
 import Skeleton from './Skeleton';
 
-import useNowPlaying from './useNowPlaying';
+import { useNowPlaying } from '@/hooks/queries/use-spotify-queries';
 
 export default function NowPlaying() {
     const { data, isLoading } = useNowPlaying();

@@ -1,11 +1,11 @@
 import './global.css';
 
-import { Metadata } from 'next';
+import { Metadata, Viewport } from 'next';
 import localFont from 'next/font/local';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
-import { TanstackProvider, ThemeProvider } from '@/lib/providers';
+import { TanstackProvider, ThemeProvider } from '@/app/providers';
 import Layout from '@/components/Layout';
 
 const sourceCodeProFont = localFont({
@@ -13,22 +13,51 @@ const sourceCodeProFont = localFont({
     display: 'swap',
 });
 
+const SITE_URL = 'https://jared-chen.me';
+const SITE_DESCRIPTION = `I'm Jared Chen, a Front-end Developer working with React and Next.js who enjoys building great quality and great user experience products.`;
+
+export const viewport: Viewport = {
+    width: 'device-width',
+    initialScale: 1,
+    themeColor: [
+        { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+        { media: '(prefers-color-scheme: dark)', color: '#09090b' },
+    ],
+};
+
 export const metadata: Metadata = {
-    metadataBase: new URL('https://jared-chen.me'),
+    metadataBase: new URL(SITE_URL),
     title: {
         default: 'Jared Chen',
-        template: '%s',
+        template: '%s | Jared Chen',
     },
-    description: `I'm Jared Chen, a Front-end Developer working with React and Next.js who enjoys building great quality and great user experience products.`,
+    description: SITE_DESCRIPTION,
     generator: 'Next.js',
     authors: [{ name: 'Jared Chen' }],
     keywords: ['Next.js', 'React', 'JavaScript'],
+    alternates: {
+        canonical: SITE_URL,
+    },
     openGraph: {
         type: 'website',
         title: 'Jared Chen',
-        description: `I'm Jared Chen, a Front-end Developer working with React and Next.js who enjoys building great quality and great user experience products.`,
+        description: SITE_DESCRIPTION,
         siteName: 'Jared Chen',
-        url: 'https://jared-chen.me',
+        url: SITE_URL,
+        images: [
+            {
+                url: '/og-image.png',
+                width: 1200,
+                height: 630,
+                alt: 'Jared Chen - Front-End Developer',
+            },
+        ],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Jared Chen',
+        description: SITE_DESCRIPTION,
+        images: ['/og-image.png'],
     },
     manifest: '/favicons/manifest.json',
     icons: {

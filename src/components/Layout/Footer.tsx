@@ -11,12 +11,12 @@ import { Icons } from '@/components/icons';
 import { Sun, Moon, CommandIcon } from 'lucide-react';
 
 import { useTheme } from 'next-themes';
-import useNowPlaying from '@/components/NowPlaying/useNowPlaying';
+import { useNowPlaying } from '@/hooks/queries/use-spotify-queries';
 import PlayingBars from '@/components/NowPlaying/PlayingBars';
 import Command from '@/components/Command';
 
-import ROUTES from '@/constants/routes';
-import { CONTACT } from '@/constants/contact';
+import ROUTES from '@/domain/constants/routes';
+import { CONTACT } from '@/domain/constants/contact';
 
 const NAV_ROUTES = [
     {
@@ -143,14 +143,14 @@ export default function Footer() {
                                     transition: { delay: 0.2 },
                                 }}
                                 className={cn(
-                                    'absolute bottom-[-8px] left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-zinc-200 dark:bg-zinc-700',
+                                    'absolute bottom-[-8px] left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-zinc-200 dark:bg-zinc-700'
                                 )}
                             />
                         </MotionLink>
                     );
                 })}
 
-                <hr className="h-full w-[1px] border-0 bg-zinc-300 opacity-100 [mask-image:linear-gradient(0deg,transparent,rgb(255,255,255)16px,rgb(255,255,255)calc(100%-16px),transparent)] dark:bg-zinc-600"></hr>
+                <hr className="h-full w-[1px] border-0 bg-zinc-300 [mask-image:linear-gradient(0deg,transparent,rgb(255,255,255)16px,rgb(255,255,255)calc(100%-16px),transparent)] opacity-100 dark:bg-zinc-600"></hr>
 
                 {CONTACT_ROUTES.map((route) => (
                     <MotionLink
@@ -167,7 +167,7 @@ export default function Footer() {
                     </MotionLink>
                 ))}
 
-                <hr className="h-full w-[1px] border-0 bg-zinc-300 opacity-100 [mask-image:linear-gradient(0deg,transparent,rgb(255,255,255)16px,rgb(255,255,255)calc(100%-16px),transparent)] dark:bg-zinc-600"></hr>
+                <hr className="h-full w-[1px] border-0 bg-zinc-300 [mask-image:linear-gradient(0deg,transparent,rgb(255,255,255)16px,rgb(255,255,255)calc(100%-16px),transparent)] opacity-100 dark:bg-zinc-600"></hr>
 
                 {ACTIVITY_ROUTES.map((route) => (
                     <MotionLink

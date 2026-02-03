@@ -1,5 +1,5 @@
-import ROUTES from '@/constants/routes';
-import contactData from '@/constants/contact';
+import ROUTES from '@/domain/constants/routes';
+import contactData from '@/domain/constants/contact';
 
 import { Sun, Moon, Monitor } from 'lucide-react';
 import { COMMAND_TYPE } from './enums';

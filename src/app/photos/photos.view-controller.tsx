@@ -1,14 +1,15 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-
 import { Skeleton } from '@/components/ui/skeleton';
-import useUnsplashPhotos from './useUnsplashPhotos';
 import BlurredImage from './BlurredImage';
 
-const Photos = () => {
-    const { isLoading, data: photos = [] } = useUnsplashPhotos();
+import { bind } from '@/utils/bind';
+import { usePhotosViewModel } from './photos.view-model';
 
+type Props = ReturnType<typeof usePhotosViewModel>;
+
+export function PhotosViewController({ isLoading, photos }: Props) {
     if (isLoading) {
         return (
             <div
@@ -27,7 +28,7 @@ const Photos = () => {
         <div
             className={cn('columns-1 gap-4 p-4 sm:columns-2 lg:columns-3 2xl:columns-4')}
         >
-            {photos?.map((photo, idx) => (
+            {photos?.map((photo) => (
                 <a
                     key={photo.id}
                     className="group relative cursor-pointer"
@@ -58,6 +59,6 @@ const Photos = () => {
             ))}
         </div>
     );
-};
+}
 
-export default Photos;
+export const PhotosBound = bind(PhotosViewController, usePhotosViewModel);

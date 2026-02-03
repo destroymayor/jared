@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { getUnsplashPhotos } from '@/lib/unsplash';
+import { getUnsplashPhotos } from '@/domain';
 
 export const dynamic = 'force-dynamic';
 
