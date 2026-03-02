@@ -1,3 +1,4 @@
+import gojuon from '@/public/images/projects/gojuon.webp';
 import pokemon_explore from '@/public/images/projects/pokemon-explore.webp';
 import unsplash_gallery from '@/public/images/projects/unsplash-gallery.webp';
 import weather_app from '@/public/images/projects/weather-app.webp';
@@ -6,21 +7,30 @@ import memory_card_game from '@/public/images/projects/memory-card-game.webp';
 import image_converter from '@/public/images/projects/image-converter.webp';
 
 type Project = {
-    thumbnail_type: 'image' | 'video';
     thumbnail: string;
     title: string;
     description: string;
     tags: string[];
     release_year: number;
     link: {
-        repo: string;
+        repo?: string;
         demo: string;
     };
 };
 
 const data: Project[] = [
     {
-        thumbnail_type: 'image',
+        thumbnail: gojuon.src,
+        title: 'Gojuon',
+        description:
+            'An interactive Japanese Gojuon (五十音) learning app for mastering Hiragana and Katakana with multiple practice modes and progress tracking.',
+        tags: ['React', 'TypeScript', 'Tailwind CSS', 'Claude AI'],
+        release_year: 2026,
+        link: {
+            demo: 'https://gojuon-gamma.vercel.app',
+        },
+    },
+    {
         thumbnail: pokemon_explore.src,
         title: 'Pokemon explore',
         description: 'A Pokemon explore allows the user to search Pokemon from pokeapi.',
@@ -32,7 +42,6 @@ const data: Project[] = [
         },
     },
     {
-        thumbnail_type: 'image',
         thumbnail: unsplash_gallery.src,
         title: 'Unsplash Gallery',
         description:
@@ -45,7 +54,6 @@ const data: Project[] = [
         },
     },
     {
-        thumbnail_type: 'image',
         thumbnail: weather_app.src,
         title: 'Weather App',
         description: 'A weather app that shows the current weather in your search.',
@@ -57,7 +65,6 @@ const data: Project[] = [
         },
     },
     {
-        thumbnail_type: 'image',
         thumbnail: movie_app.src,
         title: 'Movie App',
         description:
@@ -70,7 +77,6 @@ const data: Project[] = [
         },
     },
     {
-        thumbnail_type: 'image',
         thumbnail: memory_card_game.src,
         title: 'Memory Card Game',
         description: 'Test your memory with this memory game.',
@@ -82,7 +88,6 @@ const data: Project[] = [
         },
     },
     {
-        thumbnail_type: 'image',
         thumbnail: image_converter.src,
         title: 'Image Converter',
         description: 'A simple image convert tool',
