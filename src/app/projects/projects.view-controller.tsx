@@ -27,7 +27,7 @@ export function ProjectsViewController({ projects }: Props) {
                             className={cn('grid grid-cols-1 gap-4 sm:grid-cols-2')}
                         >
                             <Image
-                                priority
+                                priority={projectIndex < 2}
                                 className="rounded-md object-contain"
                                 alt={title}
                                 src={thumbnail}
@@ -36,7 +36,7 @@ export function ProjectsViewController({ projects }: Props) {
                             />
                             <div className={cn('pl-4 sm:pt-4 sm:pl-0')}>
                                 <Link
-                                    href={link.repo}
+                                    href={link.repo || link.demo}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className={cn('flex flex-col gap-2', 'group')}
