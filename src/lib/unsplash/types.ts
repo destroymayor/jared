@@ -3,6 +3,8 @@ export type UnsplashPhotoType = {
     blur_hash: string;
     created_at: string;
     alt_description: string;
+    width: number;
+    height: number;
     urls: {
         raw: string;
         regular: string;
