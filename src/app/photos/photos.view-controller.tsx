@@ -1,61 +1,65 @@
 'use client';
 
-import { cn } from '@/lib/utils';
 import { Skeleton } from '@/components/ui/skeleton';
-import BlurredImage from './BlurredImage';
+import { AnimatedImage } from '@/components/ui/image-gallery';
 
 import { bind } from '@/utils/bind';
 import { usePhotosViewModel } from './photos.view-model';
 
 type Props = ReturnType<typeof usePhotosViewModel>;
 
+const NUM_COLUMNS = 3;
+
 export function PhotosViewController({ isLoading, photos }: Props) {
     if (isLoading) {
         return (
-            <div
-                className={cn(
-                    'columns-1 gap-4 p-4 sm:columns-2 lg:columns-3 2xl:columns-4'
-                )}
-            >
-                {[...Array(10)].map((_, idx) => (
-                    <Skeleton key={idx} className="mb-4 h-[400px] w-full rounded-lg" />
+            <div className="mx-auto grid w-full max-w-5xl items-start gap-3 px-4 py-6 sm:grid-cols-2 lg:grid-cols-3">
+                {Array.from({ length: NUM_COLUMNS }).map((_, col) => (
+                    <div key={col} className="grid gap-3">
+                        {Array.from({ length: 4 }).map((_, i) => (
+                            <Skeleton key={i} className="h-[300px] w-full rounded-lg" />
+                        ))}
+                    </div>
                 ))}
             </div>
         );
     }
 
+    const columns = Array.from({ length: NUM_COLUMNS }, (_, col) =>
+        photos.filter((_, i) => i % NUM_COLUMNS === col)
+    );
+
     return (
-        <div
-            className={cn('columns-1 gap-4 p-4 sm:columns-2 lg:columns-3 2xl:columns-4')}
-        >
-            {photos?.map((photo) => (
-                <a
-                    key={photo.id}
-                    className="group relative cursor-pointer"
-                    href={photo.links.html}
-                    target="_blank"
-                >
-                    <div
-                        className={cn(
-                            'absolute inset-0 hidden rounded-lg bg-black/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:block'
-                        )}
-                    />
-                    <BlurredImage
-                        src={photo.urls.regular}
-                        alt={photo.alt_description}
-                        className="mb-4 size-full rounded-lg object-contain"
-                        style={{ objectFit: 'contain' }}
-                        width={200}
-                        height={200}
-                    />
-                    <div
-                        className={cn(
-                            'absolute right-4 bottom-4 left-4 z-10 hidden text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:block'
-                        )}
-                    >
-                        {photo.alt_description}
-                    </div>
-                </a>
+        <div className="mx-auto grid w-full max-w-5xl items-start gap-3 px-4 py-6 sm:grid-cols-2 lg:grid-cols-3">
+            {columns.map((col, colIdx) => (
+                <div key={colIdx} className="grid gap-3">
+                    {col.map((photo) => {
+                        const ratio = photo.width / photo.height;
+
+                        return (
+                            <a
+                                key={photo.id}
+                                href={photo.links.html}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="group"
+                            >
+                                <AnimatedImage
+                                    src={photo.urls.regular}
+                                    alt={photo.alt_description}
+                                    ratio={ratio}
+                                >
+                                    <div className="absolute inset-0 hidden bg-black/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:block" />
+                                    <div className="absolute right-4 bottom-4 left-4 z-10 hidden text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:block">
+                                        <p className="line-clamp-2">
+                                            {photo.alt_description}
+                                        </p>
+                                    </div>
+                                </AnimatedImage>
+                            </a>
+                        );
+                    })}
+                </div>
             ))}
         </div>
     );
