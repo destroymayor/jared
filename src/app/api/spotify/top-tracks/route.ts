@@ -1,10 +1,5 @@
-import { NextResponse } from 'next/server';
-import { getTopTracks } from '@/domain';
+import { integrationRoute, spotifyTopTracks } from '@/domain';
 
 export const dynamic = 'force-dynamic';
 
-export async function GET() {
-    const response = await getTopTracks();
-
-    return NextResponse.json(response.data);
-}
+export const GET = integrationRoute(spotifyTopTracks);

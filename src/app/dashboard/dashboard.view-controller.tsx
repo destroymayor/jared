@@ -4,12 +4,7 @@ import Contributions from './Contributions';
 import UnsplashStatistics from './UnsplashStatistics';
 import TopTracks from './TopTracks';
 
-import { bind } from '@/utils/bind';
-import { useDashboardViewModel } from './dashboard.view-model';
-
-type Props = ReturnType<typeof useDashboardViewModel>;
-
-function DashboardViewController(_props: Props) {
+export function DashboardViewController() {
     return (
         <div className="flex flex-col gap-y-10">
             <Contributions />
@@ -24,5 +19,3 @@ function DashboardViewController(_props: Props) {
         </div>
     );
 }
-
-export const DashboardBound = bind(DashboardViewController, useDashboardViewModel);

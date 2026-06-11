@@ -2,15 +2,13 @@
 
 import BlurFade from '@/components/ui/blur-fade';
 import ClientTweetCard from '@/components/ui/client-tweet-card';
-import { bind } from '@/utils/bind';
-import { useTweetsViewModel } from './tweets.view-model';
 
-type Props = ReturnType<typeof useTweetsViewModel>;
+const TWEET_IDS = ['1550414849976451072', '1766049472918979069'];
 
-export function TweetsViewController({ tweets }: Props) {
+export function TweetsViewController() {
     return (
         <div className="flex flex-col gap-y-4">
-            {tweets.map((tweet) => (
+            {TWEET_IDS.map((tweet) => (
                 <BlurFade inView key={tweet}>
                     <ClientTweetCard id={tweet} />
                 </BlurFade>
@@ -18,5 +16,3 @@ export function TweetsViewController({ tweets }: Props) {
         </div>
     );
 }
-
-export const TweetsBound = bind(TweetsViewController, useTweetsViewModel);

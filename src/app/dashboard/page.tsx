@@ -1,5 +1,5 @@
-import { DashboardBound } from './dashboard.view-controller';
+import { DashboardViewController } from './dashboard.view-controller';
 
 export default function Page() {
-    return <DashboardBound />;
+    return <DashboardViewController />;
 }

@@ -1,4 +1,4 @@
-import { httpClient } from '@/lib/http-client';
+import fetcher from '@/lib/fetcher';
 import { useQuery } from '@/lib/react-query';
 import { queryKeys } from '@/lib/react-query';
 import type { UnsplashPhotoType, UnsplashStatisticsType } from '@/lib/unsplash/types';
@@ -6,7 +6,7 @@ import type { UnsplashPhotoType, UnsplashStatisticsType } from '@/lib/unsplash/t
 export function useUnsplashPhotos() {
     return useQuery({
         queryKey: queryKeys.unsplash.photos,
-        queryFn: () => httpClient<UnsplashPhotoType[]>(queryKeys.unsplash.photos[0]),
+        queryFn: () => fetcher<UnsplashPhotoType[]>(queryKeys.unsplash.photos[0]),
         refetchOnWindowFocus: false,
     });
 }
@@ -14,8 +14,7 @@ export function useUnsplashPhotos() {
 export function useUnsplashStatistics() {
     return useQuery({
         queryKey: queryKeys.unsplash.statistics,
-        queryFn: () =>
-            httpClient<UnsplashStatisticsType>(queryKeys.unsplash.statistics[0]),
+        queryFn: () => fetcher<UnsplashStatisticsType>(queryKeys.unsplash.statistics[0]),
         refetchOnWindowFocus: false,
     });
 }

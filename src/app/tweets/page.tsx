@@ -1,5 +1,5 @@
-import { TweetsBound } from './tweets.view-controller';
+import { TweetsViewController } from './tweets.view-controller';
 
 export default function Page() {
-    return <TweetsBound />;
+    return <TweetsViewController />;
 }

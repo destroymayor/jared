@@ -3,6 +3,7 @@ export type TopTrackResponseType = {
         name: string;
         images: Array<{
             width: number;
+            url: string;
         }>;
     };
     artists: Array<{

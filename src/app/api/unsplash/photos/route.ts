@@ -1,10 +1,5 @@
-import { NextResponse } from 'next/server';
-import { getUnsplashPhotos } from '@/domain';
+import { integrationRoute, unsplashPhotos } from '@/domain';
 
 export const dynamic = 'force-dynamic';
 
-export async function GET() {
-    const response = await getUnsplashPhotos();
-
-    return NextResponse.json(response.data);
-}
+export const GET = integrationRoute(unsplashPhotos);
