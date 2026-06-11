@@ -1,5 +1,5 @@
-import { GuestbookBound } from './guestbook.view-controller';
+import { GuestbookViewController } from './guestbook.view-controller';
 
 export default function Page() {
-    return <GuestbookBound />;
+    return <GuestbookViewController />;
 }

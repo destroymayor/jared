@@ -3,14 +3,13 @@
 import { Skeleton } from '@/components/ui/skeleton';
 import { AnimatedImage } from '@/components/ui/image-gallery';
 
-import { bind } from '@/utils/bind';
-import { usePhotosViewModel } from './photos.view-model';
-
-type Props = ReturnType<typeof usePhotosViewModel>;
+import { useUnsplashPhotos } from '@/hooks/queries/use-unsplash-queries';
 
 const NUM_COLUMNS = 3;
 
-export function PhotosViewController({ isLoading, photos }: Props) {
+export function PhotosViewController() {
+    const { isLoading, data: photos = [] } = useUnsplashPhotos();
+
     if (isLoading) {
         return (
             <div className="mx-auto grid w-full max-w-5xl items-start gap-3 px-4 py-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -64,5 +63,3 @@ export function PhotosViewController({ isLoading, photos }: Props) {
         </div>
     );
 }
-
-export const PhotosBound = bind(PhotosViewController, usePhotosViewModel);

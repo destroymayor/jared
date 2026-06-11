@@ -1,4 +1,4 @@
-import { HomeBound } from './home.view-controller';
+import { HomeViewController } from './home.view-controller';
 
 const jsonLd = {
     '@context': 'https://schema.org',
@@ -17,7 +17,7 @@ export default function Page() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
-            <HomeBound />
+            <HomeViewController />
         </>
     );
 }

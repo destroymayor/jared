@@ -1,17 +1,19 @@
 'use client';
 
 import Giscus from './Giscus';
-import { bind } from '@/utils/bind';
-import { useGuestbookViewModel } from './guestbook.view-model';
 
-type Props = ReturnType<typeof useGuestbookViewModel>;
+const giscusConfig = {
+    repo: 'destroymayor/guestbook' as const,
+    repoId: 'R_kgDOHwPSeA',
+    category: 'General',
+    categoryId: 'DIC_kwDOHwPSeM4CQkUo',
+    mapping: 'title',
+};
 
-export function GuestbookViewController({ giscusConfig }: Props) {
+export function GuestbookViewController() {
     return (
         <div className="min-h-[600px]">
             <Giscus {...giscusConfig} />
         </div>
     );
 }
-
-export const GuestbookBound = bind(GuestbookViewController, useGuestbookViewModel);

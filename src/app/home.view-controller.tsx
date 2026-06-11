@@ -3,12 +3,8 @@
 import Glow from '@/components/ui/glow';
 import Work from './work';
 import Footer from './footer';
-import { bind } from '@/utils/bind';
-import { useHomeViewModel } from './home.view-model';
 
-type Props = ReturnType<typeof useHomeViewModel>;
-
-export function HomeViewController(_props: Props) {
+export function HomeViewController() {
     return (
         <>
             <div className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -29,5 +25,3 @@ export function HomeViewController(_props: Props) {
         </>
     );
 }
-
-export const HomeBound = bind(HomeViewController, useHomeViewModel);

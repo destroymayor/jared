@@ -8,12 +8,9 @@ import BlurFade from '@/components/ui/blur-fade';
 import { Badge } from '@/components/ui/badge';
 import { ArrowRight } from 'lucide-react';
 
-import { bind } from '@/utils/bind';
-import { useProjectsViewModel } from './projects.view-model';
+import projects from '@/domain/constants/projects';
 
-type Props = ReturnType<typeof useProjectsViewModel>;
-
-export function ProjectsViewController({ projects }: Props) {
+export function ProjectsViewController() {
     return (
         <ul className="flex flex-col gap-8 pt-4">
             {projects.map((project, projectIndex) => {
@@ -70,5 +67,3 @@ export function ProjectsViewController({ projects }: Props) {
         </ul>
     );
 }
-
-export const ProjectsBound = bind(ProjectsViewController, useProjectsViewModel);

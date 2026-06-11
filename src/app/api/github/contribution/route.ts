@@ -1,10 +1,5 @@
-import { NextResponse } from 'next/server';
-import { getGithubUserContribution } from '@/domain';
+import { githubContribution, integrationRoute } from '@/domain';
 
 export const dynamic = 'force-dynamic';
 
-export async function GET() {
-    const response = await getGithubUserContribution();
-
-    return NextResponse.json(response.data);
-}
+export const GET = integrationRoute(githubContribution);
